@@ -323,7 +323,10 @@ h4 {
 header {
   background: var(--color-bg);
   position: sticky;
+  box-sizing: border-box;
+  padding: var(--spacing-m);
   top: 0;
+  z-index: 25;
 }
 
 .logo-active {
