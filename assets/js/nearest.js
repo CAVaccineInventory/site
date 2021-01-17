@@ -5,7 +5,9 @@ function loaded() {
   button.addEventListener('click', submitZip);
 }
 
-function submitZip() {
+function submitZip(event) {
+  event.preventDefault();
+
   const zip = document.querySelector('#zip').value;
   if(zip.length < 5 || zip.length > 5) {
     alert("5 digit zip please");
