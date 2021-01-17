@@ -1,8 +1,12 @@
 window.addEventListener("load", loaded);
 
 function loaded() {
-  const button = document.querySelector('#submit');
-  button.addEventListener('click', submitZip);
+  document
+    .querySelector("#submit")
+    .addEventListener("click", submitZip);
+  document
+    .querySelector("#use-geolocation")
+    .addEventListener("click", submitGeoLocation);
 }
 
 function submitZip(event) {
@@ -13,6 +17,34 @@ function submitZip(event) {
     alert("5 digit zip please");
   } else {
     lookup(zip);
+  }
+}
+
+function submitGeoLocation(event) {
+  event.preventDefault();
+  const button = document.querySelector("#use-geolocation");
+  const defaultValue = button.value;
+
+  if (!navigator.geolocation) {
+    button.value = "Your browser does not support geolocation";
+    button.disabled = true;
+  } else {
+    button.disabled = true;
+    button.value = "Locating...";
+    navigator.geolocation.getCurrentPosition(
+      async function onSuccess(position) {
+        const coordinates = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+        button.value = defaultValue;
+        button.disabled = false;
+        await fetchAndSortSites(coordinates);
+      },
+      function onError() {
+        button.value = "Could not fetch geolocation";
+      }
+    );
   }
 }
 
