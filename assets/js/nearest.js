@@ -15,8 +15,7 @@ function submitZip() {
 }
 
 async function lookup(zip) {
-  const token = "pk.eyJ1Ijoic2thbG5payIsImEiOiJja2swZXhzbXowNTEzMnBwamVndGs2NTByIn0.jh7RFylkzBpuLcIt2VpDJA"
-  const geocodeURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${zip}.json?access_token=${token}`
+  const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`
 
   let response = await fetch(geocodeURL);
 
@@ -25,8 +24,9 @@ async function lookup(zip) {
     return;
   }
 
-  let geojson = await response.json();
-  const loc = geojson.features[0].center;
+  let results = await response.json();
+
+  const loc = results.records[0].geometry.coordinates;
   // Comes back in [long, lat]
   const coordinate = {
     longitude: loc[0],
