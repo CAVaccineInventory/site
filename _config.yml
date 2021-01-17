@@ -27,6 +27,9 @@ url: "https://vaccinateca.com" # the base hostname & protocol for your site, e.g
 twitter_username: ca_covid
 github_username: CAVaccineInventory
 
+# Uncomment this when the site is ready to receive traffic:
+# google_analytics_id: G-C1C9341MGL
+
 # Build settings
 plugins:
   - jekyll-seo-tag
