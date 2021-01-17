@@ -11,14 +11,14 @@ giving the COVID-19 vaccine to people age 65 and older.** We are calling hospita
 are currently administering vaccines. Since our first call on January 14th, we've contacted 500+ vaccination sites, and
 aim to call several hundred more this weekend (January 16th - 17th). Our goal is getting shots in arms as quickly as
 possible for you or your loved ones.
-We intend to call [all the vaccination sites in California](https://www.vaccinateca.com/vaccination-sites). If you have
+We intend to call [all the vaccination sites in California](./vaccination-sites). If you have
 a missing location to report, or think we have incorrect contact information, [please let us
 know](https://airtable.com/shrY44NvEjHBscrOH).
 
 We've also compiled county policies on [vaccination here](./county-policies).
 
-<div class="flex-spaced-centered margin-top--xl">
-    <div>
+<div class="flex-responsive margin-top--xl">
+    <div class="flex1">
         <h3>These places told us they have the vaccine within the last few days. Call before going, or make an appointment, as supplies are limited.</h3>
 
         <h3>If you can't find the vaccination site you're looking for, it's possible they said they do not have the vaccine, or that we have not contacted them yet.</h3>
@@ -27,9 +27,11 @@ We've also compiled county policies on [vaccination here](./county-policies).
         
         <p>Click a pin on the map to see contact information and other info about getting the vaccine.</p>
 
-        <a class="button" href="https://airtable.com/shrOMv5EI1jYwV1XR">Let us know if you found this site helpful!</a>
+        <a class="button margin-top--m" href="https://airtable.com/shrOMv5EI1jYwV1XR">Let us know if you found this site helpful!</a>
     </div>
-    {% include map.html %}
+    <div class="flex1">
+        {% include map.html %}
+    </div>
 </div>
 
 <!-- height is less than 100% to avoid double scrollbars -->
