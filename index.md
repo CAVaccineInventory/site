@@ -38,3 +38,21 @@ We've also compiled county policies on [vaccination here](./county-policies).
 <iframe class="airtable-embed margin-top--xl"
     src="https://airtable.com/embed/shrzL2Lo5CrlkMmQ7?backgroundColor=grayLight&viewControls=on" frameborder="0"
     onmousewheel="" width="100%" height="98%" style="background: transparent; border: 1px solid #ccc;"></iframe>
+
+<div class="margin-top--xl .flex-spaced-centered">
+  <h2 style="text-align: center">As seen on</h2>
+</div>
+
+<div class="flex-responsive margin-top--s">
+  <div class="flex2 padding-right--m">
+    <img src="/assets/img/vox.png" alt="Vox logo"/>
+  </div>
+  <div class="flex10">
+    <h3><a href="">How Californians are resorting to crowdsourcing to get their Covid-19 vaccine</a></h3>
+
+
+    <em><p>Californians are taking matters into their own hands: they’re crowdsourcing it. In the last two days, an effort has sprung up to report on where shots are available to the elderly. Volunteers have set up a spreadsheet with a simple premise: One person can call each location every day and ask if vaccines are available, and then publish the information for everyone to see.</p> 
+
+    <p>... And the site has already been used to get some people vaccinated.</p></em>
+  </div>
+</div>
