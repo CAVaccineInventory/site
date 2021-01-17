@@ -15,6 +15,8 @@
 
   --font-sans: "Lato", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
     Arial, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-bold: 600;
 
   --spacing-xs: 4px;
   --spacing-s: 8px;
@@ -41,8 +43,6 @@ body {
   background: var(--color-bg);
   font-family: var(--font-sans);
   line-height: 1.5;
-  letter-spacing: -0.011em;
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   color: var(--color-text-primary);
   box-sizing: border-box;
@@ -52,7 +52,6 @@ body {
 @media only screen and (min-width: 692px) {
   body {
     font-size: 1.15em;
-    letter-spacing: -0.014em;
     line-height: 1.6;
   }
 }
@@ -78,15 +77,6 @@ blockquote {
   border-left: 3px solid var(--color-border);
 }
 
-hr {
-  width: 33%;
-  border: 0;
-  height: 1px;
-  background: var(
-    --color-border--dark
-  ); /* Used only on pizza log, so OK for now */
-}
-
 /* Type */
 /* ----------------------------------------------------- */
 
@@ -103,13 +93,17 @@ h1 {
   font-size: 2em;
   margin: var(--spacing-l) 0 var(--spacing-m);
   line-height: 1.3;
-  text-align: center;
   color: var(--color-accent);
 }
 
 h2 {
   font-size: 1.5em;
   margin: var(--spacing-l) 0 0;
+}
+
+h1,
+h2 {
+  text-align: center;
 }
 
 h3 {
@@ -245,47 +239,6 @@ h4 {
 .padding-left--xl {
   padding-left: var(--spacing-xl);
 }
-/* Element-specific */
-/* ----------------------------------------------------- */
-
-.logo {
-}
-
-.logo-active {
-  color: var(--color-text);
-}
-
-.logo img {
-  width: 3em;
-  height: 3em;
-}
-
-.nav-link {
-  font-weight: 300;
-  color: var(--color-text-secondary);
-}
-
-.nav-link-active {
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-
-.flex-spaced-centered {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-responsive {
-  display: flex;
-  align-items: center;
-}
-
-@media only screen and (max-width: 600px) {
-  .flex-responsive {
-    display: block;
-  }
-}
 
 .flex1 {
   flex: 1;
@@ -337,6 +290,86 @@ h4 {
 
 .hidden {
   display: none !important;
+}
+
+.flex-spaced-centered {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-responsive {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .flex-responsive {
+    display: block;
+  }
+}
+
+/* Element-specific */
+/* ----------------------------------------------------- */
+
+header {
+  background: var(--color-bg);
+  position: sticky;
+  top: 0;
+}
+
+.logo-active {
+  color: var(--color-text);
+}
+
+.logo img {
+  width: 3em;
+  height: 3em;
+}
+
+.nav-button {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    display: none;
+  }
+  .nav-button {
+    display: block;
+  }
+}
+
+.nav-button-fill {
+  fill: var(--color-text-secondary);
+}
+
+.nav-button:hover .nav-button-fill {
+  filter: brightness(150%);
+}
+
+nav.is_open {
+  display: block;
+  position: absolute;
+  background: var(--color-bg);
+  top: calc(var(--spacing-xl) + var(--spacing-m));
+  right: var(--spacing-m);
+}
+
+nav.is_open .nav-link {
+  display: block;
+  padding: var(--spacing-s) var(--spacing-m) var(--spacing-s);
+}
+
+.nav-link {
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+.nav-link-active {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
 }
 
 .container {

@@ -28,7 +28,7 @@ twitter_username: ca_covid
 github_username: CAVaccineInventory
 
 # Uncomment this when the site is ready to receive traffic:
-# google_analytics_id: G-C1C9341MGL
+google_analytics_id: G-C1C9341MGL
 
 # Build settings
 plugins:

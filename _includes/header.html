@@ -1,10 +1,19 @@
 <header class="flex-spaced-centered padding-left--m padding-right--m padding-top--m padding-bottom--m">
-    <a class="flex-spaced-centered logo logo-active" href="{% link index.md %}">
+    <a class="flex-spaced-centered logo logo-active" href="{% link index.html %}">
         <img class="margin-right--m" src="/assets/img/logo.png"></img>{{ site.title }}
+    </a>
+    <a href="#" class="nav-button padding-top--s padding-bottom--s padding-left--s padding-right--s">
+        <svg class="nav-button-fill" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" fill="white" />
+            <rect y="2" width="24" height="4" />
+            <rect y="10" width="24" height="4" />
+            <rect y="18" width="24" height="4" />
+        </svg>
     </a>
     <nav>
         <a class="margin-left--s nav-link {% if page.url == '/' %}nav-link-active{% endif %}"
-            href="{% link index.md %}">Home</a>
+            href="{% link index.html %}">Home</a>
         <a class="margin-left--s nav-link {% if page.url == '/county-policies' %}nav-link-active{% endif %}"
             href="{% link county-policies.md %}">County Policies</a>
         <a class="margin-left--s nav-link {% if page.url == '/vaccination-sites' %}nav-link-active{% endif %}"
