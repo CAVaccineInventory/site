@@ -1,0 +1,98 @@
+<!-- Leave this section in place -->
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&callback=initMap&libraries=&v=weekly"
+    defer></script>
+
+<!-- Begin updating here -->
+<style type="text/css">
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<script>
+    // Initialize and populate the map
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 6,
+            center: { lng: -119.335893, lat: 37.259670 },
+            mapTypeControl: false,
+            streetViewControl: false,
+        });
+
+        function getHasVaccine(p) {
+            try {
+                return p["Vaccines available?"][0].startsWith("Yes")
+            } catch {
+                return false
+            }
+        }
+        function getVaccineStatus(p) {
+            try {
+                return p["Vaccines available?"].join("\n")
+            } catch {
+                return null
+            }
+        }
+        function getAddress(p) {
+            return p["Address"] || null
+        }
+        function getLocNotes(p) {
+            return p["Location notes"] || null
+        }
+        function getRepNotes(p) {
+            try {
+                return p["Latest report notes"].join("\n") || null
+            } catch {
+                return null
+            }
+        }
+
+        function addLocation(p) {
+            if (!getHasVaccine(p)) {
+                return false
+            }
+
+            // Format the info card
+            let infoText = "<h1>" + p["Name"] + "</h1>" + "<b>Has vaccines?</b> " + getVaccineStatus(p) + "<br />";
+            if (getAddress(p)) {
+                infoText += "<b>Address:</b> " + getAddress(p) + "<br />";
+            }
+            if (getLocNotes(p) && getLocNotes(p) != ' ') {
+                infoText += "<b>Location notes:</b> " + getLocNotes(p) + "<br />";
+            }
+            if (getRepNotes(p) && getRepNotes(p) != ' ') {
+                infoText += "<b>Latest info:</b> " + getRepNotes(p) + "<br />";
+            }
+
+            // Populate the marker and info card
+            let marker = new google.maps.Marker({ position: { lng: p["Longitude"], lat: p["Latitude"] }, map: map, title: p["Name"] })
+            let infowindow = new google.maps.InfoWindow({ content: infoText });
+
+            // Toggle the info card
+            marker.addListener("click", () => {
+                if (prev_infowindow) {
+                    prev_infowindow.close();
+                }
+
+                if (prev_infowindow == infowindow) {
+                    prev_infowindow = false
+                } else {
+                    infowindow.open(map, marker);
+                    prev_infowindow = infowindow
+                }
+            });
+        }
+
+        // Pull the JSON blob of locations for the map
+        let request = new XMLHttpRequest();
+        request.open('GET', 'https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json');
+        request.responseType = 'json'
+        request.onload = function () { request.response.map(p => addLocation(p)) };
+        request.send()
+    }
+
+    // State tracking for info cards
+    var prev_infowindow = false;
+</script>
+<div id='map'></div>
