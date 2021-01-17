@@ -1,1 +1,15 @@
-<h1>Vaccinate CA</h1>
+<header class="flex-spaced-centered padding-left--m padding-right--m padding-top--m padding-bottom--m">
+    <a class="flex-spaced-centered logo {% if page.url == '/' %}logo-active{% endif %}" href="{% link index.md %}">
+        <img class="margin-right--m" src="/assets/img/logo.png"></img>VaccinateCA
+    </a>
+    <nav>
+        <a class="margin-left--s nav-link {% if page.url == '/' %}nav-link-active{% endif %}"
+            href="{% link index.md %}">Home</a>
+        <a class="margin-left--s nav-link {% if page.url == '/county-policies' %}nav-link-active{% endif %}"
+            href="{% link county-policies.md %}">County Policies</a>
+        <a class="margin-left--s nav-link {% if page.url == '/vaccination-sites' %}nav-link-active{% endif %}"
+            href="{% link vaccination-sites.md %}">Vaccination Sites</a>
+        <a class="margin-left--s nav-link {% if page.url == '/who-we-are' %}nav-link-active{% endif %}"
+            href="{% link who-we-are.md %}">Who We Are</a>
+    </nav>
+</header>
