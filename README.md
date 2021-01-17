@@ -1,6 +1,8 @@
 # VaccinateCA site
 **PSA: this will eventually be public so be careful not to put any secrets in any commits!**
-## Setup
+
+## Setup with Ruby 2.7
+- `bundle install`
 - Run it with `bundle exec jekyll serve --livereload`
 
 ## Todo
