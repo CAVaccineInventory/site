@@ -63,7 +63,15 @@ function addSitesToPage(sites) {
   const list = document.querySelector("#sites");
   list.innerHTML = "";
   for(const site of sites.slice(0, 50)) {
-    const html = `<li>${site["Map title"]}</li>`;
+    let html = `<li><h4>${site["Name"]}: ${site["Address"]}.</h3>`
+    if(site["Has Report"]) {
+      html += `<p>Report at ${site["Latest report"]}: ${site["Latest report notes"].join(" ")}</p>`
+    } else {
+      html += `<p>Not contacted</p>`
+    }
+
+    html += `</li>`;
+
     list.innerHTML += html;
   }
 }
