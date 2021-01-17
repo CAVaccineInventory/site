@@ -9,16 +9,16 @@ Two of us (so you know we're "real people"): [Karl Yang](https://twitter.com/chi
 
 **I want to help!**
 
-We do not need more volunteers right now; we're running this out of our networks to move as quickly as possible. This may change in a few days; check back for updates or follow us on Twitter.
+We do not need more volunteers right now; we're running this out of our networks to move as quickly as possible. This may change in a few days; check back for updates or [follow us on Twitter](https://twitter.com/{{ site.twitter_username }}).
 We also don't need money. Many charitable projects do; they would appreciate your generous support.
 
 **I am a reporter!**
 
-Please email media@vaccinateca.com ; we'll be in touch quickly.
+Please email [media@vaccinateca.com](mailto:media@vaccinateca.com); we'll be in touch quickly.
 
 **I am a medical provider! I have something I want you to know!**
 
-Cool! Please text (415) 301-4597 with your message, institutional affiliation, and an internal extension or contact name so we can call back to verify. We cannot receive photos at this number; text only, please.
+Cool! Please text [(415) 301-4597](tel:+14153014597) with your message, institutional affiliation, and an internal extension or contact name so we can call back to verify. We cannot receive photos at this number; text only, please.
 One of the organizers will read your message and take action as soon as reasonably possible.
 
 **Does this effort increase or decrease load on the system?**
