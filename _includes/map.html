@@ -2,14 +2,6 @@
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&callback=initMap&libraries=&v=weekly"
     defer></script>
-
-<!-- Begin updating here -->
-<style type="text/css">
-    #map {
-        height: 100%;
-        width: 100%;
-    }
-</style>
 <script>
     // Initialize and populate the map
     function initMap() {
@@ -30,9 +22,9 @@
         function getVaccineStatus(p) {
             try {
                 try {
-                    return p["Availability Info"].map( info => info.replace("Yes: ","")).join(" | ")
+                    return p["Availability Info"].map(info => info.replace("Yes: ", "")).join(" | ")
                 } catch {
-                    return p["Vaccines available?"].map( info => info.replace("Yes, ","")).join(" | ")
+                    return p["Vaccines available?"].map(info => info.replace("Yes, ", "")).join(" | ")
                 }
             } catch {
                 return null

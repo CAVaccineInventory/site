@@ -108,12 +108,13 @@ h2 {
 
 h3 {
   font-size: 1.25em;
-  margin-bottom: var(--spacing-s);
+  margin-bottom: var(--spacing-m);
 }
 
 h4 {
   font-size: 1.15em;
-  margin-bottom: var(--spacing-s);
+  margin-top: 0;
+  margin-bottom: var(--spacing-m);
 }
 
 /* Utility Classes */
@@ -298,9 +299,16 @@ h4 {
   justify-content: space-between;
 }
 
+.align-items--stretch {
+  align-items: stretch;
+}
+
+.align-items--centered {
+  align-items: centered;
+}
+
 .flex-responsive {
   display: flex;
-  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -387,6 +395,20 @@ nav.is_open .nav-link {
 
 .airtable-embed {
   height: 900px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  min-height: 400px;
+  margin-left: var(--spacing-l);
+}
+
+@media only screen and (max-width: 600px) {
+  #map {
+    margin-left: 0;
+    margin-top: var(--spacing-l);
+  }
 }
 
 footer {
