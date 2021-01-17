@@ -29,7 +29,18 @@
         }
         function getVaccineStatus(p) {
             try {
-                return p["Vaccines available?"].join("\n")
+                try {
+                    return p["Availability Info"].map( info => info.replace("Yes: ","")).join(" | ")
+                } catch {
+                    return p["Vaccines available?"].map( info => info.replace("Yes, ","")).join(" | ")
+                }
+            } catch {
+                return null
+            }
+        }
+        function getSchedulingInstructions(p) {
+            try {
+                return p["Appointment scheduling instructions"].join(", ")
             } catch {
                 return null
             }
@@ -42,7 +53,7 @@
         }
         function getRepNotes(p) {
             try {
-                return p["Latest report notes"].join("\n") || null
+                return p["Latest report notes"].join(" | ")
             } catch {
                 return null
             }
@@ -54,7 +65,11 @@
             }
 
             // Format the info card
-            let infoText = "<h1>" + p["Name"] + "</h1>" + "<b>Has vaccines?</b> " + getVaccineStatus(p) + "<br />";
+            let infoText = "<h1>" + p["Name"] + "</h1>" + "<b>Details: </b> " + getVaccineStatus(p) + "<br />";
+
+            if (getSchedulingInstructions(p)) {
+                infoText += "<b>Appointment information: </b>" + getSchedulingInstructions(p) + "<br />"
+            }
             if (getAddress(p)) {
                 infoText += "<b>Address:</b> " + getAddress(p) + "<br />";
             }
