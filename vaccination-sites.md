@@ -2,6 +2,7 @@
 layout: default
 title: Vaccination Sites
 permalink: /vaccination-sites
+add_to_nav: true
 order: 3
 ---
 This is a list of all of the sites we are aware of in California which will, at some point, receive the covid-19 vaccine. **Most of them do not have the vaccine available today**; we are calling as many as we can daily to update the list.
