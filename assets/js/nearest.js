@@ -80,6 +80,18 @@ async function fetchFilterAndSortSites(userCoord) {
   }
   let sites = await response.json();
 
+  const filter =  document.querySelector("#filter").value
+
+  if(filter == "reports") {
+    sites = sites.filter((site) => {
+      return site["Has Report"];
+    })
+  } else if(filter == "stocked") {
+    sites = sites.filter((site) => {
+      return site["Reported vaccine availability"] && site["Reported vaccine availability"].match(/^yes/i);
+    })
+  }
+
   for(const site of sites) {
     const siteCoord = {
       longitude: site.Longitude,
