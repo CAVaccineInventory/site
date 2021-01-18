@@ -1,0 +1,16 @@
+<div class="shadow sm:rounded-lg px-2 lg:py-6 mt-4">
+  <!-- <div class="lg:grid lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-200"> -->
+    {% for item in site.data.coverage %}
+      <div class="py-3 lg:px-5">
+        <a class="" href="{{ item.url }}">
+          <img class="float-left mr-3 mb-3 w-20 md:w-32 lg:h-24" src="/assets/img/coverage/{{ item.image }}" />
+
+          <div>{{ item.text }}</div>
+          <p class="hidden md:block text-gray-700 text-sm mt-2 leading-5">"{{ item.quote }}"</p>
+
+          <div class="clear-both"></div>
+        </a>
+      </div>
+    {% endfor %}
+  <!-- </div> -->
+</div>
