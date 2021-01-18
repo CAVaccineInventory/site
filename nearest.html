@@ -4,13 +4,17 @@ layout: default
 <script type="text/javascript" src="assets/js/nearest.js"></script>
 
 <form action="#">
-  <label for="zip">Zip: </label>
+  <select id="filter">
+    <option value="any">All known vaccination sites</option>
+    <option value="contacted">Only contacted sites</option>
+    <option value="stocked">Only sites with doses</option>
+  </select>
+  near
   <!-- Hard code 90210 for now for ease of testing -->
-  <input type="text" id="zip" pattern="[0-9]{5}" title="Zip Code" placeholder="12345" value="90210" />
-  <input type="submit" id="submit" value="Submit" />
-  <hr>
-  Or
-  <input type="submit" id="use-geolocation" value="Use my location" />
+  <input type="text" id="zip" pattern="[0-9]{5}" title="zip Code" placeholder="12345" value="90210" />
+  <input type="submit" id="submit" value="Look up via ZIP" />
+  or
+  <input type="submit" id="use-geolocation" value="Near me" />
 </form>
 
 <ol id="sites">
