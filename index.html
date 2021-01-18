@@ -25,9 +25,72 @@ homepage: true
   </div>
 </div>
 
-<div class="my-8">
+<div class="mt-8">
   <div class="mt-5">
     <a href="https://airtable.com/shrOMv5EI1jYwV1XR" class="block md:inline px-5 py-3 border-2 border-green-500 text-green-700 font-bold rounded hover:bg-green-500 hover:text-white">Let us know if you found this site useful!</a>
+  </div>
+</div>
+
+<div class="py-9 mt-9 md:py-12 md:mt-12 bg-white border-t-2 border-gray-200">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Recent Data</h2>
+      <p class="mt-1 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Summary of the calls we've made over the past 24 hours.<br />You can also view <a href="{% link vaccination-sites.md %}">all statewide data</a>.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <dl class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-10">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+              220
+            </div>
+          </div>
+          <div class="ml-4">
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              Calls made by volunteers
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              We check with each location whether they are administering the vaccine and to whom, so you don't have to spend hours on hold and medical staff can spend less time answering calls.
+            </dd>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+              42%
+            </div>
+          </div>
+          <div class="ml-4">
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              Locations with vaccines
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              Percent of locations across California that, have vaccines to administer to the public. Restrictions such as age or being an existing patient may apply.
+            </dd>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+              96
+            </div>
+          </div>
+          <div class="ml-4">
+            <dt class="text-lg leading-6 font-medium text-gray-900">
+              Locations not administering vaccines
+            </dt>
+            <dd class="mt-2 text-base text-gray-500">
+              Percent of locations across California that are not vaccination sites, not administering to the public, or can not yet tell when they might administer vaccines.
+            </dd>
+          </div>
+        </div>
+      </dl>
+    </div>
   </div>
 </div>
 
