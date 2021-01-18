@@ -7,11 +7,9 @@ order: 4
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Some of us (so you know we're "real people"): <span id="people-list"></span>
-<!-- If you change this list, change the list in JS at the bottom too! -->
-{% for coordinator in site.data.coordinators %}
-  [{{ coordinator[0] }}]({{ coordinator[1] }})
-{% endfor %}.
+Some of us (so you know we're "real people"): <span id="people-list">
+{% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
+</span>.
 
 <a name="faq" />
 
