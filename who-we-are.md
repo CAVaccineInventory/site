@@ -8,7 +8,11 @@ We are an ad hoc collection of volunteers, trying to move as quickly as possible
 
 Some of us (so you know we're "real people"): <span id="people-list"></span>
 <!-- If you change this list, change the list in JS at the bottom too! -->
-<noscript>[Karl Yang](https://twitter.com/chiefofstuffs), [Patrick McKenzie](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), and [Pete Huang](https://twitter.com/nonmayorpete).</noscript>
+<noscript>
+{% for coordinator in site.data.coordinators %}
+  [{{ coordinator[0] }}]({{ coordinator[1] }})
+{% endfor %}
+.</noscript>
 
 <a name="faq" />
 
@@ -48,38 +52,12 @@ We're doing our best, but can't make any guarantees.
 
 <script>
 const people = [
-  {
-    name: "Karl Yang",
-    link: "https://twitter.com/chiefofstuffs",
-  },
-  {
-    name: "Patrick McKenzie",
-    link: "https://twitter.com/patio11",
-  },
-  {
-    name: "Zoelle Egner",
-    link: "https://twitter.com/zoelle",
-  },
-  {
-    name: "Manish Goregaokar",
-    link: "https://twitter.com/manishearth",
-  },
-  {
-    name: "Vallery Lancey",
-    link: "https://twitter.com/vllry",
-  },
-  {
-    name: "Jesse Vincent",
-    link: "https://twitter.com/obra",
-  },
-  {
-    name: "Kevin Lou",
-    link: "https://twitter.com/kevinbryantlou",
-  },
-  {
-    name: "Pete Huang",
-    link: "https://twitter.com/nonmayorpete",
-  },
+  {% for coordinator in site.data.coordinators %}
+    {
+      name: "{{ coordinator[0] }}",
+      link: "{{ coordinator[1] }}",
+    },
+  {% endfor %}
 ];
 // From https://stackoverflow.com/a/12646864
 function shuffleArray(array) {
