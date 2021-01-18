@@ -3,7 +3,7 @@ layout: default
 title: Who We Are
 permalink: /who-we-are
 add_to_nav: true
-order: 4
+order: 5
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
