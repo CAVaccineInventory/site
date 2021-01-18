@@ -10,7 +10,37 @@
             streetViewControl: false,
         });
 
-
+        function locateMe() {
+            if (!navigator.geolocation) {
+                console.warn('navigator not supported');
+            }
+            const template = document.getElementById("locate_me_template");
+            const locationButton = template.content.cloneNode(true).getElementById("locate_me");
+            locationButton.textContent = "Locate around me!";
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+            locationButton.addEventListener("click", () => {
+                
+                if (navigator.geolocation) {
+                    locationButton.textContent = 'Locating...';
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            locationButton.textContent = "Locate around me!";
+                            const pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                            };
+                            map.setCenter(pos);
+                            map.setZoom(10);
+                        },
+                        () => {
+                            locationButton.textContent = "Failed, please try again";
+                        }
+                    );
+                } else {
+                    console.error('Geolocation not supported')
+                }
+            });
+        }
 
         function addLocation(p) {
             if (!getHasVaccine(p)) {
@@ -60,6 +90,7 @@
         request.responseType = 'json'
         request.onload = function () { request.response.map(p => addLocation(p)) };
         request.send()
+        locateMe();
     }
 
     // State tracking for info cards
@@ -73,3 +104,7 @@
 <div class="h-72 md:h-96 lg:h-full">
     <div id='map' class="h-full w-full"></div>
 </div>
+<template id="locate_me_template">
+    <button id="locate_me" class="md:inline mt-2 px-3 py-2 font-medium rounded text-white bg-green-500 hover:bg-green-600">
+    </button>
+</template>
