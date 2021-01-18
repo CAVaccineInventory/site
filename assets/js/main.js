@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (window.location.hash.length > 1) {
     const countyName = window.location.hash.substring(1).replaceAll("_", " ");
+    if (counties.indexOf(countyName) == -1) {
+      window.location.hash = "";
+    }
     const input = document.querySelector("#autoComplete");
     if (input) {
       input.value = countyName;
