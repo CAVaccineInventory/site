@@ -5,7 +5,7 @@ permalink: /who-we-are
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Two of the organizers: [Karl Yang](https://twitter.com/chiefofstuffs) and [Patrick McKenzie](https://twitter.com/patio11)
+Some of us (so you know we're "real people"): [Karl Yang](https://twitter.com/chiefofstuffs), [@patio11](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), and [Pete Huang](https://twitter.com/nonmayorpete).
 
 <a name="faq" />
 
