@@ -5,7 +5,9 @@ permalink: /who-we-are
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Some of us (so you know we're "real people"): [Karl Yang](https://twitter.com/chiefofstuffs), [@patio11](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), and [Pete Huang](https://twitter.com/nonmayorpete).
+Some of us (so you know we're "real people"): <span id="people-list"></span>
+<!-- If you change this list, change the list in JS at the bottom too! -->
+<noscript>[Karl Yang](https://twitter.com/chiefofstuffs), [@patio11](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), and [Pete Huang](https://twitter.com/nonmayorpete).</noscript>
 
 <a name="faq" />
 
@@ -42,3 +44,66 @@ By asking that question and publishing the answer, we can save their phone bandw
 We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually are.
 
 We're doing our best, but can't make any guarantees.
+
+<script>
+const people = [
+  {
+    name: "Karl Yang",
+    link: "https://twitter.com/chiefofstuffs",
+  },
+  {
+    name: "@patio11",
+    link: "https://twitter.com/patio11",
+  },
+  {
+    name: "Zoelle Egner",
+    link: "https://twitter.com/zoelle",
+  },
+  {
+    name: "Manish Goregaokar",
+    link: "https://twitter.com/manishearth",
+  },
+  {
+    name: "Vallery Lancey",
+    link: "https://twitter.com/vllry",
+  },
+  {
+    name: "Jesse Vincent",
+    link: "https://twitter.com/obra",
+  },
+  {
+    name: "Kevin Lou",
+    link: "https://twitter.com/kevinbryantlou",
+  },
+  {
+    name: "Pete Huang",
+    link: "https://twitter.com/nonmayorpete",
+  },
+];
+// From https://stackoverflow.com/a/12646864
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+const peopleElem = document.querySelector("#people-list");
+shuffleArray(people);
+
+for (let i = 0; i < people.length; ++i) {
+  const person = people[i];
+  const personElem = document.createElement("a");
+  personElem.href = person.link;
+
+  const nameNode = document.createTextNode(person.name);
+  personElem.appendChild(nameNode);
+
+  const separatorNode = document.createTextNode(
+    i == people.length - 1 ? "." : ", "
+  );
+
+  peopleElem.insertBefore(personElem, null);
+  peopleElem.insertBefore(separatorNode, null);
+}
+</script>
