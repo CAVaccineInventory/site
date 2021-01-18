@@ -1,4 +1,5 @@
 const counties = [
+  "Alameda County",
   "Alpine County",
   "Amador County",
   "Butte County",
