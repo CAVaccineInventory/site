@@ -39,7 +39,11 @@ Please text [(415) 301-4597](tel:+14153014597) with your message, institutional 
 
 One of the organizers will read your message and take action as soon as reasonably possible.
 
-**Does this effort increase or decrease load on the system?**
+**I work in a community-facing organization or for the government. Can we discuss this?**
+
+We want to support the urgent work you are doing in getting Californians vaccinated as quickly as possible. Please email us at [partners@vaccinateca.com](mailto:partners@vaccinateca.com) to discuss.
+
+**Does this effort increase or decrease toil in the healthcare system?**
 
 Most hospitals will get thousands of phone calls per day. They are currently being slammed by many more people than usual asking them the same question: "Do you have the vaccine?"
 
