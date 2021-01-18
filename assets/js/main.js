@@ -24,7 +24,6 @@ window.onload = () => {
   });
 
 
-
   const input = document.querySelector("#autoComplete");
   if (input) {
     const airtable = document.querySelector(".airtable-embed");
