@@ -374,7 +374,7 @@ nav.is_open .nav-link {
 
 .nav-link {
   font-weight: var(--font-weight-light);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   text-align: right;
 }
 
