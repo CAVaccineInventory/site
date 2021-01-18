@@ -2,16 +2,28 @@
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
     try {
-        return p["Vaccines available?"][0].startsWith("Yes")
+        return p["Availability Info"][0].startsWith("Yes")
     } catch {
         return false
     }
 }
 
+function getHasReport(p) {
+    try {
+        return p["Has Report"]
+    } catch {
+        return false
+    }
+}
+
+function getCoord(p) {
+  return {latitude: p["Latitude"], longitude: p["Longitude"]}
+}
+
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
       try {
-        return p["Availability Info"].map(info => info.replace("Yes: ", "")).join(" | ")
+        return p["Availability Info"].map(info => info.replace("Yes: ", "").replace("No: ", "")).join(" | ")
       } catch {
           return null
       }
@@ -34,6 +46,14 @@ function getDisplayableVaccineInfo(p) {
           return null
       }
   }
+  let hasReport = getHasReport(p);
+  function getYesNo(p) {
+    if(hasReport) {
+      return getHasVaccine(p)? "Yes" : "No";
+    } else {
+      return "Unknown";
+    }
+  }
   let locationNotes = p["Location notes"] || null;
   if (locationNotes == ' ') {
     locationNotes = null;
@@ -41,6 +61,7 @@ function getDisplayableVaccineInfo(p) {
 
   return {
     status: getVaccineStatus(p),
+    hasReport: hasReport,
     name: p["Name"],
     schedulingInstructions: getSchedulingInstructions(p),
     address: p["Address"] || null,
@@ -48,7 +69,8 @@ function getDisplayableVaccineInfo(p) {
     reportNotes: getRepNotes(p),
     longitude: p["Longitude"],
     latitude: p["Latitude"],
+    address: p["Address"]
   };
 }
 
-export {getHasVaccine, getDisplayableVaccineInfo};
+export {getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord};
