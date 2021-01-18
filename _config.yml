@@ -34,6 +34,18 @@ google_analytics_id: G-C1C9341MGL
 plugins:
   - jekyll-seo-tag
 
+## Social media stuff supported by jekyll-seo-tag
+tagline: Vaccine Availability in California
+twitter:
+  card: summary_large_image
+  username: ca_covid
+
+social:
+  links:
+    - https://twitter.com/ca_covid
+    - https://github.com/CAVaccineInventory
+
+
 # Image used by jekyll-seo-tag plugin in the JSON-LD tag.
 logo: "/assets/img/logo.png"
 defaults:
@@ -41,7 +53,7 @@ defaults:
       path: ""
     values:
       # Image used by jekyll-seo-tag plugin to generate Open Graph and other related meta tags.
-      image: /assets/img/logo.png
+      image: /assets/img/link_card_image.png
 
 collections:
   regions:
