@@ -14,7 +14,7 @@
             <div class="ml-10 flex items-baseline space-x-4">
               {% assign nav = site.pages | sort: 'order' %}
               {% for item in nav  %}
-                {% if item.title %}
+                {% if item.title and item.add_to_nav %}
                   {% if item.url == page.url %}
                     {% assign navItemClasses = "bg-gray-900 text-white" %}
                   {% else %} 
@@ -63,7 +63,7 @@
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {% assign nav = site.pages | sort: 'order' %}
         {% for item in nav  %}
-          {% if item.title %}
+          {% if item.title and item.add_to_nav %}
             {% if item.url == page.url %}
               {% assign navItemClasses = "bg-gray-900 text-white" %}
             {% else %} 
