@@ -11,11 +11,7 @@ function getHasVaccine(p) {
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
       try {
-          try {
-              return p["Availability Info"].map(info => info.replace("Yes: ", "")).join(" | ")
-          } catch {
-              return p["Vaccines available?"].map(info => info.replace("Yes, ", "")).join(" | ")
-          }
+        return p["Availability Info"].map(info => info.replace("Yes: ", "")).join(" | ")
       } catch {
           return null
       }
