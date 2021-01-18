@@ -4,7 +4,7 @@ title: Vaccination Sites
 permalink: /vaccination-sites
 order: 3
 ---
-This is a list of all of the sites we are aware of in California which will, at some point, receive the covid-19 vaccine. **Most of them do not have the vaccine available today**; we are calling as many as we can daily to update the list.
+This is a list of all of the sites we are aware of in California which may, at some point, receive the COVID-19 vaccine. **Most of them do not have the vaccine available today**; we are calling as many as we can daily to update the list.
 If we missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are working on expanding the list with additional pharmacies and other locations.
 
 <div class="autoComplete_wrapper">
