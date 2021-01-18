@@ -2,10 +2,17 @@
 layout: default
 title: Who We Are
 permalink: /who-we-are
+order: 4
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Two of the organizers: [Karl Yang](https://twitter.com/chiefofstuffs) and [Patrick McKenzie](https://twitter.com/patio11)
+Some of us (so you know we're "real people"): <span id="people-list"></span>
+<!-- If you change this list, change the list in JS at the bottom too! -->
+<noscript>
+{% for coordinator in site.data.coordinators %}
+  [{{ coordinator[0] }}]({{ coordinator[1] }})
+{% endfor %}
+.</noscript>
 
 <a name="faq" />
 
@@ -13,7 +20,7 @@ Two of the organizers: [Karl Yang](https://twitter.com/chiefofstuffs) and [Patri
 
 **How can I help?**
 
-Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing oyur mask and observe social distancing guidelines.
+Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing your mask and observe social distancing guidelines.
 
 We do not need more volunteers right now; we're running this out of our networks to move as quickly as possible. This may change in a few days; check back for updates or [follow us on Twitter](https://twitter.com/{{ site.twitter_username }}).
 
@@ -42,3 +49,40 @@ By asking that question and publishing the answer, we can save their phone bandw
 We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually are.
 
 We're doing our best, but can't make any guarantees.
+
+<script>
+const people = [
+  {% for coordinator in site.data.coordinators %}
+    {
+      name: "{{ coordinator[0] }}",
+      link: "{{ coordinator[1] }}",
+    },
+  {% endfor %}
+];
+// From https://stackoverflow.com/a/12646864
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+const peopleElem = document.querySelector("#people-list");
+shuffleArray(people);
+
+for (let i = 0; i < people.length; ++i) {
+  const person = people[i];
+  const personElem = document.createElement("a");
+  personElem.href = person.link;
+
+  const nameNode = document.createTextNode(person.name);
+  personElem.appendChild(nameNode);
+
+  const separatorNode = document.createTextNode(
+    i == people.length - 1 ? "." : ", "
+  );
+
+  peopleElem.insertBefore(personElem, null);
+  peopleElem.insertBefore(separatorNode, null);
+}
+</script>

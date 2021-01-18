@@ -4,16 +4,21 @@
 {% include head.html %}
 
 <body>
+
+  <div>
     {% include header.html %}
+    
+    <main class="container mx-auto">
+      <div class="lg:py-6">
+        <div class="main-content px-4 py-6 lg:px-8">
+          {{ content }}
 
-    <div class="container">
-        <main aria-label="Content">
-            <h1 class="margin-top--xl margin-bottom--xl">{{ page.title }}</h1>
-            {{ content }}
-        </main>
+          {% include footer.html %}
+        </div>
+      </div>
+    </main>
+  </div>
 
-        {% include footer.html %}
-    </div>
 </body>
 
 </html>

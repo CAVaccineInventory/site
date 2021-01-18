@@ -33,6 +33,23 @@ google_analytics_id: G-C1C9341MGL
 # Build settings
 plugins:
   - jekyll-seo-tag
+
+# Image used by jekyll-seo-tag plugin in the JSON-LD tag.
+logo: "/assets/img/logo.png"
+defaults:
+  - scope:
+      path: ""
+    values:
+      # Image used by jekyll-seo-tag plugin to generate Open Graph and other related meta tags.
+      image: /assets/img/logo.png
+
+collections:
+  regions:
+    output: true
+
+
+
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

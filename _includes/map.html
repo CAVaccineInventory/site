@@ -1,8 +1,6 @@
-<!-- Leave this section in place -->
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&callback=initMap&libraries=&v=weekly"
-    defer></script>
-<script>
+<script type="module">
+    import {getHasVaccine, getDisplayableVaccineInfo} from "./assets/js/data.js";
+
     // Initialize and populate the map
     function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -12,68 +10,33 @@
             streetViewControl: false,
         });
 
-        function getHasVaccine(p) {
-            try {
-                return p["Vaccines available?"][0].startsWith("Yes")
-            } catch {
-                return false
-            }
-        }
-        function getVaccineStatus(p) {
-            try {
-                try {
-                    return p["Availability Info"].map(info => info.replace("Yes: ", "")).join(" | ")
-                } catch {
-                    return p["Vaccines available?"].map(info => info.replace("Yes, ", "")).join(" | ")
-                }
-            } catch {
-                return null
-            }
-        }
-        function getSchedulingInstructions(p) {
-            try {
-                return p["Appointment scheduling instructions"].join(", ")
-            } catch {
-                return null
-            }
-        }
-        function getAddress(p) {
-            return p["Address"] || null
-        }
-        function getLocNotes(p) {
-            return p["Location notes"] || null
-        }
-        function getRepNotes(p) {
-            try {
-                return p["Latest report notes"].join(" | ")
-            } catch {
-                return null
-            }
-        }
+
 
         function addLocation(p) {
             if (!getHasVaccine(p)) {
                 return false
             }
 
-            // Format the info card
-            let infoText = "<h1>" + p["Name"] + "</h1>" + "<b>Details: </b> " + getVaccineStatus(p) + "<br />";
+            let info = getDisplayableVaccineInfo(p);
 
-            if (getSchedulingInstructions(p)) {
-                infoText += "<b>Appointment information: </b>" + getSchedulingInstructions(p) + "<br />"
+            // Format the info card
+            let infoText = "<h1>" + info.name + "</h1>" + "<b>Details: </b> " + info.status + "<br />";
+
+            if (info.schedulingInstructions) {
+                infoText += "<b>Appointment information: </b>" + info.schedulingInstructions + "<br />"
             }
-            if (getAddress(p)) {
-                infoText += "<b>Address:</b> " + getAddress(p) + "<br />";
+            if (info.address) {
+                infoText += "<b>Address:</b> " + info.address + "<br />";
             }
-            if (getLocNotes(p) && getLocNotes(p) != ' ') {
-                infoText += "<b>Location notes:</b> " + getLocNotes(p) + "<br />";
+            if (info.locationNotes) {
+                infoText += "<b>Location notes:</b> " + info.locationNotes + "<br />";
             }
-            if (getRepNotes(p) && getRepNotes(p) != ' ') {
-                infoText += "<b>Latest info:</b> " + getRepNotes(p) + "<br />";
+            if (info.reportNotes) {
+                infoText += "<b>Latest info:</b> " + info.reportNotes + "<br />";
             }
 
             // Populate the marker and info card
-            let marker = new google.maps.Marker({ position: { lng: p["Longitude"], lat: p["Latitude"] }, map: map, title: p["Name"] })
+            let marker = new google.maps.Marker({ position: { lng: info.longitude, lat: info.latitude}, map: map, title: info.name })
             let infowindow = new google.maps.InfoWindow({ content: infoText });
 
             // Toggle the info card
@@ -101,5 +64,12 @@
 
     // State tracking for info cards
     var prev_infowindow = false;
+    window.initMap = initMap;
 </script>
-<div id='map'></div>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&callback=initMap&libraries=&v=weekly"
+    defer></script>
+<div class="h-72 md:h-96 lg:h-full">
+    <div id='map' class="h-full w-full"></div>
+</div>
