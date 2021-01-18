@@ -28,3 +28,7 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
+# For settings social media meta-data so that links look good
+# github pages support 2.6.1 and not more recent versions
+# source: https://pages.github.com/versions/
+gem 'jekyll-seo-tag', '2.6.1'
