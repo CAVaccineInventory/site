@@ -11,9 +11,9 @@ Some of us (so you know we're "real people"): <span id="people-list">
 {% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
 </span>.
 
-<a name="faq" />
-
-## Frequently Asked Questions (FAQ)
+<h2 class="text-2xl font-bold leading-tight text-gray-900">
+Frequently Asked Questions (FAQ)
+</h2>
 
 **How can I help?**
 
