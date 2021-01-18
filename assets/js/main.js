@@ -4,25 +4,28 @@ import counties from "./counties.js";
 
 var airtableBaseUrl;
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", updateFilterFromUrlFragment);
+window.addEventListener("hashchange", updateFilterFromUrlFragment);
+
+function updateFilterFromUrlFragment() {
   const airtable = document.querySelector(".airtable-embed");
-  if (airtable) {
+  if (airtable && airtableBaseUrl === undefined) {
     airtableBaseUrl = airtable.src;
   }
   if (window.location.hash.length > 1) {
     const countyName = window.location.hash.substring(1).replaceAll("_", " ");
-    if (counties.indexOf(countyName) == -1) {
-      window.location.hash = "";
-    }
     const input = document.querySelector("#autoComplete");
+    if (counties.indexOf(countyName) == -1) {
+      return;
+    }
     if (input) {
       input.value = countyName;
     }
     if (airtable) {
-      airtable.src += "&filter_County=" + countyName;
+      airtable.src = airtableBaseUrl + "&filter_County=" + countyName;
     }
   }
-});
+}
 
 window.onload = () => {
   document.querySelector(".nav-button").addEventListener("click", (e) => {
@@ -44,7 +47,7 @@ window.onload = () => {
       onSelection: (feedback) => {
         const selected = feedback.selection.value;
         input.value = selected;
-        if (!airtableBaseUrl) {
+        if (airtableBaseUrl === undefined) {
           // This should never happen because DOMContentLoaded should always fire
           // first. But if it does happen, then the current airtable src should
           // have no extra filters in it from the DOMContentLoaded handler, so
