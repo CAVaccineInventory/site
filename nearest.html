@@ -4,17 +4,26 @@ layout: default
 <script type="module" src="assets/js/nearest.js"></script>
 
 <form action="#">
-  <select id="filter">
+  <select id="filter" class="border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
     <option value="reports">Only sites with contact reports</option>
     <option selected="selected" value="stocked">Only sites with doses</option>
     <option value="any">All known vaccination sites</option>
   </select>
   near
   <!-- Hard code 90210 for now for ease of testing -->
-  <input type="text" id="zip" pattern="[0-9]{5}" title="zip Code" placeholder="12345" value="90210" />
-  <input type="submit" id="submit" value="Look up via ZIP" />
+  <label for="zip" class="sr-only">Zip Code</label>
+  <input type="text" id="zip" pattern="[0-9]{5}" title="zip Code" placeholder="90210" value="90210"
+        class="appearance-none w-1/6 rounded-none relative px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" />
+  <button type="submit" class="group relative justify-center py-2 px-4 border
+    border-transparent text-sm font-medium rounded-md text-white bg-indigo-600
+    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+    focus:ring-indigo-500" id="submit">
+    Look up via ZIP
+  </button>
   or
-  <input type="submit" id="use-geolocation" value="Near me" />
+  <button type="submit" class="group relative justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="use-geolocation">
+    Near me
+  </button>
 </form>
 
 <ol id="sites">
