@@ -1,3 +1,5 @@
+import {getDisplayableVaccineInfo, getHasVaccine, getHasReport, getCoord} from "./data.js";
+
 window.addEventListener("load", loaded);
 
 function loaded() {
@@ -84,19 +86,16 @@ async function fetchFilterAndSortSites(userCoord) {
 
   if(filter == "reports") {
     sites = sites.filter((site) => {
-      return site["Has Report"];
+      return getHasReport(site);
     })
   } else if(filter == "stocked") {
     sites = sites.filter((site) => {
-      return site["Reported vaccine availability"] && site["Reported vaccine availability"].match(/^yes/i);
+      return getHasVaccine(site);
     })
   }
 
   for(const site of sites) {
-    const siteCoord = {
-      longitude: site.Longitude,
-      latitude: site.Latitude
-    }
+    let siteCoord = getCoord(site);
     const distance = distanceBetweenCoordinates(userCoord, siteCoord)
     site.distance = distance;
   }
@@ -109,21 +108,31 @@ function addSitesToPage(sites) {
   const list = document.querySelector("#sites");
   list.innerHTML = "";
   for(const site of sites.slice(0, 50)) {
+    let info = getDisplayableVaccineInfo(site);
     let html = `<li>`
 
     // Some sites don't have addresses.
-    if(site["Address"]) {
-      html += `<h4>${site["Name"]}: ${site["Address"]}.</h4>`
+    if(info.address) {
+      html += `<h4>${info.name}: ${info.address}.</h4>`
     } else {
-      html += `<h4>${site["Name"]}</h4>`
+      html += `<h4>${info.name}</h4>`
     }
 
     // Show whatever report we have
-    if(site["Has Report"]) {
-      if(site["Latest report notes"]) {
-        html += `<p>Report at ${site["Latest report"]}: ${site["Latest report notes"].join(" ")}</p>`
-      } else {
-        html += `<p>Report at ${site["Latest report"]}</p>`
+    if(info.hasReport) {
+      html += `<p><b>Details</b>: ${info.status}<br />`;
+
+      if (info.schedulingInstructions) {
+          html += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
+      }
+      if (info.address) {
+          html += `<b>Address:</b> ${info.address}<br />`;
+      }
+      if (info.locationNotes) {
+          html += `<b>Location notes:</b> ${info.locationNotes} "<br />`;
+      }
+      if (info.reportNotes) {
+          html += `<b>Latest info:</b> ${info.reportNotes}<br />`;
       }
     } else {
       html += `<p>No contact reports</p>`
