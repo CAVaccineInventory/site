@@ -7,7 +7,7 @@ We are an ad hoc collection of volunteers, trying to move as quickly as possible
 
 Some of us (so you know we're "real people"): <span id="people-list"></span>
 <!-- If you change this list, change the list in JS at the bottom too! -->
-<noscript>[Karl Yang](https://twitter.com/chiefofstuffs), [@patio11](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), and [Pete Huang](https://twitter.com/nonmayorpete).</noscript>
+<noscript>[Karl Yang](https://twitter.com/chiefofstuffs), [Patrick McKenzie](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), and [Pete Huang](https://twitter.com/nonmayorpete).</noscript>
 
 <a name="faq" />
 
@@ -52,7 +52,7 @@ const people = [
     link: "https://twitter.com/chiefofstuffs",
   },
   {
-    name: "@patio11",
+    name: "Patrick McKenzie",
     link: "https://twitter.com/patio11",
   },
   {
