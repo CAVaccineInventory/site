@@ -50,10 +50,12 @@ title: California Covid-19 Vaccine Availability
         {% include map.html %}
     </div>
 </section>
-<section>
-
+<section class="margin-top--xl">
+    <div class="autoComplete_wrapper margin-bottom--m">
+        <input type="text" id="autoComplete" tabindex="1" placeholder="Search by county..." />
+    </div>
     <!-- height is less than 100% to avoid double scrollbars -->
-    <iframe class="airtable-embed margin-top--xl"
+    <iframe class="airtable-embed"
         src="https://airtable.com/embed/shrzL2Lo5CrlkMmQ7?backgroundColor=grayLight&viewControls=on" frameborder="0"
         onmousewheel="" width="100%" height="98%" style="background: transparent; border: 1px solid #ccc;"></iframe>
 </section>
