@@ -27,5 +27,12 @@ window.onload = () => {
         airtable.src = airtableURL + "&filter_County=" + selected;
       },
     });
+
+    // If a user clears the search field and hits enter, reset to unfiltered table
+    input.addEventListener("keydown", (e) => {
+      if (e.key == "Enter" && input.value.length == 0) {
+        airtable.src = airtableURL;
+      }
+    });
   }
 };
