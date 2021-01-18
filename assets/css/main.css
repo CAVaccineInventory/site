@@ -470,9 +470,10 @@ input[type="text"]:focus {
   right: 0;
   padding: 0;
   border-radius: 0 0 5px 5px;
-  background-color: #fff;
+  background-color: var(--color-bg);
   box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
   border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
   z-index: var(--z-index-results);
   outline: 0;
 }
@@ -494,4 +495,19 @@ input[type="text"]:focus {
 .autoComplete_selected {
   cursor: pointer;
   background-color: var(--color-accent-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type="text"] {
+    border: 1px solid var(--color-border--dark);
+  }
+
+  #autoComplete {
+    background-color: var(--color-bg--dark);
+    color: var(--color-text-primary--dark);
+  }
+  #autoComplete_list {
+    background-color: var(--color-bg--dark);
+    color: var(--color-text-primary--dark);
+  }
 }
