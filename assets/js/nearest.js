@@ -109,11 +109,24 @@ function addSitesToPage(sites) {
   const list = document.querySelector("#sites");
   list.innerHTML = "";
   for(const site of sites.slice(0, 50)) {
-    let html = `<li><h4>${site["Name"]}: ${site["Address"]}.</h3>`
-    if(site["Has Report"]) {
-      html += `<p>Report at ${site["Latest report"]}: ${site["Latest report notes"].join(" ")}</p>`
+    let html = `<li>`
+
+    // Some sites don't have addresses.
+    if(site["Address"]) {
+      html += `<h4>${site["Name"]}: ${site["Address"]}.</h4>`
     } else {
-      html += `<p>Not contacted</p>`
+      html += `<h4>${site["Name"]}</h4>`
+    }
+
+    // Show whatever report we have
+    if(site["Has Report"]) {
+      if(site["Latest report notes"]) {
+        html += `<p>Report at ${site["Latest report"]}: ${site["Latest report notes"].join(" ")}</p>`
+      } else {
+        html += `<p>Report at ${site["Latest report"]}</p>`
+      }
+    } else {
+      html += `<p>No contact reports</p>`
     }
 
     html += `</li>`;
