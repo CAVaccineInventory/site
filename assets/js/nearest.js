@@ -39,7 +39,7 @@ function submitGeoLocation(event) {
         };
         button.value = defaultValue;
         button.disabled = false;
-        await fetchAndSortSites(coordinates);
+        await fetchFilterAndSortSites(coordinates);
       },
       function onError() {
         button.value = "Could not fetch geolocation";
@@ -67,10 +67,10 @@ async function lookup(zip) {
     latitude: loc[1]
   }
 
-  fetchAndSortSites(coordinate);
+  fetchFilterAndSortSites(coordinate);
 }
 
-async function fetchAndSortSites(userCoord) {
+async function fetchFilterAndSortSites(userCoord) {
   const siteURL = "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json"
   let response = await fetch(siteURL);
 
