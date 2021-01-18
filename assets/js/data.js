@@ -30,14 +30,14 @@ function getDisplayableVaccineInfo(p) {
   }
   function getSchedulingInstructions(p) {
       try {
-          return replaceAnyLinks(p["Appointment scheduling instructions"].join(", "));
+          return p["Appointment scheduling instructions"].join(", ")
       } catch {
           return null
       }
   }
   function getRepNotes(p) {
       try {
-          let notes = replaceAnyLinks(p["Latest report notes"].join(" | "));
+          let notes = p["Latest report notes"].join(" | ");
           if (notes == ' ') {
             return null
           }
@@ -46,12 +46,6 @@ function getDisplayableVaccineInfo(p) {
           return null
       }
   }
-
-  function replaceAnyLinks(body) {
-    let url_regex = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
-    return body.replace(url_regex, "<a href='$1' target='_blank'>$1</a>"); 
-  }
-
   let hasReport = getHasReport(p);
   function getYesNo(p) {
     if(hasReport) {
@@ -71,7 +65,7 @@ function getDisplayableVaccineInfo(p) {
     name: p["Name"],
     schedulingInstructions: getSchedulingInstructions(p),
     address: p["Address"] || null,
-    locationNotes: replaceAnyLinks(locationNotes),
+    locationNotes: locationNotes,
     reportNotes: getRepNotes(p),
     longitude: p["Longitude"],
     latitude: p["Latitude"],
