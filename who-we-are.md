@@ -2,10 +2,16 @@
 layout: default
 title: Who We Are
 permalink: /who-we-are
+add_to_nav: true
+order: 4
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Some of us (so you know we're "real people"): <span id="people-list">[Karl Yang](https://twitter.com/chiefofstuffs), [Patrick McKenzie](https://twitter.com/patio11), [Zoelle Egner](https://twitter.com/zoelle), [Manish Goregaokar](https://twitter.com/manishearth), [Vallery Lancey](https://twitter.com/vllry), [Jesse Vincent](https://twitter.com/obra), [Kevin Lou](https://twitter.com/kevinbryantlou), [Pete Huang](https://twitter.com/nonmayorpete)</span>.
+Some of us (so you know we're "real people"): <span id="people-list"></span>
+<!-- If you change this list, change the list in JS at the bottom too! -->
+{% for coordinator in site.data.coordinators %}
+  [{{ coordinator[0] }}]({{ coordinator[1] }})
+{% endfor %}.
 
 <a name="faq" />
 

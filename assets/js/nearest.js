@@ -1,8 +1,12 @@
 window.addEventListener("load", loaded);
 
 function loaded() {
-  const button = document.querySelector('#submit');
-  button.addEventListener('click', submitZip);
+  document
+    .querySelector("#submit")
+    .addEventListener("click", submitZip);
+  document
+    .querySelector("#use-geolocation")
+    .addEventListener("click", submitGeoLocation);
 }
 
 function submitZip(event) {
@@ -13,6 +17,34 @@ function submitZip(event) {
     alert("5 digit zip please");
   } else {
     lookup(zip);
+  }
+}
+
+function submitGeoLocation(event) {
+  event.preventDefault();
+  const button = document.querySelector("#use-geolocation");
+  const defaultValue = button.value;
+
+  if (!navigator.geolocation) {
+    button.value = "Your browser does not support geolocation";
+    button.disabled = true;
+  } else {
+    button.disabled = true;
+    button.value = "Locating...";
+    navigator.geolocation.getCurrentPosition(
+      async function onSuccess(position) {
+        const coordinates = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+        button.value = defaultValue;
+        button.disabled = false;
+        await fetchFilterAndSortSites(coordinates);
+      },
+      function onError() {
+        button.value = "Could not fetch geolocation";
+      }
+    );
   }
 }
 
@@ -35,10 +67,10 @@ async function lookup(zip) {
     latitude: loc[1]
   }
 
-  fetchAndSortSites(coordinate);
+  fetchFilterAndSortSites(coordinate);
 }
 
-async function fetchAndSortSites(userCoord) {
+async function fetchFilterAndSortSites(userCoord) {
   const siteURL = "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json"
   let response = await fetch(siteURL);
 
@@ -47,6 +79,18 @@ async function fetchAndSortSites(userCoord) {
     return;
   }
   let sites = await response.json();
+
+  const filter =  document.querySelector("#filter").value
+
+  if(filter == "reports") {
+    sites = sites.filter((site) => {
+      return site["Has Report"];
+    })
+  } else if(filter == "stocked") {
+    sites = sites.filter((site) => {
+      return site["Reported vaccine availability"] && site["Reported vaccine availability"].match(/^yes/i);
+    })
+  }
 
   for(const site of sites) {
     const siteCoord = {
@@ -65,11 +109,24 @@ function addSitesToPage(sites) {
   const list = document.querySelector("#sites");
   list.innerHTML = "";
   for(const site of sites.slice(0, 50)) {
-    let html = `<li><h4>${site["Name"]}: ${site["Address"]}.</h3>`
-    if(site["Has Report"]) {
-      html += `<p>Report at ${site["Latest report"]}: ${site["Latest report notes"].join(" ")}</p>`
+    let html = `<li>`
+
+    // Some sites don't have addresses.
+    if(site["Address"]) {
+      html += `<h4>${site["Name"]}: ${site["Address"]}.</h4>`
     } else {
-      html += `<p>Not contacted</p>`
+      html += `<h4>${site["Name"]}</h4>`
+    }
+
+    // Show whatever report we have
+    if(site["Has Report"]) {
+      if(site["Latest report notes"]) {
+        html += `<p>Report at ${site["Latest report"]}: ${site["Latest report notes"].join(" ")}</p>`
+      } else {
+        html += `<p>Report at ${site["Latest report"]}</p>`
+      }
+    } else {
+      html += `<p>No contact reports</p>`
     }
 
     html += `</li>`;
