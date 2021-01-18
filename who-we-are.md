@@ -7,13 +7,9 @@ order: 4
 ---
 We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Some of us (so you know we're "real people"): <span id="people-list"></span>
-<!-- If you change this list, change the list in JS at the bottom too! -->
-<noscript>
-{% for coordinator in site.data.coordinators %}
-  [{{ coordinator[0] }}]({{ coordinator[1] }})
-{% endfor %}
-.</noscript>
+Some of us (so you know we're "real people"): <span id="people-list">
+{% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
+</span>.
 
 <a name="faq" />
 
@@ -56,14 +52,6 @@ We publish only what the vaccine site told us when we called. The situation is c
 We're doing our best, but can't make any guarantees.
 
 <script>
-const people = [
-  {% for coordinator in site.data.coordinators %}
-    {
-      name: "{{ coordinator[0] }}",
-      link: "{{ coordinator[1] }}",
-    },
-  {% endfor %}
-];
 // From https://stackoverflow.com/a/12646864
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -72,22 +60,18 @@ function shuffleArray(array) {
   }
 }
 
-const peopleElem = document.querySelector("#people-list");
-shuffleArray(people);
+const peopleElements = [...document.querySelectorAll('#people-list a')];
+const peopleListElement = document.querySelector("#people-list");
 
-for (let i = 0; i < people.length; ++i) {
-  const person = people[i];
-  const personElem = document.createElement("a");
-  personElem.href = person.link;
+shuffleArray(peopleElements);
+peopleListElement.innerHTML = "";
+for (let i = 0; i < peopleElements.length; ++i) {
+  const personElement = peopleElements[i];
 
-  const nameNode = document.createTextNode(person.name);
-  personElem.appendChild(nameNode);
-
-  const separatorNode = document.createTextNode(
-    i == people.length - 1 ? "." : ", "
-  );
-
-  peopleElem.insertBefore(personElem, null);
-  peopleElem.insertBefore(separatorNode, null);
+  peopleListElement.insertBefore(personElement, null);
+  if (i !== peopleElements.length - 1) {
+    const separatorNode = document.createTextNode(", ");
+    peopleListElement.insertBefore(separatorNode, null);
+  }
 }
 </script>
