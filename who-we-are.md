@@ -13,7 +13,7 @@ Some of us (so you know we're "real people"): [Karl Yang](https://twitter.com/ch
 
 **How can I help?**
 
-Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing oyur mask and observe social distancing guidelines.
+Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing your mask and observe social distancing guidelines.
 
 We do not need more volunteers right now; we're running this out of our networks to move as quickly as possible. This may change in a few days; check back for updates or [follow us on Twitter](https://twitter.com/{{ site.twitter_username }}).
 
