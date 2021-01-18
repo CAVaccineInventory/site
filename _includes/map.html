@@ -20,24 +20,24 @@
             let info = getDisplayableVaccineInfo(p);
 
             // Format the info card
-            let infoText = "<h1>" + info.name + "</h1>" + "<b>Details: </b> " + info.status + "<br />";
+            let infoText = `<h1>${info.name}</h1> <b>Details: </b> ${info.status}<br/>`;
 
             if (info.schedulingInstructions) {
-                infoText += "<b>Appointment information: </b>" + info.schedulingInstructions + "<br />"
+                infoText += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
             }
             if (info.address) {
-                infoText += "<b>Address:</b> " + info.address + "<br />";
+                infoText += `<b>Address:</b> ${info.address}<br />`;
             }
             if (info.locationNotes) {
-                infoText += "<b>Location notes:</b> " + info.locationNotes + "<br />";
+                infoText += `<b>Location notes:</b> ${info.locationNotes} "<br />`;
             }
             if (info.reportNotes) {
-                infoText += "<b>Latest info:</b> " + info.reportNotes + "<br />";
+                infoText += `<b>Latest info:</b> ${info.reportNotes}<br />`;
             }
 
             // Populate the marker and info card
             let marker = new google.maps.Marker({ position: { lng: info.longitude, lat: info.latitude}, map: map, title: info.name })
-            let infowindow = new google.maps.InfoWindow({ content: infoText });
+            let infowindow = new google.maps.InfoWindow({ content: `<div class="mapInfo">${infoText}</div>` });
 
             // Toggle the info card
             marker.addListener("click", () => {

@@ -98,4 +98,13 @@ input[type="text"]:focus {
     background-color: var(--color-bg--dark);
     color: var(--color-text-primary--dark);
   }
+
+  .mapInfo {
+    --color-text-primary: var(--color-text-primary--light);
+  }
+}
+
+.mapInfo h1 {
+ font-size: 2em;
+ color: rgb(0, 82, 217);
 }
