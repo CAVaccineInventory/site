@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+
+{% include head.html %}
+
+<body>
+
+  <div>
+    {% include header.html %}
+    
+    <main class="container mx-auto">
+      <div class="md:pb-6">
+        <div class="main-content px-4 py-6 md:px-8">
+          <div class="bg-white">
+            <div class="lg:text-center">
+              <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
+                {% assign counties = site.data.regions_counties[page.title] | join: ", " %}
+                {% for county in counties %}
+                  {{ county }}
+                {% endfor %}
+              </p>
+            
+            </div>
+          </div>
+
+          <div class="border-t-2 border-gray-200 pt-6 mt-6">
+            <p class="text-xl">
+              Here is a list of all locations we have contacted in your region. You can also view these <a href="{% link county-policies.md %}">county's official vaccination policies</a>.
+            </p>
+
+            <div class="autoComplete_wrapper">
+              <input type="text" id="autoComplete" tabindex="1" placeholder="Search by county..." />
+            </div>
+
+            <iframe class="airtable-embed" src="https://airtable.com/embed/{{ page.airtable_embed }}?backgroundColor=grayLight&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+          </div>
+
+          {% include footer.html %}
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>

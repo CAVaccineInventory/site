@@ -3,10 +3,26 @@
 import counties from "./counties.js";
 
 window.onload = () => {
-  document.querySelector(".nav-button").addEventListener("click", (e) => {
-    document.querySelector("nav").classList.toggle("is_open");
+  const mobileMenuActivator = document.querySelector(".js-mobile-menu-activator");
+  const mobileMenuDeactivator = document.querySelector(".js-mobile-menu-deactivator");
+  const mobileMenu = document.querySelector(".js-mobile-menu");
+  document.querySelector(".js-mobile-menu-button").addEventListener("click", (e) => {
+
+    mobileMenuActivator.classList.toggle("hidden");
+    mobileMenuActivator.classList.toggle("block");
+
+    mobileMenuDeactivator.classList.toggle("hidden");
+    mobileMenuDeactivator.classList.toggle("block");
+
+    mobileMenu.classList.toggle("hidden");
+    mobileMenu.classList.toggle("block");
+    console.log("click");
+
+
+
     e.preventDefault();
   });
+
 
   const input = document.querySelector("#autoComplete");
   if (input) {
