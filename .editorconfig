@@ -1,0 +1,8 @@
+# https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Make sure files have an ending newline character
+[*]
+insert_final_newline = true
