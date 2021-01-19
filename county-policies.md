@@ -11,8 +11,13 @@ We have collected the **most recent county-level information** below. Broadly, w
 
 Some counties have set up scheduling systems or have advice; please check your county below.
 
+{% assign counties_list = "" | split: "" %}
+{% for region in site.data.regions_counties %}
+  {% assign counties_list = counties_list | concat: region[1] %}
+{% endfor %}
+{% assign counties = counties_list | join: ", " %}
+
 <div class="autoComplete_wrapper">
-  {% assign counties = site.data.counties | join: ", " %}
   <input type="text" id="autoComplete" placeholder="Search by county..." class="{{ site.data.styles.input }}" autofocus data-collection="{{ counties }}" />
 </div>
 
