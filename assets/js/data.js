@@ -49,7 +49,9 @@ function getDisplayableVaccineInfo(p) {
 
   function replaceAnyLinks(body) {
     let url_regex = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
-    return body.replace(url_regex, "<a href='$1' target='_blank'>$1</a>"); 
+    if(body) {
+      return body.replace(url_regex, "<a href='$1' target='_blank'>$1</a>");
+    }
   }
 
   let hasReport = getHasReport(p);
