@@ -113,35 +113,39 @@ function addSitesToPage(sites) {
   list.innerHTML = "";
   for (const site of sites.slice(0, 50)) {
     let info = getDisplayableVaccineInfo(site);
-    let html = '<li class="shadow sm:rounded-lg px-2 lg:py-6 mt-4">'
-    html += `<h4 class="text-lg leading-6 font-medium text-gray-900">${info.name}<h4>`
+    let html = '<li class="shadow sm:rounded-lg px-2 lg:py-6 mt-4">';
+    html += `<h4 class="text-lg leading-6 font-medium text-gray-900">${info.name}<h4>`;
 
     // Some sites don't have addresses.
-    if(info.address) {
+    if (info.address) {
       html += `<p class="mt-1 max-w-2xl text-sm text-gray-500">
         ${info.address}
-      </p>`
+      </p>`;
     }
 
-    html += `<div class="border-t border-gray-200"><dl>`
+    html += `<div class="border-t border-gray-200"><dl>`;
 
     // Show whatever report we have
-    if(info.hasReport) {
-      html += '<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">'
-      html += '<dt class="text-sm font-medium text-gray-500">Details</dt>'
-      html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.status}</dd>`
+    if (info.hasReport) {
+      html +=
+        '<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">';
+      html += '<dt class="text-sm font-medium text-gray-500">Details</dt>';
+      html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.status}</dd>`;
 
       if (info.schedulingInstructions) {
-        html += '<dt class="text-sm font-medium text-gray-500">Appointment Information</dt>'
-        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.schedulingInstructions}</dd>`
+        html +=
+          '<dt class="text-sm font-medium text-gray-500">Appointment Information</dt>';
+        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.schedulingInstructions}</dd>`;
       }
       if (info.locationNotes) {
-        html += '<dt class="text-sm font-medium text-gray-500">Location notes</dt>'
-        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.locationNotes}</dd>`
+        html +=
+          '<dt class="text-sm font-medium text-gray-500">Location notes</dt>';
+        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.locationNotes}</dd>`;
       }
       if (info.reportNotes) {
-        html += '<dt class="text-sm font-medium text-gray-500">Latest info</dt>'
-        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.reportNotes}</dd>`
+        html +=
+          '<dt class="text-sm font-medium text-gray-500">Latest info</dt>';
+        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.reportNotes}</dd>`;
       }
     } else {
       html += `<p>No contact reports</p>`;
