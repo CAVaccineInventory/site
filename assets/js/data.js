@@ -65,10 +65,6 @@ function getDisplayableVaccineInfo(p) {
       return "Unknown";
     }
   }
-  let locationNotes = p["Location notes"] || null;
-  if (locationNotes == " ") {
-    locationNotes = null;
-  }
 
   return {
     status: getVaccineStatus(p),
@@ -76,7 +72,6 @@ function getDisplayableVaccineInfo(p) {
     name: p["Name"],
     schedulingInstructions: getSchedulingInstructions(p),
     address: p["Address"] || null,
-    locationNotes: replaceAnyLinks(locationNotes),
     reportNotes: getRepNotes(p),
     longitude: p["Longitude"],
     latitude: p["Latitude"],

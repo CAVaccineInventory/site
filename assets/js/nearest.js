@@ -132,9 +132,6 @@ function addSitesToPage(sites) {
       if (info.address) {
         html += `<b>Address:</b> ${info.address}<br />`;
       }
-      if (info.locationNotes) {
-        html += `<b>Location notes:</b> ${info.locationNotes} "<br />`;
-      }
       if (info.reportNotes) {
         html += `<b>Latest info:</b> ${info.reportNotes}<br />`;
       }
