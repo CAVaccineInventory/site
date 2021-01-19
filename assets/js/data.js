@@ -1,9 +1,11 @@
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
-    return p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location";
+    return (
+      p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
+    );
   } catch {
-    return false
+    return false;
   }
 }
 
@@ -12,7 +14,7 @@ function getHasReport(p) {
     if (p["Location Type"] != "Test Location") {
       return p["Has Report"];
     } else {
-      return false
+      return false;
     }
   } catch {
     return false;
