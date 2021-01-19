@@ -1,8 +1,10 @@
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 @supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 .main-content p {
@@ -13,7 +15,7 @@ a {
   color: #047857;
 }
 
-.airtable-embed{
+.airtable-embed {
   height: 85vh;
 }
 
@@ -69,6 +71,6 @@ a {
 }
 
 .mapInfo h1 {
- font-size: 2em;
- color: rgb(0, 82, 217);
+  font-size: 2em;
+  color: rgb(0, 82, 217);
 }
