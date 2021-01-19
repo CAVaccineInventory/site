@@ -28,31 +28,41 @@ function updateFilterFromUrlFragment() {
 }
 
 window.onload = () => {
-  const mobileMenuActivator = document.querySelector(".js-mobile-menu-activator");
-  const mobileMenuDeactivator = document.querySelector(".js-mobile-menu-deactivator");
+  const mobileMenuActivator = document.querySelector(
+    ".js-mobile-menu-activator"
+  );
+  const mobileMenuDeactivator = document.querySelector(
+    ".js-mobile-menu-deactivator"
+  );
   const mobileMenu = document.querySelector(".js-mobile-menu");
-  document.querySelector(".js-mobile-menu-button").addEventListener("click", (e) => {
+  document
+    .querySelector(".js-mobile-menu-button")
+    .addEventListener("click", (e) => {
+      mobileMenuActivator.classList.toggle("hidden");
+      mobileMenuActivator.classList.toggle("block");
 
-    mobileMenuActivator.classList.toggle("hidden");
-    mobileMenuActivator.classList.toggle("block");
+      mobileMenuDeactivator.classList.toggle("hidden");
+      mobileMenuDeactivator.classList.toggle("block");
 
-    mobileMenuDeactivator.classList.toggle("hidden");
-    mobileMenuDeactivator.classList.toggle("block");
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("block");
+      console.log("click");
 
-    mobileMenu.classList.toggle("hidden");
-    mobileMenu.classList.toggle("block");
-    console.log("click");
-
-
-
-    e.preventDefault();
-  });
-
+      e.preventDefault();
+    });
 
   const input = document.querySelector("#autoComplete");
   if (input) {
     const airtable = document.querySelector(".airtable-embed");
-    const countiesAutocompleteSource = input.getAttribute('data-collection').split(',').map(c => `${c.replace(/^\s*(.*\S)\s*$/, "$1")}${ c.includes('San Francisco') ? '' : ' County'}`);
+    const countiesAutocompleteSource = input
+      .getAttribute("data-collection")
+      .split(",")
+      .map(
+        (c) =>
+          `${c.replace(/^\s*(.*\S)\s*$/, "$1")}${
+            c.includes("San Francisco") ? "" : " County"
+          }`
+      );
     new autoComplete({
       data: {
         src: countiesAutocompleteSource,
