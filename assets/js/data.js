@@ -11,6 +11,8 @@ function getHasReport(p) {
   try {
     if (p["Location Type"] != "Test Location") {
       return p["Has Report"];
+    } else {
+      return false
     }
   } catch {
     return false;
