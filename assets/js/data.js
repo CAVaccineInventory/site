@@ -1,10 +1,6 @@
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
-  try {
-    return p["Availability Info"][0].startsWith("Yes");
-  } catch {
-    return false;
-  }
+  return p["Latest report yes?"] == 1 || false
 }
 
 function getHasReport(p) {
