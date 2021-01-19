@@ -21,7 +21,7 @@
 title: VaccinateCA
 email: media@vaccinateca.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Keeping track of vaccine availability, and COVID-19 news, for California.
+  Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://vaccinateca.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ca_covid
