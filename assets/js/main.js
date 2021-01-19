@@ -52,10 +52,10 @@ window.onload = () => {
   const input = document.querySelector("#autoComplete");
   if (input) {
     const airtable = document.querySelector(".airtable-embed");
-    const counties_autocomplete_source = input.getAttribute('data-collection').split(',').map(c => `${c.replace(/^\s*(.*\S)\s*$/, "$1")}${ c.includes('San Francisco') ? '' : ' County'}`);
+    const countiesAutocompleteSource = input.getAttribute('data-collection').split(',').map(c => `${c.replace(/^\s*(.*\S)\s*$/, "$1")}${ c.includes('San Francisco') ? '' : ' County'}`);
     new autoComplete({
       data: {
-        src: counties_autocomplete_source,
+        src: countiesAutocompleteSource,
       },
       selector: "#autoComplete",
       maxResults: 7,
