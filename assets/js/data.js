@@ -1,6 +1,6 @@
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
-  return p["Latest report yes?"] == 1
+  return p["Latest report yes?"] == 1;
 }
 
 function getHasReport(p) {
