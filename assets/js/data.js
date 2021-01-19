@@ -1,63 +1,66 @@
-
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
-    try {
-        return p["Availability Info"][0].startsWith("Yes")
-    } catch {
-        return false
-    }
+  try {
+    return p["Availability Info"][0].startsWith("Yes");
+  } catch {
+    return false;
+  }
 }
 
 function getHasReport(p) {
-    try {
-        return p["Has Report"]
-    } catch {
-        return false
-    }
+  try {
+    return p["Has Report"];
+  } catch {
+    return false;
+  }
 }
 
 function getCoord(p) {
-  return {latitude: p["Latitude"], longitude: p["Longitude"]}
+  return { latitude: p["Latitude"], longitude: p["Longitude"] };
 }
 
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
-      try {
-        return p["Availability Info"].map(info => info.replace("Yes: ", "").replace("No: ", "")).join(" | ")
-      } catch {
-          return null
-      }
+    try {
+      return p["Availability Info"]
+        .map((info) => info.replace("Yes: ", "").replace("No: ", ""))
+        .join(" | ");
+    } catch {
+      return null;
+    }
   }
   function getSchedulingInstructions(p) {
-      try {
-          return replaceAnyLinks(p["Appointment scheduling instructions"].join(", "));
-      } catch {
-          return null
-      }
+    try {
+      return replaceAnyLinks(
+        p["Appointment scheduling instructions"].join(", ")
+      );
+    } catch {
+      return null;
+    }
   }
   function getRepNotes(p) {
-      try {
-          let notes = replaceAnyLinks(p["Latest report notes"].join(" | "));
-          if (notes == ' ') {
-            return null
-          }
-          return notes;
-      } catch {
-          return null
+    try {
+      let notes = replaceAnyLinks(p["Latest report notes"].join(" | "));
+      if (notes == " ") {
+        return null;
       }
+      return notes;
+    } catch {
+      return null;
+    }
   }
 
   function replaceAnyLinks(body) {
     let url_regex = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
-    if(body) {
+    if (body) {
       return body.replace(url_regex, "<a href='$1' target='_blank'>$1</a>");
     }
   }
 
   let hasReport = getHasReport(p);
   function getYesNo(p) {
-    if(hasReport) {
-      return getHasVaccine(p)? "Yes" : "No";
+    if (hasReport) {
+      return getHasVaccine(p) ? "Yes" : "No";
     } else {
       return "Unknown";
     }
@@ -72,8 +75,8 @@ function getDisplayableVaccineInfo(p) {
     reportNotes: getRepNotes(p),
     longitude: p["Longitude"],
     latitude: p["Latitude"],
-    address: p["Address"]
+    address: p["Address"],
   };
 }
 
-export {getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord};
+export { getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord };
