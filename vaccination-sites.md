@@ -9,7 +9,11 @@ This is a list of all of the sites we are aware of in California which may, at s
 If we missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are working on expanding the list with additional pharmacies and other locations.
 
 <div class="autoComplete_wrapper">
-  {% assign counties = site.data.counties | join: ", " %}
+  {% assign counties_list = "" | split: "" %}
+  {% for region in site.data.regions_counties %}
+    {% assign counties_list = counties_list | concat: region[1] %}
+  {% endfor %}
+  {% assign counties = counties_list | join: ", " %}
   <input type="text" id="autoComplete" placeholder="Search by county..." class="{{ site.data.styles.input }}" autofocus data-collection="{{ counties }}"  />
 </div>
 
