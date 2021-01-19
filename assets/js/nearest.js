@@ -109,36 +109,41 @@ function addSitesToPage(sites) {
   list.innerHTML = "";
   for(const site of sites.slice(0, 50)) {
     let info = getDisplayableVaccineInfo(site);
-    let html = `<li>`
+    let html = '<li class="shadow sm:rounded-lg px-2 lg:py-6 mt-4">'
+    html += `<h4 class="text-lg leading-6 font-medium text-gray-900">${info.name}<h4>`
 
     // Some sites don't have addresses.
     if(info.address) {
-      html += `<h4>${info.name}: ${info.address}.</h4>`
-    } else {
-      html += `<h4>${info.name}</h4>`
+      html += `<p class="mt-1 max-w-2xl text-sm text-gray-500">
+        ${info.address}
+      </p>`
     }
+
+    html += `<div class="border-t border-gray-200"><dl>`
 
     // Show whatever report we have
     if(info.hasReport) {
-      html += `<p><b>Details</b>: ${info.status}<br />`;
+      html += '<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">'
+      html += '<dt class="text-sm font-medium text-gray-500">Details</dt>'
+      html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.status}</dd>`
 
       if (info.schedulingInstructions) {
-          html += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
-      }
-      if (info.address) {
-          html += `<b>Address:</b> ${info.address}<br />`;
+        html += '<dt class="text-sm font-medium text-gray-500">Appointment Information</dt>'
+        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.schedulingInstructions}</dd>`
       }
       if (info.locationNotes) {
-          html += `<b>Location notes:</b> ${info.locationNotes} "<br />`;
+        html += '<dt class="text-sm font-medium text-gray-500">Location notes</dt>'
+        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.locationNotes}</dd>`
       }
       if (info.reportNotes) {
-          html += `<b>Latest info:</b> ${info.reportNotes}<br />`;
+        html += '<dt class="text-sm font-medium text-gray-500">Latest info</dt>'
+        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.reportNotes}</dd>`
       }
     } else {
       html += `<p>No contact reports</p>`
     }
 
-    html += `</li>`;
+    html += "</dl></div></li>";
 
     list.innerHTML += html;
   }
