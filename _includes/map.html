@@ -51,7 +51,7 @@
 
             if (!info.latitude || !info.longitude) {
                 console.log(`Missing lat/lon for ${info.name}!!`);
-                return;
+                return false;
             }
 
             // Format the info card
