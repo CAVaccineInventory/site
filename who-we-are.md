@@ -5,7 +5,7 @@ permalink: /who-we-are
 add_to_nav: true
 order: 5
 ---
-We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
+We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date COVID-19 vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
 Some of us (so you know we're "real people"): <span id="people-list">
 {% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
