@@ -14,6 +14,37 @@ function loaded() {
     .addEventListener("click", submitGeoLocation);
 }
 
+function timeAgo(timestamp) {
+  const unixTime = new Date(timestamp).getTime();
+  if (!unixTime) return;
+  const now = new Date().getTime();
+  const delta = Math.abs((unixTime / 1000) - (now / 1000));
+  var timeUnitValue = 'unit_value', timeUnitName = 'unit_name';
+
+  if (delta / (60 * 60 * 24 * 365) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 365));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, 'year');
+  } else if (delta / (60 * 60 * 24 * 45) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 45));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, 'month');
+  } else if (delta / (60 * 60 * 24) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60 * 24));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, 'day');
+  } else if (delta / (60 * 60) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, 'hour');
+  } else {
+    timeUnitValue = Math.floor(delta);
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, 'second');
+  }
+
+  return `${timeUnitValue} ${timeUnitName} ago`;
+};
+
+function pluralizeTimeUnit(value, timeUnitName) {
+  return (value > 1) ? `${timeUnitName}s` : timeUnitName;
+}
+
 function submitZip(event) {
   event.preventDefault();
 
@@ -121,13 +152,16 @@ function addSitesToPage(sites) {
     } else {
       html += `<h4>${info.name}</h4>`;
     }
-
+    console.log(info);
     // Show whatever report we have
     if (info.hasReport) {
       html += `<p><b>Details</b>: ${info.status}<br />`;
 
       if (info.schedulingInstructions) {
         html += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
+      }
+      if (info.latestReport) {
+        html += `<b>Latest Report: </b> ${timeAgo(info.latestReport)} <br />`;
       }
       if (info.address) {
         html += `<b>Address:</b> ${info.address}<br />`;
