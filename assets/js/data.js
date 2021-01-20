@@ -1,3 +1,17 @@
+// Calls the JSON feed to pull down sites data
+async function fetchSites() {
+  const siteURL =
+    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json";
+  let response = await fetch(siteURL);
+
+  if (!response.ok) {
+    alert("sites BORK");
+    return;
+  }
+  return response.json();
+}
+
+
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
@@ -85,4 +99,4 @@ function getDisplayableVaccineInfo(p) {
   };
 }
 
-export { getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord };
+export { fetchSites, getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord };
