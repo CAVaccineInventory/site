@@ -152,7 +152,6 @@ function addSitesToPage(sites) {
     } else {
       html += `<h4>${info.name}</h4>`;
     }
-    console.log(info);
     // Show whatever report we have
     if (info.hasReport) {
       html += `<p><b>Details</b>: ${info.status}<br />`;
