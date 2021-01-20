@@ -72,7 +72,7 @@ function getDisplayableVaccineInfo(p) {
     longitude: p["Longitude"],
     latitude: p["Latitude"],
     address: p["Address"],
-    latestReport: p["Latest report"]
+    latestReport: p["Latest report"],
   };
 }
 
