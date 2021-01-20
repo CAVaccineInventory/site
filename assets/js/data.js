@@ -5,7 +5,7 @@ async function fetchSites() {
   let response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert("sites BORK");
+    alert("Could not retrieve the vaccination site data.");
     return;
   }
   return response.json();
