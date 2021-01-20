@@ -87,16 +87,14 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
-        button.value = defaultValue;
         await fetchFilterAndSortSites(coordinates);
         onFinish();
         resolve();
       },
       function onError(e) {
         console.error(e);
-        alert(
-          "Failed to detect your location. Please try again or enter your zip code"
-        );
+        console.log(e.code, e.message);
+        alert(e.message);
         onFinish();
         resolve();
       },
