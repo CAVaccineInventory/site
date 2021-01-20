@@ -1,36 +1,87 @@
 ---
 layout: default
+title: Search Near Me
 ---
+
 <script type="module" src="assets/js/nearest.js"></script>
 
-<form action="#" class="flex flex-wrap relative items-center">
+<form action="#" class="flex flex-wrap relative flex-col md:flex-row md:items-center">
   <div class="relative">
-    <select id="filter" class="w-full appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+    <select
+      id="filter"
+      class="w-full appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+    >
       <option value="reports">Sites with contact reports</option>
-      <option selected="selected" value="stocked">Sites with reported doses</option>
+      <option selected="selected" value="stocked">
+        Sites with reported doses
+      </option>
       <option value="any">All known vaccination sites</option>
     </select>
-    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+    >
+      <svg
+        class="fill-current h-4 w-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+        />
+      </svg>
     </div>
   </div>
-  <span class="mx-3">
-    near
-  </span>
-  <!-- Hard code 90210 for now for ease of testing -->
-  <label for="zip" class="sr-only">Zip Code</label>
-  <input type="text" id="zip" pattern="[0-9]{5}" title="zip Code" placeholder="90210" value="90210"
-        class="w-1/6 px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:border-indigo-500" />
-  <button type="submit" class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700" id="submit">
-    Look up via ZIP
-  </button>
-  <span class="">
-    or
-  </span>
-  <button type="submit" class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700" id="use-geolocation">
-    Near me
-  </button>
+  <div class="pt-4 md:pt-0">
+    <span class="mr-3 md:mx-3">near</span>
+    <!-- Hard code 90210 for now for ease of testing -->
+    <label for="zip" class="sr-only">Zip Code</label>
+    <input
+      type="text"
+      id="zip"
+      pattern="[0-9]{5}"
+      placeholder="Type zip code"
+      class="w-36 px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:border-indigo-500"
+    />
+    <button
+      type="submit"
+      class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+      id="submit_zip"
+    >
+      Search Zip 
+    </button>
+  </div>
+  <div id="geolocation_wrapper" class="hidden pt-4 md:pt-0">
+    <span class=""> or </span>
+    <button
+      type="submit"
+      class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+      id="submit_geolocation"
+    >
+      Locate My Position
+    </button>
+  </div>
 </form>
 
-<ol id="sites">
-</ol>
+<ol id="sites"></ol>
+<div id="loading" class="mt-4 hidden">Loading...</div>
+
+<template id="site_location_template">
+  <li class="shadow sm:rounded-lg px-3 lg:py-6 mt-4 py-4">
+    <h4 class="site_title text-lg leading-6 font-medium text-gray-900 mb-2"></h4>
+    <div class="site_address mb-2 max-w-2xl text-sm text-gray-500"></div>
+    <div class="site_report_wrapper border-t border-gray-200">
+      <div
+        class="site_report bg-gray-50 px-2 md:px-4 pt-2 pb-4 md:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+      >
+      </div>
+      <div class="site_no_report mt-3">No contact reports</div>
+    </div>
+  </li>
+</template>
+
+<template id="report_detail_template">
+  <dt class="detail_title mt-2 md:mt-0 text-sm font-medium text-gray-500"></dt>
+  <dd class="detail_content md:mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"></dd>
+</template>
+
+</template>

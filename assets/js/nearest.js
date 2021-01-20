@@ -9,34 +9,78 @@ import {
 window.addEventListener("load", loaded);
 
 function loaded() {
-  document.querySelector("#submit").addEventListener("click", submitZip);
   document
-    .querySelector("#use-geolocation")
-    .addEventListener("click", submitGeoLocation);
-}
+    .getElementById("submit_zip")
+    .addEventListener("click", (e) => handleSearch(e, "zip"));
 
-function submitZip(event) {
-  event.preventDefault();
-
-  const zip = document.querySelector("#zip").value;
-  if (zip.length < 5 || zip.length > 5) {
-    alert("5 digit zip please");
-  } else {
-    lookup(zip);
+  if (navigator.geolocation) {
+    document.getElementById("geolocation_wrapper").classList.remove("hidden");
+    document
+      .getElementById("submit_geolocation")
+      .addEventListener("click", (e) => handleSearch(e, "geolocation"));
   }
 }
 
-function submitGeoLocation(event) {
-  event.preventDefault();
-  const button = document.querySelector("#use-geolocation");
-  const defaultValue = button.value;
+function toggleLoading(shouldShow) {
+  const elem = document.getElementById("loading");
+  if (shouldShow) {
+    elem.classList.remove("hidden");
+  } else {
+    elem.classList.add("hidden");
+  }
+}
 
-  if (!navigator.geolocation) {
-    button.value = "Your browser does not support geolocation";
-    button.disabled = true;
+async function handleSearch(event, type) {
+  event.preventDefault();
+  toggleLoading(true);
+  const list = document.getElementById("sites");
+  list.innerHTML = "";
+  switch (type) {
+    case "zip":
+      await submitZip();
+      break;
+    case "geolocation":
+      await submitGeoLocation();
+      break;
+    default:
+      toggleLoading(false);
+      throw new Error("Search type is invalid");
+  }
+  toggleLoading(false);
+}
+
+async function submitZip() {
+  const zip = document.getElementById("zip").value;
+  if (zip.length < 5 || zip.length > 5) {
+    alert("5 digit zip please");
+  } else {
+    const button = document.getElementById("submit_zip");
+    toggleSubmitButtonState(button, false);
+    await lookup(zip);
+    toggleSubmitButtonState(button, true);
+  }
+}
+
+function toggleSubmitButtonState(button, isEnabled) {
+  if (isEnabled) {
+    button.disabled = false;
+    button.classList.remove("cursor-wait");
   } else {
     button.disabled = true;
-    button.value = "Locating...";
+    button.classList.add("cursor-wait");
+  }
+}
+
+async function submitGeoLocation() {
+  const button = document.getElementById("submit_geolocation");
+  toggleSubmitButtonState(button, false);
+  button.value = "Locating...";
+
+  const onFinish = () => {
+    toggleSubmitButtonState(button, true);
+  };
+
+  return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       async function onSuccess(position) {
         const coordinates = {
@@ -44,14 +88,24 @@ function submitGeoLocation(event) {
           longitude: position.coords.longitude,
         };
         button.value = defaultValue;
-        button.disabled = false;
         await fetchFilterAndSortSites(coordinates);
+        onFinish();
+        resolve();
       },
-      function onError() {
-        button.value = "Could not fetch geolocation";
+      function onError(e) {
+        console.error(e);
+        alert(
+          "Failed to detect your location. Please try again or enter your zip code"
+        );
+        onFinish();
+        resolve();
+      },
+      {
+        maximumAge: 1000 * 60 * 5, // 5 minutes
+        timeout: 1000 * 15, // 15 seconds
       }
     );
-  }
+  });
 }
 
 async function lookup(zip) {
@@ -60,7 +114,7 @@ async function lookup(zip) {
   let response = await fetch(geocodeURL);
 
   if (!response.ok) {
-    alert("AHHHH");
+    alert("Failed to locate your zip code, please try again");
     return;
   }
 
@@ -101,52 +155,59 @@ async function fetchFilterAndSortSites(userCoord) {
   addSitesToPage(sites);
 }
 
+function createDetailRow(reportElem, title, content) {
+  const elem = document
+    .getElementById("report_detail_template")
+    .content.cloneNode(true);
+  elem.querySelector(".detail_title").textContent = title;
+  elem.querySelector(".detail_content").innerHTML = content;
+  reportElem.appendChild(elem);
+}
+
 function addSitesToPage(sites) {
-  const list = document.querySelector("#sites");
-  list.innerHTML = "";
+  const list = document.getElementById("sites");
+  const site_template = document.getElementById("site_location_template")
+    .content;
+
   for (const site of sites.slice(0, 50)) {
     let info = getDisplayableVaccineInfo(site);
-    let html = '<li class="shadow sm:rounded-lg px-2 lg:py-6 mt-4">';
-    html += `<h4 class="text-lg leading-6 font-medium text-gray-900">${info.name}<h4>`;
+    const siteRootElem = site_template.cloneNode(true);
+    siteRootElem.querySelector(".site_title").textContent = info.name;
 
     // Some sites don't have addresses.
+    const addressElem = siteRootElem.querySelector(".site_address");
     if (info.address) {
-      html += `<p class="mt-1 max-w-2xl text-sm text-gray-500">
-        ${info.address}
-      </p>`;
+      addressElem.textContent = info.address;
+    } else {
+      addressElem.remove();
     }
 
-    html += `<div class="border-t border-gray-200"><dl>`;
+    const reportElem = siteRootElem.querySelector(".site_report");
+    const noReportElem = siteRootElem.querySelector(".site_no_report");
 
     // Show whatever report we have
     if (info.hasReport) {
-      html +=
-        '<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">';
-      html += '<dt class="text-sm font-medium text-gray-500">Details</dt>';
-      html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.status}</dd>`;
+      noReportElem.remove();
+      createDetailRow(reportElem, "Details", info.status);
 
       if (info.schedulingInstructions) {
-        html +=
-          '<dt class="text-sm font-medium text-gray-500">Appointment Information</dt>';
-        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.schedulingInstructions}</dd>`;
+        createDetailRow(
+          reportElem,
+          "Appointment Information",
+          info.schedulingInstructions
+        );
       }
       if (info.locationNotes) {
-        html +=
-          '<dt class="text-sm font-medium text-gray-500">Location notes</dt>';
-        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.locationNotes}</dd>`;
+        createDetailRow(reportElem, "Location notes", info.locationNotes);
       }
       if (info.reportNotes) {
-        html +=
-          '<dt class="text-sm font-medium text-gray-500">Latest info</dt>';
-        html += `<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${info.reportNotes}</dd>`;
+        createDetailRow(reportElem, "Latest info", info.reportNotes);
       }
     } else {
-      html += `<p>No contact reports</p>`;
+      reportElem.remove();
     }
 
-    html += "</dl></div></li>";
-
-    list.innerHTML += html;
+    list.appendChild(siteRootElem);
   }
 }
 
