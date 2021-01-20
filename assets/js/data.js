@@ -1,11 +1,34 @@
+// Calls the JSON feed to pull down sites data
+async function fetchSites() {
+  const siteURL =
+    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json";
+  let response = await fetch(siteURL);
+
+  if (!response.ok) {
+    alert("sites BORK");
+    return;
+  }
+  return response.json();
+}
+
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
-  return p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location";
+  try {
+    return (
+      p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
+    );
+  } catch {
+    return false;
+  }
 }
 
 function getHasReport(p) {
   try {
-    return p["Has Report"];
+    if (p["Location Type"] != "Test Location") {
+      return p["Has Report"];
+    } else {
+      return false;
+    }
   } catch {
     return false;
   }
@@ -75,4 +98,10 @@ function getDisplayableVaccineInfo(p) {
   };
 }
 
-export { getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord };
+export {
+  fetchSites,
+  getHasVaccine,
+  getDisplayableVaccineInfo,
+  getHasReport,
+  getCoord,
+};

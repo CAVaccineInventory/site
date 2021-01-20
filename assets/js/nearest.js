@@ -1,4 +1,5 @@
 import {
+  fetchSites,
   getDisplayableVaccineInfo,
   getHasVaccine,
   getHasReport,
@@ -76,15 +77,7 @@ async function lookup(zip) {
 }
 
 async function fetchFilterAndSortSites(userCoord) {
-  const siteURL =
-    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json";
-  let response = await fetch(siteURL);
-
-  if (!response.ok) {
-    alert("sites BORK");
-    return;
-  }
-  let sites = await response.json();
+  let sites = await fetchSites();
 
   const filter = document.querySelector("#filter").value;
 
