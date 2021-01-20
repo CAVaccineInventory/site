@@ -12,8 +12,9 @@ of approximately ten people and approximately 100 volunteers calling to find out
 about vaccine availability.
 
 Some of us (so you know we're "real people"): <span id="people-list">
-{% for coordinator in site.data.coordinators %}
-[{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %} </span>.
+{% for coordinator in site.data.coordinators %}\
+[{{ coordinator[0] }}]({{ coordinator[1] }})\
+{% endfor %} </span>.
 
 <h2 class="text-2xl font-bold leading-tight text-gray-900">
 Frequently Asked Questions (FAQ)
