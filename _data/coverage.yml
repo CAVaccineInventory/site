@@ -1,11 +1,20 @@
-- title: Vox
-  image: vox.png
-  text: How Californians are resorting to crowdsourcing to get their Covid-19 vaccine
-  url: https://www.vox.com/future-perfect/2021/1/15/22231241/california-coronavirus-vaccine-availability-moderna-pfizer
-  quote: "In the last two days, an effort has sprung up to report on where shots are available to the elderly. Volunteers have set up a spreadsheet with a simple premise: One person can call each location every day and ask if vaccines are available, and then publish the information for everyone to see... And the site has already been used to get some people vaccinated."
 - title: NBC
   image: nbc.png
   text: New Website Lists Locations of COVID-19 Vaccination Sites, Tracks Availability of Doses
   url: https://www.nbcbayarea.com/news/local/new-website-lists-locations-of-covid-19-vaccination-sites-tracks-availability-of-doses/2447672/
   quote: "[VaccinateCA] is trying to make things simple: list every local place you can get a vaccine shot, how to reach them, and if any shots are still available."
-
+- title: Los Angeles Times
+  image: latimes.png
+  text: "Essential California: Crowdsourcing how to get the COVID-19 vaccine"
+  url: https://www.latimes.com/california/newsletter/2021-01-19/coronavirus-vaccine-covid-website-how-to-find-appointments-county-seniors-essential-california
+  quote: "[VaccinateCA] appears to be the closest thing California currently has to a centralized database ... where people 65 and older can find out where vaccines are actually available, and how to make appointments."
+- title: San Francisco Chronicle
+  image: sfchronicle.png
+  text: This crowdsourced website tracks where you can get vaccinated in California
+  url: https://www.sfchronicle.com/bayarea/article/This-crowdsourced-website-tracks-where-you-can-15882787.php
+  quote: "[M]ore than 200 volunteers for VaccinateCA have been calling hospitals, pharmacies and other medical centers to compile information about each California county’s vaccination availability. [VaccinateCA] appears to be the most complete resource currently available to eligible Californians..."
+- title: Vox
+  image: vox.png
+  text: How Californians are resorting to crowdsourcing to get their Covid-19 vaccine
+  url: https://www.vox.com/future-perfect/2021/1/15/22231241/california-coronavirus-vaccine-availability-moderna-pfizer
+  quote: "In the last two days, an effort has sprung up to report on where shots are available to the elderly. Volunteers have set up a spreadsheet with a simple premise: One person can call each location every day and ask if vaccines are available, and then publish the information for everyone to see... And the site has already been used to get some people vaccinated."
