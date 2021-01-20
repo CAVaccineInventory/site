@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: " en" }}">
-
+{% if page.title == "All of California" %}
+  {% assign is_all_regions_page = true %}
+{% else %}
+  {% assign is_all_regions_page = false %}
+{% endif %}
 {% include head.html %}
 
 <body>
-
   <div>
     {% include header.html %}
     
     <main class="mx-auto">
       <div class="md:pb-6">
         <div class="main-content px-4 py-6 md:px-8">
+          {% unless is_all_regions_page %}
           <div class="bg-white">
             <div class="lg:text-center">
               <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
@@ -19,13 +23,20 @@
                   {{ county }}
                 {% endfor %}
               </p>
-            
             </div>
           </div>
-
-          <div class="border-t-2 border-gray-200 pt-6 mt-6">
+          {% else %}
+          {% assign counties_list = "" | split: "" %}
+            {% for region in site.data.regions_counties %}
+              {% assign counties_list = counties_list | concat: region[1] %}
+            {% endfor %}
+            {% assign counties = counties_list | join: ", " %}
+          {% endunless %}
+          <div class="{% unless is_all_regions_page %}border-t-2 {% endunless %}border-gray-200 pt-6 mt-6">
             <p class="text-xl">
-              Here is a list of all locations we have contacted in your region. You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
+              Here is a list of all locations we have contacted
+              {% unless is_all_regions_page %}in your region{% endunless %}.
+              You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
             </p>
 
             <div class="text-sm mb-6">
