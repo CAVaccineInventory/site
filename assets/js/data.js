@@ -11,7 +11,6 @@ async function fetchSites() {
   return response.json();
 }
 
-
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
@@ -99,4 +98,10 @@ function getDisplayableVaccineInfo(p) {
   };
 }
 
-export { fetchSites, getHasVaccine, getDisplayableVaccineInfo, getHasReport, getCoord };
+export {
+  fetchSites,
+  getHasVaccine,
+  getDisplayableVaccineInfo,
+  getHasReport,
+  getCoord,
+};
