@@ -35,7 +35,7 @@ plugins:
   - jekyll-seo-tag
 
 ## Social media stuff supported by jekyll-seo-tag
-tagline: Vaccine Availability in California
+tagline: COVID-19 Vaccine Availability in California
 twitter:
   card: summary_large_image
   username: ca_covid
