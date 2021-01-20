@@ -94,7 +94,10 @@ async function submitGeoLocation() {
       function onError(e) {
         console.error(e);
         console.log(e.code, e.message);
-        alert(e.message);
+        alert(
+          e.message ||
+            "Failed to detect your location. Please try again or enter your zip code"
+        );
         onFinish();
         resolve();
       },
