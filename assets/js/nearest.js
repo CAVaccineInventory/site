@@ -138,7 +138,6 @@ async function lookup(zip) {
 
 async function fetchFilterAndSortSites(userCoord) {
   let sites = await fetchSites();
-
   const filter = document.querySelector("#filter").value;
 
   if (filter == "reports") {
@@ -183,7 +182,13 @@ function addSitesToPage(sites) {
     // Some sites don't have addresses.
     const addressElem = siteRootElem.querySelector(".site_address");
     if (info.address) {
-      addressElem.textContent = info.address;
+      const linkElem = addressElem.querySelector("a");
+      if (linkElem) {
+        linkElem.textContent = info.address;
+        linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+          info.address
+        )}`;
+      }
     } else {
       addressElem.remove();
     }
