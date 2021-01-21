@@ -14,9 +14,9 @@
           <div class="bg-white">
             <div class="lg:text-center">
               <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
-                {% assign counties = site.data.regions_counties[page.title] | join: ", " %}
+                {% assign counties = site.counties | where:"region", page.title %}
                 {% for county in counties %}
-                  {{ county }}
+                  <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
               </p>
             

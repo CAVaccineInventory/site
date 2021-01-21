@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+
+{% include head.html %}
+
+<body>
+
+  <script type="module" src="/assets/js/county-page.js"></script>
+  <p id="county_name" class="hidden">{{ page.title }}</a>
+
+  {% include site_template.html %}
+
+  <div>
+    {% include header.html %}
+    
+    <main class="mx-auto">
+      <div class="md:pb-6">
+        <div class="main-content px-4 md:px-8">
+          <div class="pt-6 mt-6">
+            <p class="text-xl">
+              These are all the locations we've contacted in {{ page.title }} county.  We also have a page listing <a href="{% link county-policies.md %}">official county vaccination policies and resources</a>.
+            </p>
+
+            {% include disclaimer.html %}
+
+            <div class="border-2 border-green-600 rounded mb-5">
+              <h3 class="text-lg font-medium text-green-800">Sites with the vaccine</h3>
+
+              <ol id="sitesWithVaccine"></ol>
+              <div id="loading" class="mt-4 hidden">Loading...</div>  
+            </div>
+            
+            <div class="border border-red-200 p-3">
+              <h3 class="text-red-600">Sites that do not have the vaccine</h3>
+
+              <ol id="sitesWithoutVaccine"></ol>
+              <div id="loading" class="mt-4 hidden">Loading...</div>
+            </div>
+
+            <div class="text-sm my-6">
+              Please
+              <a href="https://airtable.com/shrOMv5EI1jYwV1XR" class="font-medium">let us know if you have found this site useful</a>
+              or if you want to
+              <a href="https://airtable.com/shrY44NvEjHBscrOH" class="font-medium text-yellow-600">report incorrect contact information or a missing location</a>.
+            </div>
+          </div>
+
+          {% include footer.html %}
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
