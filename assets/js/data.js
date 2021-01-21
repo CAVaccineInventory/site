@@ -38,11 +38,23 @@ function getCoord(p) {
   return { latitude: p["Latitude"], longitude: p["Longitude"] };
 }
 
+function getCounty(p) {
+  return p["County"];
+}
+
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     try {
       return p["Availability Info"]
-        .map((info) => info.replace("Yes: ", "").replace("No: ", ""))
+        .map((info) =>
+          info
+            .replace("Yes: ", "")
+            .replace("No: ", "")
+            .replace(
+              "Skip: call back later",
+              "Could not reach human, calling back later"
+            )
+        )
         .join(" | ");
     } catch {
       return null;
@@ -86,9 +98,7 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function isSuperSite(p) {
-    return (
-      p["Location Type"] === "Super Site" || p["Location Type"] === "Megasite"
-    );
+    return p["Location Type"] === "Super Site";
   }
 
   return {
@@ -101,8 +111,42 @@ function getDisplayableVaccineInfo(p) {
     longitude: p["Longitude"],
     latitude: p["Latitude"],
     address: p["Address"],
+    county: p["County"],
     isSuperSite: isSuperSite(p),
+    latestReportDate: p["Latest report"],
   };
+}
+
+function getTimeDiffFromNow(timestamp) {
+  const unixTime = new Date(timestamp).getTime();
+  if (!unixTime) return;
+  const now = new Date().getTime();
+  const delta = Math.abs(unixTime / 1000 - now / 1000);
+  var timeUnitValue = "unit_value",
+    timeUnitName = "unit_name";
+
+  if (delta / (60 * 60 * 24 * 365) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 365));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "year");
+  } else if (delta / (60 * 60 * 24 * 45) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 45));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "month");
+  } else if (delta / (60 * 60 * 24) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60 * 24));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "day");
+  } else if (delta / (60 * 60) > 1) {
+    timeUnitValue = Math.floor(delta / (60 * 60));
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "hour");
+  } else {
+    timeUnitValue = Math.floor(delta);
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "second");
+  }
+
+  return `${timeUnitValue} ${timeUnitName} ago`;
+}
+
+function pluralizeTimeUnit(value, timeUnitName) {
+  return value > 1 ? `${timeUnitName}s` : timeUnitName;
 }
 
 export {
@@ -111,4 +155,6 @@ export {
   getDisplayableVaccineInfo,
   getHasReport,
   getCoord,
+  getCounty,
+  getTimeDiffFromNow,
 };

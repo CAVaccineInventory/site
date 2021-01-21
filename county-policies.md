@@ -3,7 +3,7 @@ layout: default
 title: County Policies
 permalink: /county-policies
 add_to_nav: true
-order: 2
+order: 3
 ---
 The state of California has a vaccine strategy, but has delegated prioritization and administration to each county. Decisions as to which patients to vaccinate and in what fashion are ultimately up to medical providers.
 

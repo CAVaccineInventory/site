@@ -13,3 +13,6 @@ Use Issues in this repository for task-tracking.
   - You'll see [Liquid](https://shopify.github.io/liquid/) templating used a lot.
   - Jeykll starts on [localhost:4000](http://localhost:4000/) by default.
     - You will need to restart the Jekyll process when the config file changes; that is the only time you need to restart it _most_ of the time. (Other occasions include adding collections, etc, which you'll be doing extremely infrequently.)
+
+## Running the linter
+The linter - [Prettier](https://prettier.io/) - runs on every PR automatically. If you'd like to run it locally, run `npm install` once to set up npm and then `npm run lint:fix` to run the linter. 
