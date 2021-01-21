@@ -38,6 +38,10 @@ function getCoord(p) {
   return { latitude: p["Latitude"], longitude: p["Longitude"] };
 }
 
+function getCounty(p) {
+  return p["County"];
+}
+
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     try {
@@ -151,5 +155,6 @@ export {
   getDisplayableVaccineInfo,
   getHasReport,
   getCoord,
+  getCounty,
   getTimeDiffFromNow,
 };

@@ -1,11 +1,6 @@
-import {
-  fetchSites,
-  getDisplayableVaccineInfo,
-  getHasVaccine,
-  getHasReport,
-  getCoord,
-  getTimeDiffFromNow,
-} from "./data.js";
+import { fetchSites, getHasVaccine, getHasReport, getCoord } from "./data.js";
+
+import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", loaded);
 
@@ -158,82 +153,7 @@ async function fetchFilterAndSortSites(userCoord) {
   }
 
   sites.sort((a, b) => a.distance - b.distance);
-  addSitesToPage(sites);
-}
-
-function createDetailRow(reportElem, title, content) {
-  const elem = document
-    .getElementById("report_detail_template")
-    .content.cloneNode(true);
-  elem.querySelector(".detail_title").textContent = title;
-  elem.querySelector(".detail_content").innerHTML = content;
-  reportElem.appendChild(elem);
-}
-
-function addSitesToPage(sites) {
-  const list = document.getElementById("sites");
-  const site_template = document.getElementById("site_location_template")
-    .content;
-
-  for (const site of sites.slice(0, 50)) {
-    let info = getDisplayableVaccineInfo(site);
-    const siteRootElem = site_template.cloneNode(true);
-    siteRootElem.querySelector(".site_title").textContent = info.name;
-
-    // Some sites don't have addresses.
-    const addressElem = siteRootElem.querySelector(".site_address");
-    if (info.address || info.county) {
-      const linkElem = addressElem.querySelector("a");
-      if (linkElem) {
-        const address = [info.county, info.address].filter(Boolean).join(" - ");
-        linkElem.textContent = address;
-        linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-          info.address || info.county
-        )}`;
-      }
-    } else {
-      addressElem.remove();
-    }
-
-    const reportElem = siteRootElem.querySelector(".site_report");
-    const noReportElem = siteRootElem.querySelector(".site_no_report");
-
-    // Show whatever report we have
-    if (info.hasReport) {
-      noReportElem.remove();
-
-      createDetailRow(reportElem, "Details", info.status);
-
-      if (info.schedulingInstructions) {
-        createDetailRow(
-          reportElem,
-          "Appointment Information",
-          info.schedulingInstructions
-        );
-      }
-      if (info.locationNotes) {
-        createDetailRow(reportElem, "Location notes", info.locationNotes);
-      }
-      if (info.reportNotes) {
-        createDetailRow(reportElem, "Latest info", info.reportNotes);
-      }
-      if (info.latestReportDate) {
-        const latestReportElem = siteRootElem.querySelector(
-          ".site_last_report_date"
-        );
-        try {
-          const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElem.textContent = `Latest report: ${timeDiff}`;
-        } catch (e) {
-          console.error(e);
-        }
-      }
-    } else {
-      reportElem.remove();
-    }
-
-    list.appendChild(siteRootElem);
-  }
+  addSitesToPage(sites, "sites");
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
