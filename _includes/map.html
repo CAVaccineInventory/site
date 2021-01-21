@@ -96,6 +96,9 @@
             const bluePin = '/assets/img/blue-pin.png';
             if (shouldUseSpecialPin(info)) {
                 markerConfig['icon'] = bluePin;
+                markerConfig['zIndex'] = 20;
+            } else {
+                markerConfig['zIndex'] = 10;
             }
             let marker = new google.maps.Marker(markerConfig);
             let infowindow = new google.maps.InfoWindow({ content: `<div class="mapInfo">${infoText}</div>` });
