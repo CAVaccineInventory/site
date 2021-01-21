@@ -66,6 +66,4 @@ function addSitesToPage(sites, container) {
   }
 }
 
-export {
-  addSitesToPage,
-};
+export { addSitesToPage };

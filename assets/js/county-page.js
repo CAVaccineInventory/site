@@ -1,12 +1,6 @@
-import {
-  fetchSites,
-  getHasVaccine,
-  getCounty,
-} from "./data.js";
+import { fetchSites, getHasVaccine, getCounty } from "./data.js";
 
-import {
-  addSitesToPage,
-} from "./sites.js";
+import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", fetchCountySites);
 
