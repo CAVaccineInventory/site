@@ -42,7 +42,15 @@ function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     try {
       return p["Availability Info"]
-        .map((info) => info.replace("Yes: ", "").replace("No: ", ""))
+        .map((info) =>
+          info
+            .replace("Yes: ", "")
+            .replace("No: ", "")
+            .replace(
+              "Skip: call back later",
+              "Could not reach human, calling back later"
+            )
+        )
         .join(" | ");
     } catch {
       return null;
