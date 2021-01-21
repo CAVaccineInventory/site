@@ -18,8 +18,10 @@
         <div class="main-content px-4 md:px-8">
           <div class="pt-6 mt-6">
             <p class="text-xl">
-              Here is a list of all locations we have contacted in your county. You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
+              These are all the locations we've contacted in {{ page.title }} county.  We also have a page listing <a href="{% link county-policies.md %}">official county vaccination policies and resources</a>.
             </p>
+
+            {% include disclaimer.html %}
 
             <div class="text-sm mb-6">
               Please
