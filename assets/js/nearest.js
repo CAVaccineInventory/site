@@ -1,12 +1,15 @@
 import {
   fetchSites,
-  getDisplayableVaccineInfo,
   getHasVaccine,
   getHasReport,
   getCoord,
 } from "./data.js";
 
-window.addEventListener("load", loaded);
+import {
+  addSitesToPage,
+} from "./sites.js";
+
+
 
 function loaded() {
   document.getElementById("submit_zip").addEventListener("submit", (e) => {
@@ -101,7 +104,7 @@ async function submitGeoLocation() {
         console.log(e.code, e.message);
         alert(
           e.message ||
-            "Failed to detect your location. Please try again or enter your zip code"
+          "Failed to detect your location. Please try again or enter your zip code"
         );
         onFinish();
         resolve();
@@ -157,73 +160,7 @@ async function fetchFilterAndSortSites(userCoord) {
   }
 
   sites.sort((a, b) => a.distance - b.distance);
-  addSitesToPage(sites);
-}
-
-function createDetailRow(reportElem, title, content) {
-  const elem = document
-    .getElementById("report_detail_template")
-    .content.cloneNode(true);
-  elem.querySelector(".detail_title").textContent = title;
-  elem.querySelector(".detail_content").innerHTML = content;
-  reportElem.appendChild(elem);
-}
-
-function addSitesToPage(sites) {
-  const list = document.getElementById("sites");
-  const site_template = document.getElementById("site_location_template")
-    .content;
-
-  for (const site of sites.slice(0, 50)) {
-    let info = getDisplayableVaccineInfo(site);
-    const siteRootElem = site_template.cloneNode(true);
-    siteRootElem.querySelector(".site_title").textContent = info.name;
-
-    // Some sites don't have addresses.
-    const addressElem = siteRootElem.querySelector(".site_address");
-    if (info.address) {
-      const linkElem = addressElem.querySelector("a");
-      if (linkElem) {
-        linkElem.textContent = info.address;
-        linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-          info.address
-        )}`;
-      }
-    } else {
-      addressElem.remove();
-    }
-
-    const reportElem = siteRootElem.querySelector(".site_report");
-    const noReportElem = siteRootElem.querySelector(".site_no_report");
-
-    // Show whatever report we have
-    if (info.hasReport) {
-      noReportElem.remove();
-
-      if (info.county) {
-        createDetailRow(reportElem, "County", info.county);
-      }
-      createDetailRow(reportElem, "Details", info.status);
-
-      if (info.schedulingInstructions) {
-        createDetailRow(
-          reportElem,
-          "Appointment Information",
-          info.schedulingInstructions
-        );
-      }
-      if (info.locationNotes) {
-        createDetailRow(reportElem, "Location notes", info.locationNotes);
-      }
-      if (info.reportNotes) {
-        createDetailRow(reportElem, "Latest info", info.reportNotes);
-      }
-    } else {
-      reportElem.remove();
-    }
-
-    list.appendChild(siteRootElem);
-  }
+  addSitesToPage(sites, "sites");
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
@@ -235,7 +172,7 @@ function distanceBetweenCoordinates(coord1, coord2) {
     (Math.cos(coord1.latitude * p) *
       Math.cos(coord2.latitude * p) *
       (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
-      2;
+    2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
 }
