@@ -13,14 +13,16 @@
 
 /* Add underlines to links... */
 a {
-  color: #047857;
+  color: #0366d6;
   text-decoration: underline;
 }
 
 /* ... but exempt a bunch of things. */
 nav a,
-a[class^='bg-'], a[class*=' bg-'],
-a[class^='border-'], a[class*=' border-'],
+a[class^='bg-'],
+a[class*=' bg-'],
+a[class^='border-'],
+a[class*=' border-'],
 a.no-underline {
   text-decoration: none;
 }
