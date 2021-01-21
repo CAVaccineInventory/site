@@ -65,7 +65,13 @@
             }
 
             // Format the info card
-            let infoText = `<h1>${info.name}</h1> <b>Details: </b> ${info.status}<br/>`;
+            let infoText = `<h1>${info.name}</h1>`;
+
+            if (info.isSuperSite) {
+                infoText += "<b>Super Site</b> <br />";
+            }
+
+            infoText += `<b>Details: </b> ${info.status}<br/>`;
 
             if (info.schedulingInstructions) {
                 infoText += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
