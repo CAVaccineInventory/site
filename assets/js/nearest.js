@@ -4,6 +4,7 @@ import {
   getHasVaccine,
   getHasReport,
   getCoord,
+  daysDiffFromNow,
 } from "./data.js";
 
 window.addEventListener("load", loaded);
@@ -181,12 +182,13 @@ function addSitesToPage(sites) {
 
     // Some sites don't have addresses.
     const addressElem = siteRootElem.querySelector(".site_address");
-    if (info.address) {
+    if (info.address || info.county) {
       const linkElem = addressElem.querySelector("a");
       if (linkElem) {
-        linkElem.textContent = info.address;
+        const address = [info.county, info.address].filter(Boolean).join(" - ");
+        linkElem.textContent = address;
         linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-          info.address
+          info.address || info.county
         )}`;
       }
     } else {
@@ -200,9 +202,6 @@ function addSitesToPage(sites) {
     if (info.hasReport) {
       noReportElem.remove();
 
-      if (info.county) {
-        createDetailRow(reportElem, "County", info.county);
-      }
       createDetailRow(reportElem, "Details", info.status);
 
       if (info.schedulingInstructions) {
@@ -217,6 +216,18 @@ function addSitesToPage(sites) {
       }
       if (info.reportNotes) {
         createDetailRow(reportElem, "Latest info", info.reportNotes);
+      }
+      if (info.latestReportDate) {
+        try {
+          const roundDiffDays = daysDiffFromNow(info.latestReportDate, 1);
+          createDetailRow(
+            reportElem,
+            "Latest report",
+            `${roundDiffDays} days ago`
+          );
+        } catch (e) {
+          console.error(e);
+        }
       }
     } else {
       reportElem.remove();

@@ -97,6 +97,7 @@ function getDisplayableVaccineInfo(p) {
     return p["Location Type"] === "Super Site";
   }
 
+  console.log(p);
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -109,7 +110,17 @@ function getDisplayableVaccineInfo(p) {
     address: p["Address"],
     county: p["County"],
     isSuperSite: isSuperSite(p),
+    latestReportDate: p["Latest report"],
   };
+}
+
+function daysDiffFromNow(date, decimalPlaces) {
+  const diffTime = Math.abs(new Date() - new Date(date));
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+  const resolution = 10 ** decimalPlaces;
+  const roundDiffDays =
+    Math.round((diffDays + Number.EPSILON) * resolution) / resolution;
+  return roundDiffDays;
 }
 
 export {
@@ -118,4 +129,5 @@ export {
   getDisplayableVaccineInfo,
   getHasReport,
   getCoord,
+  daysDiffFromNow,
 };
