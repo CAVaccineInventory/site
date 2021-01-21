@@ -4,7 +4,7 @@ import {
   getHasVaccine,
   getHasReport,
   getCoord,
-  daysDiffFromNow,
+  getTimeDiffFromNow,
 } from "./data.js";
 
 window.addEventListener("load", loaded);
@@ -218,13 +218,12 @@ function addSitesToPage(sites) {
         createDetailRow(reportElem, "Latest info", info.reportNotes);
       }
       if (info.latestReportDate) {
+        const latestReportElem = siteRootElem.querySelector(
+          ".site_last_report_date"
+        );
         try {
-          const roundDiffDays = daysDiffFromNow(info.latestReportDate, 1);
-          createDetailRow(
-            reportElem,
-            "Latest report",
-            `${roundDiffDays} days ago`
-          );
+          const timeDiff = getTimeDiffFromNow(info.latestReportDate);
+          latestReportElem.textContent = `Latest report: ${timeDiff}`;
         } catch (e) {
           console.error(e);
         }

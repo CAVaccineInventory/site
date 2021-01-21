@@ -6,9 +6,18 @@ add_to_nav: true
 order: 2
 ---
 
-<p>We are calling hospitals and pharmacies across California every day to ask if they are currently administering vaccines. We believe these medical professionals are the best source of accurate information about who they can vaccinate. </p>
+<p>
+  We are calling hospitals and pharmacies across California every day to ask if
+  they are currently administering vaccines. We believe these medical
+  professionals are the best source of accurate information about who they can
+  vaccinate.
+</p>
 
-<p>If you would like to report a missing location, or believe we have incorrect information about a site in our database, <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know</a>.</p>
+<p>
+  If you would like to report a missing location, or believe we have incorrect
+  information about a site in our database,
+  <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know</a>.
+</p>
 
 <script type="module" src="assets/js/nearest.js"></script>
 <form
@@ -112,8 +121,12 @@ order: 2
     </div>
     <div class="site_report_wrapper border-t border-gray-200">
       <div
-        class="site_report bg-gray-50 px-2 md:px-4 pt-2 pb-4 md:py-5 md:grid md:grid-cols-3 md:gap-4"
-      ></div>
+        class="site_report bg-gray-50 px-2 md:px-4 pt-2 md:pt-4 pb-7 md:grid md:grid-cols-3 md:gap-4 relative"
+      >
+        <div
+          class="site_last_report_date absolute bottom-1 right-2 text-xs text-gray-400"
+        ></div>
+      </div>
       <div class="site_no_report mt-3">No contact reports</div>
     </div>
   </li>
