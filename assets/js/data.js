@@ -97,7 +97,6 @@ function getDisplayableVaccineInfo(p) {
     return p["Location Type"] === "Super Site";
   }
 
-  console.log(p);
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
