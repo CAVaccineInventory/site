@@ -14,11 +14,10 @@
           <div class="bg-white">
             <div class="lg:text-center">
               <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
-                {% for county in site.counties %}
-                  {% if county.region == page.title %}
-                    <a href="{{ county.url }}">{{ county.title }}</a>
-                  {% endif %}
-                {% endfor %}  
+                {% assign counties = site.counties | where:"region", page.title %}
+                {% for county in counties %}
+                  <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
+                {% endfor %}
               </p>
             
             </div>
