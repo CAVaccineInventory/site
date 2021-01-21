@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+
+{% include head.html %}
+
+<body>
+
+  <div>
+    {% include header.html %}
+    
+    <main class="mx-auto">
+      <div class="md:pb-6">
+        <div class="main-content px-4 md:px-8">
+          <div class="pt-6 mt-6">
+            <p class="text-xl">
+              Here is a list of all locations we have contacted in your county. You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
+            </p>
+
+            <div class="text-sm mb-6">
+              Please
+              <a href="https://airtable.com/shrOMv5EI1jYwV1XR" class="font-medium">let us know if you have found this site useful</a>
+              or if you want to
+              <a href="https://airtable.com/shrY44NvEjHBscrOH" class="font-medium text-yellow-600">report incorrect contact information or a missing location</a>.
+            </div>
+
+            <iframe class="airtable-embed" src="https://airtable.com/embed/{{ page.region_airtable }}?backgroundColor=grayLight&viewControls=on&filter_County={{ page.title }}" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+          </div>
+
+          {% include footer.html %}
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
