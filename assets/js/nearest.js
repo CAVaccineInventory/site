@@ -189,6 +189,10 @@ function addSitesToPage(sites) {
     // Show whatever report we have
     if (info.hasReport) {
       noReportElem.remove();
+
+      if (info.county) {
+        createDetailRow(reportElem, "County", info.county);
+      }
       createDetailRow(reportElem, "Details", info.status);
 
       if (info.schedulingInstructions) {

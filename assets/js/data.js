@@ -94,9 +94,7 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function isSuperSite(p) {
-    return (
-      p["Location Type"] === "Super Site" || p["Location Type"] === "Megasite"
-    );
+    return p["Location Type"] === "Super Site";
   }
 
   return {
@@ -109,6 +107,7 @@ function getDisplayableVaccineInfo(p) {
     longitude: p["Longitude"],
     latitude: p["Latitude"],
     address: p["Address"],
+    county: p["County"],
     isSuperSite: isSuperSite(p),
   };
 }
