@@ -13,6 +13,11 @@
   text: This crowdsourced website tracks where you can get vaccinated in California
   url: https://www.sfchronicle.com/bayarea/article/This-crowdsourced-website-tracks-where-you-can-15882787.php
   quote: "[M]ore than 200 volunteers for VaccinateCA have been calling hospitals, pharmacies and other medical centers to compile information about each California county’s vaccination availability. [VaccinateCA] appears to be the most complete resource currently available to eligible Californians..."
+- title: Fox 2
+  image: fox2.png
+  text: California volunteers create crowdsourcing site for available vaccines
+  url: https://www.ktvu.com/news/california-volunteers-create-crowdsourcing-site-for-available-vaccines
+  quote: "[H]undreds of volunteers are willing to do the leg work to find Californians, especially those 65 and older, local sites to make a vaccine appointment."
 - title: Vox
   image: vox.png
   text: How Californians are resorting to crowdsourcing to get their Covid-19 vaccine

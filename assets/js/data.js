@@ -94,9 +94,7 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function isSuperSite(p) {
-    return (
-      p["Location Type"] === "Super Site" || p["Location Type"] === "Megasite"
-    );
+    return p["Location Type"] === "Super Site";
   }
 
   return {
