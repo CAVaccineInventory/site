@@ -5,7 +5,7 @@ async function fetchSites() {
   let response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert("sites BORK");
+    alert("Could not retrieve the vaccination site data.");
     return;
   }
   return response.json();
@@ -93,6 +93,12 @@ function getDisplayableVaccineInfo(p) {
     }
   }
 
+  function isSuperSite(p) {
+    return (
+      p["Location Type"] === "Super Site" || p["Location Type"] === "Megasite"
+    );
+  }
+
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -103,6 +109,7 @@ function getDisplayableVaccineInfo(p) {
     longitude: p["Longitude"],
     latitude: p["Latitude"],
     address: p["Address"],
+    isSuperSite: isSuperSite(p),
   };
 }
 

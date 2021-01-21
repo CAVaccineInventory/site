@@ -48,6 +48,10 @@
             });
         }
 
+        function shouldUseSpecialPin(info) {
+            return info.isSuperSite === true;
+        }
+
         function addLocation(p) {
             if (!getHasVaccine(p)) {
                 return false
@@ -61,7 +65,13 @@
             }
 
             // Format the info card
-            let infoText = `<h1>${info.name}</h1> <b>Details: </b> ${info.status}<br/>`;
+            let infoText = `<h1 class="text-green-600">${info.name}</h1>`;
+
+            if (info.isSuperSite) {
+                infoText += '<b class="text-lg" style="color:#007fff;">Super Site</b> <br />';
+            }
+
+            infoText += `<b>Details: </b> ${info.status}<br/>`;
 
             if (info.schedulingInstructions) {
                 infoText += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
@@ -74,7 +84,20 @@
             }
 
             // Populate the marker and info card
-            let marker = new google.maps.Marker({ position: { lng: info.longitude, lat: info.latitude}, map: map, title: info.name })
+            const markerConfig = {
+                position: {
+                    lng: info.longitude,
+                    lat: info.latitude,
+                },
+                map: map,
+                title: info.name,
+            };
+
+            const bluePin = '/assets/img/blue-pin.png';
+            if (shouldUseSpecialPin(info)) {
+                markerConfig['icon'] = bluePin;
+            }
+            let marker = new google.maps.Marker(markerConfig);
             let infowindow = new google.maps.InfoWindow({ content: `<div class="mapInfo">${infoText}</div>` });
 
             // Toggle the info card
