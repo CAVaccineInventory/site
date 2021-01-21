@@ -96,7 +96,7 @@ async function submitGeoLocation() {
         console.log(e.code, e.message);
         alert(
           e.message ||
-            "Failed to detect your location. Please try again or enter your zip code"
+          "Failed to detect your location. Please try again or enter your zip code"
         );
         onFinish();
         resolve();
@@ -189,6 +189,10 @@ function addSitesToPage(sites) {
     // Show whatever report we have
     if (info.hasReport) {
       noReportElem.remove();
+
+      if (info.county) {
+        createDetailRow(reportElem, "County", info.county)
+      }
       createDetailRow(reportElem, "Details", info.status);
 
       if (info.schedulingInstructions) {
@@ -221,7 +225,7 @@ function distanceBetweenCoordinates(coord1, coord2) {
     (Math.cos(coord1.latitude * p) *
       Math.cos(coord2.latitude * p) *
       (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
-      2;
+    2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
 }
