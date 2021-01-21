@@ -9,9 +9,14 @@ import {
 window.addEventListener("load", loaded);
 
 function loaded() {
-  document
-    .getElementById("submit_zip")
-    .addEventListener("click", (e) => handleSearch(e, "zip"));
+  document.getElementById("submit_zip").addEventListener("submit", (e) => {
+    try {
+      e.target.checkValidity();
+    } catch (err) {
+      console.error(err);
+    }
+    handleSearch(e, "zip");
+  });
 
   if (navigator.geolocation) {
     document.getElementById("geolocation_wrapper").classList.remove("hidden");
@@ -128,7 +133,7 @@ async function lookup(zip) {
     latitude: loc[1],
   };
 
-  fetchFilterAndSortSites(coordinate);
+  return fetchFilterAndSortSites(coordinate);
 }
 
 async function fetchFilterAndSortSites(userCoord) {
