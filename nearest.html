@@ -1,21 +1,96 @@
 ---
 layout: default
+title: Search Near Me
+permalink: /near-me
+add_to_nav: true
+order: 2
 ---
+
 <script type="module" src="assets/js/nearest.js"></script>
 
-<form action="#">
-  <select id="filter">
-    <option value="reports">Only sites with contact reports</option>
-    <option selected="selected" value="stocked">Only sites with doses</option>
-    <option value="any">All known vaccination sites</option>
-  </select>
-  near
-  <!-- Hard code 90210 for now for ease of testing -->
-  <input type="text" id="zip" pattern="[0-9]{5}" title="zip Code" placeholder="12345" value="90210" />
-  <input type="submit" id="submit" value="Look up via ZIP" />
-  or
-  <input type="submit" id="use-geolocation" value="Near me" />
+<form
+  action="#"
+  class="flex flex-wrap relative flex-col md:flex-row md:items-center"
+>
+  <div>
+    <div class="relative max-w-xs">
+      <select
+        id="filter"
+        class="w-full appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      >
+        <option value="reports">Sites we have contacted</option>
+        <option selected="selected" value="stocked">
+          Sites with reported doses
+        </option>
+        <option value="any">All known vaccination sites</option>
+      </select>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+      >
+        <svg
+          class="fill-current h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="pt-4 md:pt-0">
+    <span class="mr-3 md:mx-3">near</span>
+    <!-- Hard code 90210 for now for ease of testing -->
+    <label for="zip" class="sr-only">Zip Code</label>
+    <input
+      type="text"
+      id="zip"
+      pattern="[0-9]{5}"
+      placeholder="Type zip code"
+      class="w-36 px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:border-indigo-500"
+    />
+    <button
+      type="submit"
+      class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+      id="submit_zip"
+    >
+      Search Zip
+    </button>
+  </div>
+  <div id="geolocation_wrapper" class="hidden pt-4 md:pt-0">
+    <span class=""> or </span>
+    <button
+      type="submit"
+      class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+      id="submit_geolocation"
+    >
+      Use My Position
+    </button>
+  </div>
 </form>
 
-<ol id="sites">
-</ol>
+<ol id="sites"></ol>
+<div id="loading" class="mt-4 hidden">Loading...</div>
+
+<template id="site_location_template">
+  <li class="shadow sm:rounded-lg px-3 lg:py-6 mt-4 py-4">
+    <h4
+      class="site_title text-lg leading-6 font-medium text-gray-900 mb-2"
+    ></h4>
+    <div class="site_address mb-2 max-w-2xl text-sm text-gray-500"></div>
+    <div class="site_report_wrapper border-t border-gray-200">
+      <div
+        class="site_report bg-gray-50 px-2 md:px-4 pt-2 pb-4 md:py-5 md:grid md:grid-cols-3 md:gap-4"
+      ></div>
+      <div class="site_no_report mt-3">No contact reports</div>
+    </div>
+  </li>
+</template>
+
+<template id="report_detail_template">
+  <dt class="detail_title mt-2 md:mt-0 text-sm font-medium text-gray-500"></dt>
+  <dd
+    class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-all"
+  ></dd>
+</template>
