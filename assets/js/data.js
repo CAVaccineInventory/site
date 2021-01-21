@@ -42,7 +42,15 @@ function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     try {
       return p["Availability Info"]
-        .map((info) => info.replace("Yes: ", "").replace("No: ", ""))
+        .map((info) =>
+          info
+            .replace("Yes: ", "")
+            .replace("No: ", "")
+            .replace(
+              "Skip: call back later",
+              "Could not reach human, calling back later"
+            )
+        )
         .join(" | ");
     } catch {
       return null;
@@ -86,9 +94,7 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function isSuperSite(p) {
-    return (
-      p["Location Type"] === "Super Site" || p["Location Type"] === "Megasite"
-    );
+    return p["Location Type"] === "Super Site";
   }
 
   return {
@@ -101,6 +107,7 @@ function getDisplayableVaccineInfo(p) {
     longitude: p["Longitude"],
     latitude: p["Latitude"],
     address: p["Address"],
+    county: p["County"],
     isSuperSite: isSuperSite(p),
   };
 }
