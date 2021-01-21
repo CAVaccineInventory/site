@@ -8,16 +8,18 @@ import {
 } from "./data.js";
 
 // Capitalizes the first letter of a word.
-String.prototype.capitalize = function() {
-  return this.charAt(0).toUpperCase() + this.slice(1)
-}
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
 
-function getCountyFromPageURL(){
-	// Parses https://vaccinateca.com/counties/san_mateo and pulls out 'san_mateo'
-	// Converts to capitalized and spaced form, i.e. 'San Mateo'
-	let countyFromPath = window.location.pathname.split("/")[2]
-	let countyParts = countyFromPath.split("_").map(function(w) {return w.capitalize() })
-	return countyParts.join(" ")
+function getCountyFromPageURL() {
+  // Parses https://vaccinateca.com/counties/san_mateo and pulls out 'san_mateo'
+  // Converts to capitalized and spaced form, i.e. 'San Mateo'
+  let countyFromPath = window.location.pathname.split("/")[2];
+  let countyParts = countyFromPath.split("_").map(function (w) {
+    return w.capitalize();
+  });
+  return countyParts.join(" ");
 }
 
 async function fetchCountySites() {
@@ -27,19 +29,18 @@ async function fetchCountySites() {
 
   // Filter by this page's county.
   sites = sites.filter((site) => {
-  	return ([county, county + " County"].includes(getCounty(site)));
+    return [county, county + " County"].includes(getCounty(site));
   });
 
   let sitesWithVaccine = [];
   let sitesWithoutVaccine = [];
 
-  sites.forEach(function(site) {
-  	if (getHasVaccine(site)){
-  		sitesWithVaccine.push(site);
-  	}
-  	else { 
-  		sitesWithoutVaccine.push(site);
-  	}
+  sites.forEach(function (site) {
+    if (getHasVaccine(site)) {
+      sitesWithVaccine.push(site);
+    } else {
+      sitesWithoutVaccine.push(site);
+    }
   });
 
   // return {
