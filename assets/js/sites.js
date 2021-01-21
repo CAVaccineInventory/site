@@ -1,10 +1,4 @@
-import {
-  fetchSites,
-  getDisplayableVaccineInfo,
-  getHasVaccine,
-  getHasReport,
-  getCoord,
-} from "./data.js";
+import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
 
 function createDetailRow(reportElem, title, content) {
   const elem = document
@@ -27,8 +21,15 @@ function addSitesToPage(sites, container) {
 
     // Some sites don't have addresses.
     const addressElem = siteRootElem.querySelector(".site_address");
-    if (info.address) {
-      addressElem.textContent = info.address;
+    if (info.address || info.county) {
+      const linkElem = addressElem.querySelector("a");
+      if (linkElem) {
+        const address = [info.county, info.address].filter(Boolean).join(" - ");
+        linkElem.textContent = address;
+        linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+          info.address || info.county
+        )}`;
+      }
     } else {
       addressElem.remove();
     }
@@ -40,9 +41,6 @@ function addSitesToPage(sites, container) {
     if (info.hasReport) {
       noReportElem.remove();
 
-      if (info.county) {
-        createDetailRow(reportElem, "County", info.county);
-      }
       createDetailRow(reportElem, "Details", info.status);
 
       if (info.schedulingInstructions) {
@@ -57,6 +55,17 @@ function addSitesToPage(sites, container) {
       }
       if (info.reportNotes) {
         createDetailRow(reportElem, "Latest info", info.reportNotes);
+      }
+      if (info.latestReportDate) {
+        const latestReportElem = siteRootElem.querySelector(
+          ".site_last_report_date"
+        );
+        try {
+          const timeDiff = getTimeDiffFromNow(info.latestReportDate);
+          latestReportElem.textContent = `Latest report: ${timeDiff}`;
+        } catch (e) {
+          console.error(e);
+        }
       }
     } else {
       reportElem.remove();
