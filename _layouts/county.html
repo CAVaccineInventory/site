@@ -5,6 +5,30 @@
 
 <body>
 
+  <script type="module" src="/assets/js/county-page.js"></script>
+
+  <template id="site_location_template">
+    <li class="shadow sm:rounded-lg px-3 lg:py-6 mt-4 py-4">
+      <h4
+        class="site_title text-lg leading-6 font-medium text-gray-900 mb-2"
+      ></h4>
+      <div class="site_address mb-2 max-w-2xl text-sm text-gray-500"></div>
+      <div class="site_report_wrapper border-t border-gray-200">
+        <div
+          class="site_report bg-gray-50 px-2 md:px-4 pt-2 pb-4 md:py-5 md:grid md:grid-cols-3 md:gap-4"
+        ></div>
+        <div class="site_no_report mt-3">No contact reports</div>
+      </div>
+    </li>
+  </template>
+
+  <template id="report_detail_template">
+    <dt class="detail_title mt-2 md:mt-0 text-sm font-medium text-gray-500"></dt>
+    <dd
+      class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-all"
+    ></dd>
+  </template>
+
   <div>
     {% include header.html %}
     
@@ -23,7 +47,19 @@
               <a href="https://airtable.com/shrY44NvEjHBscrOH" class="font-medium text-yellow-600">report incorrect contact information or a missing location</a>.
             </div>
 
-            <iframe class="airtable-embed" src="https://airtable.com/embed/{{ page.region_airtable }}?backgroundColor=grayLight&viewControls=on&filter_County={{ page.title }}" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+            <div class="mb-5">
+              <h3>Sites with the vaccine</h3>
+
+              <ol id="sitesWithVaccine"></ol>
+              <div id="loading" class="mt-4 hidden">Loading...</div>  
+            </div>
+            
+            <div class="border border-red-200 p-3">
+              <h3 class="text-red-600">Sites that do not have the vaccine</h3>
+
+              <ol id="sitesWithoutVaccine"></ol>
+              <div id="loading" class="mt-4 hidden">Loading...</div>
+            </div>
           </div>
 
           {% include footer.html %}
