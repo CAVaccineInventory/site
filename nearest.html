@@ -7,10 +7,9 @@ order: 2
 ---
 
 <script type="module" src="assets/js/nearest.js"></script>
-
 <form
-  action="#"
   class="flex flex-wrap relative flex-col md:flex-row md:items-center"
+  id="submit_zip"
 >
   <div>
     <div class="relative max-w-xs">
@@ -40,7 +39,7 @@ order: 2
     </div>
   </div>
   <div id="geolocation_wrapper" class="hidden pt-4 md:pt-0">
-    <span class="ml-3">near</span>
+    <span class="ml-0 md:ml-3">near</span>
     <button
       type="submit"
       class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
@@ -48,7 +47,7 @@ order: 2
     >
       My Location
     </button>
-    <span class=""> or </span>
+    <span class="">or</span>
   </div>
   <div class="pt-4 md:pt-0">
     <span class="mr-3 md:mx-3">near</span>
@@ -58,18 +57,17 @@ order: 2
       type="text"
       id="zip"
       pattern="[0-9]{5}"
-      placeholder="Type zip code"
+      placeholder="5-digit zip code"
       class="w-36 px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:border-indigo-500"
+      required
     />
     <button
       type="submit"
       class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-      id="submit_zip"
     >
       Search Zip
     </button>
   </div>
-  
 </form>
 
 <ol id="sites"></ol>
