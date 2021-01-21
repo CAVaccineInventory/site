@@ -11,8 +11,18 @@
   margin-bottom: 12px;
 }
 
+/* Add underlines to links... */
 a {
   color: #047857;
+  text-decoration: underline;
+}
+
+/* ... but exempt a bunch of things. */
+nav a,
+a[class^='bg-'], a[class*=' bg-'],
+a[class^='border-'], a[class*=' border-'],
+a.no-underline {
+  text-decoration: none;
 }
 
 .airtable-embed {
