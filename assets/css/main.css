@@ -19,10 +19,10 @@ a {
 
 /* ... but exempt a bunch of things. */
 nav a,
-a[class^='bg-'],
-a[class*=' bg-'],
-a[class^='border-'],
-a[class*=' border-'],
+a[class^="bg-"],
+a[class*=" bg-"],
+a[class^="border-"],
+a[class*=" border-"],
 a.no-underline {
   text-decoration: none;
 }
