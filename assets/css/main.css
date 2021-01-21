@@ -72,5 +72,8 @@ a {
 
 .mapInfo h1 {
   font-size: 2em;
-  color: rgb(0, 82, 217);
+}
+
+.mapInfo .supersite-tag {
+  color: #007fff;
 }
