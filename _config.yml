@@ -58,6 +58,8 @@ defaults:
 collections:
   regions:
     output: true
+  counties:
+    output: true
 
 
 
