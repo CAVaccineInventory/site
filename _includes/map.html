@@ -48,8 +48,8 @@
             });
         }
 
-        function shouldUseSpecialPin(p) {
-            return false;
+        function shouldUseSpecialPin(info) {
+            return info.isSuperSite === true;
         }
 
         function addLocation(p) {
@@ -78,7 +78,7 @@
             }
 
             // Populate the marker and info card
-            const iconConfig = {
+            const markerConfig = {
                 position: {
                     lng: info.longitude,
                     lat: info.latitude,
@@ -88,10 +88,10 @@
             };
 
             const bluePin = '/assets/img/blue-pin.png';
-            if (shouldUseSpecialPin(p)) {
-                iconConfig['icon'] = bluePin;
+            if (shouldUseSpecialPin(info)) {
+                markerConfig['icon'] = bluePin;
             }
-            let marker = new google.maps.Marker(iconConfig);
+            let marker = new google.maps.Marker(markerConfig);
             let infowindow = new google.maps.InfoWindow({ content: `<div class="mapInfo">${infoText}</div>` });
 
             // Toggle the info card
