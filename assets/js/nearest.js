@@ -9,6 +9,7 @@ import {
 window.addEventListener("load", loaded);
 
 function loaded() {
+  fetchSites(); // For caching
   document
     .getElementById("submit_zip")
     .addEventListener("click", (e) => handleSearch(e, "zip"));
