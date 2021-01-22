@@ -1,10 +1,19 @@
-import { fetchSites, getHasVaccine, getHasReport, getCoord } from "./data.js";
+import {
+  fetchSites,
+  getHasVaccine,
+  getHasReport,
+  getCoord,
+  fetchZipCodesData,
+} from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", loaded);
 
 function loaded() {
+  fetchSites();
+  fetchZipCodesData();
+
   document.getElementById("submit_zip").addEventListener("submit", (e) => {
     try {
       e.target.checkValidity();
@@ -113,24 +122,30 @@ async function submitGeoLocation() {
 }
 
 async function lookup(zip) {
-  const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
+  const zipCodes = await fetchZipCodesData();
+  let longitude;
+  let latitude;
+  if (zipCodes[zip]) {
+    const location = zipCodes[zip].coordinates;
+    longitude = location.lng;
+    latitude = location.lat;
+  } else {
+    const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
+    let response = await fetch(geocodeURL);
 
-  let response = await fetch(geocodeURL);
+    if (!response.ok) {
+      alert("Failed to locate your zip code, please try again");
+      return;
+    }
 
-  if (!response.ok) {
-    alert("Failed to locate your zip code, please try again");
-    return;
+    let results = await response.json();
+
+    // Comes back in [long, lat]
+    location = results.records[0].geometry.coordinates;
+    longitude = location[0];
+    latitude = location[1];
   }
-
-  let results = await response.json();
-
-  const loc = results.records[0].geometry.coordinates;
-  // Comes back in [long, lat]
-  const coordinate = {
-    longitude: loc[0],
-    latitude: loc[1],
-  };
-
+  const coordinate = { longitude, latitude };
   return fetchFilterAndSortSites(coordinate);
 }
 
