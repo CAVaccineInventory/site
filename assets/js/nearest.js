@@ -121,12 +121,14 @@ async function submitGeoLocation() {
 
 async function lookup(zip) {
   const zipCodes = await fetchZipCodesData();
-  let location;
+  let longitude;
+  let latitude;
   if (zipCodes[zip]) {
-    location = zipCodes[zip].coordinates;
+    const location = zipCodes[zip].coordinates;
+    longitude = location.lng;
+    latitude = location.lat;
   } else {
     const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
-
     let response = await fetch(geocodeURL);
 
     if (!response.ok) {
@@ -136,14 +138,12 @@ async function lookup(zip) {
 
     let results = await response.json();
 
+    // Comes back in [long, lat]
     location = results.records[0].geometry.coordinates;
+    longitude = location[0];
+    latitude = location[1];
   }
-  // Comes back in [long, lat]
-  const coordinate = {
-    longitude: location[0],
-    latitude: location[1],
-  };
-
+  const coordinate = { longitude, latitude };
   return fetchFilterAndSortSites(coordinate);
 }
 
