@@ -21,13 +21,15 @@ async function fetchRegionSites() {
   }
 
   for(const county in sitesByCounty) {
-    // Make 2 copies of region_list_template, one for yes and one for no
-    const regionYesTemplate = document.getElementById("region_list_template")
+    // Make 2 copies of region_county_list_template, one for yes and one for no
+    const regionYesTemplate = document.getElementById("region_county_list_template")
       .content.cloneNode(true);
-    const regionNoTemplate = document.getElementById("region_list_template")
+    const regionNoTemplate = document.getElementById("region_county_list_template")
       .content.cloneNode(true);
     regionYesTemplate.querySelector(".sites").setAttribute("id", `${county}WithVaccine`);
     regionNoTemplate.querySelector(".sites").setAttribute("id", `${county}WithoutVaccine`);
+    regionYesTemplate.querySelector(".county_name").innerText = county;
+    regionNoTemplate.querySelector(".county_name").innerText = county;
     document.getElementById('withVaccine').appendChild(regionYesTemplate);
     document.getElementById('withoutVaccine').appendChild(regionNoTemplate);
 
