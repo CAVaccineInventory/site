@@ -11,7 +11,7 @@ order: 2
 <script type="module" src="assets/js/nearest.js"></script>
 <form
   class="flex flex-wrap relative flex-col md:flex-row md:items-center mt-5"
-  id="submit_zip"
+  id="submit_zip_form"
 >
   <div>
     <div class="relative max-w-xs">
@@ -43,9 +43,9 @@ order: 2
   <div id="geolocation_wrapper" class="hidden pt-4 md:pt-0">
     <span class="ml-0 md:ml-3">near</span>
     <button
-      type="submit"
       class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
       id="submit_geolocation"
+      type="button"
     >
       My Location
     </button>
@@ -64,6 +64,7 @@ order: 2
       required
     />
     <button
+      id="submit_zip"
       type="submit"
       class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
     >

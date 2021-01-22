@@ -14,7 +14,7 @@ function loaded() {
   fetchSites();
   fetchZipCodesData();
 
-  document.getElementById("submit_zip").addEventListener("submit", (e) => {
+  document.getElementById("submit_zip_form").addEventListener("submit", (e) => {
     try {
       e.target.checkValidity();
     } catch (err) {
@@ -27,7 +27,9 @@ function loaded() {
     document.getElementById("geolocation_wrapper").classList.remove("hidden");
     document
       .getElementById("submit_geolocation")
-      .addEventListener("click", (e) => handleSearch(e, "geolocation"));
+      .addEventListener("click", (e) => {
+        handleSearch(e, "geolocation");
+      });
   }
 }
 
@@ -83,6 +85,14 @@ function toggleSubmitButtonState(button, isEnabled) {
   }
 }
 
+async function coordinatesToCounty(coordinates) {
+  const res = await fetch(
+    `https://geo.fcc.gov/api/census/area?lat=${coordinates.latitude}&lon=${coordinates.longitude}&format=json`
+  );
+  const data = await res.json();
+  return data.results[0].county_name;
+}
+
 async function submitGeoLocation() {
   const button = document.getElementById("submit_geolocation");
   toggleSubmitButtonState(button, false);
@@ -99,7 +109,13 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
-        await fetchFilterAndSortSites(coordinates);
+        let county;
+        try {
+          county = await coordinatesToCounty(coordinates);
+        } catch (e) {
+          console.error("Failed to get county", e);
+        }
+        await fetchFilterAndSortSites(coordinates, county);
         onFinish();
         resolve();
       },
@@ -125,10 +141,12 @@ async function lookup(zip) {
   const zipCodes = await fetchZipCodesData();
   let longitude;
   let latitude;
+  let county;
   if (zipCodes[zip]) {
     const location = zipCodes[zip].coordinates;
     longitude = location.lng;
     latitude = location.lat;
+    county = zipCodes[zip].county;
   } else {
     const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
     let response = await fetch(geocodeURL);
@@ -144,12 +162,23 @@ async function lookup(zip) {
     location = results.records[0].geometry.coordinates;
     longitude = location[0];
     latitude = location[1];
+    try {
+      const city = results.fields.city.toLowerCase();
+      const zipToCounty = Object.values(zipCodes).find(
+        (zipData) => zipData.city.toLowerCase() === city
+      );
+      if (zipToCounty) {
+        county = zipToCounty.county;
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
   const coordinate = { longitude, latitude };
-  return fetchFilterAndSortSites(coordinate);
+  return fetchFilterAndSortSites(coordinate, county);
 }
 
-async function fetchFilterAndSortSites(userCoord) {
+async function fetchFilterAndSortSites(userCoord, county) {
   let sites = await fetchSites();
   const filter = document.querySelector("#filter").value;
 
@@ -170,7 +199,7 @@ async function fetchFilterAndSortSites(userCoord) {
   }
 
   sites.sort((a, b) => a.distance - b.distance);
-  addSitesToPage(sites, "sites");
+  addSitesToPage(sites, "sites", county);
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
