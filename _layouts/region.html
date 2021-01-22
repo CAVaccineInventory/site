@@ -18,11 +18,7 @@
                 {% for county in counties %}
                   <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
-                {% assign counties_list = "" | split: "" %}
-                {% for region in site.data.regions_counties %}
-                  {% assign counties_list = counties_list | concat: region[1] %}
-                {% endfor %}
-                {% assign counties = counties_list | join: ", " %}
+                {% assign county_autocomplete_data = counties | map: "title" | join: ", " %}
               </p>
 
             </div>
@@ -36,7 +32,7 @@
             {% include pre_list_disclaimer.html %}
 
             <div class="autoComplete_wrapper">
-              <input type="text" id="autoComplete" placeholder="Search by county..." data-collection="{{ counties }}" class="{{ site.data.styles.input }}" autofocus/>
+              <input type="text" id="autoComplete" placeholder="Search by county..." data-collection="{{ county_autocomplete_data }}" class="{{ site.data.styles.input }}" autofocus/>
             </div>
 
             <iframe class="airtable-embed" src="https://airtable.com/embed/{{ page.airtable_embed }}?backgroundColor=grayLight&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
