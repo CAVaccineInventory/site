@@ -14,15 +14,6 @@ function loaded() {
   fetchSites();
   fetchZipCodesData();
 
-  document.getElementById("zip").addEventListener("keyup", function (event) {
-    if (event.code === "Enter") {
-      // Cancel the default action, if needed
-      event.preventDefault();
-      // Trigger the button element with a click
-      document.getElementById("submit_zip").click();
-    }
-  });
-
   document.getElementById("submit_zip_form").addEventListener("submit", (e) => {
     try {
       e.target.checkValidity();
@@ -36,7 +27,9 @@ function loaded() {
     document.getElementById("geolocation_wrapper").classList.remove("hidden");
     document
       .getElementById("submit_geolocation")
-      .addEventListener("click", (e) => handleSearch(e, "geolocation"));
+      .addEventListener("click", (e) => {
+        handleSearch(e, "geolocation");
+      });
   }
 }
 
