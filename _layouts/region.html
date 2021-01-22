@@ -7,7 +7,7 @@
 
   <div>
     {% include header.html %}
-    
+
     <main class="mx-auto">
       <div class="md:pb-6">
         <div class="main-content px-4 py-6 md:px-8">
@@ -18,8 +18,13 @@
                 {% for county in counties %}
                   <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
+                {% assign counties_list = "" | split: "" %}
+                {% for region in site.data.regions_counties %}
+                  {% assign counties_list = counties_list | concat: region[1] %}
+                {% endfor %}
+                {% assign counties = counties_list | join: ", " %}
               </p>
-            
+
             </div>
           </div>
 
