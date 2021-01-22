@@ -107,8 +107,9 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
+        let county;
         try {
-          const county = await coordinatesToCounty(coordinates);
+          county = await coordinatesToCounty(coordinates);
         } catch (e) {
           console.error("Failed to get county", e);
         }
