@@ -90,9 +90,10 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function replaceAnyLinks(body) {
-    let url_regex = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
+    // Regex from https://stackoverflow.com/a/3890175.
+    const urlRegex = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
     if (body) {
-      return body.replace(url_regex, "<a href='$1' target='_blank'>$1</a>");
+      return body.replace(urlRegex, "<a href='$1' target='_blank'>$1</a>");
     }
   }
 
