@@ -37,8 +37,10 @@ function toggleLoading(shouldShow) {
   const elem = document.getElementById("loading");
   if (shouldShow) {
     elem.classList.remove("hidden");
+    document.getElementById("post_list_container").classList.remove("hidden");
   } else {
     elem.classList.add("hidden");
+    document.getElementById("post_list_container").classList.remove("hidden");
   }
 }
 

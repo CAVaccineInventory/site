@@ -6,13 +6,7 @@ add_to_nav: true
 order: 2
 ---
 
-{% include disclaimer.html %}
-
-<p>
-  If you would like to report a missing location, or believe we have incorrect
-  information about a site in our database,
-  <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know</a>.
-</p>
+{% include pre_list_disclaimer.html %}
 
 <script type="module" src="assets/js/nearest.js"></script>
 <form
@@ -81,5 +75,9 @@ order: 2
 
 <ol id="sites"></ol>
 <div id="loading" class="mt-4 hidden">Loading...</div>
+
+<div id="post_list_container" class="hidden">
+  {% include post_list_disclaimer.html %}
+</div>
 
 {% include site_template.html %}
