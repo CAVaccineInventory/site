@@ -35,18 +35,14 @@
               Here is a list of all locations we have contacted in your region. You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
             </p>
 
-            <div class="border-2 border-green-600 rounded mb-5">
+            <div class="border-2 border-green-600 rounded p-3">
               <h3 class="text-lg font-medium text-green-800">Sites with the vaccine</h3>
-
-              <ol id="sitesWithVaccine"></ol>
-              <div id="loading" class="mt-4 hidden">Loading...</div>
+              <div id="withVaccine"></div>
             </div>
 
-            <div class="border border-red-200 p-3">
+            <div class="border border-red-200 rounded p-3">
               <h3 class="text-red-600">Sites that do not have the vaccine</h3>
-
-              <ol id="sitesWithoutVaccine"></ol>
-              <div id="loading" class="mt-4 hidden">Loading...</div>
+              <div id="withoutVaccine"></div>
             </div>
 
             <div class="text-sm mb-6">

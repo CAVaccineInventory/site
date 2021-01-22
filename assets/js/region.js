@@ -12,27 +12,38 @@ async function fetchRegionSites() {
     .textContent.trim()
     .split(",")
     .map((c) => c.trim());
-  const county_matcher = counties
-    .map((c) => {
-      return [c, c + " County"];
-    })
-    .flat();
 
-  sites = sites.filter((site) => {
-    return county_matcher.includes(getCounty(site));
-  });
+  const sitesByCounty = {}
+  for(const county of counties) {
+    sitesByCounty[county] = sites.filter((site) => {
+      return [county, county + " County"].includes(getCounty(site));
+    });
+  }
 
-  let sitesWithVaccine = [];
-  let sitesWithoutVaccine = [];
+  for(const county in sitesByCounty) {
+    // Make 2 copies of region_list_template, one for yes and one for no
+    const regionYesTemplate = document.getElementById("region_list_template")
+      .content.cloneNode(true);
+    const regionNoTemplate = document.getElementById("region_list_template")
+      .content.cloneNode(true);
+    regionYesTemplate.querySelector(".sites").setAttribute("id", `${county}WithVaccine`);
+    regionNoTemplate.querySelector(".sites").setAttribute("id", `${county}WithoutVaccine`);
+    document.getElementById('withVaccine').appendChild(regionYesTemplate);
+    document.getElementById('withoutVaccine').appendChild(regionNoTemplate);
 
-  sites.forEach(function (site) {
-    if (getHasVaccine(site)) {
-      sitesWithVaccine.push(site);
-    } else {
-      sitesWithoutVaccine.push(site);
+    // Populate sites into both region lists
+    let sitesWithVaccine = [];
+    let sitesWithoutVaccine = [];
+
+    for(const site of sitesByCounty[county]) {
+      if (getHasVaccine(site)) {
+        sitesWithVaccine.push(site);
+      } else {
+        sitesWithoutVaccine.push(site);
+      }
     }
-  });
 
-  addSitesToPage(sitesWithVaccine, "sitesWithVaccine");
-  addSitesToPage(sitesWithoutVaccine, "sitesWithoutVaccine");
+    addSitesToPage(sitesWithVaccine, `${county}WithVaccine`);
+    addSitesToPage(sitesWithoutVaccine, `${county}WithoutVaccine`);
+  }
 }
