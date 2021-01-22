@@ -9,7 +9,7 @@ function createDetailRow(reportElem, title, content) {
   reportElem.appendChild(elem);
 }
 
-function addSitesToPage(sites, container) {
+function addSitesToPage(sites, container, userCounty) {
   const list = document.getElementById(container);
   const site_template = document.getElementById("site_location_template")
     .content;
@@ -37,6 +37,16 @@ function addSitesToPage(sites, container) {
     const reportElem = siteRootElem.querySelector(".site_report");
     const noReportElem = siteRootElem.querySelector(".site_no_report");
 
+    if (
+      userCounty &&
+      info.county &&
+      info.county.toLowerCase().includes(userCounty.toLowerCase())
+    ) {
+      const countyMatchElem = siteRootElem.querySelector(".site_in_county");
+      if (countyMatchElem) {
+        countyMatchElem.classList.remove("hidden");
+      }
+    }
     // Show whatever report we have
     if (info.hasReport) {
       noReportElem.remove();

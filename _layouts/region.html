@@ -28,12 +28,7 @@
               Here is a list of all locations we have contacted in your region. You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
             </p>
 
-            <div class="text-sm mb-6">
-              Please
-              <a href="https://airtable.com/shrOMv5EI1jYwV1XR" class="font-medium">let us know if you have found this site useful</a>
-              or if you want to
-              <a href="https://airtable.com/shrY44NvEjHBscrOH" class="font-medium text-yellow-600">report incorrect contact information or a missing location</a>.
-            </div>
+            {% include pre_list_disclaimer.html %}
 
             <div class="autoComplete_wrapper">
               <input type="text" id="autoComplete" placeholder="Search by county..." data-collection="{{ counties }}" class="{{ site.data.styles.input }}" autofocus/>
@@ -41,6 +36,8 @@
 
             <iframe class="airtable-embed" src="https://airtable.com/embed/{{ page.airtable_embed }}?backgroundColor=grayLight&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
           </div>
+
+          {% include post_list_disclaimer.html %}
 
           {% include footer.html %}
         </div>

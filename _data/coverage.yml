@@ -13,6 +13,11 @@
   text: This crowdsourced website tracks where you can get vaccinated in California
   url: https://www.sfchronicle.com/bayarea/article/This-crowdsourced-website-tracks-where-you-can-15882787.php
   quote: "[M]ore than 200 volunteers for VaccinateCA have been calling hospitals, pharmacies and other medical centers to compile information about each California county’s vaccination availability. [VaccinateCA] appears to be the most complete resource currently available to eligible Californians..."
+- title: KQED
+  image: kqed.png
+  text: California's Clearest COVID-19 Vaccine Appointment Dashboard Is Run by Volunteers
+  url: https://www.kqed.org/news/11856204/californias-clearest-covid-19-vaccine-appointment-dashboard-is-run-by-volunteers
+  quote: "VaccinateCA ... not only lists vaccination sites around California, but details their current vaccine availability. [The team] compiled a list of medical centers, pharmacies and hospitals around the state, and now regularly contacts those locations to confirm their vaccine inventory — as well as what groups they're now accepting, and how to make an appointment yourself."
 - title: Fox 2
   image: fox2.png
   text: California volunteers create crowdsourcing site for available vaccines
@@ -22,4 +27,4 @@
   image: vox.png
   text: How Californians are resorting to crowdsourcing to get their Covid-19 vaccine
   url: https://www.vox.com/future-perfect/2021/1/15/22231241/california-coronavirus-vaccine-availability-moderna-pfizer
-  quote: "In the last two days, an effort has sprung up to report on where shots are available to the elderly. Volunteers have set up a spreadsheet with a simple premise: One person can call each location every day and ask if vaccines are available, and then publish the information for everyone to see... And the site has already been used to get some people vaccinated."
+  quote: "[A]n effort has sprung up to report on where shots are available to the elderly. Volunteers have set up a spreadsheet with a simple premise: One person can call each location every day and ask if vaccines are available, and then publish the information for everyone to see ... And the site has already been used to get some people vaccinated."
