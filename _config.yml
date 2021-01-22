@@ -61,6 +61,9 @@ collections:
   counties:
     output: true
 
+include:
+  - _redirects
+
 
 
 
