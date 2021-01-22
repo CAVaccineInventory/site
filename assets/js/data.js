@@ -31,15 +31,13 @@ function getHasVaccine(p) {
 }
 
 function getHasReport(p) {
-  try {
-    if (p["Location Type"] != "Test Location") {
-      return p["Has Report"];
-    } else {
-      return false;
-    }
-  } catch {
+  if (
+    p["Location Type"] === "Test Location" ||
+    !p.hasOwnProperty("Has Report")
+  ) {
     return false;
   }
+  return p["Has Report"];
 }
 
 function getCoord(p) {
@@ -52,52 +50,50 @@ function getCounty(p) {
 
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
-    try {
-      return p["Availability Info"]
-        .map((info) =>
-          info
-            .replace("Yes: ", "")
-            .replace("No: ", "")
-            .replace(
-              "Skip: call back later",
-              "Could not reach human, calling back later"
-            )
-        )
-        .join(" | ");
-    } catch {
-      return null;
-    }
+    const info = p["Availability Info"];
+    if (!Array.isArray(info)) return false;
+    return info
+      .map((info) =>
+        info
+          .replace("Yes: ", "")
+          .replace("No: ", "")
+          .replace(
+            "Skip: call back later",
+            "Could not reach human, calling back later"
+          )
+      )
+      .join(" | ");
   }
   function getSchedulingInstructions(p) {
-    try {
-      return replaceAnyLinks(
-        p["Appointment scheduling instructions"].join(", ")
-      );
-    } catch {
+    const instructions = p["Appointment scheduling instructions"];
+    if (!Array.isArray(instructions)) {
       return null;
     }
+    return replaceAnyLinks(instructions.join(", "));
   }
   function getRepNotes(p) {
-    try {
-      let notes = replaceAnyLinks(p["Latest report notes"].join(" | "));
-      if (notes == " ") {
-        return null;
-      }
-      return notes;
-    } catch {
+    const notes = p["Latest report notes"];
+    if (!Array.isArray(notes)) {
       return null;
     }
+    const linkifiedNotes = replaceAnyLinks(notes.join(" | "));
+    if (linkifiedNotes.trim() === "") {
+      return null;
+    }
+    return notes;
   }
 
   function replaceAnyLinks(body) {
     // Regex from https://stackoverflow.com/a/3890175.
     const urlRegex = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
-    if (body) {
-      return body.replace(urlRegex, "<a href='$1' target='_blank'>$1</a>");
+    if (!body) {
+      return "";
     }
+    return body.replace(urlRegex, "<a href='$1' target='_blank'>$1</a>");
   }
 
-  let hasReport = getHasReport(p);
+  const hasReport = getHasReport(p);
+
   function getYesNo(p) {
     if (hasReport) {
       return getHasVaccine(p) ? "Yes" : "No";
