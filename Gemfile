@@ -32,3 +32,7 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # github pages support 2.6.1 and not more recent versions
 # source: https://pages.github.com/versions/
 gem 'jekyll-seo-tag', '2.6.1'
+
+gem "json", "~> 2.5"
+
+gem "bigdecimal", "~> 3.0"
