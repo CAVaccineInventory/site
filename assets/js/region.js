@@ -15,7 +15,6 @@ function updateFilterFromUrlFragment() {
       return;
     }
     if (input) {
-      console.log("filterin from fragment");
       filterCounties(input, countyName);
     }
   }
@@ -102,7 +101,6 @@ function setupFiltering() {
   // If a user clears the search field and hits enter, reset to unfiltered table
   input.addEventListener("keydown", (e) => {
     if (e.key == "Enter" && input.value.length == 0) {
-      console.log("CLEARING");
       document
         .querySelectorAll(".js_county_container")
         .forEach((elem) => elem.classList.remove("hidden"));
@@ -119,7 +117,6 @@ function filterCounties(input, county) {
   document
     .querySelectorAll(`[data-county="${county}"].js_county_container`)
     .forEach((elem) => elem.classList.remove("hidden"));
-  console.log("we did it");
   updateLocationHash(input);
 }
 
