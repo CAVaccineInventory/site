@@ -1,78 +1,23 @@
 ---
 layout: default
-title: Search Near Me
 permalink: /near-me
 add_to_nav: true
 order: 2
 ---
 
-{% include pre_list_disclaimer.html %}
-
-<script type="module" src="assets/js/nearest.js"></script>
-<form
-  class="flex flex-wrap relative flex-col md:flex-row md:items-center mt-5"
-  id="submit_zip_form"
->
-  <div>
-    <div class="relative max-w-xs">
-      <select
-        id="filter"
-        class="w-full appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-      >
-        <option value="reports">Sites we have contacted</option>
-        <option selected="selected" value="stocked">
-          Sites with reported doses
-        </option>
-        <option value="any">All known vaccination sites</option>
-      </select>
-      <div
-        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-      >
-        <svg
-          class="fill-current h-4 w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path
-            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div id="geolocation_wrapper" class="hidden pt-4 md:pt-0">
-    <span class="ml-0 md:ml-3">near</span>
-    <button
-      class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-      id="submit_geolocation"
-      type="button"
+<div class="py-4 flex flex-col items-start md:items-center">
+  {% include search_form.html %}
+  <div class="relative py-4">
+    <select
+      id="filter"
+      class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
     >
-      My Location
-    </button>
-    <span class="">or</span>
+      <option value="reports">Sites we have contacted</option>
+      <option selected value="stocked">Sites with reported doses</option>
+      <option value="any">All known vaccination sites</option>
+    </select>
   </div>
-  <div class="pt-4 md:pt-0">
-    <span class="mr-3 md:mx-3">near</span>
-    <!-- Hard code 90210 for now for ease of testing -->
-    <label for="zip" class="sr-only">Zip Code</label>
-    <input
-      type="text"
-      id="zip"
-      pattern="[0-9]{5}"
-      placeholder="5-digit zip code"
-      class="w-36 px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:border-indigo-500"
-      required
-    />
-    <button
-      id="submit_zip"
-      type="submit"
-      class="py-2 px-4 mx-3 border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-    >
-      Search Zip
-    </button>
-  </div>
-</form>
-
+</div>
 <ol id="sites"></ol>
 <div id="loading" class="mt-4 hidden">Loading...</div>
 

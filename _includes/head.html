@@ -1,40 +1,59 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    {% seo %}
+  {% seo %}
 
-    <!-- Accessible descripts of our images that show up on social media -->
-    <meta name="twitter:image:alt" content="An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines near you with our community-run tracker'">
-    <meta name="og:image:alt" content="An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines near you with our community-run tracker'">
+  <!-- Accessible descripts of our images that show up on social media -->
+  <meta
+    name="twitter:image:alt"
+    content="An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines near you with our community-run tracker'"
+  />
+  <meta
+    name="og:image:alt"
+    content="An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines near you with our community-run tracker'"
+  />
 
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
-    <!-- 
+  <!-- 
         Design system, using utility classes from Tailwind CSS.
         https://tailwindcss.com/docs
     -->
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link
+    href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
 
-    <!--
+  <!--
         Add custom styles sparingly. Bias heavily towards following the path
         laid out by the design system (See above).
     -->
-    <link href="/assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/main.css" rel="stylesheet" />
 
-    <script type="module" src="/assets/js/counties.js"></script>
-    <script type="module" src="/assets/js/main.js"></script>
-    <script src="/assets/js/autoComplete.min.js"></script>
+  <script type="module" src="/assets/js/counties.js"></script>
+  <script type="module" src="/assets/js/main.js"></script>
+  <script src="/assets/js/autoComplete.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+    rel="stylesheet"
+  />
 
-    {% if jekyll.environment == 'production' %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{site.google_analytics_id}}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  {% if jekyll.environment == 'production' %}
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id={{site.google_analytics_id}}"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-        gtag('config', '{{site.google_analytics_id}}');
-    </script>
-    {% endif %}
+    gtag("config", "{{site.google_analytics_id}}");
+  </script>
+  {% endif %}
 </head>
