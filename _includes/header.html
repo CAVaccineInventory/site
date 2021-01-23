@@ -9,7 +9,7 @@
             </a>
           </div>
 
-          <div class="hidden xl:block">
+          <div class="hidden lg:block">
             <div class="ml-10 flex items-baseline space-x-2">
               {% assign nav = site.pages | sort: 'order' %} {% for item in nav
               %} {% if item.title and item.add_to_nav %} {% if item.url ==
@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-        <div class="flex xl:hidden">
+        <div class="flex lg:hidden">
           <!-- Mobile menu button -->
           <button
             class="inline-flex items-center justify-center p-2 rounded-md text-black hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white js-mobile-menu-button"
@@ -82,7 +82,7 @@
 
       Open: "block", closed: "hidden"
     -->
-    <div class="hidden xl:hidden js-mobile-menu">
+    <div class="hidden lg:hidden js-mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {% assign nav = site.pages | sort: 'order' %} {% for item in nav %} {%
         if item.title and item.add_to_nav %} {% if item.url == page.url %} {%
