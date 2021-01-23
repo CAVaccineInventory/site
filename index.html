@@ -14,12 +14,18 @@ homepage: true
 
   <div class="mb-10 lg:mb-12">{% include search_form.html %}</div>
   <div class="text-black md:text-lg max-w-4xl text-center">
-    Safe and reliable COVID-19 vaccines are available to several groups of
-    people in California. But it can be difficult to find out where and how to
-    get a shot. We are a group of volunteers calling hospitals and pharmacies
-    daily to track their vaccine availability and their processes for getting
-    one.
+    The State of California has
+    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
+    giving the COVID-19 vaccine to people age 65 and older.</strong> We are
+    calling hospitals and pharmacies daily to check which are currently
+    administering vaccines.
+
+    <p>
+      {% include disclaimer.html %}
+    </p>
   </div>
+
+
   {% include regions_picker.html %}
   <div class="my-8">
     <div class="mt-5 flex justify-center">
