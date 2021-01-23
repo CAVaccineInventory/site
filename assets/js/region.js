@@ -8,11 +8,7 @@ window.addEventListener("load", setupFiltering);
 async function fetchRegionSites() {
   console.log("fetching...");
   let sites = await fetchSites();
-  const counties = document
-    .getElementById("counties_list")
-    .textContent.trim()
-    .split(",")
-    .map((c) => c.trim());
+  const counties = getCounties();
 
   const sitesByCounty = {};
   for (const county of counties) {
@@ -69,11 +65,7 @@ function setupFiltering() {
   if (!input) {
     return;
   }
-  const counties = document
-    .getElementById("counties_list")
-    .textContent.trim()
-    .split(",")
-    .map((c) => c.trim());
+  const counties = getCounties();
 
   new autoComplete({
     data: {
@@ -102,4 +94,13 @@ function setupFiltering() {
         .forEach((elem) => elem.classList.remove("hidden"));
     }
   });
+}
+
+function getCounties() {
+  return document
+    .getElementById("counties_list")
+    .textContent.trim()
+    .split(",")
+    .map((c) => c.trim());
+
 }
