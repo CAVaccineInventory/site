@@ -5,32 +5,37 @@ add_to_nav: true
 homepage: true
 ---
 
-<div class="lg:flex lg:space-x-7">
-  <div class="lg:w-3/5 xl:w-1/2">
-    <h3 class="text-4xl font-medium mb-4 leading-10">{{ page.title }}</h3>
+<div class="flex flex-col items-center">
+  <h1
+    class="text-2xl md:text-3xl mb-10 lg:mb-12 mt-6 font-semibold text-center"
+  >
+    Find a COVID-19 vaccine for yourself or a loved one
+  </h1>
 
-    The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
-    giving the COVID-19 vaccine to people age 65 and older.</strong> We are
-    calling hospitals and pharmacies daily to check which are currently
-    administering vaccines.
+  <div class="mb-10 lg:mb-12">{% include search_form.html %}</div>
+  <div class="text-black md:text-lg max-w-4xl text-center">
+    Safe and reliable COVID-19 vaccines are available to several groups of
+    people in California. But it can be difficult to find out where and how to
+    get a shot. We are a group of volunteers calling hospitals and pharmacies
+    daily to track their vaccine availability and their processes for getting
+    one.
+  </div>
+  {% include regions_picker.html %}
+  <div class="my-8">
+    <div class="mt-5 flex justify-center">
+      <a
+        href="https://airtable.com/shrOMv5EI1jYwV1XR"
+        class="md:inline px-5 py-3 border-2 border-green-500 text-green-700 font-bold rounded hover:bg-green-500 hover:text-white"
+        >Let us know if you found this site useful!</a
+      >
+    </div>
 
-    {% include regions_picker.html %}
+    <div class="mt-4 md:mt-6 text-sm">
+      If you have a missing location to report, or think we have incorrect
+      contact information,
+      <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
+    </div>
   </div>
 
-  <div class="mt-6 lg:w-2/5 xl:w-1/2">
-    {% include map.html %}
-  </div>
+  {% include coverage.html %}
 </div>
-
-<div class="my-8">
-  <div class="mt-5">
-    <a href="https://airtable.com/shrOMv5EI1jYwV1XR" class="block md:inline px-5 py-3 border-2 border-green-500 text-green-700 font-bold rounded hover:bg-green-500 hover:text-white">Let us know if you found this site useful!</a>
-  </div>
-
-  <div class="mt-4 md:mt-6 text-sm">
-    If you have a missing location to report, or think we have incorrect contact information, <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
-  </div>
-</div>
-
-{% include coverage.html %}

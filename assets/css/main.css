@@ -1,9 +1,9 @@
 :root {
-  font-family: "Inter", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: "Inter var", sans-serif;
+    font-family: "DM Sans", sans-serif;
   }
 }
 
@@ -25,6 +25,40 @@ a[class^="border-"],
 a[class*=" border-"],
 a.no-underline {
   text-decoration: none;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="25" viewBox="0 1 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.127L12 18.127L20 10.127H4Z" fill="%238E8E93"/></svg>');
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-position-x: 97%;
+}
+
+.up-arrow:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 20px;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #e5e7eb;
+}
+
+.up-arrow:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 21px;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  border: 9px solid transparent;
+  border-bottom-color: white;
 }
 
 .airtable-embed {

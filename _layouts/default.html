@@ -1,24 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
-
-{% include head.html %}
-
-<body class="min-h-screen">
-
-  <div>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}"> 
+  {% include head.html %}
+  <body class="min-h-screen w-screen">
     {% include header.html %}
-    
-    <main class="mx-auto">
-      <div class="lg:py-6">
-        <div class="main-content px-4 py-6 lg:px-8">
-          {{ content }}
-
-          {% include footer.html %}
-        </div>
-      </div>
+    <main class="lg:py-6 container px-4 md:px-0 md:mx-auto">
+      <div class="main-content mt-4">{{ content }} {% include footer.html %}</div>
     </main>
-  </div>
-
-</body>
-
+  </body>
 </html>
