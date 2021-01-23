@@ -80,7 +80,7 @@ async function fetchRegionSites() {
 }
 
 function setupFiltering() {
-  const input = document.querySelector("#autoComplete");
+  const input = document.querySelector(".js_autocomplete");
   if (!input) {
     return;
   }
