@@ -27,6 +27,10 @@ a.no-underline {
   text-decoration: none;
 }
 
+.invert {
+  filter: invert(1);
+}
+
 select {
   appearance: none;
   -webkit-appearance: none;

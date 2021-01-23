@@ -5,7 +5,14 @@
         <div class="flex flex-grow items-center justify-between">
           <div class="flex-shrink-0">
             <a href="/" class="flex items-center space-x-3">
-              {% include logo_with_text.html %}
+              <img
+                class="h-8 w-8 invert"
+                src="/assets/img/logo.png"
+                alt="VaccinateCA Logo"
+              />
+              <div class="text-xl leading-tight text-black">
+                {{ site.title }}
+              </div>
             </a>
           </div>
 
