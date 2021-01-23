@@ -1,31 +1,66 @@
 <template id="site_location_template">
-  <li class="site-card rounded-lg mt-4 pt-4 pb-4 relative">
-    <div class="px-2 md:px-4 pb-2 border-b border-gray-200 flex flex-row space-x-2 justify-between items-center">
-      <!-- Name and address -->
-      <div class="flex flex-col overflow-hidden">
-        <h4 class="site_title text-lg font-bold leading-4 text-gray-900 mb-1 truncate capitalize"></h4>
-        <div class="site_location_info flex flex-row items-center">
-          <a class="site_county text-sm font-medium text-black no-underline hover:underline whitespace-nowrap"></a>
-          <span class="address_separator px-2">·</span>
-          <a
-            class="site_address text-sm text-gray-500 no-underline hover:underline truncate capitalize"
-            target="_blank"
-            rel="noreferrer"
-          ></a>
-        </div>
-      </div>
-      <!-- Last report on desktop -->
-      <div class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full hidden md:flex"></div>
-    </div>
-    <div class="site_report_wrapper">
-      <div
-        class="site_report px-2 md:px-4 pt-0 md:pt-2 md:grid md:grid-cols-3 md:gap-4 relative"
+  <li class="shadow sm:rounded-lg px-3 mt-4 pt-6 lg:pb-6 pb-4 relative">
+    <div
+      class="site_in_county flex flex-row absolute top-1 right-1 items-center hidden"
+    >
+      <span class="text-xs text-gray-600 mr-1">Within your county</span>
+      <svg
+        height="14"
+        viewBox="0 0 21 21"
+        width="14"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        
-      </div>
-      <!-- Last report on mobile -->
-      <div class="flex justify-start">
-        <div class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 mt-2 rounded-full md:hidden ml-2"></div>
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="#00c002"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          transform="translate(2 2)"
+        >
+          <circle cx="8.5" cy="8.5" r="8" />
+          <path d="m5.5 9.5 2 2 5-5" />
+        </g>
+      </svg>
+    </div>
+    <h4
+      class="site_title text-lg leading-6 font-medium text-gray-900 mb-2"
+    ></h4>
+    <div class="site_address mb-2 flex flex-row items-center">
+      <svg
+        height="18"
+        viewBox="0 0 21 21"
+        width="18"
+        xmlns="http://www.w3.org/2000/svg"
+        class="mr-1"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="#6B7280"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          transform="translate(4 2)"
+        >
+          <path
+            d="m6.5 16.5407715c4-4.4500928 6-7.78586659 6-10.00732153 0-3.33218241-2.6862915-6.03344997-6-6.03344997s-6 2.70126756-6 6.03344997c0 2.22145494 2 5.55722873 6 10.00732153z"
+          />
+          <circle cx="6.5" cy="6.5" r="2.5" />
+        </g>
+      </svg>
+      <a
+        class="text-sm text-gray-500 hover:underline"
+        target="_blank"
+        rel="noreferrer"
+      ></a>
+    </div>
+    <div class="site_report_wrapper border-t border-gray-200">
+      <div
+        class="site_report bg-gray-50 px-2 md:px-4 pt-2 md:pt-4 pb-7 md:grid md:grid-cols-3 md:gap-4 relative"
+      >
+        <div
+          class="site_last_report_date absolute bottom-1 right-2 text-xs text-gray-400"
+        ></div>
       </div>
       <div class="site_no_report mt-3">No contact reports</div>
     </div>
@@ -35,40 +70,6 @@
 <template id="report_detail_template">
   <dt class="detail_title mt-2 md:mt-0 text-sm font-medium text-gray-500"></dt>
   <dd
-    class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-word"
+    class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-all"
   ></dd>
-</template>
-
-<template id="vaccine_available">
-  <div class="flex flex-row items-center space-x-2">
-    {% include svg/checkmark.html %}
-    <span class="font-sm font-bold text-green-600">
-      Vaccines available
-    </span>
-  </div>
-</template>
-
-<template id="vaccine_not_available">
-  <div class="flex flex-row items-center space-x-2">
-    {% include svg/missing.html %}
-    <span class="font-sm font-bold text-red-600">
-      Vaccines not available
-    </span>
-  </div>
-</template>
-
-<template id="latest_info">
-  <div class="flex flex-row items-center space-x-1">{% include svg/info.html %}
-    <div class="flex flex-row text-sm space-x-1 leading-none">
-      <span class="font-bold">Latest info </span><span>Great details</span>
-    </div>
-  </div>
-</template>
-
-<template id="appointment_details">
-  <div class="flex flex-row items-center space-x-1">{% include svg/calendar.html %}
-    <div class="flex flex-row text-sm space-x-1 leading-none">
-      <span class="font-bold">Appointment required </span><span>Great details</span>
-    </div>
-  </div>
 </template>

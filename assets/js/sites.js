@@ -1,37 +1,12 @@
 import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
 
-function shorten(text, maxLen) {
-  return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
-}
-
 function createDetailRow(reportElem, title, content) {
   const elem = document
     .getElementById("report_detail_template")
     .content.cloneNode(true);
-  elem.querySelector(".detail_title").innerHTML = title;
-  const contentElem = elem.querySelector(".detail_content");
-  contentElem.innerHTML = content;
-  const linksElem = contentElem.querySelectorAll("a");
-  for (const linkElem of linksElem) {
-    linkElem.textContent = shorten(linkElem.textContent, 40);
-    linkElem.setAttribute("target", "_blank");
-    linkElem.setAttribute("rel", "noreferrer");
-    linkElem.textContent;
-  }
+  elem.querySelector(".detail_title").textContent = title;
+  elem.querySelector(".detail_content").innerHTML = content;
   reportElem.appendChild(elem);
-}
-
-function urlify(text) {
-  var urlRegex = /(https?:\/\/[^\s]+)/g;
-  return text.replace(urlRegex, function (url) {
-    return '<a href="' + url + '">' + url + "</a>";
-  });
-}
-
-function flattenData(strOrStrArray) {
-  return Array.isArray(strOrStrArray)
-    ? strOrStrArray.join("; ")
-    : strOrStrArray;
 }
 
 function addSitesToPage(sites, container, userCounty) {
@@ -40,46 +15,38 @@ function addSitesToPage(sites, container, userCounty) {
     .content;
 
   for (const site of sites.slice(0, 50)) {
-    console.log(site);
     let info = getDisplayableVaccineInfo(site);
     const siteRootElem = site_template.cloneNode(true);
-    siteRootElem.querySelector(
-      ".site_title"
-    ).textContent = info.name.toLowerCase();
-
-    let addressElemCounter = 0;
-    if (info.county) {
-      const countyElem = siteRootElem.querySelector(".site_county");
-      if (countyElem) {
-        countyElem.innerHTML = info.county;
-        countyElem.href = ``;
-        addressElemCounter++;
-      }
-    }
+    siteRootElem.querySelector(".site_title").textContent = info.name;
 
     // Some sites don't have addresses.
-    if (info.address) {
-      const addressElem = siteRootElem.querySelector(".site_address");
-      if (addressElem) {
-        addressElem.textContent = info.address.toLowerCase();
-        addressElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-          info.address
+    const addressElem = siteRootElem.querySelector(".site_address");
+    if (info.address || info.county) {
+      const linkElem = addressElem.querySelector("a");
+      if (linkElem) {
+        const address = [info.county, info.address].filter(Boolean).join(" - ");
+        linkElem.textContent = address;
+        linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+          info.address || info.county
         )}`;
-        addressElemCounter++;
       }
-    }
-
-    if (addressElemCounter < 2) {
-      siteRootElem.querySelector(".address_separator").remove();
+    } else {
+      addressElem.remove();
     }
 
     const reportElem = siteRootElem.querySelector(".site_report");
     const noReportElem = siteRootElem.querySelector(".site_no_report");
 
-    const latestReportElems = siteRootElem.querySelectorAll(
-      ".site_last_report_date"
-    );
-
+    if (
+      userCounty &&
+      info.county &&
+      info.county.toLowerCase().includes(userCounty.toLowerCase())
+    ) {
+      const countyMatchElem = siteRootElem.querySelector(".site_in_county");
+      if (countyMatchElem) {
+        countyMatchElem.classList.remove("hidden");
+      }
+    }
     // Show whatever report we have
     if (info.hasReport) {
       noReportElem.remove();
@@ -97,22 +64,21 @@ function addSitesToPage(sites, container, userCounty) {
         createDetailRow(reportElem, "Location notes", info.locationNotes);
       }
       if (info.reportNotes) {
-        const notes = flattenData(info.reportNotes);
-        createDetailRow(reportElem, "Latest info", urlify(notes));
+        createDetailRow(reportElem, "Latest info", info.reportNotes);
       }
       if (info.latestReportDate) {
+        const latestReportElem = siteRootElem.querySelector(
+          ".site_last_report_date"
+        );
         try {
           const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElems.forEach(
-            (elem) => (elem.textContent = `Updated ${timeDiff}`)
-          );
+          latestReportElem.textContent = `Latest report: ${timeDiff}`;
         } catch (e) {
           console.error(e);
         }
       }
     } else {
       reportElem.remove();
-      latestReportElems.forEach((elem) => elem.remove());
     }
 
     list.appendChild(siteRootElem);
