@@ -4,6 +4,7 @@
 {% include head.html %}
 
 <body>
+  <script type="module" src="/assets/js/region.js"></script>
 
   <div>
     {% include header.html %}
@@ -15,12 +16,14 @@
             <div class="lg:text-center">
               <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
                 {% assign counties = site.counties | where:"region", page.title %}
+                {% assign county_autocomplete_data = counties | map: "title" | join: ", " %}
+
                 {% for county in counties %}
                   <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
-                {% assign county_autocomplete_data = counties | map: "title" | join: ", " %}
-              </p>
 
+                <span id="counties_list" class="hidden">{{ county_autocomplete_data }}</span>
+              </p>
             </div>
           </div>
 
@@ -32,10 +35,18 @@
             {% include pre_list_disclaimer.html %}
 
             <div class="autoComplete_wrapper">
-              <input type="text" id="autoComplete" placeholder="Search by county..." data-collection="{{ county_autocomplete_data }}" class="{{ site.data.styles.input }}" autofocus/>
+              <input type="text" id="autoComplete" placeholder="Search by county..." class="js_autocomplete {{ site.data.styles.input }}" autofocus/>
             </div>
 
-            <iframe class="airtable-embed" src="https://airtable.com/embed/{{ page.airtable_embed }}?backgroundColor=grayLight&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+            <div class="border-2 border-green-600 rounded p-3 mb-3">
+              <h3 class="text-lg font-medium text-green-800">Sites with the vaccine</h3>
+              <div id="withVaccine"></div>
+            </div>
+
+            <div class="border-2 border-red-600 rounded p-3">
+              <h3 class="text-lg font-medium text-red-800">Sites that do not have the vaccine</h3>
+              <div id="withoutVaccine"></div>
+            </div>
           </div>
 
           {% include post_list_disclaimer.html %}
@@ -45,7 +56,7 @@
       </div>
     </main>
   </div>
-
+  {% include site_template.html %}
 </body>
 
 </html>
