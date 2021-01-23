@@ -1,2 +1,2 @@
 assets/js/*.min.js
-*.html
+_site/*
