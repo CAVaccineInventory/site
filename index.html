@@ -15,6 +15,10 @@ homepage: true
     calling hospitals and pharmacies daily to check which are currently
     administering vaccines.
 
+    <div class="lg:hidden mt-5 text-sm text-gray-900">
+      {% include disclaimer.html %}
+    </div>
+
     {% include regions_picker.html %}
   </div>
 
@@ -23,7 +27,7 @@ homepage: true
   </div>
 </div>
 
-<div class="my-8">
+<div class="mt-8 mb-5">
   <div class="mt-5">
     <a href="https://airtable.com/shrOMv5EI1jYwV1XR" class="block md:inline px-5 py-3 border-2 border-green-500 text-green-700 font-bold rounded hover:bg-green-500 hover:text-white">Let us know if you found this site useful!</a>
   </div>
@@ -31,6 +35,10 @@ homepage: true
   <div class="mt-4 md:mt-6 text-sm">
     If you have a missing location to report, or think we have incorrect contact information, <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
   </div>
+</div>
+
+<div class="hidden lg:block text-gray-900 mb-8">
+  {% include disclaimer.html %}
 </div>
 
 {% include coverage.html %}
