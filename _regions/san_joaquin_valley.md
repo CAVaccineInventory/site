@@ -7,4 +7,4 @@ airtable_embed: shrrPf4SKn0SGsuzU
 order: 4
 ---
 
-ff
+COVID-19 vaccination availability information for {{ page.title }}.

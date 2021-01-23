@@ -1,10 +1,10 @@
 ---
 layout: region
-title: Bay Area
+title: SF Bay Area
 color: bg-yellow-700
-sample_counties: "Alameda, Santa Clara, Contra Costa, Solano, Napa, etc"
+sample_counties: "San Francisco, Alameda, Santa Clara, Solano, Napa, etc"
 airtable_embed: shrcC9IJ8ezCYAs9I
 order: 2
 ---
 
-ff
+COVID-19 vaccination availability information for {{ page.title }}.

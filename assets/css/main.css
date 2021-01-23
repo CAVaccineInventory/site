@@ -1,19 +1,33 @@
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 @supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
 }
 
 .main-content p {
   margin-bottom: 12px;
 }
 
+/* Add underlines to links... */
 a {
-  color: #047857;
+  color: #0366d6;
+  text-decoration: underline;
 }
 
-.airtable-embed{
+/* ... but exempt a bunch of things. */
+nav a,
+a[class^="bg-"],
+a[class*=" bg-"],
+a[class^="border-"],
+a[class*=" border-"],
+a.no-underline {
+  text-decoration: none;
+}
+
+.airtable-embed {
   height: 85vh;
 }
 
@@ -22,23 +36,6 @@ a {
   display: inline-block;
   width: 100%;
 }
-
-/*input[type="text"] {
-  margin: 0;
-  padding: var(--spacing-s);
-  box-sizing: border-box;
-  text-overflow: ellipsis;
-  outline: 0;
-  border-radius: 3px;
-  border: 1px solid var(--color-border);
-  box-shadow: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-input[type="text"]:focus {
-  border-color: var(--color-text-secondary);
-}*/
 
 #autoComplete {
   width: 100%;
@@ -85,26 +82,10 @@ input[type="text"]:focus {
   background-color: var(--color-accent-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  input[type="text"] {
-    border: 1px solid var(--color-border--dark);
-  }
-
-  #autoComplete {
-    background-color: var(--color-bg--dark);
-    color: var(--color-text-primary--dark);
-  }
-  #autoComplete_list {
-    background-color: var(--color-bg--dark);
-    color: var(--color-text-primary--dark);
-  }
-
-  .mapInfo {
-    --color-text-primary: var(--color-text-primary--light);
-  }
+.mapInfo h1 {
+  font-size: 2em;
 }
 
-.mapInfo h1 {
- font-size: 2em;
- color: rgb(0, 82, 217);
+.mapInfo .supersite-tag {
+  color: #007fff;
 }
