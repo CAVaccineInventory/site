@@ -1,5 +1,5 @@
-import { fetchSites, splitSitesByVaccineState, getCounty } from "./data.js";
 
+import { fetchSites, splitSitesByVaccineState, getCounty } from "./data/locations.js";
 import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", fetchRegionSites);

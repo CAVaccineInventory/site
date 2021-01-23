@@ -1,4 +1,4 @@
-import { getDisplayableVaccineInfo } from "/assets/js/data.js";
+import { getDisplayableVaccineInfo } from "/assets/js/data/locations.js";
 
 window.mapMarkers = [];
 
