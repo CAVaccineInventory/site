@@ -14,34 +14,61 @@ homepage: true
 
   <div class="mb-10 lg:mb-12">{% include search_form.html %}</div>
   <div class="text-black md:text-lg max-w-4xl text-center">
-    The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
-    giving the COVID-19 vaccine to people age 65 and older.</strong> We are
-    calling hospitals and pharmacies daily to check which are currently
-    administering vaccines.
+    Safe and reliable COVID-19 vaccines are available to several groups of
+    people in California. But it can be difficult to find out where and how to
+    get a shot. We are a group of volunteers calling hospitals and pharmacies
+    daily to track their vaccine availability and their processes for getting
+    one.
+  </div>
 
+  <div class="mt-16 bg-yellow-300 py-8 md:py-12 w-screen">
+    <div class="flex-col-reversed px-4 space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-10 md:px-12">
+      <div>
+        <div class="text-xl font-bold mb-4 md:mb-8">County vaccination policy</div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-4">
+          {% for i in (1..6) %}
+          <a class="text-black bg-white py-3 px-4 rounded-md shadow-md" href="">
+            <div class="placeholder w-3/4 xl:w-1/2 rounded-full bg-gray-100">&nbsp;</div>
+          </a>
+          {% endfor %}
+          <a class="text-white bg-gray-800 py-3 px-4 rounded-md shadow-md" href="{% link county-policies.md %}">All Counties</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-xl font-bold mb-4 md:mb-8">County vaccination policy</div>
+        <div>
+          <p>
+            The State of California has
+            <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
+            giving the COVID-19 vaccine to people age 65 and older.</strong> We are
+            calling hospitals and pharmacies daily to check which are currently
+            administering vaccines.
+          </p>
+      
+          <div class="mt-5 text-gray-900">
+            {% include disclaimer.html %}
+          </div>
+          <a class="text-black" href="{% link about-us.md %}">
+            About Vaccinate California ->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-16 flex flex-col items-center text-center">
     <p>
-      {% include disclaimer.html %}
+      We’d love&nbsp;<a class="text-black" href="https://airtable.com/shrOMv5EI1jYwV1XR" target="_blank" rel="noreferrer">your feedback</a>. 
+      Found&nbsp;<a class="text-black" href="https://airtable.com/shrY44NvEjHBscrOH" target="_blank" rel="noreferrer">something wrong or missing</a>&nbsp;in the data?
     </p>
+    <a
+      href="https://airtable.com/shrOMv5EI1jYwV1XR"
+      class="px-5 py-3 border border-gray-300 text-green-700 rounded-full hover:bg-green-500 hover:text-white"
+      >Let us know if you found this site useful!</a
+    >
   </div>
 
-
-  {% include regions_picker.html %}
-  <div class="my-8">
-    <div class="mt-5 flex justify-center">
-      <a
-        href="https://airtable.com/shrOMv5EI1jYwV1XR"
-        class="md:inline px-5 py-3 border-2 border-green-500 text-green-700 font-bold rounded hover:bg-green-500 hover:text-white"
-        >Let us know if you found this site useful!</a
-      >
-    </div>
-
-    <div class="mt-4 md:mt-6 text-sm">
-      If you have a missing location to report, or think we have incorrect
-      contact information,
-      <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
-    </div>
+  <div class="mt-16">
+    {% include coverage.html %}
   </div>
-
-  {% include coverage.html %}
 </div>
