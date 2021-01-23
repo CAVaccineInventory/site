@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "lint": "prettier assets/js/*.js assets/css/*.css",
-    "lint:fix": "prettier --write assets/js/*.js assets/css/*.css"
+    "lint": "prettier assets/js/*.js assets/css/*.css **/*.html",
+    "lint:fix": "prettier --write assets/js/*.js assets/css/*.css **/*.html"
   },
   "devDependencies": {
     "prettier": "^2.1.1"
