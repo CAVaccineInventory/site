@@ -35,8 +35,12 @@ async function fetchRegionSites() {
     regionNoTemplate
       .querySelector(".sites")
       .setAttribute("id", `${county}WithoutVaccine`);
-    regionYesTemplate.querySelector(".js_county_container").dataset.county = county;
-    regionNoTemplate.querySelector(".js_county_container").dataset.county = county;
+    regionYesTemplate.querySelector(
+      ".js_county_container"
+    ).dataset.county = county;
+    regionNoTemplate.querySelector(
+      ".js_county_container"
+    ).dataset.county = county;
     regionYesTemplate.querySelector(".county_name").innerText = county;
     regionNoTemplate.querySelector(".county_name").innerText = county;
 
@@ -65,7 +69,8 @@ function setupFiltering() {
   if (!input) {
     return;
   }
-  const counties = document.getElementById("counties_list")
+  const counties = document
+    .getElementById("counties_list")
     .textContent.trim()
     .split(",")
     .map((c) => c.trim());
@@ -80,15 +85,21 @@ function setupFiltering() {
     onSelection: (feedback) => {
       const selected = feedback.selection.value;
       input.value = selected;
-      document.querySelectorAll('.js_county_container').forEach((elem) => elem.classList.add("hidden"));
-      document.querySelectorAll(`[data-county="${selected}"].js_county_container`).forEach((elem) => elem.classList.remove("hidden"));
+      document
+        .querySelectorAll(".js_county_container")
+        .forEach((elem) => elem.classList.add("hidden"));
+      document
+        .querySelectorAll(`[data-county="${selected}"].js_county_container`)
+        .forEach((elem) => elem.classList.remove("hidden"));
     },
   });
 
   // If a user clears the search field and hits enter, reset to unfiltered table
   input.addEventListener("keydown", (e) => {
     if (e.key == "Enter" && input.value.length == 0) {
-      document.querySelectorAll('.js_county_container').forEach((elem) => elem.classList.remove("hidden"));
+      document
+        .querySelectorAll(".js_county_container")
+        .forEach((elem) => elem.classList.remove("hidden"));
     }
   });
 }
