@@ -11,7 +11,7 @@ Some of us (so you know we're "real people"): <span id="people-list">
 {% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
 </span>.
 
-<h2 class="text-2xl font-bold leading-tight text-gray-900">
+<h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
 Frequently Asked Questions (FAQ)
 </h2>
 
