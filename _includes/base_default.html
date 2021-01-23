@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}"> 
+  {% include head.html %}
+  <body class="min-h-screen w-screen">
+    {% include header.html %}
+    <main class="lg:py-6 {% if include.with_container %} container md:px-0 md:mx-auto {% else %} md:px-8 {% endif %} px-4">
+      <div class="main-content mt-4">{{ content }} {% include footer.html %}</div>
+    </main>
+  </body>
+</html>
