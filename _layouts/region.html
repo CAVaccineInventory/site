@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  {% include head.html %}
 
-{% include head.html %}
+  <body>
+    <script type="module" src="/assets/js/region.js"></script>
 
-<body>
-  <script type="module" src="/assets/js/region.js"></script>
+    <div>
+      {% include header.html %}
 
-  <div>
-    {% include header.html %}
+      <main class="mx-auto">
+        <div class="md:pb-6">
+          <div class="main-content px-4 py-6 md:px-8">
+            <div class="bg-white">
+              <div class="lg:text-center">
+                <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
+                  {% assign counties = site.counties | where:"region",
+                  page.title %} {% assign county_autocomplete_data = counties |
+                  map: "title" | join: ", " %} {% for county in counties %}
+                  <a href="{{ county.url }}">{{ county.title }}</a>{% if
+                  forloop.last %}{% else %},{% endif %} {% endfor %}
 
-    <main class="mx-auto">
-      <div class="md:pb-6">
-        <div class="main-content px-4 py-6 md:px-8">
-          <div class="bg-white">
-            <div class="lg:text-center">
-              <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
-                {% assign counties = site.counties | where:"region", page.title %}
-                {% assign county_autocomplete_data = counties | map: "title" | join: ", " %}
+                  <span id="counties_list" class="hidden"
+                    >{{ county_autocomplete_data }}</span
+                  >
+                </p>
+              </div>
+            </div>
 
-                {% for county in counties %}
-                  <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
-                {% endfor %}
-
-                <span id="counties_list" class="hidden">{{ county_autocomplete_data }}</span>
+            <div class="border-t-2 border-gray-200 pt-6 mt-6">
+              <p class="text-xl">
+                Here is a list of all locations we have contacted in your
+                region. You can also view
+                <a href="{% link county-policies.md %}"
+                  >vaccination policies for these counties</a
+                >.
               </p>
+
+              {% include pre_list_disclaimer.html %}
+
+              <div class="autoComplete_wrapper">
+                <input
+                  type="text"
+                  id="autoComplete"
+                  placeholder="Search by county..."
+                  class="js_autocomplete {{ site.data.styles.input }}"
+                  autofocus
+                />
+              </div>
+
+              <div class="border-2 border-green-600 rounded p-3 mb-3">
+                <h3 class="text-lg font-medium text-green-800">
+                  Sites with the vaccine
+                </h3>
+                <div id="withVaccine"></div>
+              </div>
+
+              <div class="border-2 border-red-600 rounded p-3">
+                <h3 class="text-lg font-medium text-red-800">
+                  Sites that do not have the vaccine
+                </h3>
+                <div id="withoutVaccine"></div>
+              </div>
             </div>
+
+            {% include post_list_disclaimer.html %} {% include footer.html %}
           </div>
-
-          <div class="border-t-2 border-gray-200 pt-6 mt-6">
-            <p class="text-xl">
-              Here is a list of all locations we have contacted in your region. You can also view <a href="{% link county-policies.md %}">vaccination policies for these counties</a>.
-            </p>
-
-            {% include pre_list_disclaimer.html %}
-
-            <div class="autoComplete_wrapper">
-              <input type="text" id="autoComplete" placeholder="Search by county..." class="js_autocomplete {{ site.data.styles.input }}" autofocus/>
-            </div>
-
-            <div class="border-2 border-green-600 rounded p-3 mb-3">
-              <h3 class="text-lg font-medium text-green-800">Sites with the vaccine</h3>
-              <div id="withVaccine"></div>
-            </div>
-
-            <div class="border-2 border-red-600 rounded p-3">
-              <h3 class="text-lg font-medium text-red-800">Sites that do not have the vaccine</h3>
-              <div id="withoutVaccine"></div>
-            </div>
-          </div>
-
-          {% include post_list_disclaimer.html %}
-
-          {% include footer.html %}
         </div>
-      </div>
-    </main>
-  </div>
-  {% include site_template.html %}
-</body>
-
+      </main>
+    </div>
+    {% include site_template.html %}
+  </body>
 </html>
