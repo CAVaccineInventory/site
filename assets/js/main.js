@@ -50,47 +50,5 @@ window.onload = () => {
 
       e.preventDefault();
     });
-
-  const input = document.querySelector("#autoComplete");
-  if (input) {
-    const airtable = document.querySelector(".airtable-embed");
-    const countiesAutocompleteSource = input
-      .getAttribute("data-collection")
-      .split(",")
-      .map(
-        (c) =>
-          `${c.replace(/^\s*(.*\S)\s*$/, "$1")}${
-            c.includes("San Francisco") ? "" : " County"
-          }`
-      );
-    new autoComplete({
-      data: {
-        src: countiesAutocompleteSource,
-      },
-      selector: "#autoComplete",
-      maxResults: 7,
-      highlight: true,
-      onSelection: (feedback) => {
-        const selected = feedback.selection.value;
-        input.value = selected;
-        if (airtableBaseUrl === undefined) {
-          // This should never happen because DOMContentLoaded should always fire
-          // first. But if it does happen, then the current airtable src should
-          // have no extra filters in it from the DOMContentLoaded handler, so
-          // we can just read that.
-          airtableBaseUrl = airtable.src;
-        }
-        airtable.src = airtableBaseUrl + "&filter_County=" + selected;
-        window.location.hash = selected.replaceAll(" ", "_");
-      },
-    });
-
-    // If a user clears the search field and hits enter, reset to unfiltered table
-    input.addEventListener("keydown", (e) => {
-      if (e.key == "Enter" && input.value.length == 0) {
-        airtable.src = airtableBaseUrl;
-        window.location.hash = "";
-      }
-    });
   }
 };
