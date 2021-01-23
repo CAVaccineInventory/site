@@ -4,6 +4,22 @@ import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", fetchRegionSites);
 window.addEventListener("load", setupFiltering);
+window.addEventListener("hashchange", updateFilterFromUrlFragment);
+
+function updateFilterFromUrlFragment() {
+  const counties = getCounties()
+  if (window.location.hash.length > 1) {
+    const countyName = window.location.hash.substring(1).replaceAll("_", " ");
+    const input = document.querySelector(".js_autocomplete");
+    if (counties.indexOf(countyName) == -1) {
+      return;
+    }
+    if (input) {
+      console.log('filterin from fragment')
+      filterCounties(input, countyName);
+    }
+  }
+}
 
 async function fetchRegionSites() {
   console.log("fetching...");
@@ -58,6 +74,9 @@ async function fetchRegionSites() {
     addSitesToPage(sitesWithVaccine, `${county}WithVaccine`);
     addSitesToPage(sitesWithoutVaccine, `${county}WithoutVaccine`);
   }
+
+  // Once we're all loaded, update from fragment
+  updateFilterFromUrlFragment();
 }
 
 function setupFiltering() {
@@ -76,24 +95,36 @@ function setupFiltering() {
     highlight: true,
     onSelection: (feedback) => {
       const selected = feedback.selection.value;
-      input.value = selected;
-      document
-        .querySelectorAll(".js_county_container")
-        .forEach((elem) => elem.classList.add("hidden"));
-      document
-        .querySelectorAll(`[data-county="${selected}"].js_county_container`)
-        .forEach((elem) => elem.classList.remove("hidden"));
+      filterCounties(input, selected);
     },
   });
 
   // If a user clears the search field and hits enter, reset to unfiltered table
   input.addEventListener("keydown", (e) => {
     if (e.key == "Enter" && input.value.length == 0) {
+      console.log("CLEARING")
       document
         .querySelectorAll(".js_county_container")
         .forEach((elem) => elem.classList.remove("hidden"));
     }
+    updateLocationHash(input);
   });
+}
+
+function filterCounties(input, county) {
+  input.value = county;
+  document
+    .querySelectorAll(".js_county_container")
+    .forEach((elem) => elem.classList.add("hidden"));
+  document
+    .querySelectorAll(`[data-county="${county}"].js_county_container`)
+    .forEach((elem) => elem.classList.remove("hidden"));
+  console.log('we did it')
+  updateLocationHash(input);
+}
+
+function updateLocationHash(input) {
+  window.location.hash = input.value.replaceAll(" ", "_");
 }
 
 function getCounties() {
