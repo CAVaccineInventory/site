@@ -3,6 +3,7 @@ import { fetchSites, getHasVaccine, getCounty } from "./data.js";
 import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", fetchRegionSites);
+window.addEventListener("load", setupFiltering);
 
 async function fetchRegionSites() {
   console.log("fetching...");
