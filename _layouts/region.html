@@ -16,22 +16,14 @@
             <div class="lg:text-center">
               <p class="mt-1 max-w-3xl text-xl text-gray-500 lg:mx-auto">
                 {% assign counties = site.counties | where:"region", page.title %}
+                {% assign county_autocomplete_data = counties | map: "title" | join: ", " %}
+
                 {% for county in counties %}
                   <a href="{{ county.url }}">{{ county.title }}</a>{% if forloop.last %}{% else %},{% endif %}
                 {% endfor %}
 
-                <p id="counties_list" class="hidden">
-                  {% for county in counties %}
-                    {{ county.title }}
-
-                    {% if forloop.last %}{% else %},{% endif %}
-                  {% endfor %}
-                </p>
-
+                <span id="counties_list" class="hidden">{{ county_autocomplete_data }}</span>
               </p>
-                {% assign county_autocomplete_data = counties | map: "title" | join: ", " %}
-              </p>
-
             </div>
           </div>
 
