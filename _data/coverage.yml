@@ -1,8 +1,8 @@
-- title: NBC
+- title: NBC News
   image: nbc.png
-  text: New Website Lists Locations of COVID-19 Vaccination Sites, Tracks Availability of Doses
-  url: https://www.nbcbayarea.com/news/local/new-website-lists-locations-of-covid-19-vaccination-sites-tracks-availability-of-doses/2447672/
-  quote: "[VaccinateCA] is trying to make things simple: list every local place you can get a vaccine shot, how to reach them, and if any shots are still available."
+  text: California technologists create website to track vaccinations
+  url: https://www.nbcnews.com/tech/tech-news/california-technologists-create-website-track-vaccinations-n1255381
+  quote: "Each morning the volunteers call a list of hospitals, pharmacies and even fire departments. ... The VaccinateCA group says that all they want to do is make sure that as many doses get into as many arms as quickly as possible."
 - title: Los Angeles Times
   image: latimes.png
   text: "Essential California: Crowdsourcing how to get the COVID-19 vaccine"

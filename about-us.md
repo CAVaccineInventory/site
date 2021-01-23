@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Who We Are
-permalink: /who-we-are
+title: About Us
+permalink: /about-us
 add_to_nav: true
 order: 6
 ---
