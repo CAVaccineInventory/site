@@ -1,5 +1,5 @@
 window.onload = () => {
-  const inputSelector = "#zipOrCounty";
+  const inputSelector = "#js_zip_or_county";
   const input = document.querySelector(inputSelector);
   if (!input) return;
   const counties = input.getAttribute("data-collection");
@@ -17,7 +17,7 @@ window.onload = () => {
       src: countiesAutocompleteSource,
     },
     resultsList: {
-      idName: "main_search_autoComplete_list",
+      idName: "main_search_autocomplete_list",
     },
     selector: inputSelector,
     maxResults: 7,
@@ -31,7 +31,7 @@ window.onload = () => {
   });
 
   // Auto focus
-  const findYourCounty = document.getElementById("find_your_county");
+  const findYourCounty = document.getElementById("js_find_your_county");
   if (findYourCounty) {
     findYourCounty.addEventListener("click", (e) => {
       e.preventDefault();

@@ -18,7 +18,7 @@
       concat: region[1] %} {% endfor %} {% assign counties = counties_list |
       join: ", " %}
       <input
-        id="zipOrCounty"
+        id="js_zip_or_county"
         name="zip"
         class="rounded-full border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-700f px-4 py-2 md:w-64"
         placeholder="Enter ZIP{% if include.counties_autocomplete %} or county{% endif %}..."
