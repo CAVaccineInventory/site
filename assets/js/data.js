@@ -1,3 +1,5 @@
+---
+---
 // Calls the JSON feed to pull down sites data
 async function fetchSites() {
   const siteURL =
@@ -5,7 +7,7 @@ async function fetchSites() {
   let response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert("Could not retrieve the vaccination site data.");
+    alert("{% t data_js.alert %}");
     return;
   }
   return response.json();

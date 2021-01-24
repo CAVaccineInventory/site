@@ -1,3 +1,5 @@
+---
+---
 import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
 
 function createDetailRow(reportElem, title, content) {
@@ -51,20 +53,20 @@ function addSitesToPage(sites, container, userCounty) {
     if (info.hasReport) {
       noReportElem.remove();
 
-      createDetailRow(reportElem, "Details", info.status);
+      createDetailRow(reportElem, "{% t global.details %}", info.status);
 
       if (info.schedulingInstructions) {
         createDetailRow(
           reportElem,
-          "Appointment Information",
+          "{% t global.appt_info %}",
           info.schedulingInstructions
         );
       }
       if (info.locationNotes) {
-        createDetailRow(reportElem, "Location notes", info.locationNotes);
+        createDetailRow(reportElem, "{% t global.location_notes %}", info.locationNotes);
       }
       if (info.reportNotes) {
-        createDetailRow(reportElem, "Latest info", info.reportNotes);
+        createDetailRow(reportElem, "{% t global.latest_info %}", info.reportNotes);
       }
       if (info.latestReportDate) {
         const latestReportElem = siteRootElem.querySelector(
@@ -72,7 +74,7 @@ function addSitesToPage(sites, container, userCounty) {
         );
         try {
           const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElem.textContent = `Latest report: ${timeDiff}`;
+          latestReportElem.textContent = `{% t global.latest_report %}: ${timeDiff}`;
         } catch (e) {
           console.error(e);
         }

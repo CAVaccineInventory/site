@@ -1,3 +1,5 @@
+---
+---
 import {
   fetchSites,
   getHasVaccine,
@@ -191,7 +193,7 @@ async function submitGeoLocation() {
         console.log(e.code, e.message);
         alert(
           e.message ||
-            "Failed to detect your location. Please try again or enter your zip code"
+          "{% t nearest_js.alert_detect %}"
         );
         onFinish();
         resolve();
@@ -219,7 +221,7 @@ async function lookup(zip) {
     let response = await fetch(geocodeURL);
 
     if (!response.ok) {
-      alert("Failed to locate your zip code, please try again");
+      alert("{% t nearest_js.alert_zipcode %}");
       return;
     }
 
@@ -279,7 +281,7 @@ function distanceBetweenCoordinates(coord1, coord2) {
     (Math.cos(coord1.latitude * p) *
       Math.cos(coord2.latitude * p) *
       (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
-      2;
+    2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
 }
