@@ -1,15 +1,12 @@
-import {
-  getHasVaccine,
-  getDisplayableVaccineInfo,
-} from "/assets/js/data.js";
+import { getHasVaccine, getDisplayableVaccineInfo } from "/assets/js/data.js";
 
 window.addEventListener("load", initMap);
 // Setup global map var
-window.map = {}
+window.map = {};
 
 // Initialize and populate the map
 function initMap() {
-  const mapElement = document.getElementById("js_map")
+  const mapElement = document.getElementById("js_map");
   const map = new google.maps.Map(mapElement, {
     zoom: 6,
     center: { lng: -119.335893, lat: 37.25967 },
@@ -28,11 +25,10 @@ function initMap() {
     request.response.map((p) => addLocation(p));
   };
   request.send();
-  if("locate" in mapElement.dataset) {
-    setupLocateMe()
+  if ("locate" in mapElement.dataset) {
+    setupLocateMe();
   }
 }
-
 
 function shouldUseSpecialPin(info) {
   return info.isSuperSite === true;
