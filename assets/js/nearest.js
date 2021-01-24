@@ -14,6 +14,55 @@ function loaded() {
   fetchSites();
   fetchZipCodesData();
 
+  const zipForm = document.getElementById("submit_zip_form");
+  const zipInput = document.getElementById("zip");
+  if (zipInput) {
+    let timeoutId;
+    zipInput.addEventListener("focus", () => {
+      clearTimeout(timeoutId);
+      toggleGeoLocationVisibility(true);
+    });
+    zipInput.addEventListener("blur", (e) => {
+      clearTimeout(timeoutId);
+      setTimeout(() => {
+        toggleGeoLocationVisibility(false);
+      }, 200);
+    });
+  }
+  if (!zipForm || zipForm.getAttribute("action") !== location.pathname) {
+    return;
+  }
+
+  handleUrlParamOnLoad();
+  addListeners();
+}
+
+function toggleGeoLocationVisibility(isVisible) {
+  const geoLocationElem = document.getElementById("submit_geolocation");
+  if (!geoLocationElem) return;
+  if (isVisible) {
+    geoLocationElem.classList.remove("hidden");
+  } else {
+    geoLocationElem.classList.add("hidden");
+  }
+}
+
+function handleUrlParamOnLoad() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const zip = urlParams.get("zip");
+  if (zip) {
+    const zipInput = document.getElementById("zip");
+    if (zipInput) {
+      zipInput.value = zip;
+    }
+    handleSearch(undefined, "zip");
+  }
+  if (urlParams.get("locate")) {
+    handleSearch(undefined, "geolocation");
+  }
+}
+
+function addListeners() {
   document.getElementById("submit_zip_form").addEventListener("submit", (e) => {
     try {
       e.target.checkValidity();
@@ -23,13 +72,24 @@ function loaded() {
     handleSearch(e, "zip");
   });
 
-  if (navigator.geolocation) {
-    document.getElementById("geolocation_wrapper").classList.remove("hidden");
-    document
-      .getElementById("submit_geolocation")
-      .addEventListener("click", (e) => {
+  const geoLocationElem = document.getElementById("submit_geolocation");
+  if (geoLocationElem) {
+    if (navigator.geolocation) {
+      document;
+      geoLocationElem.addEventListener("click", (e) => {
         handleSearch(e, "geolocation");
       });
+    } else {
+      geoLocationElem.remove();
+    }
+  }
+  const filterElem = document.getElementById("filter");
+  if (filterElem) {
+    filterElem.addEventListener("change", (e) => {
+      if (lastSearch) {
+        handleSearch(undefined, lastSearch);
+      }
+    });
   }
 }
 
@@ -44,14 +104,19 @@ function toggleLoading(shouldShow) {
   }
 }
 
+let lastSearch;
+
 async function handleSearch(event, type) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   toggleLoading(true);
   const list = document.getElementById("sites");
   list.innerHTML = "";
+  lastSearch = type;
   switch (type) {
     case "zip":
-      await submitZip();
+      await submitZip(document.getElementById("zip").value);
       break;
     case "geolocation":
       await submitGeoLocation();
@@ -63,8 +128,7 @@ async function handleSearch(event, type) {
   toggleLoading(false);
 }
 
-async function submitZip() {
-  const zip = document.getElementById("zip").value;
+async function submitZip(zip) {
   if (zip.length < 5 || zip.length > 5) {
     alert("5 digit zip please");
   } else {
@@ -180,7 +244,8 @@ async function lookup(zip) {
 
 async function fetchFilterAndSortSites(userCoord, county) {
   let sites = await fetchSites();
-  const filter = document.querySelector("#filter").value;
+  const filterElem = document.querySelector("#filter");
+  const filter = filterElem ? filterElem.value : "stocked";
 
   if (filter == "reports") {
     sites = sites.filter((site) => {

@@ -1,141 +1,153 @@
 <script type="module">
-    import {getHasVaccine, getDisplayableVaccineInfo} from "./assets/js/data.js";
+  import {
+    getHasVaccine,
+    getDisplayableVaccineInfo,
+  } from "./assets/js/data.js";
 
-    // Initialize and populate the map
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 6,
-            center: { lng: -119.335893, lat: 37.259670 },
-            mapTypeControl: false,
-            streetViewControl: false,
-        });
+  // Initialize and populate the map
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 6,
+      center: { lng: -119.335893, lat: 37.25967 },
+      mapTypeControl: false,
+      streetViewControl: false,
+    });
 
-        function locateMe() {
-            if (!navigator.geolocation) {
-                console.warn('navigator not supported');
+    function locateMe() {
+      if (!navigator.geolocation) {
+        console.warn("navigator not supported");
+      }
+      const template = document.getElementById("locate_me_template");
+      const locationButton = template.content
+        .cloneNode(true)
+        .getElementById("locate_me");
+      locationButton.textContent = "Locate around me!";
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+      locationButton.addEventListener("click", () => {
+        if (navigator.geolocation) {
+          locationButton.textContent = "Locating...";
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              locationButton.textContent = "Locate around me!";
+              const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+              };
+              map.setCenter(pos);
+              map.setZoom(10);
+            },
+            (e) => {
+              console.warn(e);
+              locationButton.textContent = "Failed, please try again";
+            },
+            {
+              maximumAge: 1000 * 60 * 5, // 5 minutes
+              timeout: 1000 * 20, // 20 seconds
+              enableHighAccuracy: false,
             }
-            const template = document.getElementById("locate_me_template");
-            const locationButton = template.content.cloneNode(true).getElementById("locate_me");
-            locationButton.textContent = "Locate around me!";
-            map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-            locationButton.addEventListener("click", () => {
-                
-                if (navigator.geolocation) {
-                    locationButton.textContent = 'Locating...';
-                    navigator.geolocation.getCurrentPosition(
-                        (position) => {
-                            locationButton.textContent = "Locate around me!";
-                            const pos = {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude,
-                            };
-                            map.setCenter(pos);
-                            map.setZoom(10);
-                        },
-                        (e) => {
-                            console.warn(e);
-                            locationButton.textContent = "Failed, please try again";
-                        },
-                        {
-                            maximumAge: 1000 * 60 * 5, // 5 minutes
-                            timeout: 1000 * 20, // 20 seconds
-                            enableHighAccuracy: false,
-                        }
-                    );
-                } else {
-                    console.error('Geolocation not supported')
-                }
-            });
+          );
+        } else {
+          console.error("Geolocation not supported");
         }
-
-        function shouldUseSpecialPin(info) {
-            return info.isSuperSite === true;
-        }
-
-        function addLocation(p) {
-            if (!getHasVaccine(p)) {
-                return false
-            }
-
-            let info = getDisplayableVaccineInfo(p);
-
-            if (!info.latitude || !info.longitude) {
-                console.log(`Missing lat/lon for ${info.name}!!`);
-                return false;
-            }
-
-            // Format the info card
-            let infoText = `<h1 class="text-green-600">${info.name}</h1>`;
-
-            if (info.isSuperSite) {
-                infoText += '<b class="text-lg supersite-tag">Super Site</b> <br />';
-            }
-
-            infoText += `<b>Details: </b> ${info.status}<br/>`;
-
-            if (info.schedulingInstructions) {
-                infoText += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
-            }
-            if (info.address) {
-                infoText += `<b>Address:</b> ${info.address}<br />`;
-            }
-            if (info.reportNotes) {
-                infoText += `<b>Latest info:</b> ${info.reportNotes}<br />`;
-            }
-
-            // Populate the marker and info card
-            const markerConfig = {
-                position: {
-                    lng: info.longitude,
-                    lat: info.latitude,
-                },
-                map: map,
-                title: info.name,
-            };
-
-            const bluePin = '/assets/img/blue-pin.png';
-            if (shouldUseSpecialPin(info)) {
-                markerConfig['icon'] = bluePin;
-            }
-            let marker = new google.maps.Marker(markerConfig);
-            let infowindow = new google.maps.InfoWindow({ content: `<div class="mapInfo">${infoText}</div>` });
-
-            // Toggle the info card
-            marker.addListener("click", () => {
-                if (prev_infowindow) {
-                    prev_infowindow.close();
-                }
-
-                if (prev_infowindow == infowindow) {
-                    prev_infowindow = false
-                } else {
-                    infowindow.open(map, marker);
-                    prev_infowindow = infowindow
-                }
-            });
-        }
-
-        // Pull the JSON blob of locations for the map
-        let request = new XMLHttpRequest();
-        request.open('GET', 'https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json');
-        request.responseType = 'json'
-        request.onload = function () { request.response.map(p => addLocation(p)) };
-        request.send()
-        locateMe();
+      });
     }
 
-    // State tracking for info cards
-    var prev_infowindow = false;
-    window.initMap = initMap;
+    function shouldUseSpecialPin(info) {
+      return info.isSuperSite === true;
+    }
+
+    function addLocation(p) {
+      if (!getHasVaccine(p)) {
+        return false;
+      }
+
+      let info = getDisplayableVaccineInfo(p);
+
+      if (!info.latitude || !info.longitude) {
+        console.log(`Missing lat/lon for ${info.name}!!`);
+        return false;
+      }
+
+      // Format the info card
+      let infoText = `<h1 class="text-green-600">${info.name}</h1>`;
+
+      if (info.isSuperSite) {
+        infoText += '<b class="text-lg supersite-tag">Super Site</b> <br />';
+      }
+
+      infoText += `<b>Details: </b> ${info.status}<br/>`;
+
+      if (info.schedulingInstructions) {
+        infoText += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
+      }
+      if (info.address) {
+        infoText += `<b>Address:</b> ${info.address}<br />`;
+      }
+      if (info.reportNotes) {
+        infoText += `<b>Latest info:</b> ${info.reportNotes}<br />`;
+      }
+
+      // Populate the marker and info card
+      const markerConfig = {
+        position: {
+          lng: info.longitude,
+          lat: info.latitude,
+        },
+        map: map,
+        title: info.name,
+      };
+
+      const bluePin = "/assets/img/blue-pin.png";
+      if (shouldUseSpecialPin(info)) {
+        markerConfig["icon"] = bluePin;
+      }
+      let marker = new google.maps.Marker(markerConfig);
+      let infowindow = new google.maps.InfoWindow({
+        content: `<div class="mapInfo">${infoText}</div>`,
+      });
+
+      // Toggle the info card
+      marker.addListener("click", () => {
+        if (prev_infowindow) {
+          prev_infowindow.close();
+        }
+
+        if (prev_infowindow == infowindow) {
+          prev_infowindow = false;
+        } else {
+          infowindow.open(map, marker);
+          prev_infowindow = infowindow;
+        }
+      });
+    }
+
+    // Pull the JSON blob of locations for the map
+    let request = new XMLHttpRequest();
+    request.open(
+      "GET",
+      "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json"
+    );
+    request.responseType = "json";
+    request.onload = function () {
+      request.response.map((p) => addLocation(p));
+    };
+    request.send();
+    locateMe();
+  }
+
+  // State tracking for info cards
+  var prev_infowindow = false;
+  window.initMap = initMap;
 </script>
 
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&callback=initMap&libraries=&v=weekly"
-    defer></script>
-<div class="h-72 md:h-96 lg:h-full">
-    <div id='map' class="h-full w-full"></div>
-</div>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&callback=initMap&libraries=&v=weekly"
+  defer
+></script>
+<div id="map" class="my-5 h-72 md:h-96 w-full"></div>
 <template id="locate_me_template">
-    <button id="locate_me" class="md:inline mt-2 px-3 py-2 font-medium rounded text-white bg-green-500 hover:bg-green-600">
-    </button>
+  <button
+    id="locate_me"
+    class="md:inline mt-2 px-3 py-2 font-medium rounded text-white bg-green-500 hover:bg-green-600"
+  ></button>
 </template>
