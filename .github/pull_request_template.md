@@ -42,6 +42,10 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] Shows list of policies per county
 - [ ] Has search bar that autocompletes and filters content
 
+### Vaccination Sites page
+- [ ] Lists all vaccination sites
+- [ ] Has search bar that autocomplete and filters content
+
 #### Other Pages
 - [ ] 'Providers' shows list of providers
 - [ ] 'About Us' shows prose content and FAQ
