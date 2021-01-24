@@ -42,10 +42,6 @@ function shouldUseSpecialPin(info) {
 }
 
 function addLocation(p) {
-  if (!getHasVaccine(p)) {
-    return false;
-  }
-
   let info = getDisplayableVaccineInfo(p);
 
   if (!info.latitude || !info.longitude) {
