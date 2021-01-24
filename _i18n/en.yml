@@ -25,10 +25,6 @@ vaccination_sites:
     missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are
     working on expanding the list with additional pharmacies and other 
     locations.
-footer:
-  text: |
-    A <a href="{% link about-us.md %}">volunteer effort</a> by Californians and
-    other interested people.
 head:
   meta_image_tag: |
     An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
