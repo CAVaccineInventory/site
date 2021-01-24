@@ -15,18 +15,14 @@
           <div class="main-content px-4 md:px-8">
             <div class="pt-6 mt-6">
               <p class="text-xl">
-                These are all the locations we've contacted in {{ page.title }}
-                county. We also have a page listing
-                <a href="{% link county-policies.md %}"
-                  >official county vaccination policies and resources</a
-                >.
+                {% tf county_header.html %}
               </p>
 
-              {% include pre_list_disclaimer.html %}
+              {% tf pre_list_disclaimer.html %}
 
               <div class="border-2 border-green-600 rounded p-3 mb-5">
                 <h3 class="text-lg font-medium text-green-800">
-                  Sites with the vaccine
+                  {% t site_list.vaccine_sites %}
                 </h3>
 
                 <ol id="sitesWithVaccine"></ol>
@@ -34,13 +30,13 @@
 
               <div class="border-2 border-red-600 rounded p-3">
                 <h3 class="text-lg font-medium text-red-800">
-                  Sites that do not have the vaccine
+                  {% t site_list.no_vaccine_sites %}
                 </h3>
 
                 <ol id="sitesWithoutVaccine"></ol>
               </div>
 
-              {% include post_list_disclaimer.html %}
+              {% tf post_list_disclaimer.html %}
             </div>
 
             {% include footer.html %}

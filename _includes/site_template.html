@@ -3,7 +3,7 @@
     <div
       class="site_in_county flex flex-row absolute top-1 right-1 items-center hidden"
     >
-      <span class="text-xs text-gray-600 mr-1">Within your county</span>
+      <span class="text-xs text-gray-600 mr-1">{% t site_template.county_header %}</span>
       <svg
         height="14"
         viewBox="0 0 21 21"
@@ -62,7 +62,7 @@
           class="site_last_report_date absolute bottom-1 right-2 text-xs text-gray-400"
         ></div>
       </div>
-      <div class="site_no_report mt-3">No contact reports</div>
+      <div class="site_no_report mt-3">{% t site_template.no_reports %}</div>
     </div>
   </li>
 </template>
