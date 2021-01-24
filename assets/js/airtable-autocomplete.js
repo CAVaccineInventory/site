@@ -11,7 +11,7 @@ function updateFilterFromUrlFragment() {
     airtableBaseUrl = airtable.src;
   }
   if (window.location.hash.length > 1) {
-    const countyName = window.location.hash.substring(1).replaceAll("_", " ");
+    const countyName = window.location.hash.substring(1).replace(/_/g, " ");
     const input = document.querySelector("#autoComplete");
     if (counties.indexOf(countyName) == -1) {
       return;
@@ -56,7 +56,7 @@ window.onload = () => {
           airtableBaseUrl = airtable.src;
         }
         airtable.src = airtableBaseUrl + "&filter_County=" + selected;
-        window.location.hash = selected.replaceAll(" ", "_");
+        window.location.hash = selected.replace(/ /g, "_");
       },
     });
 
