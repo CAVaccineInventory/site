@@ -112,8 +112,6 @@ async function handleSearch(event, type) {
     event.preventDefault();
   }
   toggleLoading(true);
-  const list = document.getElementById("sites");
-  list.innerHTML = "";
   lastSearch = type;
   switch (type) {
     case "zip":
@@ -247,6 +245,8 @@ async function lookup(zip) {
 }
 
 async function fetchFilterAndSortSites(userCoord, county) {
+  const list = document.getElementById("sites");
+  list.innerHTML = "";
   let sites = await fetchSites();
   const filterElem = document.querySelector("#filter");
   const filter = filterElem ? filterElem.value : "stocked";
