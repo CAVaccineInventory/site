@@ -267,7 +267,18 @@ async function fetchFilterAndSortSites(userCoord, county) {
   }
 
   sites.sort((a, b) => a.distance - b.distance);
+  updateMap(userCoord, sites);
   addSitesToPage(sites, "sites", county);
+}
+
+function updateMap(coord, sites) {
+  const map = window.map;
+  const mapCoord = {
+    lat: coord.latitude,
+    lng: coord.longitude
+  }
+  map.setCenter(mapCoord);
+  map.setZoom(10);
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
