@@ -28,7 +28,7 @@ function initMap() {
         return;
       }
 
-      addLocation(p)
+      addLocation(p);
     });
   };
   request.send();
@@ -156,7 +156,4 @@ function clearMap() {
 // State tracking for info cards
 var prev_infowindow = false;
 
-export {
-  addLocation,
-  clearMap
-}
+export { addLocation, clearMap };

@@ -282,7 +282,9 @@ function updateMap(coord, sites) {
   map.setZoom(10);
 
   clearMap();
-  sites.forEach((site) => { addLocation(site) });
+  sites.forEach((site) => {
+    addLocation(site);
+  });
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
