@@ -3,6 +3,7 @@ import { getHasVaccine, getDisplayableVaccineInfo } from "/assets/js/data.js";
 window.addEventListener("load", initMap);
 // Setup global map var
 window.map = {};
+window.mapMarkers = [];
 
 // Initialize and populate the map
 function initMap() {
@@ -97,6 +98,8 @@ function addLocation(p) {
       prev_infowindow = infowindow;
     }
   });
+
+  window.mapMarkers.push(marker);
 }
 
 function setupLocateMe() {
@@ -138,6 +141,14 @@ function setupLocateMe() {
       console.error("Geolocation not supported");
     }
   });
+}
+
+function clearMap() {
+  window.mapMarkers.forEach((marker) => {
+    marker.setMap(null);
+  });
+
+  window.mapMarkers = [];
 }
 
 // State tracking for info cards
