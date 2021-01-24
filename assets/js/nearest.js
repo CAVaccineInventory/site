@@ -106,6 +106,24 @@ function toggleLoading(shouldShow) {
 
 let lastSearch;
 
+async function updateMap(coordinates) {
+  const map = window.locationsMap;
+  if (!map || !coordinates) return;
+  const currentCenter = {
+    lat: map.getCenter().lat(),
+    lng: map.getCenter().lng(),
+  };
+  const newCenter = { lat: coordinates.latitude, lng: coordinates.longitude };
+  if (
+    currentCenter.lat === newCenter.lat &&
+    currentCenter.lng === newCenter.lng
+  ) {
+    return;
+  }
+  map.setCenter(newCenter);
+  map.setZoom(10);
+}
+
 async function handleSearch(event, type) {
   if (event) {
     event.preventDefault();
@@ -114,29 +132,32 @@ async function handleSearch(event, type) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   lastSearch = type;
+  let coordinates;
   switch (type) {
     case "zip":
-      await submitZip(document.getElementById("zip").value);
+      coordinates = await submitZip(document.getElementById("zip").value);
       break;
     case "geolocation":
-      await submitGeoLocation();
+      coordinates = await submitGeoLocation();
       break;
     default:
       toggleLoading(false);
       throw new Error("Search type is invalid");
   }
   toggleLoading(false);
+  updateMap(coordinates);
 }
 
 async function submitZip(zip) {
   if (zip.length < 5 || zip.length > 5) {
     alert("5 digit zip please");
-  } else {
-    const button = document.getElementById("submit_zip");
-    toggleSubmitButtonState(button, false);
-    await lookup(zip);
-    toggleSubmitButtonState(button, true);
+    return;
   }
+  const button = document.getElementById("submit_zip");
+  toggleSubmitButtonState(button, false);
+  const coordinates = await lookup(zip);
+  toggleSubmitButtonState(button, true);
+  return coordinates;
 }
 
 function toggleSubmitButtonState(button, isEnabled) {
@@ -181,7 +202,7 @@ async function submitGeoLocation() {
         }
         await fetchFilterAndSortSites(coordinates, county);
         onFinish();
-        resolve();
+        resolve(coordinates);
       },
       function onError(e) {
         console.error(e);
@@ -239,7 +260,8 @@ async function lookup(zip) {
     }
   }
   const coordinate = { longitude, latitude };
-  return fetchFilterAndSortSites(coordinate, county);
+  await fetchFilterAndSortSites(coordinate, county);
+  return coordinate;
 }
 
 async function fetchFilterAndSortSites(userCoord, county) {
