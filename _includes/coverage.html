@@ -1,13 +1,20 @@
-<div class="md:px-6 grid  grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-6">
-    {% for item in site.data.coverage %}
-      <a class="no-underline hover:underline text-black max-w-xs justify-self-center {% if forloop.index <= 2 %} md:col-span-2 mb-4 {% endif %}" href="{{ item.url }}" target="_blank" rel="noreferrer">
-        <div class="no-underline flex flex-col items-center">
-          
-          <div class="flex flex-col">
-            <div class="font-xl italic text-center">{{ item.text }}</div>
-          </div>
-          <img class="float-left w-20 {% if forloop.index <= 2 %} md:w-32 {% else %} md:w-20 {% endif %} mt-3 object-contain" src="/assets/img/coverage/{{ item.image }}" />
-        </div>
-      </a>
-    {% endfor %}
+<div class="md:px-6 grid grid-cols-1 md:grid-cols-4 gap-y-8 gap-x-6">
+  {% for item in site.data.coverage %}
+  <a
+    class="no-underline hover:underline text-black max-w-xs justify-self-center {% if forloop.index <= 2 %} md:col-span-2 mb-4 {% endif %}"
+    href="{{ item.url }}"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <div class="no-underline flex flex-col items-center">
+      <div class="flex flex-col">
+        <div class="font-xl italic text-center">{{ item.text }}</div>
+      </div>
+      <img
+        class="float-left w-20 {% if forloop.index <= 2 %} md:w-32 {% else %} md:w-20 {% endif %} mt-3 object-contain"
+        src="/assets/img/coverage/{{ item.image }}"
+      />
+    </div>
+  </a>
+  {% endfor %}
 </div>
