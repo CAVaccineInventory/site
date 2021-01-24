@@ -26,7 +26,7 @@ function getHasVaccine(p) {
     return (
       p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
     );
-  } catch {
+  } catch (_err) {
     return false;
   }
 }
