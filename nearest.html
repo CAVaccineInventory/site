@@ -19,11 +19,11 @@ order: 2
       <option value="any">All known vaccination sites</option>
     </select>
   </div>
-  <div class="bg-yellow-50 p-4 shadow mt-4">
-    {% include pre_list_disclaimer.html %}
-  </div>
 </div>
 <div class="px-4 lg:px-0 lg:container mx-auto">
+  <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
+    {% include pre_list_disclaimer.html %}
+  </div>
   <div class="px-4">
     <ol id="sites"></ol>
     <div id="loading" class="mt-4 hidden">Loading...</div>
