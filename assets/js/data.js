@@ -1,4 +1,3 @@
-import { getMessageCatalog } from "./message-catalog.js";
 // Calls the JSON feed to pull down sites data
 async function fetchSites() {
   const siteURL =
@@ -6,7 +5,7 @@ async function fetchSites() {
   let response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert(getMessageCatalog()["data_js_alert"]);
+    alert(window.messageCatalog["data_js_alert"]);
     return;
   }
   return response.json();
@@ -60,7 +59,7 @@ function getDisplayableVaccineInfo(p) {
           .replace("No: ", "")
           .replace(
             "Skip: call back later",
-            getMessageCatalog()["data_js_call_back"]
+            window.messageCatalog["data_js_call_back"]
           )
       )
       .join(" | ");
