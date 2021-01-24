@@ -223,6 +223,10 @@ async function lookup(zip) {
     }
 
     let results = await response.json();
+    if (results.nhits < 1) {
+      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      return;
+    }
 
     // Comes back in [long, lat]
     location = results.records[0].geometry.coordinates;
