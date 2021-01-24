@@ -96,6 +96,20 @@ select {
   outline: 0;
 }
 
+#main_search_autoComplete_list {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
+  border: 1px solid #ededed;
+  outline: 0;
+}
+
 .autoComplete_result {
   padding: 2px 5px;
   list-style: none;
@@ -117,7 +131,7 @@ select {
 
 .autoComplete_selected {
   cursor: pointer;
-  background-color: var(--color-accent-bg);
+  background-color: #f0f0f0;
 }
 
 .mapInfo h1 {
