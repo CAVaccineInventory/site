@@ -155,3 +155,8 @@ function clearMap() {
 
 // State tracking for info cards
 var prev_infowindow = false;
+
+export {
+  addLocation,
+  clearMap
+}

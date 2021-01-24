@@ -7,6 +7,7 @@ import {
 } from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
+import { addLocation, clearMap } from "./map.js";
 
 window.addEventListener("load", loaded);
 
@@ -279,6 +280,9 @@ function updateMap(coord, sites) {
   };
   map.setCenter(mapCoord);
   map.setZoom(10);
+
+  clearMap();
+  sites.forEach((site) => { addLocation(site) });
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
