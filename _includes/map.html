@@ -5,14 +5,10 @@
   defer
 ></script>
 
+<!-- prettier-ignore -->
 <div
   id="js_map"
-  {%
-  if
-  include.locate_me
-  %}data-locate{%
-  endif
-  %}
+  {% if include.locate_me %}data-locate{% endif %}
   class="my-5 h-72 md:h-96 w-full"
 ></div>
 
