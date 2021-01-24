@@ -29,4 +29,14 @@ window.onload = () => {
         .replace(" ", "_")}`;
     },
   });
+
+  // Auto focus
+  const findYourCounty = document.getElementById("find_your_county");
+  if (findYourCounty) {
+    findYourCounty.addEventListener("click", (e) => {
+      e.preventDefault();
+      input.scrollIntoView({ behavior: "smooth", block: "start" });
+      input.focus();
+    });
+  }
 };
