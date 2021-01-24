@@ -104,11 +104,8 @@ function addLocation(p) {
       prev_infowindow = infowindow;
     }
   });
-<<<<<<< HEAD
 
   window.mapMarkers.push(marker);
-=======
->>>>>>> 00b8d0db52bc14d12b8d61564734c7b5cbf6ea3b
 }
 
 function setupLocateMe() {
@@ -152,7 +149,6 @@ function setupLocateMe() {
   });
 }
 
-<<<<<<< HEAD
 function clearMap() {
   window.mapMarkers.forEach((marker) => {
     marker.setMap(null);
@@ -165,7 +161,3 @@ function clearMap() {
 var prev_infowindow = false;
 
 export { addLocation, clearMap };
-=======
-// State tracking for info cards
-var prev_infowindow = false;
->>>>>>> 00b8d0db52bc14d12b8d61564734c7b5cbf6ea3b
