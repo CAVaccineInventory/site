@@ -5,11 +5,10 @@ permalink: /about-us
 add_to_nav: true
 order: 6
 ---
-We are an ad hoc collection of volunteers, trying to move as quickly as possible to get Californians up-to-date COVID-19 vaccine information. We have a core team of approximately ten people and approximately 100 volunteers calling to find out about vaccine availability.
 
-Some of us (so you know we're "real people"): <span id="people-list">
-{% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
-</span>.
+VaccinateCA is a community-driven effort to help Californians learn accurate, up-to-date, verified information about the coronavirus vaccine, so they they can learn when they will be eligible and how to take their place in line.
+
+Our professionals call medical professionals at hundreds of potential vaccination sites daily, asking them if they have the vaccine and if so to whom they will administer it to and how to get an appointment. We write down what they tell us, and publish it to this site.
 
 <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
 Frequently Asked Questions (FAQ)
@@ -50,6 +49,15 @@ By asking that question and publishing the answer, we can save their phone bandw
 We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually are.
 
 We're doing our best, but can't make any guarantees.
+
+**Who are you?**
+
+We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our core team was approximately 20 people.
+
+Some of us who worked on this project on Day 1: <span id="people-list">
+{% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
+</span>.
+
 
 <script>
 // From https://stackoverflow.com/a/12646864
