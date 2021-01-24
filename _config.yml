@@ -33,6 +33,7 @@ google_analytics_id: G-C1C9341MGL
 # Build settings
 plugins:
   - jekyll-seo-tag
+  - jekyll-multiple-languages-plugin
 
 ## Social media stuff supported by jekyll-seo-tag
 tagline: COVID-19 Vaccine Availability in California
@@ -64,8 +65,9 @@ collections:
 include:
   - _redirects
 
+languages: ["en"]
 
-
+exclude_from_localizations: ["assets", "favicon.ico"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -14,22 +14,22 @@ order: 2
       id="filter"
       class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
     >
-      <option value="reports">Sites we have contacted</option>
-      <option selected value="stocked">Sites with reported doses</option>
-      <option value="any">All known vaccination sites</option>
+      <option value="reports">{% t nearest.dropdown_1 %}</option>
+      <option selected value="stocked">{% t nearest.dropdown_2 %}</option>
+      <option value="any">{% t nearest.dropdown_3 %}</option>
     </select>
   </div>
 </div>
 <div class="px-4 lg:px-0 lg:container mx-auto">
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
-    {% include pre_list_disclaimer.html %}
+    {% tf pre_list_disclaimer.html %}
   </div>
   <div class="px-4">
     <ol id="sites"></ol>
-    <div id="loading" class="mt-4 hidden">Loading...</div>
+    <div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
 
     <div id="post_list_container" class="hidden">
-      {% include post_list_disclaimer.html %}
+      {% tf post_list_disclaimer.html %}
     </div>
   </div>
 </div>

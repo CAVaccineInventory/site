@@ -6,14 +6,8 @@
   {% seo %}
 
   <!-- Accessible descripts of our images that show up on social media -->
-  <meta
-    name="twitter:image:alt"
-    content="An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines near you with our community-run tracker'"
-  />
-  <meta
-    name="og:image:alt"
-    content="An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines near you with our community-run tracker'"
-  />
+  <meta name="twitter:image:alt" content="{% t head.meta_image_tag %}" />
+  <meta name="og:image:alt" content="{% t head.meta_image_tag %}" />
 
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
@@ -40,6 +34,20 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
     rel="stylesheet"
   />
+
+  <script id="messageCatalog" type="application/json">
+    {
+      "global_details": "{% t global.details %}",
+      "global_location_notes": "{% t global.location_notes %}",
+      "global_latest_info": "{% t global.latest_info %}",
+      "global_latest_report": "{% t global.latest_report %}",
+      "global_appt_info": "{% t global.appt_info %}",
+      "data_js_alert": "{% t data_js.alert %}",
+      "data_js_call_back": "{% t data_js.call_back %}",
+      "nearest_js_alert_detect": "{% t nearest_js.alert_detect %}",
+      "nearest_js_alert_zipcode": "{% t nearest_js.alert_zipcode %}"
+    }
+  </script>
 
   {% if jekyll.environment == 'production' %}
   <script
