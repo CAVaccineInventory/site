@@ -67,7 +67,7 @@ include:
 
 languages: ["en"]
 
-exclude_from_localizations: ["favicon.ico"]
+exclude_from_localizations: ["assets", "favicon.ico"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.

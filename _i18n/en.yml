@@ -80,6 +80,7 @@ index:
     <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
 data_js:
   alert: Could not retrieve the vaccination site data.
+  call_back: Could not reach human, calling back later
 nearest_js:
   alert_detect: Failed to detect your location. Please try again or enter your zip code
   alert_zipcode: Failed to locate your zip code, please try again

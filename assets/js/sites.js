@@ -1,6 +1,5 @@
----
----
 import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
+import { getMessageCatalog } from "./message-catalog.js";
 
 function createDetailRow(reportElem, title, content) {
   const elem = document
@@ -53,20 +52,20 @@ function addSitesToPage(sites, container, userCounty) {
     if (info.hasReport) {
       noReportElem.remove();
 
-      createDetailRow(reportElem, "{% t global.details %}", info.status);
+      createDetailRow(reportElem, getMessageCatalog()['global_details'], info.status);
 
       if (info.schedulingInstructions) {
         createDetailRow(
           reportElem,
-          "{% t global.appt_info %}",
+          getMessageCatalog()['global_appt_info'],
           info.schedulingInstructions
         );
       }
       if (info.locationNotes) {
-        createDetailRow(reportElem, "{% t global.location_notes %}", info.locationNotes);
+        createDetailRow(reportElem, getMessageCatalog()['global_location_notes'], info.locationNotes);
       }
       if (info.reportNotes) {
-        createDetailRow(reportElem, "{% t global.latest_info %}", info.reportNotes);
+        createDetailRow(reportElem, getMessageCatalog()['global_latest_info'], info.reportNotes);
       }
       if (info.latestReportDate) {
         const latestReportElem = siteRootElem.querySelector(
@@ -74,7 +73,7 @@ function addSitesToPage(sites, container, userCounty) {
         );
         try {
           const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElem.textContent = `{% t global.latest_report %}: ${timeDiff}`;
+          latestReportElem.textContent = `${getMessageCatalog()['global_latest_report']}: ${timeDiff}`;
         } catch (e) {
           console.error(e);
         }

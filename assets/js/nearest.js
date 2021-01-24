@@ -1,5 +1,3 @@
----
----
 import {
   fetchSites,
   getHasVaccine,
@@ -9,6 +7,9 @@ import {
 } from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
+
+import { getMessageCatalog } from "./message-catalog.js";
+
 
 window.addEventListener("load", loaded);
 
@@ -193,7 +194,7 @@ async function submitGeoLocation() {
         console.log(e.code, e.message);
         alert(
           e.message ||
-          "{% t nearest_js.alert_detect %}"
+          getMessageCatalog()['nearest_js_alert_zipcode']
         );
         onFinish();
         resolve();
@@ -221,7 +222,7 @@ async function lookup(zip) {
     let response = await fetch(geocodeURL);
 
     if (!response.ok) {
-      alert("{% t nearest_js.alert_zipcode %}");
+      alert(getMessageCatalog()['nearest_js_alert_zipcode']);
       return;
     }
 
