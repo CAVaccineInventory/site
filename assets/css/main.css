@@ -128,3 +128,8 @@ select {
 .mapInfo .supersite-tag {
   color: #007fff;
 }
+
+.search-input {
+  background: url(/assets/img/search.svg) no-repeat scroll 8px 45%;
+  padding-left: 32px;
+}
