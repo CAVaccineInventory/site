@@ -84,8 +84,7 @@ function addSitesToPage(sites, container, userCounty) {
         );
         try {
           const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElem.textContent = `${window.messageCatalog["global_latest_report"]
-            }: ${timeDiff}`;
+          latestReportElem.textContent = `${window.messageCatalog["global_latest_report"]}: ${timeDiff}`;
         } catch (e) {
           console.error(e);
         }
