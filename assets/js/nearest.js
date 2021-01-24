@@ -275,8 +275,8 @@ function updateMap(coord, sites) {
   const map = window.map;
   const mapCoord = {
     lat: coord.latitude,
-    lng: coord.longitude
-  }
+    lng: coord.longitude,
+  };
   map.setCenter(mapCoord);
   map.setZoom(10);
 }
