@@ -9,7 +9,7 @@ window.addEventListener("hashchange", updateFilterFromUrlFragment);
 function updateFilterFromUrlFragment() {
   const counties = getCounties();
   if (window.location.hash.length > 1) {
-    const countyName = window.location.hash.substring(1).replaceAll("_", " ");
+    const countyName = window.location.hash.substring(1).replace(/_/g, " ");
     const input = document.querySelector(".js_autocomplete");
     if (counties.indexOf(countyName) == -1) {
       return;
@@ -123,7 +123,7 @@ function filterCounties(input, county) {
 }
 
 function updateLocationHash(input) {
-  window.location.hash = input.value.replaceAll(" ", "_");
+  window.location.hash = input.value.replace(/ /g, "_");
 }
 
 function getCounties() {

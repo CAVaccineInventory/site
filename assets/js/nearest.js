@@ -190,10 +190,7 @@ async function submitGeoLocation() {
       function onError(e) {
         console.error(e);
         console.log(e.code, e.message);
-        alert(
-          e.message ||
-            "Failed to detect your location. Please try again or enter your zip code"
-        );
+        alert(e.message || window.messageCatalog["nearest_js_alert_zipcode"]);
         onFinish();
         resolve();
       },
@@ -230,11 +227,15 @@ async function lookup(zip) {
     let response = await fetch(geocodeURL);
 
     if (!response.ok) {
-      alert("Failed to locate your zip code, please try again");
+      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
     }
 
     let results = await response.json();
+    if (results.nhits < 1) {
+      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      return;
+    }
 
     // Comes back in [long, lat]
     location = results.records[0].geometry.coordinates;
