@@ -9,19 +9,14 @@ homepage: true
   <h1
     class="text-2xl md:text-3xl mb-10 lg:mb-12 mt-6 font-semibold text-center"
   >
-    Find a COVID-19 vaccine for yourself or a loved one
+    {% t index.header %}
   </h1>
 
   <div class="mb-10 lg:mb-12">{% include search_form.html %}</div>
   <div class="text-black md:text-lg max-w-4xl text-center">
-    The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
-    giving the COVID-19 vaccine to people age 65 and older.</strong> We are
-    calling hospitals and pharmacies daily to check which are currently
-    administering vaccines.
-
+    {% t index.disclaimer %}
     <p>
-      {% include disclaimer.html %}
+      {% tf disclaimer.html %}
     </p>
   </div>
 
@@ -32,14 +27,12 @@ homepage: true
       <a
         href="https://airtable.com/shrOMv5EI1jYwV1XR"
         class="md:inline px-5 py-3 border-2 border-green-500 text-green-700 font-bold rounded hover:bg-green-500 hover:text-white"
-        >Let us know if you found this site useful!</a
+        >{% t index.positive_feedback %}</a
       >
     </div>
 
     <div class="mt-4 md:mt-6 text-sm">
-      If you have a missing location to report, or think we have incorrect
-      contact information,
-      <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
+      {% t index.corrections %}
     </div>
   </div>
 
