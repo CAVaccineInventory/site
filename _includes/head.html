@@ -26,17 +26,8 @@
     -->
   <link href="/assets/css/main.css" rel="stylesheet" />
 
-  <script type="module" src="/assets/js/counties.js"></script>
-  <script type="module" src="/assets/js/main.js"></script>
-  <script src="/assets/js/autoComplete.min.js"></script>
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
-    rel="stylesheet"
-  />
-
-  <script id="messageCatalog" type="application/json">
-    {
+  <script id="messageCatalog" type="module">
+    window.messageCatalog = {
       "global_details": "{% t global.details %}",
       "global_location_notes": "{% t global.location_notes %}",
       "global_latest_info": "{% t global.latest_info %}",
@@ -48,6 +39,15 @@
       "nearest_js_alert_zipcode": "{% t nearest_js.alert_zipcode %}"
     }
   </script>
+
+  <script type="module" src="/assets/js/counties.js"></script>
+  <script type="module" src="/assets/js/main.js"></script>
+  <script src="/assets/js/autoComplete.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+    rel="stylesheet"
+  />
 
   {% if jekyll.environment == 'production' %}
   <script

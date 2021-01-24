@@ -1,5 +1,4 @@
 import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
-import { getMessageCatalog } from "./message-catalog.js";
 
 function createDetailRow(reportElem, title, content) {
   const elem = document
@@ -54,28 +53,28 @@ function addSitesToPage(sites, container, userCounty) {
 
       createDetailRow(
         reportElem,
-        getMessageCatalog()["global_details"],
+        window.messageCatalog["global_details"],
         info.status
       );
 
       if (info.schedulingInstructions) {
         createDetailRow(
           reportElem,
-          getMessageCatalog()["global_appt_info"],
+          window.messageCatalog["global_appt_info"],
           info.schedulingInstructions
         );
       }
       if (info.locationNotes) {
         createDetailRow(
           reportElem,
-          getMessageCatalog()["global_location_notes"],
+          window.messageCatalog["global_location_notes"],
           info.locationNotes
         );
       }
       if (info.reportNotes) {
         createDetailRow(
           reportElem,
-          getMessageCatalog()["global_latest_info"],
+          window.messageCatalog["global_latest_info"],
           info.reportNotes
         );
       }
@@ -85,9 +84,8 @@ function addSitesToPage(sites, container, userCounty) {
         );
         try {
           const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElem.textContent = `${
-            getMessageCatalog()["global_latest_report"]
-          }: ${timeDiff}`;
+          latestReportElem.textContent = `${window.messageCatalog["global_latest_report"]
+            }: ${timeDiff}`;
         } catch (e) {
           console.error(e);
         }
