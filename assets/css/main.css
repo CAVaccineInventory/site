@@ -90,9 +90,6 @@ select {
   border-radius: 0 0 5px 5px;
   background-color: #fff;
   box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-primary);
-  z-index: var(--z-index-results);
   outline: 0;
 }
 
