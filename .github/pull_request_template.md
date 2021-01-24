@@ -38,8 +38,11 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] List of locations displays successfully on load, split into sites with vaccine and without vaccine
 - [ ] Vaccination Site Cards show relevant information and whether location is within your county
 
+#### County Policies page
+- [ ] Shows list of policies per county
+- [ ] Has search bar that autocompletes and filters content
+
 #### Other Pages
-- [ ] 'County Policies' shows list of policies
 - [ ] 'Providers' shows list of providers
 - [ ] 'About Us' shows prose content and FAQ
 - [ ] 'About Us' shows randomized list of coordinators' names
