@@ -5,6 +5,7 @@ permalink: /vaccination-sites
 add_to_nav: true
 order: 5
 ---
+<script type="module" src="/assets/js/airtable-autocomplete.js"></script>
 This is a list of all of the sites we are aware of in California which may, at some point, receive the COVID-19 vaccine. **Most of them do not have the vaccine available**; we are calling as many as we can daily to update the list so please check the [latest report](https://www.vaccinateca.com).
 If we missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are working on expanding the list with additional pharmacies and other locations.
 
