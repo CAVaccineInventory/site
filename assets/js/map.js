@@ -23,7 +23,13 @@ function initMap() {
   );
   request.responseType = "json";
   request.onload = function () {
-    request.response.map((p) => addLocation(p));
+    request.response.forEach((p) => {
+      if (!getHasVaccine(p)) {
+        return;
+      }
+
+      addLocation(p)
+    });
   };
   request.send();
   if ("locate" in mapElement.dataset) {
@@ -36,10 +42,6 @@ function shouldUseSpecialPin(info) {
 }
 
 function addLocation(p) {
-  if (!getHasVaccine(p)) {
-    return false;
-  }
-
   let info = getDisplayableVaccineInfo(p);
 
   if (!info.latitude || !info.longitude) {
