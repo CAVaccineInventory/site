@@ -92,6 +92,14 @@ function addListeners() {
       }
     });
   }
+
+  window.map.addListener("dragend", () => {
+    const newCoord = {
+      latitude: window.map.getCenter().lat(),
+      longitude: window.map.getCenter().lng(),
+    };
+    updateSitesFromCoordinates(newCoord);
+  });
 }
 
 function toggleLoading(shouldShow) {
@@ -175,13 +183,7 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
-        let county;
-        try {
-          county = await coordinatesToCounty(coordinates);
-        } catch (e) {
-          console.error("Failed to get county", e);
-        }
-        await fetchFilterAndSortSites(coordinates, county);
+        await updateSitesFromCoordinates(coordinates);
         onFinish();
         resolve();
       },
@@ -201,6 +203,16 @@ async function submitGeoLocation() {
       }
     );
   });
+}
+
+async function updateSitesFromCoordinates(coordinates) {
+  let county;
+  try {
+    county = await coordinatesToCounty(coordinates);
+  } catch (e) {
+    console.error("Failed to get county", e);
+  }
+  await fetchFilterAndSortSites(coordinates, county);
 }
 
 async function lookup(zip) {
