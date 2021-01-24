@@ -117,6 +117,8 @@ function filterCounties(input, county) {
   document
     .querySelectorAll(`[data-county="${county}"].js_county_container`)
     .forEach((elem) => elem.classList.remove("hidden"));
+
+  sendAnalyticsEvent("County Filter", "Vaccine Sites", "", county);
   updateLocationHash(input);
 }
 

@@ -116,10 +116,13 @@ async function handleSearch(event, type) {
   lastSearch = type;
   switch (type) {
     case "zip":
-      await submitZip(document.getElementById("zip").value);
+      let zip = document.getElementById("zip").value;
+      await submitZip(zip);
+      sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
       break;
     case "geolocation":
       await submitGeoLocation();
+      sendAnalyticsEvent("Locate Me", "Vaccine Sites", "", "");
       break;
     default:
       toggleLoading(false);
