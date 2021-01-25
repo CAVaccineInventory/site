@@ -132,6 +132,7 @@ async function handleSearch(event, type) {
       break;
     case "geolocation":
       toggleElementVisibility("js_my_location", true);
+      zipInput.value = "";
       await submitGeoLocation();
       sendAnalyticsEvent("Locate Me", "Vaccine Sites", "", "");
       break;
