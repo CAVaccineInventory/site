@@ -94,16 +94,50 @@ function getDisplayableVaccineInfo(p) {
 
   const hasReport = getHasReport(p);
 
+  function isSuperSite(p) {
+    return p["Location Type"] === "Super Site";
+  }
+
+  function getAgeRestriction(p) {
+    for (const prop of p["Availability Info"]) {
+      switch (prop) {
+        case "Yes: vaccinating 75+":
+          return 75;
+        case "Yes: vaccinating 65+":
+          return 65;
+      }
+    }
+    return undefined;
+  }
+
+  function doesLocationHaveProp(p, value) {
+    return p["Availability Info"].some((prop) => prop === value);
+  }
+
+  function getAvailabilityProps(p) {
+    return {
+      ageRestriction: getAgeRestriction(p),
+      isCountyRestricted: doesLocationHaveProp(
+        p,
+        "Yes: restricted to county residents"
+      ),
+      isAppointmentRequired: doesLocationHaveProp(
+        p,
+        "Yes: appointment required"
+      ),
+      isLimitedToPatients: doesLocationHaveProp(
+        p,
+        "Yes: must be a current patient"
+      ),
+    };
+  }
+
   function getYesNo(p) {
     if (hasReport) {
       return getHasVaccine(p) ? "Yes" : "No";
     } else {
       return "Unknown";
     }
-  }
-
-  function isSuperSite(p) {
-    return p["Location Type"] === "Super Site";
   }
 
   return {
@@ -119,6 +153,8 @@ function getDisplayableVaccineInfo(p) {
     county: p["County"],
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
+    hasVaccine: getYesNo(p),
+    ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
 }
 

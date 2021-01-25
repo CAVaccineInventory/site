@@ -5,7 +5,7 @@ global:
   address: Address
   latest_info: Latest info
   location_notes: Location notes
-  latest_report: Latest report
+  latest_report: Updated
 site_list:
   vaccine_sites: Sites with the vaccine
   no_vaccine_sites: Sites that do not have the vaccine
