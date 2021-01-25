@@ -104,7 +104,10 @@ function addListeners() {
     });
   }
 
-  window.map.addListener("center_changed", debounce(() => mapMovement()));
+  window.map.addListener(
+    "center_changed",
+    debounce(() => mapMovement())
+  );
 }
 
 function mapMovement() {
@@ -342,10 +345,12 @@ function distanceBetweenCoordinates(coord1, coord2) {
 }
 
 // https://www.freecodecamp.org/news/javascript-debounce-example/
-function debounce(func, timeout = 300){
+function debounce(func, timeout = 300) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
   };
 }
