@@ -18,6 +18,12 @@ function urlify(text) {
   });
 }
 
+function flattenData(strOrStrArray) {
+  return Array.isArray(strOrStrArray)
+    ? strOrStrArray.join("; ")
+    : strOrStrArray;
+}
+
 function generateCountyUrl(countyName) {
   return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
 }
@@ -145,11 +151,12 @@ function addSitesToPage(sites, container, userCounty) {
       const latestInfoElem = siteRootElem.querySelector(".site_latest_info");
 
       if (latestInfoElem) {
-        if (info.reportNotes) {
+        const notes = flattenData(info.reportNotes);
+        if (notes) {
           const contentElem = latestInfoElem.querySelector(
             ".site_latest_info_details"
           );
-          contentElem.innerHTML = info.reportNotes;
+          contentElem.innerHTML = urlify(notes);
           beautifyLinks(contentElem);
         } else {
           latestInfoElem.remove();
