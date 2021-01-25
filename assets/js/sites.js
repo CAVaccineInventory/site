@@ -107,35 +107,45 @@ function addSitesToPage(sites, container, userCounty) {
           vaccineStateElem.appendChild(template.cloneNode(true));
         }
       }
-
-      if (info.ageRestriction) {
-        const ageElem = siteRootElem.querySelector(".site_age_restriction");
-        if (ageElem) {
-          ageElem.innerHTML = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
-        }
-      }
-
-      if (info.isLimitedToPatients) {
-        const patientsElem = siteRootElem.querySelector(
-          ".site_limited_to_patients"
-        );
-        if (!patientsElem) {
-          patientsElem.innerHTML = "";
-        }
-      }
-
+      const ageElem = siteRootElem.querySelector(".site_age_restriction");
+      const patientsElem = siteRootElem.querySelector(
+        ".site_limited_to_patients"
+      );
       const appointmentElem = siteRootElem.querySelector(
         ".site_appointment_required"
       );
-      if (appointmentElem) {
-        if (info.isAppointmentRequired) {
-          const contentElem = appointmentElem.querySelector(
-            ".site_appointment_details"
-          );
-          contentElem.innerHTML = info.schedulingInstructions;
-          beautifyLinks(contentElem);
-        } else {
-          appointmentElem.remove();
+
+      if (info.hasVaccine === "Yes") {
+        if (info.ageRestriction) {
+          if (ageElem) {
+            ageElem.innerHTML = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
+          }
+        }
+
+        if (info.isLimitedToPatients) {
+          if (!patientsElem) {
+            patientsElem.innerHTML = "";
+          }
+        }
+
+        if (appointmentElem) {
+          if (info.isAppointmentRequired) {
+            const contentElem = appointmentElem.querySelector(
+              ".site_appointment_details"
+            );
+            contentElem.innerHTML = info.schedulingInstructions;
+            beautifyLinks(contentElem);
+          } else {
+            appointmentElem.remove();
+          }
+        }
+      } else {
+        ageElem.remove();
+        patientsElem.remove();
+        appointmentElem.remove();
+        const divider = siteRootElem.querySelector(".mobile_divider");
+        if (divider) {
+          divider.remove();
         }
       }
 
