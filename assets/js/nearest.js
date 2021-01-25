@@ -214,9 +214,7 @@ async function submitGeoLocation() {
 
 async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
   let county = await coordinatesToCounty(coordinates);
-  if (county) {
-    await fetchFilterAndSortSites(coordinates, county, repositionMap);
-  }
+  await fetchFilterAndSortSites(coordinates, county, repositionMap);
 }
 
 async function lookup(zip) {
