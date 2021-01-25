@@ -40,6 +40,7 @@ search_form:
   enter_zip: Enter ZIP
   enter_county: or county
   location: Use my location
+  location_placeholder: My location
   submit_button: Find <span class="hidden md:inline">Vaccine</span>
 site_template:
   county_header: Within your county
