@@ -98,7 +98,7 @@ function addListeners() {
       latitude: window.map.getCenter().lat(),
       longitude: window.map.getCenter().lng(),
     };
-    updateSitesFromCoordinates(newCoord);
+    updateSitesFromCoordinates(newCoord, false);
   });
 }
 
@@ -202,14 +202,14 @@ async function submitGeoLocation() {
   });
 }
 
-async function updateSitesFromCoordinates(coordinates) {
+async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
   let county;
   try {
     county = await coordinatesToCounty(coordinates);
   } catch (e) {
     console.error("Failed to get county", e);
   }
-  await fetchFilterAndSortSites(coordinates, county);
+  await fetchFilterAndSortSites(coordinates, county, repositionMap);
 }
 
 async function lookup(zip) {
@@ -257,7 +257,7 @@ async function lookup(zip) {
   return fetchFilterAndSortSites(coordinate, county);
 }
 
-async function fetchFilterAndSortSites(userCoord, county) {
+async function fetchFilterAndSortSites(userCoord, county, repositionMap = true) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   let sites = await fetchSites();
@@ -281,18 +281,22 @@ async function fetchFilterAndSortSites(userCoord, county) {
   }
 
   sites.sort((a, b) => a.distance - b.distance);
-  updateMap(userCoord, sites);
+  if (repositionMap) {
+    updateMap(userCoord, sites, true);
+  }
   addSitesToPage(sites, "sites", county);
 }
 
-function updateMap(coord, sites) {
+function updateMap(coord, sites, repositionMap = true) {
   const map = window.map;
-  const mapCoord = {
-    lat: coord.latitude,
-    lng: coord.longitude,
-  };
-  map.setCenter(mapCoord);
-  map.setZoom(10);
+  if(repositionMap) {
+    const mapCoord = {
+      lat: coord.latitude,
+      lng: coord.longitude,
+    };
+    map.setCenter(mapCoord);
+    map.setZoom(10);
+  }
 
   clearMap();
   sites.forEach((site) => {
