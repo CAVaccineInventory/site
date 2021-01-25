@@ -93,8 +93,20 @@ function addListeners() {
     });
   }
 
-  window.map.addListener("dragend", mapMovement);
-  window.map.addListener("center_changed", mapMovement);
+  // When we're dragging, don't listen to the `center_changed` event, because
+  // it'll cause us to re-draw the map over and over causing lag
+  window.map.addListener("dragstart", () => {
+    if(window.mapCenterListener) {
+      window.map.removeListener(window.mapCenterListener);
+    }
+  });
+
+  // On drag finish, start listening to the `center_changed` event again. This
+  // will fire if the user clicks a marker and the map moves to show it
+  window.map.addListener("dragend", () => {
+    mapMovement();
+    window.mapCenterListener = window.map.addListener("center_changed", mapMovement);
+  });
 }
 
 function mapMovement() {
