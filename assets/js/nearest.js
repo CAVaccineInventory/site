@@ -104,23 +104,7 @@ function addListeners() {
     });
   }
 
-  // When we're dragging, don't listen to the `center_changed` event, because
-  // it'll cause us to re-draw the map over and over causing lag
-  window.map.addListener("dragstart", () => {
-    if (window.mapCenterListener) {
-      window.map.removeListener(window.mapCenterListener);
-    }
-  });
-
-  // On drag finish, start listening to the `center_changed` event again. This
-  // will fire if the user clicks a marker and the map moves to show it
-  window.map.addListener("dragend", () => {
-    mapMovement();
-    window.mapCenterListener = window.map.addListener(
-      "center_changed",
-      mapMovement
-    );
-  });
+  window.map.addListener("center_changed", debounce(() => mapMovement()));
 }
 
 function mapMovement() {
@@ -355,4 +339,13 @@ function distanceBetweenCoordinates(coord1, coord2) {
       2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
+}
+
+// https://www.freecodecamp.org/news/javascript-debounce-example/
+function debounce(func, timeout = 300){
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
 }
