@@ -95,6 +95,7 @@ select {
   background-color: #fff;
   box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
   outline: 0;
+  z-index: 1;
 }
 
 .autoComplete_result {
