@@ -8,8 +8,6 @@ import {
 
 import { addSitesToPage } from "./sites.js";
 
-import { getMessageCatalog } from "./message-catalog.js";
-
 window.addEventListener("load", loaded);
 
 function loaded() {
@@ -191,7 +189,7 @@ async function submitGeoLocation() {
       function onError(e) {
         console.error(e);
         console.log(e.code, e.message);
-        alert(e.message || getMessageCatalog()["nearest_js_alert_zipcode"]);
+        alert(e.message || window.messageCatalog["nearest_js_alert_zipcode"]);
         onFinish();
         resolve();
       },
@@ -218,7 +216,7 @@ async function lookup(zip) {
     let response = await fetch(geocodeURL);
 
     if (!response.ok) {
-      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
     }
 
