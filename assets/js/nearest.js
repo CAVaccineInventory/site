@@ -164,7 +164,17 @@ async function coordinatesToCounty(coordinates) {
     `https://geo.fcc.gov/api/census/area?lat=${coordinates.latitude}&lon=${coordinates.longitude}&format=json`
   );
   const data = await res.json();
-  return data.results[0].county_name;
+
+  if (
+    data &&
+    data.hasOwnProperty("results") &&
+    Array.isArray(data.results) &&
+    data.results.length > 1 &&
+    data.results[0].hasOwnProperty("county_name")
+  ) {
+    return data.results[0].county_name;
+  }
+  return false;
 }
 
 async function submitGeoLocation() {
@@ -203,13 +213,10 @@ async function submitGeoLocation() {
 }
 
 async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
-  let county;
-  try {
-    county = await coordinatesToCounty(coordinates);
-  } catch (e) {
-    console.error("Failed to get county", e);
+  let county = await coordinatesToCounty(coordinates);
+  if (county) {
+    await fetchFilterAndSortSites(coordinates, county, repositionMap);
   }
-  await fetchFilterAndSortSites(coordinates, county, repositionMap);
 }
 
 async function lookup(zip) {
