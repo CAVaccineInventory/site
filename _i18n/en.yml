@@ -16,6 +16,12 @@ nearest:
   dropdown_2: Sites with reported doses
   dropdown_3: All known vaccination sites
   loading: Loading...
+  appointment_required: Appointment required
+  latest_info: Latest info
+  vaccines_available: Vaccines available
+  vaccines_not_available: Vaccines not available
+  vaccine_unknown: Unknown vaccine status
+  current_patients: Current patients only
 vaccination_sites:
   explainer: |
     This is a list of all of the sites we are aware of in California which may, 
@@ -81,3 +87,4 @@ data_js:
 nearest_js:
   alert_detect: Failed to detect your location. Please try again or enter your zip code
   alert_zipcode: Failed to locate your zip code, please try again
+  years_up: years old and up

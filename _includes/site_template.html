@@ -42,14 +42,18 @@
         ></div>
         <div
           class="site_limited_to_patients {{ base_class }} col-span-6 md:col-span-4"
-        ></div>
+        >
+          {% t nearest.current_patients %}
+        </div>
       </div>
       <div
         class="site_appointment_required px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
       >
         <div class="mr-2">{% include svg/calendar.svg %}</div>
         <div>
-          <span class="font-bold pr-2">Appointment required</span>
+          <span class="font-bold pr-2"
+            >{% t nearest.appointment_required %}</span
+          >
           <span class="site_appointment_details text-black word-break"></span>
         </div>
       </div>
@@ -58,7 +62,7 @@
       >
         <div class="mr-2">{% include svg/info.svg %}</div>
         <div>
-          <span class="font-bold pr-2">Latest info</span>
+          <span class="font-bold pr-2">{% t nearest.latest_info %}</span>
           <span class="site_latest_info_details text-black word-break"></span>
         </div>
       </div>
@@ -78,21 +82,21 @@
 <template id="vaccine_available">
   {% include svg/checkmark.svg %}
   <span class="{{ vaccine_state_class }} text-green-600"
-    >Vaccines available</span
+    >{% t nearest.vaccines_available %}</span
   >
 </template>
 
 <template id="vaccine_not_available">
   {% include svg/missing.svg %}
   <span class="{{ vaccine_state_class }} text-red-500"
-    >Vaccines not available</span
+    >{% t nearest.vaccines_not_available %}</span
   >
 </template>
 
 <template id="vaccine_unknown">
   {% include svg/question_mark.svg %}
   <span class="{{ vaccine_state_class }} text-gray-400"
-    >Unknown vaccine status</span
+    >{% t nearest.vaccine_unknown %}</span
   >
 </template>
 

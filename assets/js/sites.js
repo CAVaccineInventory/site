@@ -117,7 +117,7 @@ function addSitesToPage(sites, container, userCounty) {
       if (info.ageRestriction) {
         const ageElem = siteRootElem.querySelector(".site_age_restriction");
         if (ageElem) {
-          ageElem.innerHTML = `${info.ageRestriction} years old and up`;
+          ageElem.innerHTML = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
         }
       }
 
@@ -125,8 +125,8 @@ function addSitesToPage(sites, container, userCounty) {
         const patientsElem = siteRootElem.querySelector(
           ".site_limited_to_patients"
         );
-        if (patientsElem) {
-          patientsElem.innerHTML = "Current patients only";
+        if (!patientsElem) {
+          patientsElem.innerHTML = "";
         }
       }
 
