@@ -201,7 +201,7 @@ async function submitGeoLocation() {
       function onError(e) {
         console.error(e);
         console.log(e.code, e.message);
-        alert(e.message || window.messageCatalog["nearest_js_alert_zipcode"]);
+        alert(e.message || window.messageCatalog["nearest_js_alert_detect"]);
         onFinish();
         resolve();
       },
@@ -234,7 +234,7 @@ async function lookup(zip) {
 
     let results = await response.json();
     if (results.nhits < 1) {
-      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
     }
 
@@ -292,7 +292,7 @@ function distanceBetweenCoordinates(coord1, coord2) {
     (Math.cos(coord1.latitude * p) *
       Math.cos(coord2.latitude * p) *
       (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
-      2;
+    2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
 }
