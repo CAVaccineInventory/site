@@ -16,12 +16,12 @@
       <main class="mx-auto">
         <div class="md:pb-6">
           <div class="main-content px-4 md:px-8">
-            <div class="pt-6 mt-6">
+            <div class="pt-3 mt-3 md:pt-6 md:mt-6">
               <p class="text-xl">{% tf county_header.html %}</p>
 
-              {% tf pre_list_disclaimer.html %}
-
-              <div class="border-2 border-green-600 rounded p-3 mb-5">
+              {% tf pre_list_disclaimer.html %} {% assign section_base_class =
+              "border-0 md:border-2 rounded py-3 md:p-3" %}
+              <div class="{{ section_base_class }} border-green-600">
                 <h3 class="text-lg font-medium text-green-800">
                   {% t site_list.vaccine_sites %}
                 </h3>
@@ -29,7 +29,7 @@
                 <ol id="sitesWithVaccine"></ol>
               </div>
 
-              <div class="border-2 border-red-600 rounded p-3">
+              <div class="{{ section_base_class }} md:mt-5 border-red-600">
                 <h3 class="text-lg font-medium text-red-800">
                   {% t site_list.no_vaccine_sites %}
                 </h3>
