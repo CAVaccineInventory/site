@@ -1,4 +1,4 @@
-<script type="module" src="assets/js/nearest.js"></script>
+<script type="module" src="{{ 'assets/js/nearest.js' | content_tag }}"></script>
 <div class="flex flex-col">
   <!-- Main form -->
   <form
@@ -11,12 +11,18 @@
       <input
         id="zip"
         name="zip"
-        class="rounded-full border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-700f px-4 py-2 md:w-64"
+        class="rounded-full search-input border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-700f px-4 py-2 md:w-64"
         placeholder="Enter ZIP..."
         pattern="[0-9]{5}"
         autocomplete="off"
         required
       />
+      <div
+        id="js_my_location"
+        class="hidden absolute top-1/2 transform -translate-y-1/2 left-8 bg-gray-100 rounded-full px-3 py-1 text-sm pointer-events-none"
+      >
+        {% t search_form.location_placeholder %}
+      </div>
       <a
         class="hidden absolute bg-white z-10 left-0 top-full flex flex-row border border-gray-200 rounded-full px-4 py-1 items-center space-x-2 mt-1 up-arrow"
         href="{% link nearest.html %}?locate=1"

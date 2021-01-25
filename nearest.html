@@ -1,13 +1,15 @@
 ---
-layout: default
+layout: default_no_padding
 permalink: /near-me
 add_to_nav: true
 order: 2
 ---
 
-<div class="py-4 flex flex-col items-start md:items-center">
+<div
+  class="py-4 flex flex-col items-start md:items-center sticky top-0 z-10 bg-white border-b border-gray-200 px-4"
+>
   {% include search_form.html %}
-  <div class="relative py-4">
+  <div class="relative pt-4">
     <select
       id="filter"
       class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
@@ -17,16 +19,20 @@ order: 2
       <option value="any">{% t nearest.dropdown_3 %}</option>
     </select>
   </div>
-  <div class="bg-yellow-50 p-4 shadow mt-4">
+</div>
+<div class="px-4 lg:px-0 lg:container mx-auto">
+  <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     {% tf pre_list_disclaimer.html %}
   </div>
-  {% include map.html %}
-</div>
-<ol id="sites"></ol>
-<div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
+  <div class="px-4">
+    {% include map.html %}
+    <ol id="sites"></ol>
+    <div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
 
-<div id="post_list_container" class="hidden">
-  {% tf post_list_disclaimer.html %}
+    <div id="post_list_container" class="hidden">
+      {% tf post_list_disclaimer.html %}
+    </div>
+  </div>
 </div>
 
 {% include site_template.html %}
