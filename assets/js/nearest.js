@@ -292,7 +292,7 @@ function distanceBetweenCoordinates(coord1, coord2) {
     (Math.cos(coord1.latitude * p) *
       Math.cos(coord2.latitude * p) *
       (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
-    2;
+      2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
 }
