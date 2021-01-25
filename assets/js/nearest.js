@@ -10,6 +10,8 @@ import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", loaded);
 
+let lastSearch;
+
 function loaded() {
   fetchSites();
   fetchZipCodesData();
@@ -21,12 +23,18 @@ function loaded() {
     zipInput.addEventListener("focus", () => {
       clearTimeout(timeoutId);
       toggleGeoLocationVisibility(true);
+      toggleElementVisibility("js_my_location", false);
     });
     zipInput.addEventListener("blur", (e) => {
       clearTimeout(timeoutId);
       setTimeout(() => {
         toggleGeoLocationVisibility(false);
       }, 200);
+
+      // Show my location again if it was used for the last search
+      if (!zipInput.value.length && lastSearch == "geolocation") {
+        toggleElementVisibility("js_my_location", true);
+      }
     });
   }
   if (!zipForm || zipForm.getAttribute("action") !== location.pathname) {
@@ -37,14 +45,18 @@ function loaded() {
   addListeners();
 }
 
-function toggleGeoLocationVisibility(isVisible) {
-  const geoLocationElem = document.getElementById("submit_geolocation");
-  if (!geoLocationElem) return;
+function toggleElementVisibility(element_id, isVisible) {
+  const elem = document.getElementById(element_id);
+  if (!elem) return;
   if (isVisible) {
-    geoLocationElem.classList.remove("hidden");
+    elem.classList.remove("hidden");
   } else {
-    geoLocationElem.classList.add("hidden");
+    elem.classList.add("hidden");
   }
+}
+
+function toggleGeoLocationVisibility(isVisible) {
+  toggleElementVisibility("submit_geolocation", isVisible);
 }
 
 function handleUrlParamOnLoad() {
@@ -75,7 +87,6 @@ function addListeners() {
   const geoLocationElem = document.getElementById("submit_geolocation");
   if (geoLocationElem) {
     if (navigator.geolocation) {
-      document;
       geoLocationElem.addEventListener("click", (e) => {
         handleSearch(e, "geolocation");
       });
@@ -104,8 +115,6 @@ function toggleLoading(shouldShow) {
   }
 }
 
-let lastSearch;
-
 async function handleSearch(event, type) {
   if (event) {
     event.preventDefault();
@@ -114,13 +123,16 @@ async function handleSearch(event, type) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   lastSearch = type;
+  const zipInput = document.getElementById("zip");
   switch (type) {
     case "zip":
-      let zip = document.getElementById("zip").value;
+      let zip = zipInput.value;
       await submitZip(zip);
       sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
       break;
     case "geolocation":
+      toggleElementVisibility("js_my_location", true);
+      zipInput.value = "";
       await submitGeoLocation();
       sendAnalyticsEvent("Locate Me", "Vaccine Sites", "", "");
       break;

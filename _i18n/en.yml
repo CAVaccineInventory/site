@@ -38,6 +38,7 @@ map:
   not_supported: Geolocation not supported
 search_form:
   location: Use my location
+  location_placeholder: My location
   submit_button: Find <span class="hidden md:inline">Vaccine</span>
 site_template:
   county_header: Within your county
