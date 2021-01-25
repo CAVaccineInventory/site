@@ -24,7 +24,7 @@
         Add custom styles sparingly. Bias heavily towards following the path
         laid out by the design system (See above).
     -->
-  <link href="/assets/css/main.css" rel="stylesheet" />
+  <link href="{{ '/assets/css/main.css' | content_tag }}" rel="stylesheet" />
 
   <script id="messageCatalog">
     window.messageCatalog = {
@@ -41,9 +41,12 @@
     };
   </script>
 
-  <script type="module" src="/assets/js/counties.js"></script>
-  <script type="module" src="/assets/js/main.js"></script>
-  <script src="/assets/js/autoComplete.min.js"></script>
+  <script
+    type="module"
+    src="{{ '/assets/js/counties.js' | content_tag }}"
+  ></script>
+  <script type="module" src="{{ '/assets/js/main.js' | content_tag }}"></script>
+  <script src="{{ '/assets/js/autoComplete.min.js' | content_tag }}"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
