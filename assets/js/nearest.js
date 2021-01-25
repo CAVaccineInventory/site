@@ -93,13 +93,16 @@ function addListeners() {
     });
   }
 
-  window.map.addListener("dragend", () => {
-    const newCoord = {
-      latitude: window.map.getCenter().lat(),
-      longitude: window.map.getCenter().lng(),
-    };
-    updateSitesFromCoordinates(newCoord, false);
-  });
+  window.map.addListener("dragend", mapMovement);
+  window.map.addListener("center_changed", mapMovement);
+}
+
+function mapMovement() {
+  const newCoord = {
+    latitude: window.map.getCenter().lat(),
+    longitude: window.map.getCenter().lng(),
+  };
+  updateSitesFromCoordinates(newCoord, false);
 }
 
 function toggleLoading(shouldShow) {
