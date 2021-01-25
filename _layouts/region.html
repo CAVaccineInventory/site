@@ -31,11 +31,11 @@
             </div>
 
             <div class="border-t-2 border-gray-200 pt-6 mt-6">
-              <p class="text-xl">{% tf region_header.html %}</p>
+              <p class="text-lg md:text-xl">{% tf region_header.html %}</p>
 
-              {% tf pre_list_disclaimer.html %}
+              <div class="text-sm">{% tf pre_list_disclaimer.html %}</div>
 
-              <div class="autoComplete_wrapper">
+              <div class="autoComplete_wrapper mt-3 md:mt-6">
                 <input
                   type="text"
                   id="autoComplete"
@@ -45,17 +45,13 @@
                 />
               </div>
 
-              <div class="border-2 border-green-600 rounded p-3 mb-3">
-                <h3 class="text-lg font-medium text-green-800">
-                  {% t site_list.vaccine_sites %}
-                </h3>
+              <div class="py-3 mb-3">
+                {% include vaccine_section_title.html has_vaccine=true %}
                 <div id="withVaccine"></div>
               </div>
 
-              <div class="border-2 border-red-600 rounded p-3">
-                <h3 class="text-lg font-medium text-red-800">
-                  {% t site_list.no_vaccine_sites %}
-                </h3>
+              <div class="py-3">
+                {% include vaccine_section_title.html has_vaccine=false %}
                 <div id="withoutVaccine"></div>
               </div>
             </div>

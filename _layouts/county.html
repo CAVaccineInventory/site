@@ -24,18 +24,12 @@
               <section
                 class="{{ section_base_class }} border-green-600 mt-0 md:mt-10"
               >
-                <h3 class="text-lg font-medium text-green-800">
-                  {% t site_list.vaccine_sites %}
-                </h3>
-
+                {% include vaccine_section_title.html has_vaccine=true %}
                 <ol id="sitesWithVaccine"></ol>
               </section>
 
               <section class="{{ section_base_class }} md:mt-5 border-red-600">
-                <h3 class="text-lg font-medium text-red-800">
-                  {% t site_list.no_vaccine_sites %}
-                </h3>
-
+                {% include vaccine_section_title.html has_vaccine=false %}
                 <ol id="sitesWithoutVaccine"></ol>
               </section>
 

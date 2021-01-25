@@ -1,16 +1,5 @@
 import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
 
-function createDetailRow(reportElem, title, content) {
-  const elem = document
-    .getElementById("report_detail_template")
-    .content.cloneNode(true);
-  elem.querySelector(".detail_title").innerHTML = title;
-  const contentElem = elem.querySelector(".detail_content");
-  contentElem.innerHTML = content;
-  beautifyLinks(contentElem);
-  reportElem.appendChild(elem);
-}
-
 function beautifyLinks(contentElem) {
   const linksElem = contentElem.querySelectorAll("a");
   for (const linkElem of linksElem) {
