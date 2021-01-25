@@ -8,8 +8,6 @@ import {
 
 import { addSitesToPage } from "./sites.js";
 
-import { getMessageCatalog } from "./message-catalog.js";
-
 window.addEventListener("load", loaded);
 
 let lastSearch;
@@ -202,7 +200,7 @@ async function submitGeoLocation() {
       function onError(e) {
         console.error(e);
         console.log(e.code, e.message);
-        alert(e.message || getMessageCatalog()["nearest_js_alert_zipcode"]);
+        alert(e.message || window.messageCatalog["nearest_js_alert_zipcode"]);
         onFinish();
         resolve();
       },
@@ -229,11 +227,15 @@ async function lookup(zip) {
     let response = await fetch(geocodeURL);
 
     if (!response.ok) {
-      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
     }
 
     let results = await response.json();
+    if (results.nhits < 1) {
+      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      return;
+    }
 
     // Comes back in [long, lat]
     location = results.records[0].geometry.coordinates;
