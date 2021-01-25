@@ -23,7 +23,7 @@ function loaded() {
     zipInput.addEventListener("focus", () => {
       clearTimeout(timeoutId);
       toggleGeoLocationVisibility(true);
-      toggleElementVisibility("my_location", false);
+      toggleElementVisibility("js_my_location", false);
     });
     zipInput.addEventListener("blur", (e) => {
       clearTimeout(timeoutId);
@@ -33,7 +33,7 @@ function loaded() {
 
       // Show my location again if it was used for the last search
       if (!zipInput.value.length && lastSearch == "geolocation") {
-        toggleElementVisibility("my_location", true);
+        toggleElementVisibility("js_my_location", true);
       }
     });
   }
@@ -87,7 +87,6 @@ function addListeners() {
   const geoLocationElem = document.getElementById("submit_geolocation");
   if (geoLocationElem) {
     if (navigator.geolocation) {
-      document;
       geoLocationElem.addEventListener("click", (e) => {
         handleSearch(e, "geolocation");
       });
@@ -124,14 +123,15 @@ async function handleSearch(event, type) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   lastSearch = type;
+  const zipInput = document.getElementById("zip");
   switch (type) {
     case "zip":
-      let zip = document.getElementById("zip").value;
+      let zip = zipInput.value;
       await submitZip(zip);
       sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
       break;
     case "geolocation":
-      toggleElementVisibility("my_location", true);
+      toggleElementVisibility("js_my_location", true);
       await submitGeoLocation();
       sendAnalyticsEvent("Locate Me", "Vaccine Sites", "", "");
       break;
