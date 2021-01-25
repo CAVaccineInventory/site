@@ -201,7 +201,7 @@ async function submitGeoLocation() {
       function onError(e) {
         console.error(e);
         console.log(e.code, e.message);
-        alert(e.message || window.messageCatalog["nearest_js_alert_zipcode"]);
+        alert(e.message || window.messageCatalog["nearest_js_alert_detect"]);
         onFinish();
         resolve();
       },
@@ -234,7 +234,7 @@ async function lookup(zip) {
 
     let results = await response.json();
     if (results.nhits < 1) {
-      alert(getMessageCatalog()["nearest_js_alert_zipcode"]);
+      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
     }
 
