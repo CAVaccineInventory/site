@@ -257,7 +257,11 @@ async function lookup(zip) {
   return fetchFilterAndSortSites(coordinate, county);
 }
 
-async function fetchFilterAndSortSites(userCoord, county, repositionMap = true) {
+async function fetchFilterAndSortSites(
+  userCoord,
+  county,
+  repositionMap = true
+) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   let sites = await fetchSites();
@@ -289,7 +293,7 @@ async function fetchFilterAndSortSites(userCoord, county, repositionMap = true) 
 
 function updateMap(coord, sites, repositionMap = true) {
   const map = window.map;
-  if(repositionMap) {
+  if (repositionMap) {
     const mapCoord = {
       lat: coord.latitude,
       lng: coord.longitude,
