@@ -130,7 +130,7 @@ async function handleSearch(event, type) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   lastSearch = type;
-  const zipInput = document.getElementById("zip");
+  const zipInput = document.getElementById("js_zip_or_county");
   switch (type) {
     case "zip":
       const zip = zipInput.value;
