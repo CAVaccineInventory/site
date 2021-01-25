@@ -5,7 +5,7 @@ async function fetchSites() {
   let response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert("Could not retrieve the vaccination site data.");
+    alert(window.messageCatalog["data_js_alert"]);
     return;
   }
   return response.json();
@@ -25,7 +25,7 @@ function getHasVaccine(p) {
     return (
       p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
     );
-  } catch {
+  } catch (_err) {
     return false;
   }
 }
@@ -59,7 +59,7 @@ function getDisplayableVaccineInfo(p) {
           .replace("No: ", "")
           .replace(
             "Skip: call back later",
-            "Could not reach human, calling back later"
+            window.messageCatalog["data_js_call_back"]
           )
       )
       .join(" | ");

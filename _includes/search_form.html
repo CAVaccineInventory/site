@@ -21,7 +21,7 @@
         id="js_zip_or_county"
         name="zip"
         class="rounded-full border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-700f px-4 py-2 md:w-64"
-        placeholder="Enter ZIP{% if include.counties_autocomplete %} or county{% endif %}..."
+        placeholder="{% t search_form.enter_zip %}{% if include.counties_autocomplete %}{% t search_form.enter_county %}{% endif %}..."
         pattern="[0-9]{5}"
         autocomplete="off"
         required
@@ -47,14 +47,14 @@
           />
         </svg>
 
-        <div class="text-black">Use my location</div>
+        <div class="text-black">{% t search_form.location %}</div>
       </a>
     </div>
     <button
       class="rounded-full bg-green-400 text-white hover:bg-green-500 px-10 md:px-5 ml-2"
       id="submit_zip"
     >
-      Find <span class="hidden md:inline">Vaccine</span>
+      {% t search_form.submit_button %}
     </button>
   </form>
 </div>

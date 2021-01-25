@@ -1,0 +1,92 @@
+# These are strings used in multiple places
+global:
+  details: Details
+  appt_info: Appointment information
+  address: Address
+  latest_info: Latest info
+  location_notes: Location notes
+  latest_report: Latest report
+site_list:
+  vaccine_sites: Sites with the vaccine
+  no_vaccine_sites: Sites that do not have the vaccine
+
+#These are per-page strings.
+nearest:
+  dropdown_1: Sites we have contacted
+  dropdown_2: Sites with reported doses
+  dropdown_3: All known vaccination sites
+  loading: Loading...
+vaccination_sites:
+  explainer: |
+    This is a list of all of the sites we are aware of in California which may, 
+    at some point, receive the COVID-19 vaccine. **Most of them do not have the 
+    vaccine available**; we are calling as many as we can daily to update the 
+    list so please check the [latest report](https://www.vaccinateca.com). If we
+    missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are
+    working on expanding the list with additional pharmacies and other 
+    locations.
+head:
+  meta_image_tag: |
+    An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
+    near you with our community-run tracker'
+header:
+  menu_open: Open main menu
+map:
+  locate_button: Locate around me!
+  locating: Locating...
+  failed: Failed, please try again
+  not_supported: Geolocation not supported
+search_form:
+  enter_zip: Enter ZIP
+  enter_county: or county
+  location: Use my location
+  submit_button: Find <span class="hidden md:inline">Vaccine</span>
+site_template:
+  county_header: Within your county
+  no_reports: No contact reports
+not_found:
+  text: |
+    The page you've requested does not exist. If you're looking for help with 
+    finding vaccines in California, please check 
+    [VaccinateCA.com](https://www.vaccinateca.com).
+county_policies:
+  text: |
+    The state of California has a vaccine strategy, but has delegated
+    prioritization and administration to each county. Decisions as to which
+    patients to vaccinate and in what fashion are ultimately up to medical
+    providers.
+
+    We have collected the **most recent county-level information** below.
+    Broadly, we think that if the information we have on file from a county
+    disagrees with a medical provider in it, the one most likely to be right is 
+    the one who could (or could not) put a shot in someone's arm.
+
+    Some counties have set up scheduling systems or have advice; please check 
+    your county below.
+index:
+  header: Find a COVID-19 vaccine for yourself or a loved one
+  subtitle: | 
+    Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
+    But it can be difficult to find out where and how to get a shot. 
+    We are a group of volunteers calling hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
+  disclaimer: |
+    The State of California has
+    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">
+    approved</a> giving the COVID-19 vaccine to people age 65 and older. We are
+    calling hospitals and pharmacies daily to check which are currently
+    administering vaccines.
+  positive_feedback: Let us know if you found this site useful!
+  corrections: |
+    If you have a missing location to report, or think we have incorrect
+    contact information,
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">please let us know.</a>
+  locations_by_county: Vaccination locations by county
+  more_info: More information about vaccine availability
+  find_county: Find your county
+  about_us: About Vaccinate California
+data_js:
+  alert: Could not retrieve the vaccination site data.
+  call_back: Could not reach human, calling back later
+nearest_js:
+  alert_detect: Failed to detect your location. Please try again or enter your zip code
+  alert_zipcode: Failed to locate your zip code, please try again
