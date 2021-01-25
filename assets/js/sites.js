@@ -18,6 +18,10 @@ function urlify(text) {
   });
 }
 
+function generateCountyUrl(countyName) {
+  return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
+}
+
 function shorten(text, maxLen) {
   return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
 }
@@ -45,7 +49,7 @@ function addSitesToPage(sites, container, userCounty) {
       const countyElem = siteRootElem.querySelector(".site_county");
       if (countyElem) {
         countyElem.innerHTML = info.county;
-        countyElem.href = ``;
+        countyElem.href = generateCountyUrl(info.county);
         addressElemCounter++;
       }
     }
