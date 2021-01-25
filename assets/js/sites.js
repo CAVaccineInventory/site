@@ -29,26 +29,20 @@ function urlify(text) {
   });
 }
 
-function flattenData(strOrStrArray) {
-  return Array.isArray(strOrStrArray)
-    ? strOrStrArray.join("; ")
-    : strOrStrArray;
-}
-
 function shorten(text, maxLen) {
   return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
 }
-
-const vaccineStatusTemplates = {
-  Yes: document.getElementById("vaccine_available").content,
-  No: document.getElementById("vaccine_not_available").content,
-  Unknown: document.getElementById("vaccine_unknown").content,
-};
 
 function addSitesToPage(sites, container, userCounty) {
   const list = document.getElementById(container);
   const siteTemplate = document.getElementById("site_location_template")
     .content;
+
+  const vaccineStatusTemplates = {
+    Yes: document.getElementById("vaccine_available").content,
+    No: document.getElementById("vaccine_not_available").content,
+    Unknown: document.getElementById("vaccine_unknown").content,
+  };
 
   for (const site of sites.slice(0, 50)) {
     let info = getDisplayableVaccineInfo(site);
