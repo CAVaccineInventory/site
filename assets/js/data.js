@@ -209,7 +209,6 @@ function splitSitesByVaccineState(sites) {
   return { sitesWithVaccine, sitesWithoutVaccine, sitesWithNoReport };
 }
 
-
 function sortByRecency(sites) {
   sites.sort((a, b) => {
     try {

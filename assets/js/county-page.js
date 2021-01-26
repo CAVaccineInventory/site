@@ -1,4 +1,9 @@
-import { fetchSites, splitSitesByVaccineState, sortByRecency, getCounty } from "./data.js";
+import {
+  fetchSites,
+  splitSitesByVaccineState,
+  sortByRecency,
+  getCounty,
+} from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
 
