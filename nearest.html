@@ -6,10 +6,10 @@ order: 2
 ---
 
 <div
-  class="py-4 flex flex-col items-center sticky top-0 z-10 bg-white border-b border-gray-200"
+  class="py-4 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center sticky top-0 z-10 bg-white border-b border-gray-200"
 >
   {% include search_form.html %}
-  <div class="relative pt-4">
+  <div class="relative pt-4 sm:pt-0 sm:pl-4">
     <select
       id="filter"
       class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
@@ -24,13 +24,14 @@ order: 2
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     {% tf pre_list_disclaimer.html %}
   </div>
+  <div class="px-4">
+    {% include map.html %}
   <div>
-    <ol id="sites"></ol>
-    <div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
+  <ol id="sites"></ol>
+  <div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
 
-    <div id="post_list_container" class="hidden">
-      {% tf post_list_disclaimer.html %}
-    </div>
+  <div id="post_list_container" class="hidden">
+    {% tf post_list_disclaimer.html %}
   </div>
 </div>
 

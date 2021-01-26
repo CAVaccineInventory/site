@@ -7,6 +7,7 @@ import {
 } from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
+import { addLocation, clearMap } from "./map.js";
 
 window.addEventListener("load", loaded);
 
@@ -109,6 +110,21 @@ function addListeners() {
       }
     });
   }
+
+  document.addEventListener("mapInit", () => {
+    window.map.addListener(
+      "center_changed",
+      debounce(() => mapMovement())
+    );
+  });
+}
+
+function mapMovement() {
+  const newCoord = {
+    latitude: window.map.getCenter().lat(),
+    longitude: window.map.getCenter().lng(),
+  };
+  updateSitesFromCoordinates(newCoord, false);
 }
 
 function toggleLoading(shouldShow) {
@@ -127,8 +143,6 @@ async function handleSearch(event, type) {
     event.preventDefault();
   }
   toggleLoading(true);
-  const list = document.getElementById("sites");
-  list.innerHTML = "";
   lastSearch = type;
   const zipInput = document.getElementById("js_zip_or_county");
   switch (type) {
@@ -176,7 +190,17 @@ async function coordinatesToCounty(coordinates) {
     `https://geo.fcc.gov/api/census/area?lat=${coordinates.latitude}&lon=${coordinates.longitude}&format=json`
   );
   const data = await res.json();
-  return data.results[0].county_name;
+
+  if (
+    data &&
+    data.hasOwnProperty("results") &&
+    Array.isArray(data.results) &&
+    data.results.length > 1 &&
+    data.results[0].hasOwnProperty("county_name")
+  ) {
+    return data.results[0].county_name;
+  }
+  return false;
 }
 
 async function submitGeoLocation() {
@@ -195,13 +219,7 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
-        let county;
-        try {
-          county = await coordinatesToCounty(coordinates);
-        } catch (e) {
-          console.error("Failed to get county", e);
-        }
-        await fetchFilterAndSortSites(coordinates, county);
+        await updateSitesFromCoordinates(coordinates);
         onFinish();
         resolve();
       },
@@ -218,6 +236,11 @@ async function submitGeoLocation() {
       }
     );
   });
+}
+
+async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
+  let county = await coordinatesToCounty(coordinates);
+  await fetchFilterAndSortSites(coordinates, county, repositionMap);
 }
 
 async function lookup(zip) {
@@ -265,7 +288,13 @@ async function lookup(zip) {
   return fetchFilterAndSortSites(coordinate, county);
 }
 
-async function fetchFilterAndSortSites(userCoord, county) {
+async function fetchFilterAndSortSites(
+  userCoord,
+  county,
+  repositionMap = true
+) {
+  const list = document.getElementById("sites");
+  list.innerHTML = "";
   let sites = await fetchSites();
   const filterElem = document.querySelector("#filter");
   const filter = filterElem ? filterElem.value : "stocked";
@@ -287,7 +316,27 @@ async function fetchFilterAndSortSites(userCoord, county) {
   }
 
   sites.sort((a, b) => a.distance - b.distance);
+  if (repositionMap) {
+    updateMap(userCoord, sites, true);
+  }
   addSitesToPage(sites, "sites", county);
+}
+
+function updateMap(coord, sites, repositionMap = true) {
+  const map = window.map;
+  if (repositionMap) {
+    const mapCoord = {
+      lat: coord.latitude,
+      lng: coord.longitude,
+    };
+    map.setCenter(mapCoord);
+    map.setZoom(10);
+  }
+
+  clearMap();
+  sites.forEach((site) => {
+    addLocation(site);
+  });
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
@@ -302,4 +351,15 @@ function distanceBetweenCoordinates(coord1, coord2) {
       2;
   // 12742 is the diameter of earth in km
   return 12742 * Math.asin(Math.sqrt(a));
+}
+
+// https://www.freecodecamp.org/news/javascript-debounce-example/
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
 }
