@@ -65,7 +65,7 @@ collections:
 include:
   - _redirects
 
-languages: ["en"]
+languages: ["en", "es"]
 
 exclude_from_localizations: ["assets", "favicon.ico"]
 
