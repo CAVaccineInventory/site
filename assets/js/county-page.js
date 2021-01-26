@@ -4,6 +4,15 @@ import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", fetchCountySites);
 
+function addSitesOrRemoveIfEmpty(sites, containerId) {
+  if (!sites.length) {
+    const container = document.getElementById(containerId);
+    container.parentElement.remove();
+  } else {
+    addSitesToPage(sites, containerId);
+  }
+}
+
 async function fetchCountySites() {
   let sites = await fetchSites();
   const county = document.getElementById("county_name").textContent.trim();
@@ -19,7 +28,7 @@ async function fetchCountySites() {
     sitesWithNoReport,
   } = splitSitesByVaccineState(sites);
 
-  addSitesToPage(sitesWithVaccine, "sitesWithVaccine");
-  addSitesToPage(sitesWithoutVaccine, "sitesWithoutVaccine");
-  addSitesToPage(sitesWithNoReport, "sitesWithoutReport");
+  addSitesOrRemoveIfEmpty(sitesWithVaccine, "sitesWithVaccine");
+  addSitesOrRemoveIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
+  addSitesOrRemoveIfEmpty(sitesWithNoReport, "sitesWithoutReport");
 }
