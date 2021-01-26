@@ -25,7 +25,7 @@ function updateFilterFromUrlFragment() {
   }
 }
 
-window.onload = () => {
+window.addEventListener("load", () => {
   const input = document.querySelector("#autoComplete");
   if (input) {
     const airtable = document.querySelector(".airtable-embed");
@@ -68,4 +68,4 @@ window.onload = () => {
       }
     });
   }
-};
+});
