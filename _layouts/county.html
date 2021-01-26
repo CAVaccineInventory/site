@@ -22,13 +22,13 @@
               {% assign section_base_class = "border-0 md:border-2 rounded py-3
               md:p-3" %}
               <section
-                class="{{ section_base_class }} border-green-600 mt-0 md:mt-10"
+                class="{{ section_base_class }} mt-0 md:mt-10"
               >
                 {% include vaccine_section_title.html has_vaccine=true %}
                 <ol id="sitesWithVaccine"></ol>
               </section>
 
-              <section class="{{ section_base_class }} md:mt-5 border-red-600">
+              <section class="{{ section_base_class }} md:mt-5">
                 {% include vaccine_section_title.html has_vaccine=false %}
                 <ol id="sitesWithoutVaccine"></ol>
               </section>
