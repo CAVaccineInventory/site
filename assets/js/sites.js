@@ -44,7 +44,6 @@ function addSitesToPage(sites, container, userCounty) {
   };
 
   for (const site of sites.slice(0, 50)) {
-    console.log(site);
     let info = getDisplayableVaccineInfo(site);
     const siteRootElem = siteTemplate.cloneNode(true);
     siteRootElem.querySelector(
