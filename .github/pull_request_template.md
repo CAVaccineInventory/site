@@ -36,7 +36,7 @@ Open the deploy preview and manually perform the following tests with the browse
 
 #### /counties/*
 - [ ] List of locations displays successfully on load, split into sites with vaccine and without vaccine
-- [ ] Vaccination Site Cards show relevant information and whether location is within your county
+- [ ] Vaccination Site Cards show relevant information
 
 #### County Policies page
 - [ ] Shows list of policies per county
