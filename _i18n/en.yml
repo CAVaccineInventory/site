@@ -7,9 +7,9 @@ global:
   location_notes: Location notes
   latest_report: Updated
 site_list:
-  vaccine_sites: Sites with the vaccine
-  no_vaccine_sites: Sites that do not have the vaccine
-  no_report_sites: Site we have not contacted
+  vaccine_sites: Vaccines reported available
+  no_vaccine_sites: Vaccines reported unavailable
+  no_report_sites: Vaccines status unknown
 
 #These are per-page strings.
 nearest:
@@ -101,4 +101,3 @@ nearest_js:
   patients_only: Current patients only
   county_only: County residents only
 loading:
-  loading: Loading...
