@@ -1,4 +1,4 @@
-import { fetchSites, getHasVaccine, getCounty } from "./data.js";
+import { fetchSites, getHasVaccine, sortByRecency, getCounty } from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
 
@@ -13,6 +13,8 @@ async function fetchCountySites() {
   sites = sites.filter((site) => {
     return [county, county + " County"].includes(getCounty(site));
   });
+
+  sortByRecency(sites);
 
   let sitesWithVaccine = [];
   let sitesWithoutVaccine = [];
