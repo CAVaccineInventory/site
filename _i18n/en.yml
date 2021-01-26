@@ -100,3 +100,5 @@ nearest_js:
   years_up: years old and up
   patients_only: Current patients only
   county_only: County residents only
+loading:
+  loading: Loading...
