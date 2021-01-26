@@ -48,7 +48,7 @@ function addSitesToPage(sites, container, userCounty) {
     const siteRootElem = siteTemplate.cloneNode(true);
     siteRootElem.querySelector(
       ".site_title"
-    ).textContent = info.name.toLowerCase();
+    ).textContent = info.name;
 
     let addressElemCounter = 0;
     if (info.county) {
