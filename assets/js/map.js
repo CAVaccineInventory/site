@@ -32,6 +32,9 @@ function initMap() {
     });
   };
   request.send();
+
+  document.dispatchEvent(new CustomEvent("mapInit"));
+
   if ("locate" in mapElement.dataset) {
     setupLocateMe();
   }

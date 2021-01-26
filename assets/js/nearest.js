@@ -104,10 +104,12 @@ function addListeners() {
     });
   }
 
-  window.map.addListener(
-    "center_changed",
-    debounce(() => mapMovement())
-  );
+  document.addEventListener("mapInit", () => {
+    window.map.addListener(
+      "center_changed",
+      debounce(() => mapMovement())
+    );
+  });
 }
 
 function mapMovement() {
