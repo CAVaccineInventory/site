@@ -7,8 +7,8 @@ global:
   location_notes: Location notes
   latest_report: Updated
 site_list:
-  vaccine_sites: Sites with the vaccine
-  no_vaccine_sites: Sites that do not have the vaccine
+  vaccine_sites: Vaccines reported available
+  no_vaccine_sites: Vaccines reported unavailable
 
 #These are per-page strings.
 nearest:
