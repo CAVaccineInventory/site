@@ -1,12 +1,12 @@
 ---
-layout: default_no_padding
+layout: default
 permalink: /near-me
 add_to_nav: true
 order: 2
 ---
 
 <div
-  class="flex flex-row flex-wrap sm:flex-nowrap justify-center items-center sticky top-0 z-10 bg-white border-b border-gray-200 p-4"
+  class="py-4 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center sticky top-0 z-10 bg-white border-b border-gray-200"
 >
   {% include search_form.html %}
   <div class="relative pt-4 sm:pt-0 sm:pl-4">
@@ -20,18 +20,18 @@ order: 2
     </select>
   </div>
 </div>
-<div class="px-4 lg:px-0 lg:container mx-auto">
+<div class="lg:container mx-auto">
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     {% tf pre_list_disclaimer.html %}
   </div>
   <div class="px-4">
     {% include map.html %}
-    <ol id="sites"></ol>
-    <div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
+  <div>
+  <ol id="sites"></ol>
+  <div id="loading" class="mt-4 hidden">{% t nearest.loading %}</div>
 
-    <div id="post_list_container" class="hidden">
-      {% tf post_list_disclaimer.html %}
-    </div>
+  <div id="post_list_container" class="hidden">
+    {% tf post_list_disclaimer.html %}
   </div>
 </div>
 

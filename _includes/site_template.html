@@ -1,70 +1,76 @@
 <template id="site_location_template">
-  <li class="site-card sm:rounded-lg px-3 mt-4 pt-6 lg:pb-6 pb-4 relative">
+  <li class="site-card rounded-lg mt-4 pt-4 pb-4 relative">
     <div
-      class="site_in_county flex flex-row absolute top-1 right-1 items-center hidden"
+      class="px-2 md:px-4 pb-2 border-b border-gray-200 flex flex-row space-x-2 justify-between items-center"
     >
-      <span class="text-xs text-gray-600 mr-1"
-        >{% t site_template.county_header %}</span
-      >
-      <svg
-        height="14"
-        viewBox="0 0 21 21"
-        width="14"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="#00c002"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          transform="translate(2 2)"
-        >
-          <circle cx="8.5" cy="8.5" r="8" />
-          <path d="m5.5 9.5 2 2 5-5" />
-        </g>
-      </svg>
-    </div>
-    <h4
-      class="site_title text-lg leading-6 font-medium text-gray-900 mb-2"
-    ></h4>
-    <div class="site_address mb-2 flex flex-row items-center">
-      <svg
-        height="18"
-        viewBox="0 0 21 21"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-        class="mr-1"
-      >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="#6B7280"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          transform="translate(4 2)"
-        >
-          <path
-            d="m6.5 16.5407715c4-4.4500928 6-7.78586659 6-10.00732153 0-3.33218241-2.6862915-6.03344997-6-6.03344997s-6 2.70126756-6 6.03344997c0 2.22145494 2 5.55722873 6 10.00732153z"
-          />
-          <circle cx="6.5" cy="6.5" r="2.5" />
-        </g>
-      </svg>
-      <a
-        class="text-sm text-gray-500 hover:underline"
-        target="_blank"
-        rel="noreferrer"
-      ></a>
-    </div>
-    <div class="site_report_wrapper border-t border-gray-200">
-      <div
-        class="site_report px-2 md:px-4 pt-2 md:pt-4 pb-7 md:grid md:grid-cols-3 md:gap-4 relative"
-      >
-        <div
-          class="site_last_report_date absolute bottom-1 right-2 text-xs text-gray-400"
-        ></div>
+      <!-- Name and address -->
+      <div class="flex flex-col overflow-hidden">
+        <h4
+          class="site_title text-lg font-bold leading-6 text-gray-900 truncate capitalize"
+        ></h4>
+        <div class="site_location_info flex flex-row items-center">
+          <a
+            class="site_county text-sm font-medium text-black no-underline hover:underline whitespace-nowrap"
+          ></a>
+          <span class="address_separator px-2">·</span>
+          <a
+            class="site_address text-sm text-gray-500 no-underline hover:underline truncate capitalize"
+            target="_blank"
+            rel="noreferrer"
+          ></a>
+        </div>
       </div>
-      <div class="site_no_report mt-3">{% t site_template.no_reports %}</div>
+      <!-- Last report on desktop -->
+      <div
+        class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full hidden md:flex"
+      ></div>
+    </div>
+    <div class="site_report">
+      <div class="relative grid grid-cols-12 py-2">
+        {% assign base_class = "py-2 px-4 h-full flex flex-row items-center
+        text-sm md:text-base" %}
+        <div
+          class="site_vaccine_status {{ base_class }} space-x-2 border-0 md:border-r border-gray-100 py-2 col-span-7 md:col-span-4"
+        ></div>
+        <div
+          class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-5 self-center justify-self-center md:hidden"
+        ></div>
+        <!-- Divider -->
+        <div
+          class="mobile_divider col-span-12 border-b border-gray-100 my-2 md:hidden"
+        ></div>
+        <div
+          class="site_age_restriction {{ base_class }} border-r border-gray-100 py-2 col-span-6 md:col-span-4"
+        ></div>
+        <div
+          class="site_limited_to_patients {{ base_class }} col-span-6 md:col-span-4"
+        >
+          {% t nearest.current_patients %}
+        </div>
+      </div>
+      <div
+        class="site_appointment_required px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
+      >
+        <div class="mr-2">{% include svg/calendar.svg %}</div>
+        <div>
+          <span class="font-bold pr-2"
+            >{% t nearest.appointment_required %}</span
+          >
+          <span class="site_appointment_details text-black word-break"></span>
+        </div>
+      </div>
+      <div
+        class="site_latest_info px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
+      >
+        <div class="mr-2">{% include svg/info.svg %}</div>
+        <div>
+          <span class="font-bold pr-2">{% t nearest.latest_info %}</span>
+          <span class="site_latest_info_details text-black word-break"></span>
+        </div>
+      </div>
+    </div>
+    <div class="site_no_report mt-3 px-2 md:px-4">
+      {% t site_template.no_reports %}
     </div>
   </li>
 </template>
@@ -72,8 +78,30 @@
 <template id="report_detail_template">
   <dt class="detail_title mt-2 md:mt-0 text-sm font-medium text-gray-500"></dt>
   <dd
-    class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-all"
+    class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-word"
   ></dd>
+</template>
+
+{% assign vaccine_state_class = "font-sm font-bold" %}
+<template id="vaccine_available">
+  {% include svg/checkmark.svg %}
+  <span class="{{ vaccine_state_class }} text-green-600"
+    >{% t nearest.vaccines_available %}</span
+  >
+</template>
+
+<template id="vaccine_not_available">
+  {% include svg/missing.svg %}
+  <span class="{{ vaccine_state_class }} text-red-500"
+    >{% t nearest.vaccines_not_available %}</span
+  >
+</template>
+
+<template id="vaccine_unknown">
+  {% include svg/question_mark.svg %}
+  <span class="{{ vaccine_state_class }} text-gray-400"
+    >{% t nearest.vaccine_unknown %}</span
+  >
 </template>
 
 <template id="region_county_list_template">

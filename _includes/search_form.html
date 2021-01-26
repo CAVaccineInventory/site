@@ -1,4 +1,9 @@
 <script type="module" src="{{ 'assets/js/nearest.js' | content_tag }}"></script>
+
+{% if include.counties_autocomplete %}
+<script type="module" src="assets/js/counties-autocomplete.js"></script>
+{% endif %}
+
 <div class="flex flex-col">
   <!-- Main form -->
   <form
@@ -8,14 +13,19 @@
     method="GET"
   >
     <div class="relative location-inputs">
+      {% assign counties_list = "" | split: "" %} {% for region in
+      site.data.regions_counties %} {% assign counties_list = counties_list |
+      concat: region[1] %} {% endfor %} {% assign counties = counties_list |
+      join: ", " %}
       <input
-        id="zip"
+        id="js_zip_or_county"
         name="zip"
         class="rounded-full search-input border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-700f px-4 py-2 md:w-64"
-        placeholder="Enter ZIP..."
+        placeholder="{% t search_form.enter_zip %}{% if include.counties_autocomplete %} {% t search_form.enter_county %}{% endif %}..."
         pattern="[0-9]{5}"
         autocomplete="off"
         required
+        data-collection="{{ counties }}"
       />
       <div
         id="js_my_location"

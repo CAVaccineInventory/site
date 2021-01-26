@@ -1,41 +1,87 @@
 import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
 
-function createDetailRow(reportElem, title, content) {
-  const elem = document
-    .getElementById("report_detail_template")
-    .content.cloneNode(true);
-  elem.querySelector(".detail_title").textContent = title;
-  elem.querySelector(".detail_content").innerHTML = content;
-  reportElem.appendChild(elem);
+function beautifyLinks(contentElem) {
+  const linksElem = contentElem.querySelectorAll("a");
+  for (const linkElem of linksElem) {
+    linkElem.textContent = shorten(linkElem.textContent, 40);
+    linkElem.classList.add("text-black");
+    linkElem.setAttribute("target", "_blank");
+    linkElem.setAttribute("rel", "noreferrer");
+    linkElem.textContent;
+  }
+}
+
+function urlify(text) {
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(urlRegex, function (url) {
+    return '<a href="' + url + '">' + url + "</a>";
+  });
+}
+
+function flattenData(strOrStrArray) {
+  return Array.isArray(strOrStrArray)
+    ? strOrStrArray.join("; ")
+    : strOrStrArray;
+}
+
+function generateCountyUrl(countyName) {
+  return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
+}
+
+function shorten(text, maxLen) {
+  return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
 }
 
 function addSitesToPage(sites, container, userCounty) {
   const list = document.getElementById(container);
-  const site_template = document.getElementById("site_location_template")
+  const siteTemplate = document.getElementById("site_location_template")
     .content;
+
+  const vaccineStatusTemplates = {
+    Yes: document.getElementById("vaccine_available").content,
+    No: document.getElementById("vaccine_not_available").content,
+    Unknown: document.getElementById("vaccine_unknown").content,
+  };
 
   for (const site of sites.slice(0, 50)) {
     let info = getDisplayableVaccineInfo(site);
-    const siteRootElem = site_template.cloneNode(true);
-    siteRootElem.querySelector(".site_title").textContent = info.name;
+    const siteRootElem = siteTemplate.cloneNode(true);
+    siteRootElem.querySelector(
+      ".site_title"
+    ).textContent = info.name.toLowerCase();
+
+    let addressElemCounter = 0;
+    if (info.county) {
+      const countyElem = siteRootElem.querySelector(".site_county");
+      if (countyElem) {
+        countyElem.innerHTML = info.county;
+        countyElem.href = generateCountyUrl(info.county);
+        addressElemCounter++;
+      }
+    }
 
     // Some sites don't have addresses.
-    const addressElem = siteRootElem.querySelector(".site_address");
-    if (info.address || info.county) {
-      const linkElem = addressElem.querySelector("a");
-      if (linkElem) {
-        const address = [info.county, info.address].filter(Boolean).join(" - ");
-        linkElem.textContent = address;
-        linkElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-          info.address || info.county
+    if (info.address) {
+      const addressElem = siteRootElem.querySelector(".site_address");
+      if (addressElem) {
+        addressElem.textContent = info.address.toLowerCase();
+        addressElem.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+          info.address
         )}`;
+        addressElemCounter++;
       }
-    } else {
-      addressElem.remove();
+    }
+
+    if (addressElemCounter < 2) {
+      siteRootElem.querySelector(".address_separator").remove();
     }
 
     const reportElem = siteRootElem.querySelector(".site_report");
     const noReportElem = siteRootElem.querySelector(".site_no_report");
+
+    const latestReportElems = siteRootElem.querySelectorAll(
+      ".site_last_report_date"
+    );
 
     if (
       userCounty &&
@@ -51,46 +97,86 @@ function addSitesToPage(sites, container, userCounty) {
     if (info.hasReport) {
       noReportElem.remove();
 
-      createDetailRow(
-        reportElem,
-        window.messageCatalog["global_details"],
-        info.status
+      const vaccineStateElem = siteRootElem.querySelector(
+        ".site_vaccine_status"
+      );
+      if (vaccineStateElem) {
+        const template = vaccineStatusTemplates[info.hasVaccine];
+        if (template) {
+          vaccineStateElem.appendChild(template.cloneNode(true));
+        }
+      }
+      const ageElem = siteRootElem.querySelector(".site_age_restriction");
+      const patientsElem = siteRootElem.querySelector(
+        ".site_limited_to_patients"
+      );
+      const appointmentElem = siteRootElem.querySelector(
+        ".site_appointment_required"
       );
 
-      if (info.schedulingInstructions) {
-        createDetailRow(
-          reportElem,
-          window.messageCatalog["global_appt_info"],
-          info.schedulingInstructions
-        );
+      if (info.hasVaccine === "Yes") {
+        if (info.ageRestriction) {
+          if (ageElem) {
+            ageElem.innerHTML = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
+          }
+        }
+
+        if (info.isLimitedToPatients) {
+          if (!patientsElem) {
+            patientsElem.innerHTML = "";
+          }
+        }
+
+        if (appointmentElem) {
+          if (info.isAppointmentRequired) {
+            const contentElem = appointmentElem.querySelector(
+              ".site_appointment_details"
+            );
+            contentElem.innerHTML = info.schedulingInstructions;
+            beautifyLinks(contentElem);
+          } else {
+            appointmentElem.remove();
+          }
+        }
+      } else {
+        ageElem.remove();
+        patientsElem.remove();
+        appointmentElem.remove();
+        const divider = siteRootElem.querySelector(".mobile_divider");
+        if (divider) {
+          divider.remove();
+        }
       }
-      if (info.locationNotes) {
-        createDetailRow(
-          reportElem,
-          window.messageCatalog["global_location_notes"],
-          info.locationNotes
-        );
+
+      const latestInfoElem = siteRootElem.querySelector(".site_latest_info");
+
+      if (latestInfoElem) {
+        const notes = flattenData(info.reportNotes);
+        if (notes) {
+          const contentElem = latestInfoElem.querySelector(
+            ".site_latest_info_details"
+          );
+          contentElem.innerHTML = urlify(notes);
+          beautifyLinks(contentElem);
+        } else {
+          latestInfoElem.remove();
+        }
       }
-      if (info.reportNotes) {
-        createDetailRow(
-          reportElem,
-          window.messageCatalog["global_latest_info"],
-          info.reportNotes
-        );
-      }
+
       if (info.latestReportDate) {
-        const latestReportElem = siteRootElem.querySelector(
-          ".site_last_report_date"
-        );
         try {
           const timeDiff = getTimeDiffFromNow(info.latestReportDate);
-          latestReportElem.textContent = `${window.messageCatalog["global_latest_report"]}: ${timeDiff}`;
+          latestReportElems.forEach(
+            (elem) =>
+              (elem.textContent = `${window.messageCatalog["global_latest_report"]} ${timeDiff}`)
+          );
         } catch (e) {
           console.error(e);
         }
       }
     } else {
       reportElem.remove();
+      latestReportElems.forEach((elem) => elem.remove());
     }
 
     list.appendChild(siteRootElem);

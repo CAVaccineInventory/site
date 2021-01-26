@@ -1,0 +1,11 @@
+<h3 class="flex flex-row items-center space-x-2">
+  {% if include.has_vaccine == true %} {% assign icon = 'svg/checkmark.svg' %}
+  {% else %} {% assign icon = 'svg/missing.svg' %} {% endif %}
+  <div>{% include {{ icon }} %}</div>
+  <div
+    class="text-lg font-bold {% if include.has_vaccine == true %} text-green-600 {% else %} text-red-600 {% endif %}"
+  >
+    {% if include.has_vaccine == true %}{% t site_list.vaccine_sites %}{% else
+    %}{% t site_list.no_vaccine_sites %}{% endif %}
+  </div>
+</h3>
