@@ -1,10 +1,6 @@
 "use strict";
 
-import counties from "./counties.js";
-
-var airtableBaseUrl;
-
-window.onload = () => {
+window.addEventListener("load", () => {
   const mobileMenuActivator = document.querySelector(
     ".js-mobile-menu-activator"
   );
@@ -23,7 +19,6 @@ window.onload = () => {
 
       mobileMenu.classList.toggle("hidden");
       mobileMenu.classList.toggle("block");
-      console.log("click");
 
       e.preventDefault();
     });
@@ -39,4 +34,4 @@ window.onload = () => {
       });
     }
   };
-};
+});
