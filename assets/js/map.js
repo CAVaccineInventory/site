@@ -3,6 +3,7 @@ import { getHasVaccine, getDisplayableVaccineInfo } from "/assets/js/data.js";
 window.addEventListener("load", initMap);
 // Setup global map var
 window.map = {};
+window.mapMarkers = [];
 
 // Initialize and populate the map
 function initMap() {
@@ -22,9 +23,18 @@ function initMap() {
   );
   request.responseType = "json";
   request.onload = function () {
-    request.response.map((p) => addLocation(p));
+    request.response.forEach((p) => {
+      if (!getHasVaccine(p)) {
+        return;
+      }
+
+      addLocation(p);
+    });
   };
   request.send();
+
+  document.dispatchEvent(new CustomEvent("mapInit"));
+
   if ("locate" in mapElement.dataset) {
     setupLocateMe();
   }
@@ -35,10 +45,6 @@ function shouldUseSpecialPin(info) {
 }
 
 function addLocation(p) {
-  if (!getHasVaccine(p)) {
-    return false;
-  }
-
   let info = getDisplayableVaccineInfo(p);
 
   if (!info.latitude || !info.longitude) {
@@ -97,6 +103,8 @@ function addLocation(p) {
       prev_infowindow = infowindow;
     }
   });
+
+  window.mapMarkers.push(marker);
 }
 
 function setupLocateMe() {
@@ -140,5 +148,15 @@ function setupLocateMe() {
   });
 }
 
+function clearMap() {
+  window.mapMarkers.forEach((marker) => {
+    marker.setMap(null);
+  });
+
+  window.mapMarkers = [];
+}
+
 // State tracking for info cards
 var prev_infowindow = false;
+
+export { addLocation, clearMap };

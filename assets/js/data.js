@@ -209,6 +209,27 @@ function splitSitesByVaccineState(sites) {
   return { sitesWithVaccine, sitesWithoutVaccine, sitesWithNoReport };
 }
 
+
+function sortByRecency(sites) {
+  sites.sort((a, b) => {
+    try {
+      const aDate = a["Latest report"];
+      const bDate = b["Latest report"];
+      if (aDate && bDate) {
+        return new Date(aDate) > new Date(bDate) ? -1 : 1;
+      } else {
+        if (aDate) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
+    } catch (e) {
+      return 0;
+    }
+  });
+}
+
 export {
   fetchSites,
   getHasVaccine,
@@ -219,4 +240,5 @@ export {
   getTimeDiffFromNow,
   fetchZipCodesData,
   splitSitesByVaccineState,
+  sortByRecency,
 };
