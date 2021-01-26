@@ -43,6 +43,8 @@ map:
   failed: Failed, please try again
   not_supported: Geolocation not supported
 search_form:
+  enter_zip: Enter ZIP
+  enter_county: or county
   location: Use my location
   location_placeholder: My location
   submit_button: Find <span class="hidden md:inline">Vaccine</span>
@@ -70,6 +72,10 @@ county_policies:
     your county below.
 index:
   header: Find a COVID-19 vaccine for yourself or a loved one
+  subtitle: | 
+    Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
+    But it can be difficult to find out where and how to get a shot. 
+    We are a group of volunteers calling hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
   disclaimer: |
     The State of California has
     <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">
@@ -80,7 +86,11 @@ index:
   corrections: |
     If you have a missing location to report, or think we have incorrect
     contact information,
-    <a href="https://airtable.com/shrY44NvEjHBscrOH">please let us know.</a>
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">please let us know.</a>
+  locations_by_county: Vaccination locations by county
+  more_info: More information about vaccine availability
+  find_county: Find your county
+  about_us: About Vaccinate California
 data_js:
   alert: Could not retrieve the vaccination site data.
   call_back: Could not reach human, calling back later
