@@ -32,8 +32,11 @@ function shorten(text, maxLen) {
   return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
 }
 
-function addSitesToPage(sites, container, userCounty) {
-  const list = document.getElementById(container);
+function addSitesToPage(sites, containerId, userCounty) {
+  const containerElem = document.getElementById(containerId);
+  if (Array.isArray(sites) && sites.length && containerElem) {
+    containerElem.classList.remove("hidden");
+  }
   const siteTemplate = document.getElementById("site_location_template")
     .content;
 
@@ -183,7 +186,7 @@ function addSitesToPage(sites, container, userCounty) {
       latestReportElems.forEach((elem) => elem.remove());
     }
 
-    list.appendChild(siteRootElem);
+    containerElem.appendChild(siteRootElem);
   }
 }
 

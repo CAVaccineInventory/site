@@ -9,6 +9,7 @@ global:
 site_list:
   vaccine_sites: Sites with the vaccine
   no_vaccine_sites: Sites that do not have the vaccine
+  no_report_sites: Site we have not contacted
 
 #These are per-page strings.
 nearest:
