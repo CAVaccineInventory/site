@@ -17,12 +17,19 @@ function loaded() {
   fetchZipCodesData();
 
   const zipForm = document.getElementById("submit_zip_form");
-  const zipInput = document.getElementById("zip");
+  const zipInput = document.getElementById("js_zip_or_county");
   if (zipInput) {
     let timeoutId;
+    // If a user clears the search field and hits enter, reset to unfiltered table
+    zipInput.addEventListener("keyup", (e) => {
+      toggleGeoLocationVisibility(e.target.value.length === 0);
+    });
+
     zipInput.addEventListener("focus", () => {
       clearTimeout(timeoutId);
-      toggleGeoLocationVisibility(true);
+      if (zipInput.value.length === 0) {
+        toggleGeoLocationVisibility(true);
+      }
       toggleElementVisibility("js_my_location", false);
     });
     zipInput.addEventListener("blur", (e) => {
@@ -63,7 +70,7 @@ function handleUrlParamOnLoad() {
   const urlParams = new URLSearchParams(window.location.search);
   const zip = urlParams.get("zip");
   if (zip) {
-    const zipInput = document.getElementById("zip");
+    const zipInput = document.getElementById("js_zip_or_county");
     if (zipInput) {
       zipInput.value = zip;
     }
@@ -123,10 +130,10 @@ async function handleSearch(event, type) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   lastSearch = type;
-  const zipInput = document.getElementById("zip");
+  const zipInput = document.getElementById("js_zip_or_county");
   switch (type) {
     case "zip":
-      let zip = zipInput.value;
+      const zip = zipInput.value;
       await submitZip(zip);
       sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
       break;
