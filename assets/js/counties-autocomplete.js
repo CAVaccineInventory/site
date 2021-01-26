@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load", () => {
   const inputSelector = "#js_zip_or_county";
   const input = document.querySelector(inputSelector);
   if (!input) return;
@@ -39,4 +39,4 @@ window.onload = () => {
       input.focus();
     });
   }
-};
+});
