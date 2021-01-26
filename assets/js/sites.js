@@ -44,6 +44,7 @@ function addSitesToPage(sites, container, userCounty) {
   };
 
   for (const site of sites.slice(0, 50)) {
+    console.log(site);
     let info = getDisplayableVaccineInfo(site);
     const siteRootElem = siteTemplate.cloneNode(true);
     siteRootElem.querySelector(
@@ -107,8 +108,8 @@ function addSitesToPage(sites, container, userCounty) {
         }
       }
       const ageElem = siteRootElem.querySelector(".site_age_restriction");
-      const patientsElem = siteRootElem.querySelector(
-        ".site_limited_to_patients"
+      const otherRestrictionsElem = siteRootElem.querySelector(
+        ".site_other_restrictions"
       );
       const appointmentElem = siteRootElem.querySelector(
         ".site_appointment_required"
@@ -121,10 +122,14 @@ function addSitesToPage(sites, container, userCounty) {
           }
         }
 
-        if (info.isLimitedToPatients) {
-          if (!patientsElem) {
-            patientsElem.innerHTML = "";
+        if (otherRestrictionsElem) {
+          let content = "";
+          if (info.isLimitedToPatients) {
+            content = window.messageCatalog.nearest_js_patients_only;
+          } else if (info.isCountyRestricted) {
+            content = window.messageCatalog.nearest_js_county_only;
           }
+          otherRestrictionsElem.innerHTML = content;
         }
 
         if (appointmentElem) {
@@ -140,7 +145,7 @@ function addSitesToPage(sites, container, userCounty) {
         }
       } else {
         ageElem.remove();
-        patientsElem.remove();
+        otherRestrictionsElem.remove();
         appointmentElem.remove();
         const divider = siteRootElem.querySelector(".mobile_divider");
         if (divider) {
