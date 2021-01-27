@@ -1,7 +1,7 @@
 // Calls the JSON feed to pull down sites data
 async function fetchSites() {
   const siteURL =
-    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json";
+    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json?v=1";
   let response = await fetch(siteURL);
 
   if (!response.ok) {
@@ -190,6 +190,26 @@ function pluralizeTimeUnit(value, timeUnitName) {
   return value > 1 ? `${timeUnitName}s` : timeUnitName;
 }
 
+function sortByRecency(sites) {
+  sites.sort((a, b) => {
+    try {
+      const aDate = a["Latest report"];
+      const bDate = b["Latest report"];
+      if (aDate && bDate) {
+        return new Date(aDate) > new Date(bDate) ? -1 : 1;
+      } else {
+        if (aDate) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
+    } catch (e) {
+      return 0;
+    }
+  });
+}
+
 export {
   fetchSites,
   getHasVaccine,
@@ -199,4 +219,5 @@ export {
   getCounty,
   getTimeDiffFromNow,
   fetchZipCodesData,
+  sortByRecency,
 };
