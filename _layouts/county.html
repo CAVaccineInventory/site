@@ -19,8 +19,7 @@
             <div class="pt-3 mt-3 md:pt-6 md:mt-6">
               <p class="text-lg md:text-xl">{% tf county_header.html %}</p>
               <div class="text-sm">{% tf pre_list_disclaimer.html %}</div>
-              {% assign section_base_class = "border-0 md:border-2 rounded py-3
-              md:p-3" %}
+              {% assign section_base_class = "py-3 md:p-3" %}
               <section class="{{ section_base_class }} mt-0 md:mt-10">
                 {% include vaccine_section_title.html has_vaccine=true %}
                 <ol id="sitesWithVaccine"></ol>
