@@ -1,7 +1,7 @@
 // Calls the JSON feed to pull down sites data
 async function fetchSites() {
   const siteURL =
-    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json";
+    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json?v=1";
   let response = await fetch(siteURL);
 
   if (!response.ok) {
