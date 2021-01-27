@@ -6,6 +6,7 @@ global:
   latest_info: Latest info
   location_notes: Location notes
   latest_report: Updated
+  loading: Loading...
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
@@ -16,12 +17,11 @@ nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
   dropdown_3: All known vaccination sites
-  loading: Loading...
   appointment_required: Appointment required
   latest_info: Latest info
   vaccines_available: Vaccines available
   vaccines_not_available: Vaccines not available
-  vaccine_unknown: Unknown vaccine status
+  vaccine_unknown: Uncontacted locations
 vaccination_sites:
   explainer: |
     This is a list of all of the sites we are aware of in California which may, 
@@ -100,5 +100,3 @@ nearest_js:
   years_up: years old and up
   patients_only: Current patients only
   county_only: County residents only
-loading:
-  loading: Loading...
