@@ -10,7 +10,7 @@ global:
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
-  no_report_sites: Vaccines status unknown
+  no_report_sites: Uncontacted locations
 
 #These are per-page strings.
 nearest:
@@ -21,7 +21,7 @@ nearest:
   latest_info: Latest info
   vaccines_available: Vaccines available
   vaccines_not_available: Vaccines not available
-  vaccine_unknown: Uncontacted locations
+  vaccine_unknown: Unknown vaccine status
 vaccination_sites:
   explainer: |
     This is a list of all of the sites we are aware of in California which may, 
