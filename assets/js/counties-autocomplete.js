@@ -6,12 +6,7 @@ window.addEventListener("load", () => {
   if (!counties) return;
   const countiesAutocompleteSource = counties
     .split(",")
-    .map(
-      (c) =>
-        `${c.replace(/^\s*(.*\S)\s*$/, "$1")}${
-          c.includes("San Francisco") ? "" : " County"
-        }`
-    );
+    .map((c) => c.replace(/^\s*(.*\S)\s*$/, "$1"));
   new autoComplete({
     data: {
       src: countiesAutocompleteSource,
@@ -22,6 +17,12 @@ window.addEventListener("load", () => {
     selector: inputSelector,
     maxResults: 7,
     highlight: true,
+    resultItem: {
+      content: (data, source) => {
+        source.innerHTML =
+          data.match + (data.value === "San Francisco" ? "" : " County");
+      },
+    },
     onSelection: (feedback) => {
       const selected = feedback.selection.value;
       window.location.href = `/counties/${selected
