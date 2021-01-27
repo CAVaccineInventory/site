@@ -190,6 +190,25 @@ function pluralizeTimeUnit(value, timeUnitName) {
   return value > 1 ? `${timeUnitName}s` : timeUnitName;
 }
 
+function splitSitesByVaccineState(sites) {
+  let sitesWithVaccine = [];
+  let sitesWithoutVaccine = [];
+  let sitesWithNoReport = [];
+
+  sites.forEach(function (site) {
+    if (getHasReport(site)) {
+      if (getHasVaccine(site)) {
+        sitesWithVaccine.push(site);
+      } else {
+        sitesWithoutVaccine.push(site);
+      }
+    } else {
+      sitesWithNoReport.push(site);
+    }
+  });
+  return { sitesWithVaccine, sitesWithoutVaccine, sitesWithNoReport };
+}
+
 function sortByRecency(sites) {
   sites.sort((a, b) => {
     try {
@@ -219,5 +238,6 @@ export {
   getCounty,
   getTimeDiffFromNow,
   fetchZipCodesData,
+  splitSitesByVaccineState,
   sortByRecency,
 };

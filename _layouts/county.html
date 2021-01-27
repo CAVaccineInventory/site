@@ -19,15 +19,27 @@
             <div class="pt-3 mt-3 md:pt-6 md:mt-6">
               <p class="text-lg md:text-xl">{% tf county_header.html %}</p>
               <div class="text-sm">{% tf pre_list_disclaimer.html %}</div>
-              {% assign section_base_class = "py-3 md:p-3" %}
-              <section class="{{ section_base_class }} mt-0 md:mt-10">
-                {% include vaccine_section_title.html has_vaccine=true %}
-                <ol id="sitesWithVaccine"></ol>
+              <section class="mt-0 md:mt-10">
+                {% include vaccine_section_title.html has_report=true
+                has_vaccine=true %}
+                <ol id="sitesWithVaccine">
+                  {% include loading.html %}
+                </ol>
               </section>
 
-              <section class="{{ section_base_class }} md:mt-5">
-                {% include vaccine_section_title.html has_vaccine=false %}
-                <ol id="sitesWithoutVaccine"></ol>
+              <section class="md:mt-5">
+                {% include vaccine_section_title.html has_report=true
+                has_vaccine=false %}
+                <ol id="sitesWithoutVaccine">
+                  {% include loading.html %}
+                </ol>
+              </section>
+
+              <section class="md:mt-5">
+                {% include vaccine_section_title.html has_report=false %}
+                <ol id="sitesWithoutReport">
+                  {% include loading.html %}
+                </ol>
               </section>
 
               {% tf post_list_disclaimer.html %}
