@@ -101,3 +101,4 @@ nearest_js:
   patients_only: Current patients only
   county_only: County residents only
 loading:
+  loading: Loading...
