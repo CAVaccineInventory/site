@@ -24,13 +24,26 @@
               <section
                 class="{{ section_base_class }} border-green-600 mt-0 md:mt-10"
               >
-                {% include vaccine_section_title.html has_vaccine=true %}
-                <ol id="sitesWithVaccine"></ol>
+                {% include vaccine_section_title.html has_report=true
+                has_vaccine=true %}
+                <ol id="sitesWithVaccine">
+                  {% include loading.html %}
+                </ol>
               </section>
 
               <section class="{{ section_base_class }} md:mt-5 border-red-600">
-                {% include vaccine_section_title.html has_vaccine=false %}
-                <ol id="sitesWithoutVaccine"></ol>
+                {% include vaccine_section_title.html has_report=true
+                has_vaccine=false %}
+                <ol id="sitesWithoutVaccine">
+                  {% include loading.html %}
+                </ol>
+              </section>
+
+              <section class="{{ section_base_class }} md:mt-5 border-gray-400">
+                {% include vaccine_section_title.html has_report=false %}
+                <ol id="sitesWithoutReport">
+                  {% include loading.html %}
+                </ol>
               </section>
 
               {% tf post_list_disclaimer.html %}

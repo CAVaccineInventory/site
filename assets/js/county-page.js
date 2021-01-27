@@ -1,13 +1,26 @@
-import { fetchSites, getHasVaccine, sortByRecency, getCounty } from "./data.js";
+import {
+  fetchSites,
+  splitSitesByVaccineState,
+  sortByRecency,
+  getCounty,
+} from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
 
 window.addEventListener("load", fetchCountySites);
 
+function addSitesOrRemoveIfEmpty(sites, containerId) {
+  if (!sites.length) {
+    const container = document.getElementById(containerId);
+    container.parentElement.remove();
+  } else {
+    addSitesToPage(sites, containerId);
+  }
+}
+
 async function fetchCountySites() {
-  console.log("fetching...");
   let sites = await fetchSites();
-  let county = document.getElementById("county_name").textContent.trim();
+  const county = document.getElementById("county_name").textContent.trim();
 
   // Filter by this page's county.
   sites = sites.filter((site) => {
@@ -16,17 +29,13 @@ async function fetchCountySites() {
 
   sortByRecency(sites);
 
-  let sitesWithVaccine = [];
-  let sitesWithoutVaccine = [];
+  const {
+    sitesWithVaccine,
+    sitesWithoutVaccine,
+    sitesWithNoReport,
+  } = splitSitesByVaccineState(sites);
 
-  sites.forEach(function (site) {
-    if (getHasVaccine(site)) {
-      sitesWithVaccine.push(site);
-    } else {
-      sitesWithoutVaccine.push(site);
-    }
-  });
-
-  addSitesToPage(sitesWithVaccine, "sitesWithVaccine");
-  addSitesToPage(sitesWithoutVaccine, "sitesWithoutVaccine");
+  addSitesOrRemoveIfEmpty(sitesWithVaccine, "sitesWithVaccine");
+  addSitesOrRemoveIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
+  addSitesOrRemoveIfEmpty(sitesWithNoReport, "sitesWithoutReport");
 }

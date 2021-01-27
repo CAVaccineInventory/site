@@ -46,12 +46,14 @@
               </div>
 
               <div class="py-3 mb-3">
-                {% include vaccine_section_title.html has_vaccine=true %}
+                {% include vaccine_section_title.html has_report=true
+                has_vaccine=true %}
                 <div id="withVaccine"></div>
               </div>
 
               <div class="py-3">
-                {% include vaccine_section_title.html has_vaccine=false %}
+                {% include vaccine_section_title.html has_report=true
+                has_vaccine=false %}
                 <div id="withoutVaccine"></div>
               </div>
             </div>

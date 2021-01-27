@@ -6,16 +6,17 @@ global:
   latest_info: Latest info
   location_notes: Location notes
   latest_report: Updated
+  loading: Loading...
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
+  no_report_sites: Uncontacted locations
 
 #These are per-page strings.
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
   dropdown_3: All known vaccination sites
-  loading: Loading...
   appointment_required: Appointment required
   latest_info: Latest info
   vaccines_available: Vaccines available

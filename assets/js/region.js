@@ -1,4 +1,4 @@
-import { fetchSites, getHasVaccine, getCounty } from "./data.js";
+import { fetchSites, splitSitesByVaccineState, getCounty } from "./data.js";
 
 import { addSitesToPage } from "./sites.js";
 
@@ -58,20 +58,17 @@ async function fetchRegionSites() {
     document.getElementById("withVaccine").appendChild(regionYesTemplate);
     document.getElementById("withoutVaccine").appendChild(regionNoTemplate);
 
-    // Populate sites into both region lists
-    let sitesWithVaccine = [];
-    let sitesWithoutVaccine = [];
-
-    for (const site of sitesByCounty[county]) {
-      if (getHasVaccine(site)) {
-        sitesWithVaccine.push(site);
-      } else {
-        sitesWithoutVaccine.push(site);
-      }
-    }
+    const {
+      sitesWithVaccine,
+      sitesWithoutVaccine,
+      sitesWithNoReport,
+    } = splitSitesByVaccineState(sitesByCounty[county]);
 
     addSitesToPage(sitesWithVaccine, `${county}WithVaccine`);
-    addSitesToPage(sitesWithoutVaccine, `${county}WithoutVaccine`);
+    addSitesToPage(
+      [...sitesWithoutVaccine, ...sitesWithNoReport],
+      `${county}WithoutVaccine`
+    );
   }
 
   // Once we're all loaded, update from fragment
