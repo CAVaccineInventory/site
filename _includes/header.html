@@ -4,7 +4,10 @@
       <div class="flex items-center h-16">
         <div class="flex flex-grow items-center justify-between">
           <div class="flex-shrink-0">
-            <a href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/" class="flex items-center space-x-3">
+            <a
+              href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/"
+              class="flex items-center space-x-3"
+            >
               <img
                 class="h-8 w-8 invert"
                 src="/assets/img/logo.png"
