@@ -1,1 +1,1 @@
-A <a href="{% link about-us.md %}">volunteer effort</a> by Californians and other interested people.
+Un <a href="{% link about-us.md %}">esfuerzo de colaboración</a> de los californianos y otras personas interesadas.

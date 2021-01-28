@@ -1,54 +1,50 @@
-VaccinateCA is a community-driven effort to help Californians learn accurate, up-to-date, verified information about the coronavirus vaccine, so they they can learn when they will be eligible and how to take their place in line.
+VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus, para que puedan saber cuándo serán elegibles y cómo ocupar su lugar en la fila.
 
-Our professionals call medical professionals at hundreds of potential vaccination sites daily, asking them if they have the vaccine and if so to whom they will administer it to and how to get an appointment. We write down what they tell us, and publish it to this site.
+Nuestros profesionales llaman a los profesionales médicos a cientos de posibles lugares de vacunación a diario, preguntándoles si tienen la vacuna y, de ser así, a quién se la administrarán y cómo concertar una cita. Escribimos lo que nos dicen y lo publicamos en este sitio.
 
-<h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
-Frequently Asked Questions (FAQ)
-</h2>
+<h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">Preguntas frecuentes (FAQ)</h2>
 
-**How can I help?**
+**¿Cómo puedo ayudar?**
 
-Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing your mask and observe social distancing guidelines.
+Haga correr la voz sobre la vacuna en su comunidad. Ayude a sus seres queridos elegibles a recibir la vacuna. Continúe usando su máscara y observe las pautas de distanciamiento social.
 
-We do not need more volunteers right now; we're running this out of our networks to move as quickly as possible. This may change in a few days; check back for updates or [follow us on Twitter](https://twitter.com/{{ site.twitter_username }}).
+No necesitamos más voluntarios en este momento; estamos eliminando esto de nuestras redes para avanzar lo más rápido posible. Esto puede cambiar en unos días; vuelve a consultar las actualizaciones o [síguenos en Twitter] (https://twitter.com/ {{site.twitter_username}}).
 
-We also don't need money. Many charitable projects _do_; they would appreciate your generous support.
+Tampoco necesitamos dinero. Muchos proyectos caritativos _hacer_; agradecerían su generoso apoyo.
 
-**I am a reporter. Can I get in touch?**
+** Soy un reportero. ¿Puedo ponerme en contacto? **
 
-Please email [media@vaccinateca.com](mailto:media@vaccinateca.com); we'll be in touch quickly.
+Envíe un correo electrónico a [media@vaccinateca.com] (mailto: media@vaccinateca.com); nos pondremos en contacto rápidamente.
 
-**I work at a medical provider! How do I ask you to update our information or make a request of you?**
+** ¡Trabajo en un proveedor médico! ¿Cómo le pido que actualice nuestra información o le haga una solicitud? **
 
-We appreciate the work you are doing, and are here to support it!
+¡Apreciamos el trabajo que está haciendo y estamos aquí para apoyarlo!
 
-Please text [(415) 301-4597](tel:+14153014597) with your message, institutional affiliation, and an internal extension or contact name so we can call back to verify. We cannot receive photos at this number; text only, please.
+Envíe un mensaje de texto al [(415) 301-4597] (tel: +14153014597) con su mensaje, afiliación institucional y una extensión interna o nombre de contacto para que podamos llamar para verificar. No podemos recibir fotos en este número; solo texto, por favor.
 
-One of the organizers will read your message and take action as soon as reasonably possible.
+Uno de los organizadores leerá su mensaje y tomará medidas tan pronto como sea razonablemente posible.
 
-**I work in a community-facing organization or for the government. Can we discuss this?**
+** Trabajo en una organización de cara a la comunidad o para el gobierno. ¿Podemos discutir esto? **
 
-We want to support the urgent work you are doing in getting Californians vaccinated as quickly as possible. Please email us at [partners@vaccinateca.com](mailto:partners@vaccinateca.com) to discuss.
+Queremos apoyar el trabajo urgente que está haciendo para vacunar a los californianos lo más rápido posible. Envíenos un correo electrónico a [partners@vaccinateca.com] (mailto: partners@vaccinateca.com) para discutir.
 
-**Does this effort increase or decrease toil in the healthcare system?**
+** ¿Este esfuerzo aumenta o disminuye la fatiga en el sistema de salud? **
 
-Most hospitals will get thousands of phone calls per day. They are currently being slammed by many more people than usual asking them the same question: "Do you have the vaccine?"
+La mayoría de los hospitales reciben miles de llamadas telefónicas al día. Actualmente están siendo criticados por muchas más personas de lo habitual haciéndoles la misma pregunta: &quot;¿Tienen la vacuna?&quot;
 
-By asking that question and publishing the answer, we can save their phone bandwidth for the day-to-day operations of the hospital. We also save people seeking the vaccine from having to call dozens of locations to find one that has availability.
+Al hacer esa pregunta y publicar la respuesta, podemos ahorrar el ancho de banda de su teléfono para las operaciones diarias del hospital. También evitamos que las personas que buscan la vacuna tengan que llamar a docenas de ubicaciones para encontrar una que tenga disponibilidad.
 
-**Is the information on this website accurate?**
+** ¿Es correcta la información de este sitio web? **
 
-We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually are.
+Publicamos solo lo que el sitio de la vacuna nos dijo cuando llamamos. La situación es compleja, los suministros pueden variar a lo largo del día y es posible que no todos en el sitio tengan información actualizada sobre cuáles son sus políticas.
 
-We're doing our best, but can't make any guarantees.
+Estamos haciendo nuestro mejor esfuerzo, pero no podemos ofrecer ninguna garantía.
 
-**Who are you?**
+**¿Quién eres tú?**
 
-We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our core team was approximately 20 people.
+Somos una organización impulsada por la comunidad, con más de 300 voluntarios trabajando con nosotros. Al 23 de enero de 2021, nuestro equipo central era de aproximadamente 20 personas.
 
-Some of us who worked on this project on Day 1: <span id="people-list">
-{% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
-</span>.
+Algunos de los que trabajamos en este proyecto el día 1: <span id="people-list">{% for coordinator in site.data.coordinators%} [{{coordinator [0]}}] ({{coordinator [1]}}) {% endfor%}</span> .
 
 
 <script>

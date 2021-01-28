@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Us
+title: titles.about_us
 permalink: /about-us
 add_to_nav: true
 order: 6

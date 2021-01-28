@@ -1,97 +1,112 @@
 # These are strings used in multiple places
 global:
-  details: Details
-  appt_info: Appointment information
-  address: Address
-  latest_info: Latest info
-  location_notes: Location notes
-  latest_report: Updated
+  details: Detalles
+  appt_info: Información de la cita
+  address: Dirección
+  latest_info: Última información
+  location_notes: Notas de ubicación
+  latest_report: Última actualización
+  loading: Cargando...
 site_list:
-  vaccine_sites: Sites with the vaccine
-  no_vaccine_sites: Sites that do not have the vaccine
+  vaccine_sites: Vacunas reportadas disponibles
+  no_vaccine_sites: Vacunas notificadas como no disponibles
+  no_report_sites: Ubicaciones no contactadas
 
 #These are per-page strings.
+titles:
+  about_us: Sobre nosotros
+  county_policies: Políticas del condado
+  home: Disponibilidad de la vacuna COVID-19
+  vaccination_sites: Sitios de vacunación
+  providers: Proveedores
 nearest:
-  dropdown_1: Sites we have contacted
-  dropdown_2: Sites with reported doses
-  dropdown_3: All known vaccination sites
-  loading: Loading...
-  appointment_required: Appointment required
-  latest_info: Latest info
-  vaccines_available: Vaccines available
-  vaccines_not_available: Vaccines not available
-  vaccine_unknown: Unknown vaccine status
-  current_patients: Current patients only
+  dropdown_1: Sitios con los que hemos contactado
+  dropdown_2: Sitios con dosis informadas
+  dropdown_3: Todos los sitios de vacunación conocidos
+  appointment_required: Requiere cita
+  latest_info: Última información
+  vaccines_available: Vacunas disponibles
+  vaccines_not_available: Vacunas no disponibles
+  vaccine_unknown: Estado de vacuna desconocido
 vaccination_sites:
   explainer: |
-    This is a list of all of the sites we are aware of in California which may, 
-    at some point, receive the COVID-19 vaccine. **Most of them do not have the 
-    vaccine available**; we are calling as many as we can daily to update the 
-    list so please check the [latest report](https://www.vaccinateca.com). If we
-    missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are
-    working on expanding the list with additional pharmacies and other 
-    locations.
+    Ésta es una lista de todos los sitios que conocemos en California y que pueden, en algún momento, reciba la vacuna COVID-19. ** La mayoría de ellos no tienen vacuna disponible **; llamamos a todos los que podamos a diario para actualizar el lista, así que consulte el [informe más reciente] (https://www.vaccinateca.com). Si nosotros se perdió un sitio, [avísenos] (https://airtable.com/shrY44NvEjHBscrOH)! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
 head:
   meta_image_tag: |
-    An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
-    near you with our community-run tracker'
+    Una imagen del logotipo de Vaccinate CA con el texto 'Vaccinate CA. Encuentra vacunas
+    cerca de ti con nuestro rastreador administrado por la comunidad
 header:
-  menu_open: Open main menu
+  menu_open: Abrir menú principal
 map:
-  locate_button: Locate around me!
-  locating: Locating...
-  failed: Failed, please try again
-  not_supported: Geolocation not supported
+  locate_button: ¡Ubica a mi alrededor!
+  locating: Localizando...
+  failed: "Falló, inténtelo de nuevo"
+  not_supported: No se admite la geolocalización
 search_form:
-  enter_zip: Enter ZIP
-  enter_county: or county
-  location: Use my location
-  location_placeholder: My location
-  submit_button: Find <span class="hidden md:inline">Vaccine</span>
+  enter_zip: Ingrese ZIP
+  enter_county: o condado
+  location: Usa mi ubicación
+  location_placeholder: Mi ubicacion
+  submit_button: "Encontrar <span class=\"hidden md:inline\">vacuna</span>"
 site_template:
-  county_header: Within your county
-  no_reports: No contact reports
+  county_header: Dentro de su condado
+  no_reports: Sin informes de contacto
 not_found:
   text: |
-    The page you've requested does not exist. If you're looking for help with 
-    finding vaccines in California, please check 
-    [VaccinateCA.com](https://www.vaccinateca.com).
+    La página que ha solicitado no existe. Si busca ayuda con
+    encontrar vacunas en California, marque
+    [VaccinateCA.com] (https://www.vaccinateca.com).
 county_policies:
   text: |
-    Tincidunt id aliquet risus feugiat in ante metus dictum. Odio aenean sed 
-    adipiscing diam donec adipiscing tristique. Varius duis at consectetur 
-    lorem donec massa. Aliquet sagittis id consectetur purus ut faucibus 
-    pulvinar elementum. Maecenas sed enim ut sem viverra aliquet eget sit. 
-    Amet est placerat in egestas.
+    El estado de California tiene una estrategia de vacuna, pero ha delegado
+    priorización y administración a cada condado. Decisiones sobre cuál
+    los pacientes a vacunar y de qué manera están en última instancia a la altura de los
+    proveedores.
 
+    Hemos recopilado la ** información más reciente a nivel de condado ** a continuación.
+    En general, creemos que si la información que tenemos en el archivo de un condado
+    no está de acuerdo con un proveedor médico en él, el que más probablemente tenga razón es
+    el que pudo (o no pudo) poner un tiro en el brazo de alguien.
+
+    Algunos condados han establecido sistemas de programación o tienen asesoramiento; por favor, compruebe
+    su condado a continuación.
 index:
-  header: Lorem ipsum dolor sit amet
-  subtitle: | 
-    Tincidunt id aliquet risus feugiat in ante metus dictum. Odio aenean sed 
-    adipiscing diam donec adipiscing tristique. Varius duis at consectetur lorem
-    donec massa. Aliquet sagittis id consectetur purus ut faucibus pulvinar
-    elementum. Maecenas sed enim ut sem viverra aliquet eget sit. Amet est
-    placerat in egestas.
-
-  disclaimer: |
-    The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">
-    approved</a> giving the COVID-19 vaccine to people age 65 and older. We are
-    calling hospitals and pharmacies daily to check which are currently
-    administering vaccines.
-  positive_feedback: Let us know if you found this site useful!
+  header: Encuentre una vacuna COVID-19 para usted o un ser querido
+  subtitle: |
+    Las vacunas COVID-19 seguras y confiables están disponibles para varios grupos de personas en California.
+    Pero puede ser difícil saber dónde y cómo vacunar.
+    Somos un grupo de voluntarios que llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener una.
+  disclaimer_1: |
+    El estado de California ha <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">aprobado</a> administrar la vacuna COVID-19 a personas de 65 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
+  disclaimer_2: |
+    Somos un sitio web dirigido por la comunidad y no representamos al gobierno ni a ningún proveedor de atención médica.
+  positive_feedback: ¡Háganos saber si este sitio le resultó útil!
   corrections: |
-    If you have a missing location to report, or think we have incorrect
-    contact information,
-    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">please let us know.</a>
-  locations_by_county: Vaccination locations by county
-  more_info: More information about vaccine availability
-  find_county: Find your county
-  about_us: About Vaccinate California
+    Si tiene una ubicación faltante para informar o cree que tenemos una ubicación incorrecta
+    Información del contacto,
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">por favor déjanos saber</a>.
+  locations_by_county: Lugares de vacunación por condado
+  more_info: Más información sobre la disponibilidad de vacunas
+  find_county: Encuentra tu condado
+  about_us: Acerca de Vaccinate California
 data_js:
-  alert: Could not retrieve the vaccination site data.
-  call_back: Could not reach human, calling back later
+  alert: No se pudieron recuperar los datos del sitio de vacunación.
+  call_back: "No se pudo comunicar con el humano, volviendo a llamar más tarde"
 nearest_js:
-  alert_detect: Failed to detect your location. Please try again or enter your zip code
-  alert_zipcode: Failed to locate your zip code, please try again
-  years_up: years old and up
+  alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código postal
+  alert_zipcode: No se pudo localizar su código postal. Vuelva a intentarlo.
+  years_up: años en adelante
+  patients_only: Solo pacientes actuales
+  county_only: Solo residentes del condado
+post_list_disclaimer:
+  disclaimer: |
+    <div class="text-sm my-6">Hacemos todo lo posible para mantener actualizada la información de este sitio, pero es posible que la elegibilidad y la disponibilidad de la vacuna en un lugar específico hayan cambiado en el momento en que lea esto. Si encuentra algo desactualizado en este sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH"
+        class="font-medium text-yellow-600"
+      >infórmelo</a
+      > . Su informe ayudará a otros californianos.</div>
+pre_list_disclaimer:
+  disclaimer: |
+    Llamamos a hospitales, farmacias y otros proveedores de salud en todo California todos los días para averiguar si actualmente están administrando vacunas. Los profesionales médicos que trabajan en estos proveedores nos informan sobre sus programas de vacunación actuales y aquí informamos lo que dicen. Si bien hacemos todo lo posible para verificar toda la información que recibimos, le recomendamos encarecidamente que consulte con su médico o con los funcionarios locales si tiene preguntas sobre un sitio de vacunación.
+providers:
+  header: |-
+    Esta es una descripción general de la información más reciente que tenemos para todas las principales redes de proveedores en California. Es posible que el personal que trabaja en una ubicación particular dentro de estas redes elija operar de manera diferente.

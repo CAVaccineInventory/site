@@ -13,6 +13,12 @@ site_list:
   no_report_sites: Uncontacted locations
 
 #These are per-page strings.
+titles:
+  about_us: About Us
+  county_policies: County Policies
+  home: COVID-19 Vaccine Availability
+  vaccination_sites: Vaccination Sites
+  providers: Providers
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
@@ -76,12 +82,19 @@ index:
     Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
     But it can be difficult to find out where and how to get a shot. 
     We are a group of volunteers calling hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
-  disclaimer: |
+  disclaimer_1: |
     The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">
-    approved</a> giving the COVID-19 vaccine to people age 65 and older. We are
-    calling hospitals and pharmacies daily to check which are currently
-    administering vaccines.
+    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
+    giving the COVID-19 vaccine to people age 65 and older. California’s statewide
+    COVID-19 vaccination program has been evolving rapidly.
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Federal</a>,
+    <a href="https://covid19.ca.gov/vaccines/">state</a>,
+    and <a href="https://www.vaccinateca.com/county-policies">county</a> officials are
+    all publishing frequent updates. These government websites are your best
+    source for official information.
+  disclaimer_2: |
+    We are a community-led website and do not represent the government or any
+    healthcare provider.
   positive_feedback: Let us know if you found this site useful!
   corrections: |
     If you have a missing location to report, or think we have incorrect
@@ -100,3 +113,29 @@ nearest_js:
   years_up: years old and up
   patients_only: Current patients only
   county_only: County residents only
+post_list_disclaimer:
+  disclaimer: |
+    <div class="text-sm my-6">
+      We do our best to keep the information on this site current, but vaccine
+      eligibility and availability at a specific location may have changed by the
+      time you read this. If you find anything on this site that is out of date,
+      <a href="https://airtable.com/shrY44NvEjHBscrOH"
+        class="font-medium text-yellow-600"
+      >
+        please report it</a
+      >. Your report will help other Californians.
+    </div>
+pre_list_disclaimer:
+  disclaimer: |
+    We call hospitals, pharmacies, and other health providers across California
+    every day to find out if they are currently administering vaccines. The
+    medical professionals working at these providers tell us about their current
+    vaccination programs and we report what they say here. While we do our best
+    to verify all information we receive, we strongly encourage you to check
+    with your doctor or local officials if you have questions about a 
+    vaccination site.
+providers:
+  header: |
+    This is an overview of the latest information we have for all major provider 
+    networks in California. It is possible that the staff working at a particular 
+    location within these networks will choose to operate differently.

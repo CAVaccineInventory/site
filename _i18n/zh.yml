@@ -1,27 +1,33 @@
 # These are strings used in multiple places
 global:
-  details: Details
-  appt_info: Appointment information
-  address: Address
-  latest_info: Latest info
-  location_notes: Location notes
-  latest_report: Updated
-  loading: Loading...
+  details: 细节
+  appt_info: 预约信息
+  address: 地址
+  latest_info: 最新资讯
+  location_notes: 位置备注
+  latest_report: 更新
+  loading: 载入中...
 site_list:
-  vaccine_sites: Vaccines reported available
-  no_vaccine_sites: Vaccines reported unavailable
-  no_report_sites: Uncontacted locations
+  vaccine_sites: 报告有可用疫苗
+  no_vaccine_sites: 报告疫苗不可用
+  no_report_sites: 未联系的位置
 
 #These are per-page strings.
+titles:
+  about_us: 关于我们
+  county_policies: 县政策
+  home: COVID-19疫苗供应情况
+  vaccination_sites: 疫苗接种地点
+  providers: 提供者
 nearest:
-  dropdown_1: Sites we have contacted
-  dropdown_2: Sites with reported doses
-  dropdown_3: All known vaccination sites
-  appointment_required: Appointment required
-  latest_info: Latest info
-  vaccines_available: Vaccines available
-  vaccines_not_available: Vaccines not available
-  vaccine_unknown: Unknown vaccine status
+  dropdown_1: 我们联系过的网站
+  dropdown_2: 报告剂量的部位
+  dropdown_3: 所有已知的疫苗接种地点
+  appointment_required: 需要预约
+  latest_info: 最新资讯
+  vaccines_available: 可用疫苗
+  vaccines_not_available: 没有疫苗
+  vaccine_unknown: 未知疫苗状态
 vaccination_sites:
   explainer: |
     This is a list of all of the sites we are aware of in California which may, 
@@ -36,21 +42,21 @@ head:
     An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
     near you with our community-run tracker'
 header:
-  menu_open: Open main menu
+  menu_open: 打开主菜单
 map:
-  locate_button: Locate around me!
-  locating: Locating...
-  failed: Failed, please try again
-  not_supported: Geolocation not supported
+  locate_button: 找到我附近！
+  locating: 定位...
+  failed: 失败，请重试
+  not_supported: 不支持地理位置
 search_form:
-  enter_zip: 输入邮编（ZIP）
-  enter_county: or county
-  location: Use my location
-  location_placeholder: My location
-  submit_button: Find <span class="hidden md:inline">Vaccine</span>
+  enter_zip: Enter ZIP
+  enter_county: 或县
+  location: 使用我的位置
+  location_placeholder: 我的位置
+  submit_button: "查找<span class=\"hidden md:inline\">疫苗</span>"
 site_template:
-  county_header: Within your county
-  no_reports: No contact reports
+  county_header: 在你的县内
+  no_reports: 没有联系报告
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 
@@ -71,31 +77,38 @@ county_policies:
     Some counties have set up scheduling systems or have advice; please check 
     your county below.
 index:
-  header: 为您或您的家人寻找新冠病毒（COVID-19）疫苗
-  subtitle: | 
-    Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
-    But it can be difficult to find out where and how to get a shot. 
-    We are a group of volunteers calling hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
-  disclaimer: |
-    The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">
-    approved</a> giving the COVID-19 vaccine to people age 65 and older. We are
-    calling hospitals and pharmacies daily to check which are currently
-    administering vaccines.
-  positive_feedback: 如果这个网站对您有帮助，请告诉我们。
+  header: 为自己或亲人寻找COVID-19疫苗
+  subtitle: |
+    安全可靠的COVID-19疫苗可用于加利福尼亚的几类人群。但是，很难找出在哪里以及如何进行射击。我们是一群志愿者，他们每天都在打电话给医院和药房，以跟踪其疫苗供应情况以及获得疫苗的过程。
+  disclaimer_1: |
+    加利福尼亚州已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>向65岁及65岁以上的人群接种COVID-19疫苗。加利福尼亚州的全州COVID-19疫苗接种计划一直在迅速发展。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>，<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">县</a>官员都经常发布更新。这些政府网站是您获取官方信息的最佳来源。
+  disclaimer_2: |
+    我们是一个社区主导的网站，不代表政府或任何医疗保健提供者。
+  positive_feedback: 如果您发现此站点有用，请告诉我们！
   corrections: |
-    如果您发现了本网站没有列出的新接种地点，或者认为我们的信息有误，
-    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">请通知我们。</a>
-  locations_by_county: Vaccination locations by county
-  more_info: More information about vaccine availability
-  find_county: Find your county
-  about_us: About Vaccinate California
+    如果您缺少要报告的位置，或者认为我们的联系信息不正确，<a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">请告诉我们。</a>
+  locations_by_county: 县疫苗接种地点
+  more_info: 有关疫苗供应的更多信息
+  find_county: 找到你的县
+  about_us: 关于加州疫苗
 data_js:
-  alert: Could not retrieve the vaccination site data.
-  call_back: Could not reach human, calling back later
+  alert: 无法检索疫苗接种站点数据。
+  call_back: 无法联系到人，稍后再回叫
 nearest_js:
-  alert_detect: Failed to detect your location. Please try again or enter your zip code
-  alert_zipcode: Failed to locate your zip code, please try again
-  years_up: years old and up
-  patients_only: Current patients only
-  county_only: County residents only
+  alert_detect: 无法检测到您的位置。请重试或输入您的邮政编码
+  alert_zipcode: 找不到您的邮政编码，请重试
+  years_up: 岁以上
+  patients_only: 仅当前患者
+  county_only: 仅县居民
+post_list_disclaimer:
+  disclaimer: |
+    <div class="text-sm my-6">我们会尽力使此站点上的信息保持最新状态，但是在您阅读本文时，特定位置的疫苗资格和可获得性可能已经改变。如果您在本网站上发现任何过时的东西，<a href="https://airtable.com/shrY44NvEjHBscrOH"
+        class="font-medium text-yellow-600"
+      >请报告</a
+      >。您的报告将帮助其他加利福尼亚人。</div>
+pre_list_disclaimer:
+  disclaimer: |
+    我们每天都会致电加利福尼亚州的医院，药房和其他医疗服务提供者，以了解他们当前是否正在接种疫苗。在这些提供者处工作的医疗专业人员向我们介绍了他们目前的疫苗接种计划，我们在此报告他们的看法。尽管我们会尽力核实收到的所有信息，但如果您对疫苗接种地点有疑问，我们强烈建议您与医生或当地官员进行核对。
+providers:
+  header: |-
+    这是我们对加利福尼亚州所有主要提供商网络的最新信息的概述。在这些网络中特定位置工作的员工可能会选择不同的操作方式。
