@@ -1,0 +1,101 @@
+# These are strings used in multiple places
+global:
+  details: Details
+  appt_info: Appointment information
+  address: Address
+  latest_info: Latest info
+  location_notes: Location notes
+  latest_report: Updated
+  loading: Loading...
+site_list:
+  vaccine_sites: Vaccines reported available
+  no_vaccine_sites: Vaccines reported unavailable
+  no_report_sites: Uncontacted locations
+
+#These are per-page strings.
+nearest:
+  dropdown_1: Sites we have contacted
+  dropdown_2: Sites with reported doses
+  dropdown_3: All known vaccination sites
+  appointment_required: Appointment required
+  latest_info: Latest info
+  vaccines_available: Vaccines available
+  vaccines_not_available: Vaccines not available
+  vaccine_unknown: Unknown vaccine status
+vaccination_sites:
+  explainer: |
+    This is a list of all of the sites we are aware of in California which may, 
+    at some point, receive the COVID-19 vaccine. **Most of them do not have the 
+    vaccine available**; we are calling as many as we can daily to update the 
+    list so please check the [latest report](https://www.vaccinateca.com). If we
+    missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are
+    working on expanding the list with additional pharmacies and other 
+    locations.
+head:
+  meta_image_tag: |
+    An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
+    near you with our community-run tracker'
+header:
+  menu_open: Open main menu
+map:
+  locate_button: Locate around me!
+  locating: Locating...
+  failed: Failed, please try again
+  not_supported: Geolocation not supported
+search_form:
+  enter_zip: 输入邮编（ZIP）
+  enter_county: or county
+  location: Use my location
+  location_placeholder: My location
+  submit_button: Find <span class="hidden md:inline">Vaccine</span>
+site_template:
+  county_header: Within your county
+  no_reports: No contact reports
+not_found:
+  text: |
+    The page you've requested does not exist. If you're looking for help with 
+    finding vaccines in California, please check 
+    [VaccinateCA.com](https://www.vaccinateca.com).
+county_policies:
+  text: |
+    The state of California has a vaccine strategy, but has delegated
+    prioritization and administration to each county. Decisions as to which
+    patients to vaccinate and in what fashion are ultimately up to medical
+    providers.
+
+    We have collected the **most recent county-level information** below.
+    Broadly, we think that if the information we have on file from a county
+    disagrees with a medical provider in it, the one most likely to be right is 
+    the one who could (or could not) put a shot in someone's arm.
+
+    Some counties have set up scheduling systems or have advice; please check 
+    your county below.
+index:
+  header: 为您或您的家人寻找新冠病毒（COVID-19）疫苗
+  subtitle: | 
+    Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
+    But it can be difficult to find out where and how to get a shot. 
+    We are a group of volunteers calling hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
+  disclaimer: |
+    The State of California has
+    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">
+    approved</a> giving the COVID-19 vaccine to people age 65 and older. We are
+    calling hospitals and pharmacies daily to check which are currently
+    administering vaccines.
+  positive_feedback: 如果这个网站对您有帮助，请告诉我们。
+  corrections: |
+    如果您发现了本网站没有列出的新接种地点，或者认为我们的信息有误，
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">请通知我们。</a>
+  locations_by_county: Vaccination locations by county
+  more_info: More information about vaccine availability
+  find_county: Find your county
+  about_us: About Vaccinate California
+data_js:
+  alert: Could not retrieve the vaccination site data.
+  call_back: Could not reach human, calling back later
+nearest_js:
+  alert_detect: Failed to detect your location. Please try again or enter your zip code
+  alert_zipcode: Failed to locate your zip code, please try again
+  years_up: years old and up
+  patients_only: Current patients only
+  county_only: County residents only
