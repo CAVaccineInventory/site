@@ -12,7 +12,7 @@ VaccinateCA是一项由社区推动的工作，旨在帮助加利福尼亚人学
 
 我们也不需要钱。许多慈善项目他们将感谢您的大力支持。
 
-** 我是记者。我可以联系吗？**
+**我是记者。我可以联系吗？**
 
 请发送电子邮件至[media@vaccinateca.com]（mailto：media@vaccinateca.com）；我们会尽快与您联系。
 
@@ -44,7 +44,9 @@ VaccinateCA是一项由社区推动的工作，旨在帮助加利福尼亚人学
 
 我们是一个社区驱动的组织，有300多名志愿者与我们合作。截至2021年1月23日，我们的核心团队大约有20人。
 
-我们中有些人在第1天参与了该项目： <span id="people-list">{％为site.data.coordinators％}中的coordinator。{{{coordinator [0]}}]（{{coordinator [1]}}）{％endfor％}</span> 。
+我们中有些人在第1天参与了该项目： <span id="people-list">
+{% for coordinator in site.data.coordinators %} [{{ coordinator[0] }}]({{ coordinator[1] }}) {% endfor %}
+</span>。
 
 
 <script>
