@@ -144,7 +144,9 @@ function updateUrl(key, value) {
   url.searchParams.delete("zip");
   url.searchParams.delete("locate");
   url.searchParams.set(key, value);
-  window.history.replaceState(null, null, url);
+  if (url.toString() !== window.location.href) {
+    window.history.pushState(null, null, url);
+  }
 }
 
 async function handleSearch(event, type) {
@@ -154,7 +156,6 @@ async function handleSearch(event, type) {
   toggleLoading(true);
   lastSearch = type;
   const zipInput = document.getElementById("js_zip_or_county");
-  history.pushState(undefined, undefined);
   switch (type) {
     case "zip":
       const zip = zipInput.value;
