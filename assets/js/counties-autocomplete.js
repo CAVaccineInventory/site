@@ -25,9 +25,11 @@ window.addEventListener("load", () => {
     },
     onSelection: (feedback) => {
       const selected = feedback.selection.value;
-      window.location.href = `/counties/${selected
+      const newUrl = `/counties/${selected
         .replace(" County", "")
-        .replace(" ", "_")}`;
+        .trim()
+        .replaceAll(" ", "_")}`;
+      window.location.href = newUrl;
     },
   });
 
