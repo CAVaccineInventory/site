@@ -1,14 +1,28 @@
 // Calls the JSON feed to pull down sites data
+let isFetching = false;
+let subscribers = [];
+let _fetchedSites;
+
 async function fetchSites() {
-  const siteURL =
-    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json?v=1";
-  let response = await fetch(siteURL);
+  if (isFetching) {
+    return new Promise((resolve) => {
+      // TODO: handle errors in fetchSites
+      subscribers.push(resolve);
+    });
+  }
+  isFetching = true;
+  let response = await fetch(
+    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json?v=1"
+  );
 
   if (!response.ok) {
     alert(window.messageCatalog["data_js_alert"]);
     return;
   }
-  return response.json();
+  _fetchedSites = await response.json();
+  isFetching = false;
+  subscribers.forEach((cb) => cb(_fetchedSites));
+  return _fetchedSites;
 }
 
 async function fetchZipCodesData() {
