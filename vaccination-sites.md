@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Vaccination Sites
+title: titles.vaccination_sites
 permalink: /vaccination-sites
 add_to_nav: true
 order: 5

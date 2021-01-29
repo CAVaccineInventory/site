@@ -1,6 +1,6 @@
 ---
 layout: default_with_container
-title: COVID-19 Vaccine Availability
+title: titles.home
 add_to_nav: true
 homepage: true
 ---
@@ -51,7 +51,12 @@ homepage: true
           {% t index.more_info %}
         </div>
         <div>
-          {% tf disclaimer.html %}
+          <p>
+            {% t index.disclaimer_1 %}
+          </p>
+          <p>
+            {% t index.disclaimer_2 %}
+          </p>
           <a class="text-black" href="{% link about-us.md %}">
             {% t index.about_us %} &rarr;
           </a>
