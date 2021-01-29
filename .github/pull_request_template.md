@@ -30,7 +30,7 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] Map should move when you geolocate or search via zip
 - [ ] Run searches using different options of the filters drop down
   - [ ] Ensure map populates with sites that match filter
-- [ ] Vaccination Site Cards show relevant information and whether location is within your county
+- [ ] Vaccination Site Cards show relevant information
 - [ ] Address in Vaccination Site Cards links to Google Maps view
 - [ ] Panning map changes sites listed
 
