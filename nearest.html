@@ -22,7 +22,7 @@ order: 2
 </div>
 <div class="lg:container mx-auto">
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
-    {% tf pre_list_disclaimer.html %}
+    <p>{% t pre_list_disclaimer.disclaimer %}</p>
   </div>
   <div id="loading" class="mt-4 hidden">{% t global.loading %}</div>
   <div class="results flex flex-col-reverse lg:grid lg:grid-cols-2">
@@ -33,7 +33,7 @@ order: 2
   </div>
 
   <div id="post_list_container" class="hidden">
-    {% tf post_list_disclaimer.html %}
+    {% t post_list_disclaimer.disclaimer %}
   </div>
 </div>
 

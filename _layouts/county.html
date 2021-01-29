@@ -18,7 +18,9 @@
           <div class="main-content px-4 md:px-8">
             <div class="pt-3 mt-3 md:pt-6 md:mt-6">
               <p class="text-lg md:text-xl">{% tf county_header.html %}</p>
-              <div class="text-sm">{% tf pre_list_disclaimer.html %}</div>
+              <div class="text-sm">
+                <p>{% t pre_list_disclaimer.disclaimer %}</p>
+              </div>
               <section class="mt-0 md:mt-10">
                 {% include vaccine_section_title.html has_report=true
                 has_vaccine=true %}
@@ -42,7 +44,7 @@
                 </ol>
               </section>
 
-              {% tf post_list_disclaimer.html %}
+              {% t post_list_disclaimer.disclaimer %}
             </div>
 
             {% include footer.html %}
