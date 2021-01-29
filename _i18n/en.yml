@@ -31,9 +31,9 @@ nearest:
 vaccination_sites:
   explainer: |
     This is a list of all of the sites we are aware of in California which may, 
-    at some point, receive the COVID-19 vaccine. **Most of them do not have the 
-    vaccine available**; we are calling as many as we can daily to update the 
-    list so please check the < href="https://www.vaccinateca.com">latest report
+    at some point, receive the COVID-19 vaccine. <b>Most of them do not have the 
+    vaccine available</b>; we are calling as many as we can daily to update the 
+    list so please check the <a href="https://www.vaccinateca.com">latest report
     </a>. If we missed a site, <a href="https://airtable.com/shrY44NvEjHBscrOH">
     let us know</a>! We are working on expanding the list with additional 
     pharmacies and other locations.
