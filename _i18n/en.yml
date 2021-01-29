@@ -33,10 +33,10 @@ vaccination_sites:
     This is a list of all of the sites we are aware of in California which may, 
     at some point, receive the COVID-19 vaccine. **Most of them do not have the 
     vaccine available**; we are calling as many as we can daily to update the 
-    list so please check the [latest report](https://www.vaccinateca.com). If we
-    missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are
-    working on expanding the list with additional pharmacies and other 
-    locations.
+    list so please check the < href="https://www.vaccinateca.com">latest report
+    </a>. If we missed a site, <a href="https://airtable.com/shrY44NvEjHBscrOH">
+    let us know</a>! We are working on expanding the list with additional 
+    pharmacies and other locations.
 head:
   meta_image_tag: |
     An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
