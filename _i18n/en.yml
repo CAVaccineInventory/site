@@ -19,6 +19,7 @@ titles:
   home: COVID-19 Vaccine Availability
   vaccination_sites: Vaccination Sites
   providers: Providers
+  nearest: Vaccination Sites Near You
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
