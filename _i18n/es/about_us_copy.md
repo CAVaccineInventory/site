@@ -44,7 +44,7 @@ Estamos haciendo nuestro mejor esfuerzo, pero no podemos ofrecer ninguna garant�
 
 Somos una organización impulsada por la comunidad, con más de 300 voluntarios trabajando con nosotros. Al 23 de enero de 2021, nuestro equipo central era de aproximadamente 20 personas.
 
-Algunos de los que trabajamos en este proyecto el día 1: <span id="people-list">{% para coordinador en site.data.coordinators%} <a href="{{ coordinator[1] }}">{{coordinator [0]}}</a> {% endfor%}</span> .
+Algunos de los que trabajamos en este proyecto el día 1: <span id="people-list">{% for coordinator in site.data.coordinators%} <a href="{{ coordinator[1] }}">{{coordinator [0]}}</a> {% endfor%}</span> .
 
 
 <script>
