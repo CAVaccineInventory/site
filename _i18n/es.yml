@@ -5,7 +5,7 @@ global:
   address: Dirección
   latest_info: Última información
   location_notes: Notas de ubicación
-  latest_report: Última actualización
+  latest_report: Actualizada
   loading: Cargando...
 site_list:
   vaccine_sites: Vacunas reportadas disponibles
@@ -30,7 +30,7 @@ nearest:
   vaccine_unknown: Estado de vacuna desconocido
 vaccination_sites:
   explainer: |
-    Ésta es una lista de todos los sitios que conocemos en California y que pueden, en algún momento, reciba la vacuna COVID-19. ** La mayoría de ellos no tienen vacuna disponible **; llamamos a todos los que podamos a diario para actualizar el lista, así que consulte el [informe más reciente] (https://www.vaccinateca.com). Si nosotros se perdió un sitio, [avísenos] (https://airtable.com/shrY44NvEjHBscrOH)! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
+    Ésta es una lista de todos los sitios que conocemos en California y que pueden, en algún momento, reciba la vacuna COVID-19. **La mayoría de ellos no tienen vacuna disponible**; llamamos a todos los que podamos a diario para actualizar el lista, así que consulte el [informe más reciente] (https://www.vaccinateca.com). Si nosotros se perdió un sitio, [avísenos] (https://airtable.com/shrY44NvEjHBscrOH)! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
 head:
   meta_image_tag: |
     Una imagen del logotipo de Vaccinate CA con el texto 'Vaccinate CA. Encuentra vacunas
@@ -71,8 +71,8 @@ county_policies:
     Algunos condados han establecido sistemas de programación o tienen asesoramiento; por favor, compruebe
     su condado a continuación.
 index:
-  header: Encuentre una vacuna COVID-19 para usted o un ser querido
-  subtitle: |-
+  header: Encuentre una vacuna COVID-19 para usted o un querido
+  subtitle: |
     Las vacunas COVID-19 seguras y confiables están disponibles para las personas mayores y los trabajadores de la salud en California. Pero puede ser difícil saber dónde y cómo vacunar. Llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener una.
   disclaimer: |
     Las vacunas COVID-19 seguras y confiables están disponibles para varios grupos de personas en California.
