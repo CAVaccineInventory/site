@@ -10,7 +10,9 @@ Frequently Asked Questions (FAQ)
 
 Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing your mask and observe social distancing guidelines.
 
-We do not need more volunteers right now; we're running this out of our networks to move as quickly as possible. This may change in a few days; check back for updates or <a href="https://twitter.com/{{ site.twitter_username }}">follow us on Twitter</a>.
+If you'd like to volunteer to help us make calls, please <a href="https://airtable.com/shrY9Ac8PGuudZAe3">let us know</a>.
+
+<a href="https://twitter.com/{{ site.twitter_username }}">Follow us on Twitter</a> to keep up to date on other opportunities to help out.
 
 We also don't need money. Many charitable projects <i>do</i>; they would appreciate your generous support.
 
