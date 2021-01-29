@@ -32,7 +32,6 @@ google_analytics_id: G-C1C9341MGL
 
 # Build settings
 plugins:
-  - jekyll-seo-tag
   - jekyll-multiple-languages-plugin
 
 ## Social media stuff supported by jekyll-seo-tag

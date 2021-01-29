@@ -2,10 +2,33 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  {% seo title=false %}
-
+  
   <title>{% t page.title %} | {{ site.title }}</title>
+  <meta name="generator" content="Jekyll v4.1.1" />
+  <meta property="og:title" content="{% t page.title %}" />
+  <meta property="og:locale" content="{{ page.lang | default: site.lang | default: 'en' }}" />
+  <meta name="description" content="Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California." />
+  <meta property="og:description" content="Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California." />
+  <link rel="canonical" href="https://vaccinateca.com/{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ page.url }}" />
+  <meta property="og:url" content="https://vaccinateca.com/{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ page.url }}" />
+  <meta property="og:site_name" content="VaccinateCA" />
+  <meta property="og:image" content="https://vaccinateca.com/assets/img/link_card_image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:image" content="https://vaccinateca.com/assets/img/link_card_image.png" />
+  <meta property="twitter:title" content="{% t page.title %}" />
+  <meta name="twitter:site" content="@ca_covid" />
+  <script type="application/ld+json">
+  {
+    "image":"https://vaccinateca.com/assets/img/link_card_image.png",
+    "description":"Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.",
+    "publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://vaccinateca.com/assets/img/logo.png"}},
+    "@type":"WebSite",
+    "headline":"{% t page.title %}",
+    "sameAs":["https://twitter.com/ca_covid","https://github.com/CAVaccineInventory"],
+    "url":"https://vaccinateca.com/{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ page.url }}",
+    "name":"VaccinateCA","@context":"https://schema.org"
+  }
+  </script>
 
   <!-- Accessible descripts of our images that show up on social media -->
   <meta name="twitter:image:alt" content="{% t head.meta_image_tag %}" />
