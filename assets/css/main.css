@@ -99,6 +99,7 @@ select {
 }
 
 #main_search_autocomplete_list {
+  z-index: 1;
   position: absolute;
   top: 44px;
   left: 0;
