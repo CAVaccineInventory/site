@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
   const countiesAutocompleteSource = counties
     .split(",")
     .map((c) => c.replace(/^\s*(.*\S)\s*$/, "$1"));
-  new autoComplete({
+  const autoCompleteInstance = new autoComplete({
     data: {
       src: countiesAutocompleteSource,
     },
@@ -31,6 +31,34 @@ window.addEventListener("load", () => {
         .replaceAll(" ", "_")}`;
       window.location.href = newUrl;
     },
+  });
+
+  const getFirstResult = () => {
+    const resultsList = document.querySelector(
+      `#${autoCompleteInstance.resultsList.idName}`
+    );
+    if (resultsList) {
+      return resultsList.firstChild;
+    }
+  };
+
+  // Based on: https://github.com/TarekRaafat/autoComplete.js/issues/113
+  input.addEventListener("rendered", (event) => {
+    // Select autoComplete.js results list first child
+    const firstResult = getFirstResult();
+    if (firstResult) {
+      // Add highlight class to the first result element
+      firstResult.classList.add("autoComplete_selected");
+    }
+  });
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      const firstResult = getFirstResult();
+      if (firstResult) {
+        firstResult.click();
+      }
+    }
   });
 
   // Auto focus
