@@ -46,32 +46,3 @@ We're doing our best, but can't make any guarantees.
 
 We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our core team was approximately 20 people.
 
-Some of us who worked on this project on Day 1: <span id="people-list">
-{% for coordinator in site.data.coordinators %} <a href="{{ coordinator[1] }}">{{ coordinator[0] }}</a> {% endfor %}
-</span>.
-
-
-<script>
-// From https://stackoverflow.com/a/12646864
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-const peopleElements = [...document.querySelectorAll('#people-list a')];
-const peopleListElement = document.querySelector("#people-list");
-
-shuffleArray(peopleElements);
-peopleListElement.innerHTML = "";
-for (let i = 0; i < peopleElements.length; ++i) {
-  const personElement = peopleElements[i];
-
-  peopleListElement.insertBefore(personElement, null);
-  if (i !== peopleElements.length - 1) {
-    const separatorNode = document.createTextNode(", ");
-    peopleListElement.insertBefore(separatorNode, null);
-  }
-}
-</script>
