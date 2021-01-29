@@ -15,8 +15,15 @@ homepage: true
   <div class="mb-10 lg:mb-12">
     {% include search_form.html counties_autocomplete=1 %}
   </div>
-  <div class="text-black md:text-lg max-w-4xl text-center">
-    {% t index.subtitle %}
+  <div class="max-w-4xl content-center grid md:grid-cols-2">
+    <img
+      class="transform scale-75 justify-self-center"
+      src="/assets/img/front_page_illustration.png"
+      alt="{% t index.illustration %}"
+      />
+    <p class="self-center text-black md:text-lg">
+      {% t index.subtitle %}
+    </p>
   </div>
 
   <div

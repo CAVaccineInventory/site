@@ -6,7 +6,7 @@ add_to_nav: true
 order: 6
 ---
 
-{% tf about_us_copy.md %}
+{% t about_us.big_text %}
 
 {% t about_us.coordinators %} <span id="people-list">
 {% for coordinator in site.data.coordinators %} <a href="{{ coordinator[1] }}">{{ coordinator[0] }}</a> {% endfor %}
