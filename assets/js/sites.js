@@ -1,4 +1,7 @@
-import { getDisplayableVaccineInfo, getTimeDiffFromNow } from "./data.js";
+import {
+  getDisplayableVaccineInfo,
+  getTimeDiffFromNow,
+} from "./data/locations.js";
 
 function beautifyLinks(contentElem) {
   const linksElem = contentElem.querySelectorAll("a");
