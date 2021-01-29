@@ -4,8 +4,11 @@
       <div class="flex items-center h-16">
         <div class="flex flex-grow items-center justify-between">
           <div class="flex-shrink-0">
-            <a href="/" class="flex items-center space-x-3">
-              <img class="h-8" src="/assets/img/logo.png" alt="VaccinateCA" />
+            <a
+              href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/"
+              class="flex items-center space-x-3"
+            >
+              <img class="h-8" src="/assets/img/logo.png" alt="{{ site.title }}" />
             </a>
           </div>
 
@@ -17,10 +20,10 @@
               {% assign navItemClasses = "" %} {% endif %}
 
               <a
-                href="{{ item.url }}"
+                href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ item.url }}"
                 class="{{ navItemClasses }} border border-transparent hover:border-gray-300 px-3 py-2 rounded-md text-sm font-normal text-black"
               >
-                {{ item.title }}
+                {% t item.title %}
               </a>
               {% endif %} {% endfor %}
             </div>
@@ -90,10 +93,10 @@
         navItemClasses = "" %} {% endif %}
 
         <a
-          href="{{ item.url }}"
+          href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ item.url }}"
           class="{{ navItemClasses }} hover:underline text-black block px-3 py-2 rounded-md text-base font-normal"
         >
-          {{ item.title }}
+          {% t item.title %}
         </a>
         {% endif %} {% endfor %}
       </div>
@@ -106,7 +109,7 @@
   <div class="mx-auto">
     <div class="py-6 px-4 sm:px-6 xl:px-8">
       <h1 class="text-3xl font-bold leading-tight text-gray-900">
-        {{ page.title }}
+        {% t page.title %}
       </h1>
     </div>
   </div>

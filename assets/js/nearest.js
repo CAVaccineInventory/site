@@ -4,7 +4,7 @@ import {
   getHasReport,
   getCoord,
   fetchZipCodesData,
-} from "./data.js";
+} from "./data/locations.js";
 
 import { addSitesToPage } from "./sites.js";
 import { addLocation, clearMap } from "./map.js";

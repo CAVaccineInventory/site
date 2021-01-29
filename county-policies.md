@@ -1,6 +1,6 @@
 ---
 layout: default
-title: County Policies
+title: titles.county_policies
 permalink: /county-policies
 add_to_nav: true
 order: 3
