@@ -10,6 +10,8 @@ Frequently Asked Questions (FAQ)
 
 Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue wearing your mask and observe social distancing guidelines.
 
+What we need the most right now are responsible volunteers who can help us call healthcare providers across the state so we can continue to offer comprehensive information about COVID-19 vaccine availability to all Californians. 
+
 If you'd like to volunteer to help us make calls, please <a href="https://airtable.com/shrY9Ac8PGuudZAe3">let us know</a>.
 
 <a href="https://twitter.com/{{ site.twitter_username }}">Follow us on Twitter</a> to keep up to date on other opportunities to help out.
