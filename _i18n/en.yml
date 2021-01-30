@@ -158,7 +158,7 @@ about_us:
     <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
     Frequently Asked Questions (FAQ)
     </h2>
-  faq_help: <b>How can I help?</b>
+  faq_help: <h3 class="text-lg font-bold mb-2 bg-yellow-300 px-0.5 py-1">How can I help?</h3>
   faq_help_answer_1: |
     Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue 
     wearing your mask and observe social distancing guidelines.
@@ -174,11 +174,11 @@ about_us:
   faq_help_answer_5: |
     We don't need money. Many charitable projects <i>do</i>; they would appreciate your generous support.
   faq_press: |
-    <b>I am a reporter. Can I get in touch?</b>
+    <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">I am a reporter. Can I get in touch?</h3>
   faq_press_answer: |
     Please email <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; we'll be in touch quickly.
   faq_medical: |
-    <b>I work at a medical provider! How do I ask you to update our information or make a request of you?</b>
+    <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">I work at a medical provider! How do I ask you to update our information or make a request of you?</h3>
   faq_medical_answer_1: |
     We appreciate the work you are doing, and are here to support it!
   faq_medical_answer_2: |
@@ -188,12 +188,12 @@ about_us:
   faq_medical_answer_3: |
     One of the organizers will read your message and take action as soon as reasonably possible.
   faq_community: |
-    <b>I work in a community-facing organization or for the government. Can we discuss this?</b>
+    <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">I work in a community-facing organization or for the government. Can we discuss this?</h3>
   faq_community_answer_1: |
     We want to support the urgent work you are doing in getting Californians vaccinated as quickly as possible. 
     Please email us at <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> to discuss.
   faq_toil: |
-    <b>Does this effort increase or decrease toil in the healthcare system?</b>
+    <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">Does this effort increase or decrease toil in the healthcare system?</h3>
   faq_toil_answr_1: |
     Most hospitals will get thousands of phone calls per day. They are currently being slammed by many more people than 
     usual asking them the same question: "Do you have the vaccine?"
@@ -202,7 +202,7 @@ about_us:
     of the hospital. We also save people seeking the vaccine from having to call dozens of locations to find one that 
     has availability.
   faq_accurate: |
-    <b>Is the information on this website accurate?</b>
+    <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">Is the information on this website accurate?</h3>
   faq_accurate_answer_1: |
     We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout
     the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually 
@@ -210,7 +210,7 @@ about_us:
   faq_accurate_answer_2: |
     We're doing our best, but can't make any guarantees.
   faq_who: |
-    <b>Who are you?</b>
+    <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">Who are you?</h3>
   faq_who_answer: |
     We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our 
     core team was approximately 20 people.
