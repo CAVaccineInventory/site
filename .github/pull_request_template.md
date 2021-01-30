@@ -22,7 +22,6 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] Click all the links, internal and external, make sure all open the expected content.
 - [ ] Search box lets you search by zip or county
 - [ ] Counties autocomplete and take you to county page
-- [ ] Verify map pins show information, can locate by geolocation
 
 #### /near-me
 - [ ] Verify searching by geolocation
