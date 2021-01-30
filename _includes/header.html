@@ -9,18 +9,17 @@
               class="flex items-center space-x-3"
             >
               <img
-                class="h-8 w-8 invert"
+                class="h-8"
                 src="/assets/img/logo.png"
-                alt="VaccinateCA Logo"
+                alt="{{ site.title }}"
               />
-              <div class="text-xl leading-tight text-black">
-                {{ site.title }}
-              </div>
             </a>
           </div>
 
+          <a class="sr-only" href="#main">Skip to content</a>
+
           <div class="hidden lg:block">
-            <div class="ml-10 flex items-baseline space-x-2">
+            <div class="ml-8 flex items-baseline space-x-2">
               {% assign nav = site.pages | sort: 'order' %} {% for item in nav
               %} {% if item.title and item.add_to_nav %} {% if item.url ==
               page.url %} {% assign navItemClasses = "bg-gray-100" %} {% else %}

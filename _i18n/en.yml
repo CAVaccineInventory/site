@@ -32,12 +32,12 @@ nearest:
 vaccination_sites:
   explainer: |
     This is a list of all of the sites we are aware of in California which may, 
-    at some point, receive the COVID-19 vaccine. **Most of them do not have the 
-    vaccine available**; we are calling as many as we can daily to update the 
-    list so please check the [latest report](https://www.vaccinateca.com). If we
-    missed a site, [let us know](https://airtable.com/shrY44NvEjHBscrOH)! We are
-    working on expanding the list with additional pharmacies and other 
-    locations.
+    at some point, receive the COVID-19 vaccine. <b>Most of them do not have the 
+    vaccine available</b>; we are calling as many as we can daily to update the 
+    list so please check the <a href="https://www.vaccinateca.com">latest report
+    </a>. If we missed a site, <a href="https://airtable.com/shrY44NvEjHBscrOH">
+    let us know</a>! We are working on expanding the list with additional 
+    pharmacies and other locations.
 head:
   meta_image_tag: |
     An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
@@ -100,6 +100,7 @@ index:
   disclaimer_2: |
     We are a community-led website and do not represent the government or any
     healthcare provider.
+  illustration: Illustration of doctor administering vaccines
   positive_feedback: Let us know if you found this site useful!
   corrections: |
     If you have a missing location to report, or think we have incorrect
@@ -146,3 +147,71 @@ providers:
     location within these networks will choose to operate differently.
 about_us:
   coordinators: "Some of us who worked on this project on Day 1:"
+  big_text: |
+    VaccinateCA is a community-driven effort to help Californians learn accurate, up-to-date, verified information about
+    the coronavirus vaccine, so they they can learn when they will be eligible and how to take their place in line.
+
+    Our professionals call medical professionals at hundreds of potential vaccination sites daily, asking them if they 
+    have the vaccine and if so to whom they will administer it to and how to get an appointment. We write down what 
+    they tell us, and publish it to this site.
+
+    <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
+    Frequently Asked Questions (FAQ)
+    </h2>
+
+    <b>How can I help?</b>
+
+    Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue 
+    wearing your mask and observe social distancing guidelines.
+
+    What we need the most right now are responsible volunteers who can help us call healthcare providers across 
+    the state so we can continue to offer comprehensive information about COVID-19 vaccine availability to all 
+    Californians. 
+
+    If you'd like to volunteer to help us make calls, please <a href="https://airtable.com/shrY9Ac8PGuudZAe3">let us know</a>.
+
+    <a href="https://twitter.com/{{ site.twitter_username }}">Follow us on Twitter</a> to keep up to date on other 
+    opportunities to help out.
+
+    We don't need money. Many charitable projects <i>do</i>; they would appreciate your generous support.
+
+    <b>I am a reporter. Can I get in touch?</b>
+
+    Please email <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; we'll be in touch quickly.
+
+    <b>I work at a medical provider! How do I ask you to update our information or make a request of you?</b>
+
+    We appreciate the work you are doing, and are here to support it!
+
+    Please text <a href="tel:+14153014597">(415) 301-4597</a> with your message, institutional affiliation, and an 
+    internal extension or contact name so we can call back to verify. We cannot receive photos at this number; 
+    text only, please.
+
+    One of the organizers will read your message and take action as soon as reasonably possible.
+
+    <b>I work in a community-facing organization or for the government. Can we discuss this?</b>
+
+    We want to support the urgent work you are doing in getting Californians vaccinated as quickly as possible. 
+    Please email us at <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> to discuss.
+
+    <b>Does this effort increase or decrease toil in the healthcare system?</b>
+
+    Most hospitals will get thousands of phone calls per day. They are currently being slammed by many more people than 
+    usual asking them the same question: "Do you have the vaccine?"
+
+    By asking that question and publishing the answer, we can save their phone bandwidth for the day-to-day operations 
+    of the hospital. We also save people seeking the vaccine from having to call dozens of locations to find one that 
+    has availability.
+
+    <b>Is the information on this website accurate?</b>
+
+    We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout
+    the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually 
+    are.
+
+    We're doing our best, but can't make any guarantees.
+
+    <b>Who are you?</b>
+
+    We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our 
+    core team was approximately 20 people.

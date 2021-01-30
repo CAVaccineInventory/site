@@ -20,6 +20,8 @@ Open the deploy preview and manually perform the following tests with the browse
 
 #### Homepage
 - [ ] Click all the links, internal and external, make sure all open the expected content.
+- [ ] Search box lets you search by zip or county
+- [ ] Counties autocomplete and take you to county page
 - [ ] Verify map pins show information, can locate by geolocation
 
 #### /near-me
@@ -28,16 +30,11 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] Map should move when you geolocate or search via zip
 - [ ] Run searches using different options of the filters drop down
   - [ ] Ensure map populates with sites that match filter
-- [ ] Vaccination Site Cards show relevant information and whether location is within your county
+- [ ] Vaccination Site Cards show relevant information
 - [ ] Address in Vaccination Site Cards links to Google Maps view
 - [ ] Panning map changes sites listed
 
-#### /regions/* and /vaccination-sites
-- [ ] List of locations displays successfully on load
-- [ ] Typing into the 'Search by county...' field activates autocomplete and filters the list of locations
-- [ ] Region pages should list the region's counties, each linked to its County Page
-
-#### /counties/*
+#### County Vaccination Site List page
 - [ ] List of locations displays successfully on load, split into sites with vaccine and without vaccine
 - [ ] Vaccination Site Cards show relevant information
 
@@ -49,7 +46,7 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] Lists all vaccination sites
 - [ ] Has search bar that autocomplete and filters content
 
-#### Other Pages
+#### Other pages
 - [ ] 'Providers' shows list of providers
 - [ ] 'About Us' shows prose content and FAQ
 - [ ] 'About Us' shows randomized list of coordinators' names
