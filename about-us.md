@@ -6,7 +6,51 @@ add_to_nav: true
 order: 6
 ---
 
-{% t about_us.big_text %}
+{% t about_us.intro_1 %}
+
+{% t about_us.intro_2 %}
+
+{% t about_us.faq_header %}
+
+{% t about_us.faq_help %}
+
+{% t about_us.faq_help_answer_1 %}
+
+{% t about_us.faq_help_answer_2 %}
+
+{% t about_us.faq_help_answer_3 %}
+
+{% t about_us.faq_help_answer_4 %}
+
+{% t about_us.faq_help_answer_5 %}
+
+{% t about_us.faq_press %}
+
+{% t about_us.faq_press_answer %}
+
+{% t about_us.faq_medical %}
+
+{% t about_us.faq_medical_answer_1 %}
+
+{% t about_us.faq_medical_answer_2 %}
+
+{% t about_us.faq_medical_answer_3 %}
+
+{% t about_us.faq_community %}
+
+{% t about_us.faq_community_answer_1 %}
+
+{% t about_us.faq_toil %}
+
+{% t about_us.faq_toil_answr_1 %}
+
+{% t about_us.faq_toil_answr_2 %}
+
+{% t about_us.faq_accurate %}
+
+{% t about_us.faq_accurate_answer_1 %}
+
+{% t about_us.faq_accurate_answer_2 %}
 
 {% t about_us.coordinators %} <span id="people-list">
 {% for coordinator in site.data.coordinators %} <a href="{{ coordinator[1] }}">{{ coordinator[0] }}</a> {% endfor %}
