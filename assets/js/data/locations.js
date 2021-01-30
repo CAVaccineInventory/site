@@ -192,6 +192,9 @@ function getTimeDiffFromNow(timestamp) {
   } else if (delta / (60 * 60) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60));
     timeUnitName = pluralizeTimeUnit(timeUnitValue, "hour");
+  } else if (delta / 60  > 1) {
+    timeUnitValue = Math.floor(delta / 60 );
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "minute");
   } else {
     timeUnitValue = Math.floor(delta);
     timeUnitName = pluralizeTimeUnit(timeUnitValue, "second");
