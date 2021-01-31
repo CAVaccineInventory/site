@@ -324,19 +324,26 @@ async function fetchFilterAndSortSites(
 
 function updateMap(coord, sites, repositionMap = true) {
   const map = window.map;
-  if (repositionMap) {
-    const mapCoord = {
-      lat: coord.latitude,
-      lng: coord.longitude,
-    };
-    map.setCenter(mapCoord);
-    map.setZoom(10);
-  }
+  if (map) {
+    if (repositionMap) {
+      const mapCoord = {
+        lat: coord.latitude,
+        lng: coord.longitude,
+      };
+      map.setCenter(mapCoord);
+      map.setZoom(10);
+    }
 
-  clearMap();
-  sites.forEach((site) => {
-    addLocation(site);
-  });
+    clearMap();
+    sites.forEach((site) => {
+      addLocation(site);
+    });
+  } else {
+    // If the map is missing, listen for it to be initialized and then retry
+    document.addEventListener("mapInit", () =>
+      updateMap(coord, sites, repositionMap)
+    );
+  }
 }
 
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
