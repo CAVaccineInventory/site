@@ -115,7 +115,7 @@
   <div class="mx-auto">
     <div class="py-6 px-4 sm:px-6 xl:px-8">
       <h1 class="text-3xl font-bold leading-tight text-gray-900">
-        {% t page.title %}
+        {%if page.layout == "county"%}{{page.title}}{%else%}{% t page.title %}{%endif%}
       </h1>
     </div>
   </div>
