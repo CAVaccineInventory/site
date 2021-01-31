@@ -1,7 +1,4 @@
 # Place netlify redirects here. https://docs.netlify.com/routing/redirects/
-/who-we-are                  /about-us
-/regions/bay_area            /
-/regions/greater_sacramento  /
-/regions/san_joaquin_valley  /
-/regions/southern_california /
-/zh/*                        /zh-hans/:splat
+/who-we-are         /about-us
+/regions/*          /
+/zh/*               /zh-hans/:splat
