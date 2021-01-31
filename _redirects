@@ -1,2 +1,3 @@
 # Place netlify redirects here. https://docs.netlify.com/routing/redirects/
 /who-we-are         /about-us
+/zh/*               /zh-hans/:splat
