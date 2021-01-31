@@ -115,6 +115,8 @@ function getDisplayableVaccineInfo(p) {
   function getAgeRestriction(p) {
     for (const prop of p["Availability Info"]) {
       switch (prop) {
+        case "Yes: vaccinating 85+":
+          return 85;
         case "Yes: vaccinating 75+":
           return 75;
         case "Yes: vaccinating 65+":
@@ -135,9 +137,14 @@ function getDisplayableVaccineInfo(p) {
         p,
         "Yes: restricted to county residents"
       ),
-      isAppointmentRequired: doesLocationHaveProp(
-        p,
-        "Yes: appointment required"
+      isAppointmentRequired: (
+        doesLocationHaveProp(
+          p,
+          "Yes: appointment required"
+        ) || doesLocationHaveProp(
+          p,
+          "Yes: appointment calendar currently full"
+        )
       ),
       isLimitedToPatients: doesLocationHaveProp(
         p,
@@ -192,6 +199,9 @@ function getTimeDiffFromNow(timestamp) {
   } else if (delta / (60 * 60) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60));
     timeUnitName = pluralizeTimeUnit(timeUnitValue, "hour");
+  } else if (delta / 60  > 1) {
+    timeUnitValue = Math.floor(delta / 60 );
+    timeUnitName = pluralizeTimeUnit(timeUnitValue, "minute");
   } else {
     timeUnitValue = Math.floor(delta);
     timeUnitName = pluralizeTimeUnit(timeUnitValue, "second");

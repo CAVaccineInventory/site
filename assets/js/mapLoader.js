@@ -26,49 +26,4 @@ async function initMap() {
   });
 
   document.dispatchEvent(new CustomEvent("mapInit"));
-
-  if ("locate" in mapElement.dataset) {
-    setupLocateMe();
-  }
-}
-
-function setupLocateMe() {
-  const map = window.map;
-
-  if (!navigator.geolocation) {
-    console.warn("navigator not supported");
-  }
-  const template = document.getElementById("locate_me_template");
-  const locationButton = template.content
-    .cloneNode(true)
-    .getElementById("locate_me");
-  locationButton.textContent = "Locate around me!";
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    if (navigator.geolocation) {
-      locationButton.textContent = "Locating...";
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          locationButton.textContent = "Locate around me!";
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          map.setCenter(pos);
-          map.setZoom(10);
-        },
-        (e) => {
-          console.warn(e);
-          locationButton.textContent = "Failed, please try again";
-        },
-        {
-          maximumAge: 1000 * 60 * 5, // 5 minutes
-          timeout: 1000 * 20, // 20 seconds
-          enableHighAccuracy: false,
-        }
-      );
-    } else {
-      console.error("Geolocation not supported");
-    }
-  });
 }
