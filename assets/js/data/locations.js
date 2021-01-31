@@ -1,6 +1,6 @@
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
-let subscribers = [];
+const subscribers = [];
 let _fetchedSites;
 
 async function fetchSites() {
@@ -11,7 +11,7 @@ async function fetchSites() {
     });
   }
   isFetching = true;
-  let response = await fetch(
+  const response = await fetch(
     "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json?v=1"
   );
 
@@ -184,8 +184,8 @@ function getTimeDiffFromNow(timestamp) {
   if (!unixTime) return;
   const now = new Date().getTime();
   const delta = Math.abs(unixTime / 1000 - now / 1000);
-  var timeUnitValue = "unit_value",
-    timeUnitName = "unit_name";
+  let timeUnitValue = "unit_value";
+  let timeUnitName = "unit_name";
 
   if (delta / (60 * 60 * 24 * 365) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 365));
@@ -199,7 +199,7 @@ function getTimeDiffFromNow(timestamp) {
   } else if (delta / (60 * 60) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60));
     timeUnitName = pluralizeTimeUnit(timeUnitValue, "hour");
-  } else if (delta / 60  > 1) {
+  } else if (delta / 60 > 1) {
     timeUnitValue = Math.floor(delta / 60 );
     timeUnitName = pluralizeTimeUnit(timeUnitValue, "minute");
   } else {
@@ -215,9 +215,9 @@ function pluralizeTimeUnit(value, timeUnitName) {
 }
 
 function splitSitesByVaccineState(sites) {
-  let sitesWithVaccine = [];
-  let sitesWithoutVaccine = [];
-  let sitesWithNoReport = [];
+  const sitesWithVaccine = [];
+  const sitesWithoutVaccine = [];
+  const sitesWithNoReport = [];
 
   sites.forEach(function (site) {
     if (getHasReport(site)) {
