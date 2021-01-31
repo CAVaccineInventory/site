@@ -26,8 +26,8 @@ nearest:
   dropdown_3: Todos los sitios de vacunación conocidos
   appointment_required: Requiere cita
   latest_info: Última información
-  vaccines_available: Vacunas disponibles
-  vaccines_not_available: Vacunas no disponibles
+  vaccines_available: Vacunas reportadas disponibles
+  vaccines_not_available: Vacunas notificadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
 vaccination_sites:
   explainer: |
