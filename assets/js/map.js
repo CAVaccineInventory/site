@@ -7,7 +7,7 @@ function shouldUseSpecialPin(info) {
 }
 
 function addLocation(p) {
-  let info = getDisplayableVaccineInfo(p);
+  const info = getDisplayableVaccineInfo(p);
 
   if (!info.latitude || !info.longitude) {
     console.log(`Missing lat/lon for ${info.name}!!`);
@@ -47,22 +47,22 @@ function addLocation(p) {
   if (shouldUseSpecialPin(info)) {
     markerConfig["icon"] = bluePin;
   }
-  let marker = new google.maps.Marker(markerConfig);
-  let infowindow = new google.maps.InfoWindow({
+  const marker = new google.maps.Marker(markerConfig);
+  const infowindow = new google.maps.InfoWindow({
     content: `<div class="mapInfo">${infoText}</div>`,
   });
 
   // Toggle the info card
   marker.addListener("click", () => {
-    if (prev_infowindow) {
-      prev_infowindow.close();
+    if (prevInfowindow) {
+      prevInfowindow.close();
     }
 
-    if (prev_infowindow == infowindow) {
-      prev_infowindow = false;
+    if (prevInfowindow == infowindow) {
+      prevInfowindow = false;
     } else {
       infowindow.open(map, marker);
-      prev_infowindow = infowindow;
+      prevInfowindow = infowindow;
     }
   });
 
@@ -78,6 +78,6 @@ function clearMap() {
 }
 
 // State tracking for info cards
-var prev_infowindow = false;
+let prevInfowindow = false;
 
 export { addLocation, clearMap };

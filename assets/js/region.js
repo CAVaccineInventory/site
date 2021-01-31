@@ -25,7 +25,7 @@ function updateFilterFromUrlFragment() {
 
 async function fetchRegionSites() {
   console.log("fetching...");
-  let sites = await fetchSites();
+  const sites = await fetchSites();
   const counties = getCounties();
 
   const sitesByCounty = {};
@@ -36,6 +36,10 @@ async function fetchRegionSites() {
   }
 
   for (const county in sitesByCounty) {
+    if (!Object.prototype.hasOwnProperty.call(sitesByCounty, county)) {
+      continue;
+    }
+
     // Make 2 copies of region_county_list_template, one for yes and one for no
     const regionYesTemplate = document
       .getElementById("region_county_list_template")

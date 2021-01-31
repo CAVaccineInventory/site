@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
   const counties = input.getAttribute("data-collection");
   if (!counties) return;
   const countiesAutocompleteSource = counties.split(",").map((c) => {
-    let county = c.replace(/^\s*(.*\S)\s*$/, "$1");
+    const county = c.replace(/^\s*(.*\S)\s*$/, "$1");
     return county + (county === "San Francisco" ? "" : " County");
   });
   const autoCompleteInstance = new autoComplete({

@@ -1,6 +1,6 @@
 import counties from "./counties.js";
 
-var airtableBaseUrl;
+let airtableBaseUrl;
 
 window.addEventListener("DOMContentLoaded", updateFilterFromUrlFragment);
 window.addEventListener("hashchange", updateFilterFromUrlFragment);

@@ -15,7 +15,7 @@ function beautifyLinks(contentElem) {
 }
 
 function urlify(text) {
-  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(urlRegex, function (url) {
     return '<a href="' + url + '">' + url + "</a>";
   });
@@ -47,7 +47,7 @@ function addSitesToPage(sites, containerId, userCounty) {
   };
 
   for (const site of sites.slice(0, 50)) {
-    let info = getDisplayableVaccineInfo(site);
+    const info = getDisplayableVaccineInfo(site);
     const siteRootElem = siteTemplate.cloneNode(true);
     siteRootElem.querySelector(".site_title").textContent = info.name;
 

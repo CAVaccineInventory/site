@@ -2,7 +2,7 @@
 async function fetchCounties() {
   const siteURL =
     "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Counties.json";
-  let response = await fetch(siteURL);
+  const response = await fetch(siteURL);
 
   if (!response.ok) {
     alert("Could not retrieve the vaccination site data.");
@@ -12,5 +12,5 @@ async function fetchCounties() {
 }
 
 export {
-  fetchCounties
+  fetchCounties,
 };
