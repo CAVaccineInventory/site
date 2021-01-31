@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
       const newUrl = `/counties/${selected
         .replace(" County", "")
         .trim()
-        .replaceAll(" ", "_")}`;
+        .replace(/\ /g, "_")}`;
       window.location.href = newUrl;
     },
   });
