@@ -19,6 +19,10 @@ titles:
   home: COVID-19疫苗供应情况
   vaccination_sites: 疫苗接种地点
   providers: 提供者
+<<<<<<< HEAD
+=======
+  nearest: 您附近的疫苗接种地点
+>>>>>>> Translate /_i18n/en.yml in zh_CN
 nearest:
   dropdown_1: 我们联系过的地点
   dropdown_2: 据汇报有疫苗的地点
@@ -30,11 +34,15 @@ nearest:
   vaccine_unknown: 未知疫苗状态
 vaccination_sites:
   explainer: |
+<<<<<<< HEAD
     这是我们在加利福尼亚州知道的所有可能目前或将来提供新冠病毒COVID-19疫苗的地点。
     **大多数的地点目前没有可用的疫苗。** 我们尽最大努力每天通过电话联系它们
     以更新这个清单。所以请查看[最新的报告](https://www.vaccinateca.com)。
     如果您发现了我们没有列出的接种地点，请[通知我们](https://airtable.com/shrY44NvEjHBscrOH)。 
     我们目前正在努力添加更多的药店和其他地点以扩大这个清单。
+=======
+    这是我们在加利福尼亚知道的所有站点的列表，这些站点在某些时候可能会收到COVID-19疫苗。<b>他们中大多数没有可用的疫苗</b>;我们每天都会召集尽可能多的人来更新列表，因此请查看<a href="https://www.vaccinateca.com">最新报告</a>。如果我们错过了一个网站，请<a href="https://airtable.com/shrY44NvEjHBscrOH">告诉我们</a>！我们正在与其他药店和其他地点一起扩大清单。
+>>>>>>> Translate /_i18n/en.yml in zh_CN
 head:
   meta_image_tag: |
     一个加州疫苗组织的图标，带有文字：“加州疫苗组织。用我们的社区网站找到您附近的的疫苗。”
@@ -70,8 +78,13 @@ county_policies:
     有些县建立了预订系统或者有建议；请在下面查看您的县的信息。
 index:
   header: 为您或您的亲人寻找新冠病毒COVID-19疫苗
+<<<<<<< HEAD
   subtitle: |-
     在加利福尼亚，老年人和医护人员可以使用安全可靠的COVID-19疫苗。但是，很难找出在哪里以及如何进行射击。我们每天都致电医院和药房，以跟踪其疫苗供应情况以及获得疫苗的过程。
+=======
+  subtitle: |
+    在加利福尼亚，老年人和医护人员可以使用安全可靠的COVID-19疫苗。但是，很难找出在哪里以及如何进行接种。我们每天都致电医院和药房，以跟踪其疫苗供应情况以及获得疫苗的过程。
+>>>>>>> Translate /_i18n/en.yml in zh_CN
   disclaimer: |
     安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亚的几类人群。
     但是，寻找接种疫苗的地点和时间可能困难。
@@ -80,6 +93,10 @@ index:
     加利福尼亚州政府已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>65岁及以上的居民接种新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接种计划发展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">县</a>官员都经常发布更新。这些政府网站是您获取官方信息的最佳来源。
   disclaimer_2: |
     我们是一个民间社区主导的网站，不代表政府或任何医疗服务提供者。
+<<<<<<< HEAD
+=======
+  illustration: 医生接种疫苗的插图
+>>>>>>> Translate /_i18n/en.yml in zh_CN
   positive_feedback: 如果这个网站对您有帮助，请告诉我们！
   corrections: |
     如果您发现了本网站没有列出的新接种地点，或者认为我们的联系信息有误，<a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">请通知我们。</a>
@@ -111,3 +128,55 @@ providers:
     这是我们对加利福尼亚州所有主要提供商网络的最新信息的概述。在这些网络中特定位置工作的员工可能会选择不同的操作方式。
 about_us:
   coordinators: "在第1天为这个项目工作的我们中的一些人"
+<<<<<<< HEAD
+=======
+  intro_1: |
+    VaccinateCA是一项由社区推动的工作，旨在帮助加利福尼亚人学习有关冠状病毒疫苗的准确，最新且经过验证的信息，以便他们可以了解自己何时有资格以及如何排队。
+  intro_2: |
+    我们的专业人员每天都会在数百个潜在的疫苗接种地点给医疗专业人员打电话，询问他们是否有疫苗，如果有疫苗的话，将对谁进行管理以及如何预约。我们记下他们告诉我们的内容，并将其发布到本网站。
+  faq_header: |
+    <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">常见问题解答（FAQ）</h2>
+  faq_help: <b>有什么可以帮忙的吗？</b>
+  faq_help_answer_1: |
+    宣传社区中的疫苗。帮助您的合格亲人获得疫苗。继续戴上口罩，并遵守社交疏导准则。
+  faq_help_answer_2: |
+    我们现在最需要的是负责任的志愿者，他们可以帮助我们致电全州的医疗服务提供者，以便我们可以继续为所有加利福尼亚人提供有关COVID-19疫苗可用性的全面信息。
+  faq_help_answer_3: |
+    如果您想自愿帮助我们打电话，请<a href="https://airtable.com/shrY9Ac8PGuudZAe3">告诉我们</a>。
+  faq_help_answer_4: |
+    <a href="https://twitter.com/ca_covid">在Twitter上关注我们，</a>以了解其他帮助的最新机会。
+  faq_help_answer_5: |
+    我们不需要钱。许多慈善项目<i>都有</i>;他们将感谢您的大力支持。
+  faq_press: |
+    <b>我是记者我可以联系吗？</b>
+  faq_press_answer: |
+    请发电子邮件至<a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a> ;我们会尽快与您联系。
+  faq_medical: |
+    <b>我在医疗服务提供者上班！我如何要求您更新我们的信息或提出要求？</b>
+  faq_medical_answer_1: |
+    我们感谢您正在做的工作，并随时为您提供支持！
+  faq_medical_answer_2: |
+    请发短信给<a href="tel:+14153014597">（415）301-4597</a> ，<a href="tel:+14153014597">并附</a>上您的信息，机构隶属关系以及内部分机或联系人姓名，以便我们回电进行验证。我们无法使用该号码接收照片；请只输入文字。
+  faq_medical_answer_3: |
+    一位组织者将阅读您的消息，并尽快采取行动。
+  faq_community: |
+    <b>我在面向社区的组织中工作或为政府工作。我们可以讨论这个吗？</b>
+  faq_community_answer_1: |
+    我们希望支持您为尽快为加利福尼亚人接种疫苗所做的紧急工作。请给我们发送电子邮件至<a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a>进行讨论。
+  faq_toil: |
+    <b>这种努力会增加还是减少医疗保健系统的工作量？</b>
+  faq_toil_answr_1: |
+    大多数医院每天都会接到数千个电话。目前，他们比平时受到更多人的猛烈抨击，问他们同样的问题：“您有疫苗吗？”
+  faq_toil_answr_2: |
+    通过询问该问题并发布答案，我们可以为医院的日常操作节省他们的电话带宽。我们还使寻求疫苗的人们不必打电话到数十个地点来找到有这种疫苗的地点。
+  faq_accurate: |
+    <b>该网站上的信息是否准确？</b>
+  faq_accurate_answer_1: |
+    我们只发布疫苗网站在我们致电时告诉我们的内容。情况很复杂，一天中的供应可能会有所不同，而且并非站点上的每个人都可能掌握有关其实际政策的最新信息。
+  faq_accurate_answer_2: |
+    我们正在尽力而为，但不能做出任何保证。
+  faq_who: |
+    <b>你是谁？</b>
+  faq_who_answer: |
+    我们是一个社区驱动的组织，有300多名志愿者与我们合作。截至2021年1月23日，我们的核心团队大约有20人。
+>>>>>>> Translate /_i18n/en.yml in zh_CN
