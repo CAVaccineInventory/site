@@ -6,6 +6,7 @@
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-es": "github:mysticatea/eslint-plugin-es",
     "prettier": "^2.1.1"
   },
   "license": {
