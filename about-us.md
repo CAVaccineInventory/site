@@ -28,7 +28,7 @@ order: 6
 
 {% t about_us.faq_help_answer_5 %}
 
-<h3 class="text-lg font-bold mb-2 bg-yellow-300 px-0.5 py-1">
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
   {% t about_us.faq_press %}
 </h3>
 
