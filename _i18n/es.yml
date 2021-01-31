@@ -116,71 +116,52 @@ providers:
     Esta es una descripción general de la información más reciente que tenemos para todas las principales redes de proveedores en California. Es posible que el personal que trabaja en una ubicación particular dentro de estas redes elija operar de manera diferente.
 about_us:
   coordinators: "Algunos de los que trabajamos en este proyecto el día 1:"
-  big_text: |
-    VaccinateCA is a community-driven effort to help Californians learn accurate, up-to-date, verified information about
-    the coronavirus vaccine, so they they can learn when they will be eligible and how to take their place in line.
-
-    Our professionals call medical professionals at hundreds of potential vaccination sites daily, asking them if they 
-    have the vaccine and if so to whom they will administer it to and how to get an appointment. We write down what 
-    they tell us, and publish it to this site.
-
-    <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
-    Frequently Asked Questions (FAQ)
-    </h2>
-
-    <b>How can I help?</b>
-
-    Get the word out about the vaccine in your community. Help your eligible loved ones get the vaccine. Continue 
-    wearing your mask and observe social distancing guidelines.
-
-    What we need the most right now are responsible volunteers who can help us call healthcare providers across 
-    the state so we can continue to offer comprehensive information about COVID-19 vaccine availability to all 
-    Californians. 
-
-    If you'd like to volunteer to help us make calls, please <a href="https://airtable.com/shrY9Ac8PGuudZAe3">let us know</a>.
-
-    <a href="https://twitter.com/{{ site.twitter_username }}">Follow us on Twitter</a> to keep up to date on other 
-    opportunities to help out.
-
-    We don't need money. Many charitable projects <i>do</i>; they would appreciate your generous support.
-
-    <b>I am a reporter. Can I get in touch?</b>
-
-    Please email <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; we'll be in touch quickly.
-
-    <b>I work at a medical provider! How do I ask you to update our information or make a request of you?</b>
-
-    We appreciate the work you are doing, and are here to support it!
-
-    Please text <a href="tel:+14153014597">(415) 301-4597</a> with your message, institutional affiliation, and an 
-    internal extension or contact name so we can call back to verify. We cannot receive photos at this number; 
-    text only, please.
-
-    One of the organizers will read your message and take action as soon as reasonably possible.
-
-    <b>I work in a community-facing organization or for the government. Can we discuss this?</b>
-
-    We want to support the urgent work you are doing in getting Californians vaccinated as quickly as possible. 
-    Please email us at <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> to discuss.
-
-    <b>Does this effort increase or decrease toil in the healthcare system?</b>
-
-    Most hospitals will get thousands of phone calls per day. They are currently being slammed by many more people than 
-    usual asking them the same question: "Do you have the vaccine?"
-
-    By asking that question and publishing the answer, we can save their phone bandwidth for the day-to-day operations 
-    of the hospital. We also save people seeking the vaccine from having to call dozens of locations to find one that 
-    has availability.
-
-    <b>Is the information on this website accurate?</b>
-
-    We publish only what the vaccine site told us when we called. The situation is complex, supplies may vary throughout
-    the day, and not everyone at the site might have up-to-the-minute information as to what their policies actually 
-    are.
-
-    We're doing our best, but can't make any guarantees.
-
-    <b>Who are you?</b>
-
-    We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our 
-    core team was approximately 20 people.
+  intro_1: |
+    VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus, para que puedan saber cuándo serán elegibles y cómo ocupar su lugar en la fila.
+  intro_2: |
+    Nuestros profesionales llaman a los profesionales médicos a cientos de posibles lugares de vacunación a diario y les preguntan si tienen la vacuna y, de ser así, a quién se la administrarán y cómo concertar una cita. Escribimos lo que nos dicen y lo publicamos en este sitio.
+  faq_header: |
+    <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">Preguntas frecuentes (FAQ)</h2>
+  faq_help: "<b>¿Cómo te puedo ayudar?</b>\n"
+  faq_help_answer_1: |
+    Haga correr la voz sobre la vacuna en su comunidad. Ayude a sus seres queridos elegibles a recibir la vacuna. Continúe usando su máscara y observe las pautas de distanciamiento social.
+  faq_help_answer_2: |
+    Lo que más necesitamos ahora son voluntarios responsables que puedan ayudarnos a llamar a los proveedores de atención médica en todo el estado para que podamos seguir ofreciendo información completa sobre la disponibilidad de la vacuna COVID-19 a todos los californianos.
+  faq_help_answer_3: |
+    Si desea ser voluntario para ayudarnos a hacer llamadas, <a href="https://airtable.com/shrY9Ac8PGuudZAe3">háganoslo saber</a> .
+  faq_help_answer_4: |
+    <a href="https://twitter.com/ca_covid">Síganos en Twitter</a> para mantenerse actualizado sobre otras oportunidades de ayudar.
+  faq_help_answer_5: |
+    No necesitamos dinero. Muchos proyectos de caridad lo <i>hacen</i> ; agradecerían su generoso apoyo.
+  faq_press: |
+    <b>Soy un reportero ¿Puedo ponerme en contacto?</b>
+  faq_press_answer: |
+    Envíe un correo electrónico a <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a> ; nos pondremos en contacto rápidamente.
+  faq_medical: |
+    <b>¡Trabajo en un proveedor médico! ¿Cómo le pido que actualice nuestra información o le haga una solicitud?</b>
+  faq_medical_answer_1: |
+    ¡Apreciamos el trabajo que está haciendo y estamos aquí para apoyarlo!
+  faq_medical_answer_2: |
+    Envíe un mensaje de texto al <a href="tel:+14153014597">(415) 301-4597</a> con su mensaje, afiliación institucional y una extensión interna o nombre de contacto para que podamos llamar para verificar. No podemos recibir fotos en este número; solo texto, por favor.
+  faq_medical_answer_3: |
+    Uno de los organizadores leerá su mensaje y tomará medidas tan pronto como sea razonablemente posible.
+  faq_community: |
+    <b>Trabajo en una organización de cara a la comunidad o para el gobierno. ¿Podemos discutir esto?</b>
+  faq_community_answer_1: |
+    Queremos apoyar el trabajo urgente que está haciendo para vacunar a los californianos lo más rápido posible. Envíenos un correo electrónico a <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> para discutir.
+  faq_toil: |
+    <b>¿Este esfuerzo aumenta o disminuye la fatiga en el sistema de salud?</b>
+  faq_toil_answr_1: |
+    La mayoría de los hospitales reciben miles de llamadas telefónicas al día. Actualmente están siendo criticados por muchas más personas de lo habitual haciéndoles la misma pregunta: &quot;¿Tienen la vacuna?&quot;
+  faq_toil_answr_2: |
+    Al hacer esa pregunta y publicar la respuesta, podemos ahorrar el ancho de banda de su teléfono para las operaciones diarias del hospital. También evitamos que las personas que buscan la vacuna tengan que llamar a docenas de ubicaciones para encontrar una que tenga disponibilidad.
+  faq_accurate: |
+    <b>¿Es precisa la información de este sitio web?</b>
+  faq_accurate_answer_1: |
+    Publicamos solo lo que el sitio de la vacuna nos dijo cuando llamamos. La situación es compleja, los suministros pueden variar a lo largo del día y es posible que no todos en el sitio tengan información actualizada sobre cuáles son sus políticas.
+  faq_accurate_answer_2: |
+    Estamos haciendo nuestro mejor esfuerzo, pero no podemos ofrecer ninguna garantía.
+  faq_who: |
+    <b>¿Quién eres tú?</b>
+  faq_who_answer: |
+    Somos una organización impulsada por la comunidad, con más de 300 voluntarios trabajando con nosotros. Al 23 de enero de 2021, nuestro equipo central era de aproximadamente 20 personas.
