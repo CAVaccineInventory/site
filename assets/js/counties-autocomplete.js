@@ -6,7 +6,10 @@ window.addEventListener("load", () => {
   if (!counties) return;
   const countiesAutocompleteSource = counties
     .split(",")
-    .map((c) => c.replace(/^\s*(.*\S)\s*$/, "$1"));
+        .map((c) => {
+          let county = c.replace(/^\s*(.*\S)\s*$/, "$1")
+          return county + (county === "San Francisco" ? "" : " County")
+        })
   const autoCompleteInstance = new autoComplete({
     data: {
       src: countiesAutocompleteSource,
@@ -15,14 +18,13 @@ window.addEventListener("load", () => {
       idName: "main_search_autocomplete_list",
     },
     selector: inputSelector,
+    query:  {
+      manipulate: (str) => {
+        return str.trim()
+      }
+    },
     maxResults: 7,
     highlight: true,
-    resultItem: {
-      content: (data, source) => {
-        source.innerHTML =
-          data.match + (data.value === "San Francisco" ? "" : " County");
-      },
-    },
     onSelection: (feedback) => {
       const selected = feedback.selection.value;
       const newUrl = `/counties/${selected
