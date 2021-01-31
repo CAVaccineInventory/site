@@ -10,9 +10,13 @@ order: 6
 
 {% t about_us.intro_2 %}
 
-{% t about_us.faq_header %}
+<h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
+  {% t about_us.faq_header %}
+</h2>
 
-{% t about_us.faq_help %}
+<h3 class="text-lg font-bold mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.faq_help %}
+</h3>
 
 {% t about_us.faq_help_answer_1 %}
 
@@ -24,11 +28,15 @@ order: 6
 
 {% t about_us.faq_help_answer_5 %}
 
-{% t about_us.faq_press %}
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.faq_press %}
+</h3>
 
 {% t about_us.faq_press_answer %}
 
-{% t about_us.faq_medical %}
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.faq_medical %}
+</h3>
 
 {% t about_us.faq_medical_answer_1 %}
 
@@ -36,23 +44,32 @@ order: 6
 
 {% t about_us.faq_medical_answer_3 %}
 
-{% t about_us.faq_community %}
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.faq_community %}
+</h3>
 
 {% t about_us.faq_community_answer_1 %}
 
-{% t about_us.faq_toil %}
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.faq_toil %}
+</h3>
 
 {% t about_us.faq_toil_answr_1 %}
 
 {% t about_us.faq_toil_answr_2 %}
 
-{% t about_us.faq_accurate %}
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.faq_accurate %}
+</h3>
 
 {% t about_us.faq_accurate_answer_1 %}
 
 {% t about_us.faq_accurate_answer_2 %}
 
-{% t about_us.coordinators %} <span id="people-list">
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+  {% t about_us.coordinators %}
+</h3>
+<span id="people-list">
 {% for coordinator in site.data.coordinators %} <a href="{{ coordinator[1] }}">{{ coordinator[0] }}</a> {% endfor %}
 </span>.
 
