@@ -53,8 +53,8 @@ function loaded() {
   addListeners();
 }
 
-function toggleElementVisibility(element_id, isVisible) {
-  const elem = document.getElementById(element_id);
+function toggleElementVisibility(elementId, isVisible) {
+  const elem = document.getElementById(elementId);
   if (!elem) return;
   if (isVisible) {
     elem.classList.remove("hidden");
@@ -239,7 +239,7 @@ async function submitGeoLocation() {
 }
 
 async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
-  let county = await coordinatesToCounty(coordinates);
+  const county = await coordinatesToCounty(coordinates);
   await fetchFilterAndSortSites(coordinates, county, repositionMap);
 }
 
@@ -255,14 +255,14 @@ async function lookup(zip) {
     county = zipCodes[zip].county;
   } else {
     const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
-    let response = await fetch(geocodeURL);
+    const response = await fetch(geocodeURL);
 
     if (!response.ok) {
       alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
     }
 
-    let results = await response.json();
+    const results = await response.json();
     if (results.nhits < 1) {
       alert(window.messageCatalog["nearest_js_alert_zipcode"]);
       return;
@@ -310,7 +310,7 @@ async function fetchFilterAndSortSites(
   }
 
   for (const site of sites) {
-    let siteCoord = getCoord(site);
+    const siteCoord = getCoord(site);
     const distance = distanceBetweenCoordinates(userCoord, siteCoord);
     site.distance = distance;
   }
@@ -349,7 +349,7 @@ function updateMap(coord, sites, repositionMap = true) {
 // https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
 function distanceBetweenCoordinates(coord1, coord2) {
   const p = Math.PI / 180;
-  var a =
+  const a =
     0.5 -
     Math.cos((coord2.latitude - coord1.latitude) * p) / 2 +
     (Math.cos(coord1.latitude * p) *
@@ -366,6 +366,7 @@ function debounce(func, timeout = 300) {
   return (...args) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
+      // eslint-disable-next-line no-invalid-this
       func.apply(this, args);
     }, timeout);
   };

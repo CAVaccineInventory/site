@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "lint": "prettier assets/js/*.js assets/css/*.css **/*.html",
-    "lint:fix": "prettier --write assets/js/*.js assets/css/*.css **/*.html"
+    "lint": "prettier assets/js/*.js assets/css/*.css **/*.html && eslint .",
+    "lint:fix": "prettier --write assets/js/*.js assets/css/*.css **/*.html && eslint --fix ."
   },
   "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-google": "^0.14.0",
     "prettier": "^2.1.1"
   },
   "license": {

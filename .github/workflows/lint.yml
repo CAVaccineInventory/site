@@ -2,7 +2,7 @@ name: Clean Up
 on: pull_request
 
 jobs:
-  prettier:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,4 +23,4 @@ jobs:
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Apply prettier fixes 🤖
+        commit_message: Apply lint fixes 🤖
