@@ -40,7 +40,7 @@ vaccination_sites:
     pharmacies and other locations.
 head:
   meta_image_tag: |
-    An image of the Vaccinate CA logo with the text 'Vaccinate CA. Find vaccines 
+    An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccines
     near you with our community-run tracker'
 header:
   menu_open: Open main menu
@@ -109,7 +109,7 @@ index:
   locations_by_county: Vaccination locations by county
   more_info: More information about vaccine availability
   find_county: Find your county
-  about_us: About Vaccinate California
+  about_us: About VaccinateCA
 data_js:
   alert: Could not retrieve the vaccination site data.
   call_back: Could not reach human, calling back later
