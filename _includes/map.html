@@ -14,7 +14,17 @@
   class="w-full h-full"
 ></div>
 
-<script id="map-marker" type="text/x-handlebars-template">
+<script id="mapMarkerLabels" type="application/json">
+  {
+    "superSite": "{% t global.super_site %}",
+    "details": "{% t global.details %}",
+    "apptInfo": "{% t global.appt_info %}",
+    "address": "{% t global.address %}",
+    "latestInfo": "{% t global.latest_info %}"
+  }
+</script>
+
+<script id="mapMarker" type="text/x-handlebars-template">
   {% raw %}
   <div class="mapInfo">
     <h1 class="text-green-600">
@@ -22,19 +32,19 @@
     </h1>
     {{#superSite}}
       <b class="text-lg supersite-tag">
-        Super Site
+        {{ superSiteLabel }}
       </b>
       <br />
     {{/superSite}}
 
     <b>
-      Details:
+      {{detailsLabel}}:
     </b>
     {{details}}<br />
 
     {{#schedulingInstructions}}
       <b>
-        Appointment information:
+        {{../schedulingInstructionsLabel}}:
       </b>
       {{{this}}}
       <br />
@@ -42,7 +52,7 @@
 
     {{#address}}
       <b>
-        Address:
+        {{../addressLabel}}:
       </b>
       {{this}}<br />
     {{/address}}
@@ -50,6 +60,7 @@
     {{#reportNotes}}
       <b>
         Latest info:
+        {{../reportNotesLabel}}:
       </b>
       {{this}}<br />
     {{/reportNotes}}

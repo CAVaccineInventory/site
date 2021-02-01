@@ -14,7 +14,8 @@ function addLocation(p) {
     return false;
   }
 
-  const templateSource = document.querySelector("#map-marker").innerHTML;
+  const markerLabels = JSON.parse(document.querySelector("#mapMarkerLabels").textContent);
+  const templateSource = document.querySelector("#mapMarker").innerHTML;
   const markerTemplate = Handlebars.compile(templateSource);
   const markerContent = markerTemplate({
     name: info.name,
@@ -23,6 +24,11 @@ function addLocation(p) {
     schedulingInstructions: info.schedulingInstructions,
     address: info.address,
     reportNotes: info.reportNotes,
+    superSiteLabel: markerLabels.superSite,
+    detailsLabel: markerLabels.details,
+    schedulingInstructionsLabel: markerLabels.apptInfo,
+    addressLabel: markerLabels.address,
+    reportNotesLabel: markerLabels.latestInfo
   });
 
   // Populate the marker and info card
