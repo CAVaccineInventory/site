@@ -109,7 +109,7 @@ index:
   locations_by_county: Vaccination locations by county
   more_info: More information about vaccine availability
   find_county: Find your county
-  about_us: About Vaccinate California
+  about_us: About Vaccinate CA
 data_js:
   alert: Could not retrieve the vaccination site data.
   call_back: Could not reach human, calling back later
