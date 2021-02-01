@@ -23,7 +23,7 @@ function addLocation(p) {
     schedulingInstructions: info.schedulingInstructions,
     address: info.address,
     reportNotes: info.reportNotes,
-  })
+  });
 
   // Populate the marker and info card
   const markerConfig = {

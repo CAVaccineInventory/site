@@ -17,23 +17,41 @@
 <script id="map-marker" type="text/x-handlebars-template">
   {% raw %}
   <div class="mapInfo">
-    <h1 class="text-green-600">{{name}}</h1>
+    <h1 class="text-green-600">
+      {{name}}
+    </h1>
     {{#superSite}}
-      <b class="text-lg supersite-tag">Super Site</b><br />
+      <b class="text-lg supersite-tag">
+        Super Site
+      </b>
+      <br />
     {{/superSite}}
 
-    <b>Details: </b> {{details}}<br/>
+    <b>
+      Details:
+    </b>
+    {{details}}<br />
 
     {{#schedulingInstructions}}
-      <b>Appointment information: </b> {{{this}}} <br />
+      <b>
+        Appointment information:
+      </b>
+      {{{this}}}
+      <br />
     {{/schedulingInstructions}}
 
     {{#address}}
-      <b>Address:</b> {{this}}<br />
+      <b>
+        Address:
+      </b>
+      {{this}}<br />
     {{/address}}
 
     {{#reportNotes}}
-      <b>Latest info:</b> {{this}}<br />
+      <b>
+        Latest info:
+      </b>
+      {{this}}<br />
     {{/reportNotes}}
   </div>
   {% endraw %}
