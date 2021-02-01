@@ -96,7 +96,9 @@ function addSitesToPage(sites, containerId, userCounty) {
         ".site_vaccine_status"
       );
       if (vaccineStateElem) {
-        vaccineStateElem.classList.add(`vaccine_${info.hasVaccine.toLowerCase()}`)
+        vaccineStateElem.classList.add(
+          `vaccine_${info.hasVaccine.toLowerCase()}`
+        );
       }
       const ageElem = siteRootElem.querySelector(".site_age_restriction");
       const otherRestrictionsElem = siteRootElem.querySelector(
