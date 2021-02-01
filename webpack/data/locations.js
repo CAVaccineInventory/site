@@ -137,15 +137,9 @@ function getDisplayableVaccineInfo(p) {
         p,
         "Yes: restricted to county residents"
       ),
-      isAppointmentRequired: (
-        doesLocationHaveProp(
-          p,
-          "Yes: appointment required"
-        ) || doesLocationHaveProp(
-          p,
-          "Yes: appointment calendar currently full"
-        )
-      ),
+      isAppointmentRequired:
+        doesLocationHaveProp(p, "Yes: appointment required") ||
+        doesLocationHaveProp(p, "Yes: appointment calendar currently full"),
       isLimitedToPatients: doesLocationHaveProp(
         p,
         "Yes: must be a current patient"

@@ -1,4 +1,5 @@
-import { getDisplayableVaccineInfo } from "/assets/js/data/locations.js";
+import Handlebars from "handlebars";
+import { getDisplayableVaccineInfo } from "./data/locations.js";
 
 window.mapMarkers = [];
 

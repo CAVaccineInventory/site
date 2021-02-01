@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e -u
+
+bundle install
+npm install
+npx nf start

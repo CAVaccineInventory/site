@@ -1,3 +1,5 @@
+import autoComplete from "@tarekraafat/autocomplete.js";
+import sendAnalyticsEvent from "./sendAnalyticsEvent";
 import {
   fetchSites,
   splitSitesByVaccineState,

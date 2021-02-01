@@ -94,3 +94,5 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - script/
+  - webpack/
+  - Procfile

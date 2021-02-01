@@ -1,3 +1,5 @@
+import autoComplete from "@tarekraafat/autocomplete.js";
+
 window.addEventListener("load", () => {
   const inputSelector = "#js_zip_or_county";
   const input = document.querySelector(inputSelector);
