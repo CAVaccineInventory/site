@@ -31,7 +31,29 @@
         text-sm md:text-base" %}
         <div
           class="site_vaccine_status {{ base_class }} space-x-2 border-0 md:border-r border-gray-100 py-2 col-span-7 md:col-span-4"
-        ></div>
+        >
+          {% assign vaccine_state_class = "font-sm font-bold" %}
+          <div class="vaccine_available hidden">
+            {% include svg/checkmark.svg %}
+            <span class="{{ vaccine_state_class }} text-green-600"
+              >{% t nearest.vaccines_available %}</span
+            >
+          </div>
+
+          <div class="vaccine_not_available hidden">
+            {% include svg/missing.svg %}
+            <span class="{{ vaccine_state_class }} text-red-500"
+              >{% t nearest.vaccines_not_available %}</span
+            >
+          </div>
+
+          <div class="vaccine_unknown hidden">
+            {% include svg/question_mark.svg %}
+            <span class="{{ vaccine_state_class }} text-gray-400"
+              >{% t nearest.vaccine_unknown %}</span
+            >
+          </div>
+        </div>
         <div
           class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-5 self-center justify-self-center md:hidden"
         ></div>
@@ -78,26 +100,4 @@
   <dd
     class="detail_content mt-1 text-sm text-gray-900 md:mt-0 sm:col-span-2 break-word"
   ></dd>
-</template>
-
-{% assign vaccine_state_class = "font-sm font-bold" %}
-<template id="vaccine_available">
-  {% include svg/checkmark.svg %}
-  <span class="{{ vaccine_state_class }} text-green-600"
-    >{% t nearest.vaccines_available %}</span
-  >
-</template>
-
-<template id="vaccine_not_available">
-  {% include svg/missing.svg %}
-  <span class="{{ vaccine_state_class }} text-red-500"
-    >{% t nearest.vaccines_not_available %}</span
-  >
-</template>
-
-<template id="vaccine_unknown">
-  {% include svg/question_mark.svg %}
-  <span class="{{ vaccine_state_class }} text-gray-400"
-    >{% t nearest.vaccine_unknown %}</span
-  >
 </template>

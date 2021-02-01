@@ -40,12 +40,6 @@ function addSitesToPage(sites, containerId, userCounty) {
   const siteTemplate = document.getElementById("site_location_template")
     .content;
 
-  const vaccineStatusTemplates = {
-    Yes: document.getElementById("vaccine_available").content,
-    No: document.getElementById("vaccine_not_available").content,
-    Unknown: document.getElementById("vaccine_unknown").content,
-  };
-
   for (const site of sites.slice(0, 50)) {
     const info = getDisplayableVaccineInfo(site);
     const siteRootElem = siteTemplate.cloneNode(true);
@@ -102,10 +96,7 @@ function addSitesToPage(sites, containerId, userCounty) {
         ".site_vaccine_status"
       );
       if (vaccineStateElem) {
-        const template = vaccineStatusTemplates[info.hasVaccine];
-        if (template) {
-          vaccineStateElem.appendChild(template.cloneNode(true));
-        }
+        vaccineStateElem.classList.add(`vaccine_${info.hasVaccine.toLowerCase()}`)
       }
       const ageElem = siteRootElem.querySelector(".site_age_restriction");
       const otherRestrictionsElem = siteRootElem.querySelector(
