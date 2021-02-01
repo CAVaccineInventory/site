@@ -30,40 +30,40 @@
     <h1 class="text-green-600">
       {{name}}
     </h1>
-    {{#superSite}}
+    {{#if superSite}}
       <b class="text-lg supersite-tag">
         {{ superSiteLabel }}
       </b>
       <br />
-    {{/superSite}}
+    {{/if}}
 
     <b>
       {{detailsLabel}}:
     </b>
     {{details}}<br />
 
-    {{#schedulingInstructions}}
+    {{#if schedulingInstructions}}
       <b>
-        {{../schedulingInstructionsLabel}}:
+        {{schedulingInstructionsLabel}}:
       </b>
-      {{{this}}}
+      {{{schedulingInstructions}}}
       <br />
-    {{/schedulingInstructions}}
+    {{/if }}
 
-    {{#address}}
+    {{#if address}}
       <b>
-        {{../addressLabel}}:
+        {{addressLabel}}:
       </b>
-      {{this}}<br />
-    {{/address}}
+      {{address}}<br />
+    {{/if}}
 
-    {{#reportNotes}}
+    {{#if reportNotes}}
       <b>
         Latest info:
-        {{../reportNotesLabel}}:
+        {{reportNotesLabel}}:
       </b>
-      {{this}}<br />
-    {{/reportNotes}}
+      {{reportNotes}}<br />
+    {{/if}}
   </div>
   {% endraw %}
 </script>
