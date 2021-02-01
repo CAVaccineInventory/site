@@ -5,6 +5,8 @@ module.exports = {
   },
   "extends": [
     "google",
+    "plugin:es/restrict-to-es2017",
+    "plugin:es/no-new-in-esnext",
   ],
   "parserOptions": {
     "ecmaVersion": 12,
@@ -30,5 +32,9 @@ module.exports = {
       "anonymous": "always",
       "named": "never",
     }],
+    "es/no-rest-spread-properties": ["off"],
+  },
+  "settings": {
+    "es": { "aggressive": true },
   },
 };
