@@ -14,24 +14,24 @@ function addLocation(p) {
     return false;
   }
 
-  // Format the info card
-  let infoText = `<h1 class="text-green-600">${info.name}</h1>`;
-
-  if (info.isSuperSite) {
-    infoText += '<b class="text-lg supersite-tag">Super Site</b> <br />';
-  }
-
-  infoText += `<b>Details: </b> ${info.status}<br/>`;
-
-  if (info.schedulingInstructions) {
-    infoText += `<b>Appointment information: </b> ${info.schedulingInstructions} <br />`;
-  }
-  if (info.address) {
-    infoText += `<b>Address:</b> ${info.address}<br />`;
-  }
-  if (info.reportNotes) {
-    infoText += `<b>Latest info:</b> ${info.reportNotes}<br />`;
-  }
+  const markerLabels = JSON.parse(
+    document.querySelector("#mapMarkerLabels").textContent
+  );
+  const templateSource = document.querySelector("#mapMarker").innerHTML;
+  const markerTemplate = Handlebars.compile(templateSource);
+  const markerContent = markerTemplate({
+    name: info.name,
+    superSite: info.isSuperSite,
+    details: info.status,
+    schedulingInstructions: info.schedulingInstructions,
+    address: info.address,
+    reportNotes: info.reportNotes,
+    superSiteLabel: markerLabels.superSite,
+    detailsLabel: markerLabels.details,
+    schedulingInstructionsLabel: markerLabels.apptInfo,
+    addressLabel: markerLabels.address,
+    reportNotesLabel: markerLabels.latestInfo,
+  });
 
   // Populate the marker and info card
   const markerConfig = {
@@ -49,7 +49,7 @@ function addLocation(p) {
   }
   const marker = new google.maps.Marker(markerConfig);
   const infowindow = new google.maps.InfoWindow({
-    content: `<div class="mapInfo">${infoText}</div>`,
+    content: markerContent,
   });
 
   // Toggle the info card

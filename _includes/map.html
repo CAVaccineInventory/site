@@ -13,3 +13,57 @@
   id="js_map"
   class="w-full h-full"
 ></div>
+
+<script id="mapMarkerLabels" type="application/json">
+  {
+    "superSite": "{% t global.super_site %}",
+    "details": "{% t global.details %}",
+    "apptInfo": "{% t global.appt_info %}",
+    "address": "{% t global.address %}",
+    "latestInfo": "{% t global.latest_info %}"
+  }
+</script>
+
+<script id="mapMarker" type="text/x-handlebars-template">
+  {% raw %}
+  <div class="mapInfo">
+    <h1 class="text-green-600">
+      {{name}}
+    </h1>
+    {{#if superSite}}
+      <b class="text-lg supersite-tag">
+        {{superSiteLabel}}
+      </b>
+      <br />
+    {{/if}}
+
+    <b>
+      {{detailsLabel}}:
+    </b>
+    {{details}}<br />
+
+    {{#if schedulingInstructions}}
+      <b>
+        {{schedulingInstructionsLabel}}:
+      </b>
+      {{{schedulingInstructions}}}
+      <br />
+    {{/if}}
+
+    {{#if address}}
+      <b>
+        {{addressLabel}}:
+      </b>
+      {{address}}<br />
+    {{/if}}
+
+    {{#if reportNotes}}
+      <b>
+        Latest info:
+        {{reportNotesLabel}}:
+      </b>
+      {{reportNotes}}<br />
+    {{/if}}
+  </div>
+  {% endraw %}
+</script>
