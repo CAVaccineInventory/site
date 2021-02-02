@@ -15,6 +15,9 @@ function beautifyLinks(contentElem) {
 }
 
 function urlify(text) {
+  if (!text) {
+    return;
+  }
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(urlRegex, function (url) {
     return '<a href="' + url + '">' + url + "</a>";
