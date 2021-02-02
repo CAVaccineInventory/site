@@ -1,20 +1,25 @@
-<template id="site_location_template">
+<script id="siteLocationTemplate" type="text/x-handlebars-template">
   <li class="site-card rounded-lg mt-4 pt-4 pb-4 relative">
+    {% raw %}
     <div
       class="px-2 md:px-4 pb-2 border-b border-gray-200 flex flex-row space-x-2 justify-between items-center"
     >
       <!-- Name and address -->
       <div class="flex flex-col overflow-hidden">
-        <h4
-          class="site_title text-lg font-bold leading-6 text-gray-900 truncate"
-        ></h4>
+        <h4 class="site_title text-lg font-bold leading-6 text-gray-900 truncate" >
+          {{ name }}
+        </h4>
         <div class="site_location_info flex flex-row items-center">
+          {{#if county}}
           <a
             class="site_county text-sm font-medium text-black no-underline hover:underline whitespace-nowrap"
-          ></a>
+            href="{{ countyLink }}"
+            >{{ county }}</a>
+          {{/if}}
+          {{#if address}}
           <span class="address_separator px-2" aria-hidden="true">·</span>
           <a
-            class="site_address text-sm text-gray-500 no-underline hover:underline truncate capitalize"
+            class="site_address text-sm text-gray-500 no-underline hover:underline truncate"
             target="_blank"
             rel="noreferrer"
           ></a>
@@ -23,74 +28,92 @@
       <!-- Last report on desktop -->
       <div
         class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full hidden md:flex whitespace-nowrap"
-      ></div>
+        >{{ lastReportTime  }}</div>
     </div>
-    <div class="site_report">
-      <div class="relative grid grid-cols-12 py-2">
-        {% assign base_class = "py-2 px-4 h-full flex flex-row items-center
-        text-sm md:text-base" %}
-        <div
-          class="site_vaccine_status {{ base_class }} space-x-2 border-0 md:border-r border-gray-100 py-2 col-span-7 md:col-span-4"
-        >
-          {% assign vaccine_state_class = "font-sm font-bold" %}
-          <div class="vaccine_available hidden">
-            {% include svg/checkmark.svg %}
-            <span class="{{ vaccine_state_class }} text-green-600"
-              >{% t nearest.vaccines_available %}</span
-            >
-          </div>
-
-          <div class="vaccine_not_available hidden">
-            {% include svg/missing.svg %}
-            <span class="{{ vaccine_state_class }} text-red-500"
-              >{% t nearest.vaccines_not_available %}</span
-            >
-          </div>
-
-          <div class="vaccine_unknown hidden">
-            {% include svg/question_mark.svg %}
-            <span class="{{ vaccine_state_class }} text-gray-400"
-              >{% t nearest.vaccine_unknown %}</span
-            >
-          </div>
-        </div>
-        <div
-          class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-5 self-center justify-self-center md:hidden"
-        ></div>
-        <!-- Divider -->
-        <div
-          class="mobile_divider col-span-12 border-b border-gray-100 my-2 md:hidden"
-        ></div>
-        <div
-          class="site_age_restriction {{ base_class }} border-r border-gray-100 py-2 col-span-6 md:col-span-4"
-        ></div>
-        <div
-          class="site_other_restrictions {{ base_class }} col-span-6 md:col-span-4"
-        ></div>
-      </div>
-      <div
-        class="site_appointment_required px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
-      >
-        <div class="mr-2">{% include svg/calendar.svg %}</div>
-        <div>
-          <span class="font-bold pr-2"
-            >{% t nearest.appointment_required %}</span
+    {{#if hasReport }}
+      <div class="site_report">
+        <div class="relative grid grid-cols-12 py-2">
+          <div
+            class="site_vaccine_status py-2 px-4 h-full flex flex-row items-center text-sm md:text-base space-x-2 border-0 md:border-r border-gray-100 py-2 col-span-7 md:col-span-4"
           >
-          <span class="site_appointment_details text-black word-break"></span>
-        </div>
+            {% endraw %}
+            {% assign vaccine_state_class = "font-sm font-bold" %}
+            {% raw %}
+            <div class="vaccine_available hidden">
+              {% endraw %}
+              {% include svg/checkmark.svg %}
+              {% raw %}
+              <span class="{{ vaccine_state_class }} text-green-600"
+                >{% t nearest.vaccines_available %}</span
+              >
+            </div>
+
+            <div class="vaccine_not_available hidden">
+              {% endraw %}
+              {% include svg/missing.svg %}
+              {% raw %}
+              <span class="{{ vaccine_state_class }} text-red-500"
+                >{% t nearest.vaccines_not_available %}</span
+              >
+            </div>
+
+            <div class="vaccine_unknown hidden">
+              {% endraw %}
+              {% include svg/question_mark.svg %}
+              {% raw %}
+              <span class="{{ vaccine_state_class }} text-gray-400"
+                >{% t nearest.vaccine_unknown %}</span
+              >
+            </div>
+          </div>
+        {{#if hasVaccine}}
+          <div
+            class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-5 self-center justify-self-center md:hidden"
+            >{{ lastReportTime }}</div>
+          <!-- Divider -->
+          <div
+            class="mobile_divider col-span-12 border-b border-gray-100 my-2 md:hidden"
+          ></div>
+          <div
+            class="site_age_restriction py-2 px-4 h-full flex flex-row items-center text-sm md:text-base border-r border-gray-100 py-2 col-span-6 md:col-span-4"
+            >{{ ageRestriction }}</div>
+          <div
+            class="site_other_restrictions py-2 px-4 h-full flex flex-row items-center text-sm md:text-base col-span-6 md:col-span-4"
+            >{{ otherRestrictions }}</div>
+          </div>
+          {{#if appointmentRequired }}
+            <div
+              class="site_appointment_required px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
+            >
+            <div class="mr-2">{% endraw %}{% include svg/calendar.svg %}{% raw %}</div>
+              <div>
+                <span class="font-bold pr-2"
+                  >{% t nearest.appointment_required %}</span
+                >
+                <span class="site_appointment_details text-black word-break"></span>
+              </div>
+            </div>
+          {{/if}}
+        {{/if}}
+        {{#if notes}}
+          <div
+            class="site_latest_info px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
+          >
+            <div class="mr-2">{% include svg/info.svg %}</div>
+            <div>
+              <span class="font-bold pr-2">{% t nearest.latest_info %}</span>
+              <span class="site_latest_info_details text-black
+                            word-break">{{notes}}</span>
+            </div>
+          </div>
+        {{/if}}
       </div>
-      <div
-        class="site_latest_info px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
-      >
-        <div class="mr-2">{% include svg/info.svg %}</div>
-        <div>
-          <span class="font-bold pr-2">{% t nearest.latest_info %}</span>
-          <span class="site_latest_info_details text-black word-break"></span>
-        </div>
+      {{/if}}
+    {{else}}
+      <div class="site_no_report mt-3 px-2 md:px-4">
+        {% t site_template.no_reports %}
       </div>
-    </div>
-    <div class="site_no_report mt-3 px-2 md:px-4">
-      {% t site_template.no_reports %}
-    </div>
+    {{/if}}
   </li>
-</template>
+  {%endraw%}
+</script>
