@@ -31,11 +31,11 @@ nearest:
   vaccine_unknown: Estado de vacuna desconocido
 vaccination_sites:
   explainer: |
-    Ésta es una lista de todos los sitios que conocemos en California que pueden, en algún momento, recibir la vacuna contra el COVID-19. ** La mayoría de ellos no tienen vacuna disponible **; a diario llamamos a todos los que podemos para actualizar la lista. Por favor consulte el [informe más reciente] (https://www.vaccinateca.com). Si nos falta un sitio, [avísenos] (https://airtable.com/shrY44NvEjHBscrOH)! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
+    Ésta es una lista de todos los sitios que conocemos en California que pueden, en algún momento, recibir la vacuna contra el COVID-19. <b>La mayoría de ellos no tienen vacuna disponible</b>; a diario llamamos a todos los que podemos para actualizar la lista. Por favor consulte el <a href="https://www.vaccinateca.com">informe más reciente</a>. Si nos falta un sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH">avísenos</a>! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
 head:
   meta_image_tag: |
     Una imagen del logotipo de VaccinateCA con el texto 'VaccinateCA. Encuentra vacunas
-    cerca de ti con nuestro rastreador administrado por la comunidad
+    cerca de ti con nuestro rastreador administrado por la comunidad'
 header:
   menu_open: Abrir menú principal
 map:
@@ -44,7 +44,7 @@ map:
   failed: "Falló, inténtelo de nuevo"
   not_supported: No se admite la geolocalización
 search_form:
-  enter_zip: Ingrese código postal
+  enter_zip: Ingrese código ZIP
   enter_county: o condado
   location: Usa mi ubicación
   location_placeholder: Mi ubicación
@@ -89,8 +89,8 @@ data_js:
   alert: No se pudieron recuperar los datos del sitio de vacunación.
   call_back: "No se pudo comunicar con una persona, llamaremos más tarde"
 nearest_js:
-  alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código postal
-  alert_zipcode: No se pudo localizar su código postal. Vuelva a intentarlo.
+  alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código ZIP
+  alert_zipcode: No se pudo localizar su código ZIP. Vuelva a intentarlo.
   years_up: años o mayor
   patients_only: Solo pacientes actuales
   county_only: Solo residentes del condado
@@ -138,7 +138,7 @@ about_us:
   faq_medical_answer_3: |
     Uno de los organizadores leerá su mensaje y tomará acción tan pronto como sea razonablemente posible.
   faq_community: |
-    <b>Trabajo en una organización dirigida a la comunidad o para el gobierno. ¿Podemos discutir esto?</b>
+    <b>Trabajo en una organización dirigida a la comunidad o para el gobierno. ¿Podremos discutir esto?</b>
   faq_community_answer_1: |
     Queremos apoyar el trabajo urgente que ustedes están haciendo para vacunar a los californianos lo más rápido posible. Envíenos un correo electrónico a <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> para discutir.
   faq_toil: |
