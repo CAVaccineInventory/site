@@ -25,7 +25,9 @@ window.addEventListener("load", () => {
     highlight: true,
     onSelection: (feedback) => {
       const selected = feedback.selection.value;
-      const newUrl = `/counties/${selected
+      const lang = document.documentElement.getAttribute("lang");
+      const langPrefix = lang == "en" ? "" : `/${lang}`;
+      const newUrl = `${langPrefix}/counties/${selected
         .replace(" County", "")
         .trim()
         .replace(/\ /g, "_")}`;
