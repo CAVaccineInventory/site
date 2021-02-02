@@ -120,19 +120,6 @@ nearest_js:
   years_up: years old and up
   patients_only: Current patients only
   county_only: County residents only
-locations_js:
-  year_ago: year ago
-  years_ago: years ago
-  month_ago: month ago
-  months_ago: months ago
-  day_ago: day ago
-  days_ago: days ago
-  hour_ago: hour ago
-  hours_ago: hours ago
-  minute_ago: minute ago
-  minutes_ago: minutes ago
-  second_ago: second ago
-  seconds_ago: seconds ago
 post_list_disclaimer:
   disclaimer: |
       We do our best to keep the information on this site current, but vaccine
