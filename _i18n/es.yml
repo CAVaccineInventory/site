@@ -1,167 +1,159 @@
 # These are strings used in multiple places
 global:
   details: Detalles
-  appt_info: Información de la cita
+  appt_info: Información sobre citas
   address: Dirección
   latest_info: Última información
-  location_notes: Notas de ubicación
-  latest_report: Última actualización
+  location_notes: Notas del sitio
+  latest_report: Información actualizada
   loading: Cargando...
 site_list:
   vaccine_sites: Vacunas reportadas disponibles
-  no_vaccine_sites: Vacunas notificadas como no disponibles
-  no_report_sites: Ubicaciones no contactadas
+  no_vaccine_sites: Vacunas reportadas como no disponibles
+  no_report_sites: Sitios no contactados
 
 #These are per-page strings.
 titles:
-  about_us: Sobre nosotros
+  about_us: Acerca de nosotros
   county_policies: Políticas del condado
-  home: Disponibilidad de la vacuna COVID-19
+  home: Disponibilidad de la vacuna contra el COVID-19
   vaccination_sites: Sitios de vacunación
   providers: Proveedores
   nearest: Sitios de vacunación cercanos
 nearest:
-  dropdown_1: Sitios con los que hemos contactado
-  dropdown_2: Sitios con dosis informadas
-  dropdown_3: Todos los sitios de vacunación conocidos
+  dropdown_1: Sitios que hemos contactado
+  dropdown_2: Sitios con dosis reportadas
+  dropdown_3: Todos los sitios conocidos de vacunación
   appointment_required: Requiere cita
   latest_info: Última información
-  vaccines_available: Vacunas disponibles
-  vaccines_not_available: Vacunas no disponibles
+  vaccines_available: Vacunas reportadas disponibles
+  vaccines_not_available: Vacunas reportadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
 vaccination_sites:
   explainer: |
-    Ésta es una lista de todos los sitios que conocemos en California y que pueden, en algún momento, reciba la vacuna COVID-19. ** La mayoría de ellos no tienen vacuna disponible **; llamamos a todos los que podamos a diario para actualizar el lista, así que consulte el [informe más reciente] (https://www.vaccinateca.com). Si nosotros se perdió un sitio, [avísenos] (https://airtable.com/shrY44NvEjHBscrOH)! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
+    Ésta es una lista de todos los sitios que conocemos en California que pueden, en algún momento, recibir la vacuna contra el COVID-19. <b>La mayoría de ellos no tienen vacuna disponible</b>; a diario llamamos a todos los que podemos para actualizar la lista. Por favor consulte el <a href="https://www.vaccinateca.com">informe más reciente</a>. Si nos falta un sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH">avísenos</a>! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
 head:
   meta_image_tag: |
-    Una imagen del logotipo de Vaccinate CA con el texto 'Vaccinate CA. Encuentra vacunas
-    cerca de ti con nuestro rastreador administrado por la comunidad
+    Una imagen del logotipo de VaccinateCA con el texto 'VaccinateCA. Encuentra vacunas
+    cerca de ti con nuestro rastreador administrado por la comunidad'
 header:
   menu_open: Abrir menú principal
 map:
-  locate_button: ¡Ubica a mi alrededor!
+  locate_button: ¡Busque en mi alrededor!
   locating: Localizando...
   failed: "Falló, inténtelo de nuevo"
   not_supported: No se admite la geolocalización
 search_form:
-  enter_zip: Ingrese ZIP
+  enter_zip: Ingrese código ZIP
   enter_county: o condado
   location: Usa mi ubicación
-  location_placeholder: Mi ubicacion
+  location_placeholder: Mi ubicación
   submit_button: "Encontrar <span class=\"hidden md:inline\">vacuna</span>"
 site_template:
   county_header: Dentro de su condado
-  no_reports: Sin informes de contacto
+  no_reports: No reportes de contacto
 not_found:
   text: |
-    La página que ha solicitado no existe. Si busca ayuda con
-    encontrar vacunas en California, marque
+    La página que ha solicitado no existe. Si busca ayuda
+    encontrando vacunas en California, marque
     [VaccinateCA.com] (https://www.vaccinateca.com).
 county_policies:
   text: |
-    El estado de California tiene una estrategia de vacuna, pero ha delegado
-    priorización y administración a cada condado. Decisiones sobre cuál
-    los pacientes a vacunar y de qué manera están en última instancia a la altura de los
-    proveedores.
+    El estado de California tiene una estrategia de vacunación, pero ha delegado priorización y administración a cada condado. Las decisiones sobre cuáles pacientes vacunar y de qué forma hacerlo, en última instancia, depende de los proveedores.
 
-    Hemos recopilado la ** información más reciente a nivel de condado ** a continuación.
-    En general, creemos que si la información que tenemos en el archivo de un condado
-    no está de acuerdo con un proveedor médico en él, el que más probablemente tenga razón es
-    el que pudo (o no pudo) poner un tiro en el brazo de alguien.
+    A continuación, hemos recopilado la ** información más reciente a nivel de condado **. En general, creemos que si la información que tenemos de un condado está en desacuerdo con un proveedor médico del mismo condado, el que más probablemente tenga razón es el que pudo (o no pudo) vacunar a alguien.
 
-    Algunos condados han establecido sistemas de programación o tienen asesoramiento; por favor, compruebe
-    su condado a continuación.
+    Algunos condados han establecido sistemas para hacer citas o tienen asesoría; por favor, verifique su condado a continuación.
 index:
-  header: Encuentre una vacuna COVID-19 para usted o un ser querido
-  subtitle: |-
-    Las vacunas COVID-19 seguras y confiables están disponibles para las personas mayores y los trabajadores de la salud en California. Pero puede ser difícil saber dónde y cómo vacunar. Llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener una.
+  header: Encuentre una vacuna contra el COVID-19 para usted o un ser querido
+  subtitle: |
+    Seguras y confiables, las vacunas contra el COVID-19 están disponibles para las personas mayores y los trabajadores de la salud en California. Pero puede ser difícil saber dónde y cómo hacerse vacunar. Llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener la vacuna.
   disclaimer: |
-    Las vacunas COVID-19 seguras y confiables están disponibles para varios grupos de personas en California.
-    Pero puede ser difícil saber dónde y cómo vacunar.
-    Somos un grupo de voluntarios que llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener una.
+    Seguras y confiables, las vacunas contra el COVID-19 están disponibles para las personas mayores y los trabajadores de la salud en California. 
+    Pero puede ser difícil saber dónde y cómo hacerse vacunar. 
+    Somos un grupo de voluntarios que llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener la vacuna.
   disclaimer_1: |
-    El estado de California ha <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">aprobado</a> administrar la vacuna COVID-19 a personas de 65 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
+    El estado de California ha <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">aprobado</a> administrar la vacuna contra el COVID-19 a personas de 65 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
   disclaimer_2: |
     Somos un sitio web dirigido por la comunidad y no representamos al gobierno ni a ningún proveedor de atención médica.
   illustration: Ilustración de médico administrando vacunas.
-  positive_feedback: ¡Háganos saber si este sitio le resultó útil!
+  positive_feedback: ¡Háganos saber si este sitio web le resultó útil!
   corrections: |
-    Si tiene una ubicación faltante para informar o cree que tenemos una ubicación incorrecta
-    Información del contacto,
-    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">por favor déjanos saber</a>.
+    Si usted quiere reportar un sitio que hayamos omitido o cree que tenemos la información del contacto incorrecta
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">por favor déjenos saber</a>.
   locations_by_county: Lugares de vacunación por condado
   more_info: Más información sobre la disponibilidad de vacunas
   find_county: Encuentra tu condado
-  about_us: Acerca de Vaccinate California
+  about_us: Acerca de VaccinateCA
 data_js:
   alert: No se pudieron recuperar los datos del sitio de vacunación.
-  call_back: "No se pudo comunicar con el humano, volviendo a llamar más tarde"
+  call_back: "No se pudo comunicar con una persona, llamaremos más tarde"
 nearest_js:
-  alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código postal
-  alert_zipcode: No se pudo localizar su código postal. Vuelva a intentarlo.
-  years_up: años en adelante
+  alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código ZIP
+  alert_zipcode: No se pudo localizar su código ZIP. Vuelva a intentarlo.
+  years_up: años o mayor
   patients_only: Solo pacientes actuales
   county_only: Solo residentes del condado
 post_list_disclaimer:
   disclaimer: |
-    <div class="text-sm my-6">Hacemos todo lo posible para mantener actualizada la información de este sitio, pero es posible que la elegibilidad y la disponibilidad de la vacuna en un lugar específico hayan cambiado en el momento en que lea esto. Si encuentra algo desactualizado en este sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH"
-        class="font-medium text-yellow-600"
-      >infórmelo</a
-      > . Su informe ayudará a otros californianos.</div>
+    Hacemos todo lo posible para mantener actualizada la información de este sitio web, pero es posible que la elegibilidad y la disponibilidad de la vacuna en un lugar específico hayan cambiado en el momento en que lea esto. Si encuentra algo desactualizado en este sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH"
+      class="font-medium text-yellow-600"
+    >infórmelo</a
+    > . Su informe ayudará a otros californianos.
 pre_list_disclaimer:
   disclaimer: |
-    Llamamos a hospitales, farmacias y otros proveedores de salud en todo California todos los días para averiguar si actualmente están administrando vacunas. Los profesionales médicos que trabajan en estos proveedores nos informan sobre sus programas de vacunación actuales y aquí informamos lo que dicen. Si bien hacemos todo lo posible para verificar toda la información que recibimos, le recomendamos encarecidamente que consulte con su médico o con los funcionarios locales si tiene preguntas sobre un sitio de vacunación.
+    Llamamos a hospitales, farmacias y otros proveedores de salud en todo California todos los días para averiguar si actualmente están administrando vacunas. Los profesionales médicos que trabajan en estos sitios nos informan sobre sus actuales programas de vacunación y aquí reportamos lo que dicen. Aunque estamos haciendo todo lo posible para verificar la información que recibimos, le recomendamos encarecidamente consultar con su médico o con los funcionarios locales si tiene preguntas sobre un sitio de vacunación.
 providers:
   header: |
-    Esta es una descripción general de la información más reciente que tenemos para todas las principales redes de proveedores en California. Es posible que el personal que trabaja en una ubicación particular dentro de estas redes elija operar de manera diferente.
+    Esta es una descripción general de la información más reciente que tenemos de las principales redes de proveedores en California. Es posible que el personal que trabaja en una ubicación particular dentro de estas redes decida operar de manera diferente.
 about_us:
   coordinators: "Algunos de los que trabajamos en este proyecto el día 1:"
   intro_1: |
-    VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus, para que puedan saber cuándo serán elegibles y cómo ocupar su lugar en la fila.
+    VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus, para que puedan saber cuándo serán elegibles y cómo tomar su lugar en la fila.
   intro_2: |
-    Nuestros profesionales llaman a los profesionales médicos a cientos de posibles lugares de vacunación a diario y les preguntan si tienen la vacuna y, de ser así, a quién se la administrarán y cómo concertar una cita. Escribimos lo que nos dicen y lo publicamos en este sitio.
+    Nuestros profesionales llaman profesionales médicos en cientos de sitios de vacunación potenciales a diario preguntándoles si tienen la vacuna y, de ser así, a quién se la administrarán y cómo hacer una cita. Escribimos lo que nos dicen y lo publicamos en esta página.
   faq_header: |
-    <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">Preguntas frecuentes (FAQ)</h2>
-  faq_help: "<b>¿Cómo te puedo ayudar?</b>\n"
+    Preguntas frecuentes (FAQ)
+  faq_help: "¿Cómo puedo ayudar?"
   faq_help_answer_1: |
-    Haga correr la voz sobre la vacuna en su comunidad. Ayude a sus seres queridos elegibles a recibir la vacuna. Continúe usando su máscara y observe las pautas de distanciamiento social.
+    Corre la voz sobre la vacuna en su comunidad. Ayude a sus seres queridos elegibles a recibir la vacuna. Continúe usando su máscara y observe las normas de distanciamiento social.
   faq_help_answer_2: |
-    Lo que más necesitamos ahora son voluntarios responsables que puedan ayudarnos a llamar a los proveedores de atención médica en todo el estado para que podamos seguir ofreciendo información completa sobre la disponibilidad de la vacuna COVID-19 a todos los californianos.
+    Lo que más necesitamos ahora son voluntarios responsables que puedan ayudarnos a llamar a los proveedores de atención médica en todo el estado para que podamos seguir ofreciendo información completa sobre la disponibilidad de la vacuna contra el COVID-19 a todos los californianos.
   faq_help_answer_3: |
     Si desea ser voluntario para ayudarnos a hacer llamadas, <a href="https://airtable.com/shrY9Ac8PGuudZAe3">háganoslo saber</a> .
   faq_help_answer_4: |
-    <a href="https://twitter.com/ca_covid">Síganos en Twitter</a> para mantenerse actualizado sobre otras oportunidades de ayudar.
+    <a href="https://twitter.com/ca_covid">Síganos en Twitter</a> para mantenerse actualizado sobre otras oportunidades para ayudar.
   faq_help_answer_5: |
-    No necesitamos dinero. Muchos proyectos de caridad lo <i>hacen</i> ; agradecerían su generoso apoyo.
+    No necesitamos dinero. Muchos proyectos de caridad lo <i>necesitan</i> ; agradecerían su generoso apoyo.
   faq_press: |
-    <b>Soy un reportero ¿Puedo ponerme en contacto?</b>
+    Soy un reportero ¿Puedo ponerme en contacto?
   faq_press_answer: |
     Envíe un correo electrónico a <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a> ; nos pondremos en contacto rápidamente.
   faq_medical: |
-    <b>¡Trabajo en un proveedor médico! ¿Cómo le pido que actualice nuestra información o le haga una solicitud?</b>
+    <b>¡Trabajo con un proveedor médico! ¿Cómo le pido a usted que actualice nuestra información o hacer una solicitud?</b>
   faq_medical_answer_1: |
     ¡Apreciamos el trabajo que está haciendo y estamos aquí para apoyarlo!
   faq_medical_answer_2: |
-    Envíe un mensaje de texto al <a href="tel:+14153014597">(415) 301-4597</a> con su mensaje, afiliación institucional y una extensión interna o nombre de contacto para que podamos llamar para verificar. No podemos recibir fotos en este número; solo texto, por favor.
+    Envíe un texto al <a href="tel:+14153014597">(415) 301-4597</a> con su mensaje, afiliación institucional y una extensión interna o nombre de contacto donde podemos llamarlo para verificar. No podemos recibir fotos en este número; solo texto, por favor.
   faq_medical_answer_3: |
-    Uno de los organizadores leerá su mensaje y tomará medidas tan pronto como sea razonablemente posible.
+    Uno de los organizadores leerá su mensaje y tomará acción tan pronto como sea razonablemente posible.
   faq_community: |
-    <b>Trabajo en una organización de cara a la comunidad o para el gobierno. ¿Podemos discutir esto?</b>
+    <b>Trabajo en una organización dirigida a la comunidad o para el gobierno. ¿Podremos discutir esto?</b>
   faq_community_answer_1: |
-    Queremos apoyar el trabajo urgente que está haciendo para vacunar a los californianos lo más rápido posible. Envíenos un correo electrónico a <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> para discutir.
+    Queremos apoyar el trabajo urgente que ustedes están haciendo para vacunar a los californianos lo más rápido posible. Envíenos un correo electrónico a <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> para discutir.
   faq_toil: |
-    <b>¿Este esfuerzo aumenta o disminuye la fatiga en el sistema de salud?</b>
+    ¿Este esfuerzo aumenta o disminuye la fatiga en el sistema de salud?
   faq_toil_answr_1: |
-    La mayoría de los hospitales reciben miles de llamadas telefónicas al día. Actualmente están siendo criticados por muchas más personas de lo habitual haciéndoles la misma pregunta: &quot;¿Tienen la vacuna?&quot;
+    La mayoría de los hospitales reciben miles de llamadas telefónicas al día. Actualmente están siendo abrumados por muchas más personas haciendo la misma pregunta: "¿Tienen la vacuna?";
   faq_toil_answr_2: |
-    Al hacer esa pregunta y publicar la respuesta, podemos ahorrar el ancho de banda de su teléfono para las operaciones diarias del hospital. También evitamos que las personas que buscan la vacuna tengan que llamar a docenas de ubicaciones para encontrar una que tenga disponibilidad.
+    Al hacer esa pregunta y publicar la respuesta, podemos maximizar la capacidad telefónica para las operaciones diarias del hospital. También evitamos que las personas que buscan la vacuna tengan que llamar docenas de sitios para encontrar una que tenga disponibilidad.
   faq_accurate: |
-    <b>¿Es precisa la información de este sitio web?</b>
+    ¿Es precisa la información de este sitio web?
   faq_accurate_answer_1: |
-    Publicamos solo lo que el sitio de la vacuna nos dijo cuando llamamos. La situación es compleja, los suministros pueden variar a lo largo del día y es posible que no todos en el sitio tengan información actualizada sobre cuáles son sus políticas.
+    Publicamos solo lo que el sitio de vacunación nos dijo cuando llamamos. La situación es compleja, los suministros pueden variar a lo largo del día y es posible que no todo el personal del sitio tenga información actualizada sobre cuáles son sus políticas.
   faq_accurate_answer_2: |
     Estamos haciendo nuestro mejor esfuerzo, pero no podemos ofrecer ninguna garantía.
   faq_who: |
-    <b>¿Quién eres tú?</b>
+    ¿Quién eres tú?
   faq_who_answer: |
-    Somos una organización impulsada por la comunidad, con más de 300 voluntarios trabajando con nosotros. Al 23 de enero de 2021, nuestro equipo central era de aproximadamente 20 personas.
+    Somos una organización impulsada por la comunidad, con más de 300 voluntarios trabajando con nosotros. Hacia el 23 de enero de 2021, nuestro equipo central era de aproximadamente 20 personas.

@@ -40,7 +40,7 @@ homepage: true
           {% for county in site.data.front_page_counties %}
           <a
             class="text-black bg-white py-3 px-4 rounded-md shadow-md {% if forloop.index > 4 %}hidden md:block{% endif %}"
-            href="/counties/{{ county[1] }}"
+            href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/counties/{{ county[1] }}"
           >
             {{ county[0] }}
           </a>
