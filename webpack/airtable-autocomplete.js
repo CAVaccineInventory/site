@@ -1,3 +1,4 @@
+import autoComplete from "@tarekraafat/autocomplete.js";
 import counties from "./counties.js";
 
 let airtableBaseUrl;

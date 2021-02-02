@@ -11,6 +11,4 @@ async function fetchCounties() {
   return response.json();
 }
 
-export {
-  fetchCounties,
-};
+export { fetchCounties };

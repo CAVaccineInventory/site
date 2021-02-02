@@ -1,3 +1,4 @@
+import sendAnalyticsEvent from "./sendAnalyticsEvent";
 import {
   fetchSites,
   getHasVaccine,
