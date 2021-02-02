@@ -156,6 +156,10 @@ providers:
     This is an overview of the latest information we have for all major provider 
     networks in California. It is possible that the staff working at a particular 
     location within these networks will choose to operate differently.
+footer:
+  lang_disclaimer: |
+    Translation of this website is in active development. Some information may
+    not yet be available in this language— we apologize for the inconvenience!
 about_us:
   coordinators: "Some of us who worked on this project on Day 1:"
   intro_1: |
