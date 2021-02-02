@@ -191,22 +191,22 @@ function getTimeDiffFromNow(timestamp) {
   // explictly this way for translations.
   if (delta / (60 * 60 * 24 * 365) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 365));
-    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["years_ago"] : window.messageCatalog["year_ago"]
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["years_ago"] : window.messageCatalog["year_ago"];
   } else if (delta / (60 * 60 * 24 * 45) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 45));
-    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["months_ago"] : window.messageCatalog["month_ago"]
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["months_ago"] : window.messageCatalog["month_ago"];
   } else if (delta / (60 * 60 * 24) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24));
-    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["days_ago"] : window.messageCatalog["day_ago"]
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["days_ago"] : window.messageCatalog["day_ago"];
   } else if (delta / (60 * 60) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60));
-    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["hours_ago"] : window.messageCatalog["hour_ago"]
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["hours_ago"] : window.messageCatalog["hour_ago"];
   } else if (delta / 60 > 1) {
     timeUnitValue = Math.floor(delta / 60);
-    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["minutes_ago"] : window.messageCatalog["minute_ago"]
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["minutes_ago"] : window.messageCatalog["minute_ago"];
   } else {
     timeUnitValue = Math.floor(delta);
-    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["seconds_ago"] : window.messageCatalog["second_ago"]
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["seconds_ago"] : window.messageCatalog["second_ago"];
   }
 
   return `${timeUnitValue} ${timeUnitName}`;
