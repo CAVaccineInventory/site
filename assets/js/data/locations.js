@@ -187,32 +187,31 @@ function getTimeDiffFromNow(timestamp) {
   let timeUnitValue = "unit_value";
   let timeUnitName = "unit_name";
 
+  // This might seem like a lot of duplication! The strings here are
+  // explictly this way for translations.
   if (delta / (60 * 60 * 24 * 365) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 365));
-    timeUnitName = pluralizeTimeUnit(timeUnitValue, "year");
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["years_ago"] : window.messageCatalog["year_ago"]
   } else if (delta / (60 * 60 * 24 * 45) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 45));
-    timeUnitName = pluralizeTimeUnit(timeUnitValue, "month");
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["months_ago"] : window.messageCatalog["month_ago"]
   } else if (delta / (60 * 60 * 24) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60 * 24));
-    timeUnitName = pluralizeTimeUnit(timeUnitValue, "day");
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["days_ago"] : window.messageCatalog["day_ago"]
   } else if (delta / (60 * 60) > 1) {
     timeUnitValue = Math.floor(delta / (60 * 60));
-    timeUnitName = pluralizeTimeUnit(timeUnitValue, "hour");
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["hours_ago"] : window.messageCatalog["hour_ago"]
   } else if (delta / 60 > 1) {
-    timeUnitValue = Math.floor(delta / 60 );
-    timeUnitName = pluralizeTimeUnit(timeUnitValue, "minute");
+    timeUnitValue = Math.floor(delta / 60);
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["minutes_ago"] : window.messageCatalog["minute_ago"]
   } else {
     timeUnitValue = Math.floor(delta);
-    timeUnitName = pluralizeTimeUnit(timeUnitValue, "second");
+    timeUnitName = timeUnitValue > 1 ? window.messageCatalog["seconds_ago"] : window.messageCatalog["second_ago"]
   }
 
-  return `${timeUnitValue} ${timeUnitName} ago`;
+  return `${timeUnitValue} ${timeUnitName}`;
 }
 
-function pluralizeTimeUnit(value, timeUnitName) {
-  return value > 1 ? `${timeUnitName}s` : timeUnitName;
-}
 
 function splitSitesByVaccineState(sites) {
   const sitesWithVaccine = [];
