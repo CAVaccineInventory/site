@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
