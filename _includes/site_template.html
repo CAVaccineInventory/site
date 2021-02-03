@@ -1,3 +1,14 @@
+<script id="siteLocationLabels" type="application/json">
+  {
+    "hasVaccine": "{% t nearest.vaccines_available %}",
+    "noVaccine": "{% t nearest.vaccines_not_available %}",
+    "unknownVaccine": "{% t nearest.vaccine_unknown %}",
+    "apptRequired": "{% t nearest.appointment_required %}",
+    "latestInfo": "{% t nearest.latest_info %}",
+    "noReports": "{% t site_template.no_reports %}"
+  }
+</script>
+
 <script id="siteLocationTemplate" type="text/x-handlebars-template">
   <li class="site-card rounded-lg mt-4 pt-4 pb-4 relative">
     {% raw %}
@@ -22,49 +33,56 @@
             class="site_address text-sm text-gray-500 no-underline hover:underline truncate"
             target="_blank"
             rel="noreferrer"
-          ></a>
+            href="{{addressLink}}"
+          >{{address}}</a>
+          {{/if}}
         </div>
       </div>
       <!-- Last report on desktop -->
+      {{#if hasReport }}
       <div
         class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full hidden md:flex whitespace-nowrap"
         >{{ lastReportTime  }}</div>
+      {{/if}}
     </div>
-    {{#if hasReport }}
+    {{#if hasReport}}
       <div class="site_report">
         <div class="relative grid grid-cols-12 py-2">
           <div
             class="site_vaccine_status py-2 px-4 h-full flex flex-row items-center text-sm md:text-base space-x-2 border-0 md:border-r border-gray-100 py-2 col-span-7 md:col-span-4"
           >
-            {% endraw %}
-            {% assign vaccine_state_class = "font-sm font-bold" %}
-            {% raw %}
-            <div class="vaccine_available hidden">
+            {{#if hasVaccine}}
+            <div class="vaccine_available">
               {% endraw %}
               {% include svg/checkmark.svg %}
               {% raw %}
-              <span class="{{ vaccine_state_class }} text-green-600"
-                >{% t nearest.vaccines_available %}</span
+              <span class="font-sm font-bold text-green-600"
+                >{{ hasVaccineLabel }}</span
               >
             </div>
-
-            <div class="vaccine_not_available hidden">
+            {{/if}}
+            
+            {{#if noVaccine}}
+            <div class="vaccine_not_available">
               {% endraw %}
               {% include svg/missing.svg %}
               {% raw %}
-              <span class="{{ vaccine_state_class }} text-red-500"
-                >{% t nearest.vaccines_not_available %}</span
+              <span class="font-sm font-bold text-red-500"
+                >{{ noVaccineLabel }}</span
               >
             </div>
+            {{/if}}
 
-            <div class="vaccine_unknown hidden">
+            {{#if unknownVaccine}}
+            <div class="vaccine_unknown">
               {% endraw %}
               {% include svg/question_mark.svg %}
               {% raw %}
-              <span class="{{ vaccine_state_class }} text-gray-400"
-                >{% t nearest.vaccine_unknown %}</span
+              <span class="font-sm font-bold text-gray-400"
+                >{{ unknownVaccineLabel }}</span
               >
             </div>
+            {{/if}}
           </div>
         {{#if hasVaccine}}
           <div
@@ -88,30 +106,31 @@
             <div class="mr-2">{% endraw %}{% include svg/calendar.svg %}{% raw %}</div>
               <div>
                 <span class="font-bold pr-2"
-                  >{% t nearest.appointment_required %}</span
+                  >{{ appointmentRequiredLabel }}</span
                 >
-                <span class="site_appointment_details text-black word-break"></span>
+                <span class="site_appointment_details text-black
+                word-break">{{appointmentInstructions}}</span>
               </div>
             </div>
           {{/if}}
         {{/if}}
+        </div>
         {{#if notes}}
           <div
             class="site_latest_info px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
           >
-            <div class="mr-2">{% include svg/info.svg %}</div>
+            <div class="mr-2">{%endraw%}{% include svg/info.svg %}{%raw%}</div>
             <div>
-              <span class="font-bold pr-2">{% t nearest.latest_info %}</span>
+              <span class="font-bold pr-2">{{latestNotesLabel}}</span>
               <span class="site_latest_info_details text-black
-                            word-break">{{notes}}</span>
+                            word-break">{{{notes}}}</span>
             </div>
           </div>
         {{/if}}
       </div>
-      {{/if}}
     {{else}}
       <div class="site_no_report mt-3 px-2 md:px-4">
-        {% t site_template.no_reports %}
+        {{ noReports }}
       </div>
     {{/if}}
   </li>

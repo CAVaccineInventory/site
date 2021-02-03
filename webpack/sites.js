@@ -43,6 +43,7 @@ function addSitesToPage(sites, containerId, userCounty) {
   fragmentElem.innerHTML = "";
   const templateSource = document.querySelector("#siteLocationTemplate").innerHTML;
   const siteTemplate = Handlebars.compile(templateSource);
+  const labels = JSON.parse(document.querySelector("#siteLocationLabels").textContent);
 
   for (const site of sites.slice(0, 50)) {
     const info = getDisplayableVaccineInfo(site);
@@ -55,8 +56,11 @@ function addSitesToPage(sites, containerId, userCounty) {
     if (info.isCountyRestricted) {
       otherRestrictions = window.messageCatalog.nearest_js_county_only;
     }
-
     const latestReportTime = `${window.messageCatalog["global_latest_report"]} ${getTimeDiffFromNow(info.latestReportDate)}`;
+    let ageRestriction = "";
+    if (info.ageRestriction) {
+      ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
+    }
 
     const context = {
       name: info.name,
@@ -66,14 +70,20 @@ function addSitesToPage(sites, containerId, userCounty) {
       addressLink: addressLink,
       hasReport: info.hasReport,
       hasVaccine: info.hasVaccine == "Yes",
+      hasVaccineLabel: labels.hasVaccine,
       noVaccine: info.hasVaccine == "No",
+      noVaccineLabel: labels.noVaccine,
       unknownVaccine: info.hasVaccine == "Unknown",
+      unknownVaccineLabel: labels.unknownVaccine,
       lastReportTime: latestReportTime,
-      ageRestriction: `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`,
+      ageRestriction: ageRestriction,
       otherRestrictions: otherRestrictions,
       appointmentRequired: info.isAppointmentRequired,
+      appointmentRequiredLabel: labels.apptRequired,
       appointmentInstructions: info.schedulingInstructions,
+      latestNotesLabel: labels.latestNotes,
       notes: urlify(flattenData(info.reportNotes)),
+      noReports: labels.noReports,
     };
 
     // if (info.hasReport) {
