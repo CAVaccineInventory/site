@@ -225,9 +225,8 @@ async function submitGeoLocation() {
         resolve();
       },
       function onError(e) {
-        console.error(e);
-        console.log(e.code, e.message);
-        alert(e.message || window.messageCatalog["nearest_js_alert_detect"]);
+        Sentry.captureException(e);
+        alert(window.messageCatalog["nearest_js_alert_detect"]);
         onFinish();
         resolve();
       },
