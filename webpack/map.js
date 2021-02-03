@@ -1,4 +1,4 @@
-import Handlebars from "handlebars";
+import mapMarker from "./templates/mapMarker.handlebars";
 import { getDisplayableVaccineInfo } from "./data/locations.js";
 
 window.mapMarkers = [];
@@ -18,9 +18,7 @@ function addLocation(p) {
   const markerLabels = JSON.parse(
     document.querySelector("#mapMarkerLabels").textContent
   );
-  const templateSource = document.querySelector("#mapMarker").innerHTML;
-  const markerTemplate = Handlebars.compile(templateSource);
-  const markerContent = markerTemplate({
+  const markerContent = mapMarker({
     name: info.name,
     superSite: info.isSuperSite,
     details: info.status,
