@@ -76,17 +76,6 @@ function addSitesToPage(sites, containerId, userCounty) {
       noReports: labels.noReports,
     };
 
-    // if (info.hasReport) {
-    //   const vaccineStateElem = siteRootElem.querySelector(
-    //     ".site_vaccine_status"
-    //   );
-    //   if (vaccineStateElem) {
-    //     vaccineStateElem.classList.add(
-    //       `vaccine_${info.hasVaccine.toLowerCase()}`
-    //     );
-    //   }
-    // }
-
     fragmentElem.innerHTML += siteTemplate(context);
   }
   const containerElem = document.getElementById(containerId);
