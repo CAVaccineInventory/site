@@ -13,15 +13,14 @@ async function fetchSites() {
     });
   }
   isFetching = true;
-  const response = await fetch(
-    "https://storage.googleapis.com/cavaccineinventory-sitedata/airtable-sync/Locations.json?v=1"
-  );
+  const response = await fetch("https://api.vaccinateca.com/v1/locations.json");
 
   if (!response.ok) {
     alert(window.messageCatalog["data_js_alert"]);
     return;
   }
-  _fetchedSites = await response.json();
+  const _fetchedData = await response.json();
+  _fetchedSites = _fetchedData["content"];
   isFetching = false;
   subscribers.forEach((cb) => cb(_fetchedSites));
   return _fetchedSites;
