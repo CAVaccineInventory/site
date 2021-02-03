@@ -2,3 +2,5 @@
 /who-we-are         /about-us
 /regions/*          /
 /zh/*               /zh-hans/:splat
+# Give our volunteer-your-time form a nice url
+/volunteer          https://airtable.com/shrY9Ac8PGuudZAe3 
