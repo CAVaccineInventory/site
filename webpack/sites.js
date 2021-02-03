@@ -4,17 +4,6 @@ import {
 } from "./data/locations.js";
 import Handlebars from "handlebars";
 
-function beautifyLinks(contentElem) {
-  const linksElem = contentElem.querySelectorAll("a");
-  for (const linkElem of linksElem) {
-    linkElem.textContent = shorten(linkElem.textContent, 40);
-    linkElem.classList.add("text-black");
-    linkElem.setAttribute("target", "_blank");
-    linkElem.setAttribute("rel", "noreferrer");
-    linkElem.textContent;
-  }
-}
-
 function urlify(text) {
   if (!text) {
     return;
