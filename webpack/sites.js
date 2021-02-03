@@ -2,6 +2,7 @@ import {
   getDisplayableVaccineInfo,
   getTimeDiffFromNow,
 } from "./data/locations.js";
+import Handlebars from "handlebars";
 
 function beautifyLinks(contentElem) {
   const linksElem = contentElem.querySelectorAll("a");
