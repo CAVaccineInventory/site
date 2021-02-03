@@ -297,6 +297,7 @@ async function fetchFilterAndSortSites(
   const list = document.getElementById("sites");
   list.innerHTML = "";
   let sites = await fetchSites();
+  sites = sites.filter((s) => s.Latitude && s.Longitude);
   const filterElem = document.querySelector("#filter");
   const filter = filterElem ? filterElem.value : "stocked";
 
