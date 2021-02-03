@@ -27,9 +27,12 @@ function generateCountyUrl(countyName) {
 function addSitesToPage(sites, containerId, userCounty) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
-  const templateSource = document.querySelector("#siteLocationTemplate").innerHTML;
+  const templateSource = document.querySelector("#siteLocationTemplate")
+    .innerHTML;
   const siteTemplate = Handlebars.compile(templateSource);
-  const labels = JSON.parse(document.querySelector("#siteLocationLabels").textContent);
+  const labels = JSON.parse(
+    document.querySelector("#siteLocationLabels").textContent
+  );
 
   for (const site of sites.slice(0, 50)) {
     const info = getDisplayableVaccineInfo(site);
@@ -42,7 +45,9 @@ function addSitesToPage(sites, containerId, userCounty) {
     if (info.isCountyRestricted) {
       otherRestrictions = window.messageCatalog.nearest_js_county_only;
     }
-    const latestReportTime = `${window.messageCatalog["global_latest_report"]} ${getTimeDiffFromNow(info.latestReportDate)}`;
+    const latestReportTime = `${
+      window.messageCatalog["global_latest_report"]
+    } ${getTimeDiffFromNow(info.latestReportDate)}`;
     let ageRestriction = "";
     if (info.ageRestriction) {
       ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
