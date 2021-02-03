@@ -3,4 +3,4 @@
 set -e -u
 
 npx webpack build
-jekyll build
+bundle exec jekyll build
