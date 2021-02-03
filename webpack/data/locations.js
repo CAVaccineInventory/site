@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
 const subscribers = [];
@@ -174,54 +176,8 @@ function getDisplayableVaccineInfo(p) {
 }
 
 function getTimeDiffFromNow(timestamp) {
-  const unixTime = new Date(timestamp).getTime();
-  if (!unixTime) return;
-  const now = new Date().getTime();
-  const delta = Math.abs(unixTime / 1000 - now / 1000);
-  let timeUnitValue = "unit_value";
-  let timeUnitName = "unit_name";
-
-  // This might seem like a lot of duplication! The strings here are
-  // explictly this way for translations.
-  if (delta / (60 * 60 * 24 * 365) > 1) {
-    timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 365));
-    timeUnitName =
-      timeUnitValue > 1
-        ? window.messageCatalog["years_ago"]
-        : window.messageCatalog["year_ago"];
-  } else if (delta / (60 * 60 * 24 * 45) > 1) {
-    timeUnitValue = Math.floor(delta / (60 * 60 * 24 * 45));
-    timeUnitName =
-      timeUnitValue > 1
-        ? window.messageCatalog["months_ago"]
-        : window.messageCatalog["month_ago"];
-  } else if (delta / (60 * 60 * 24) > 1) {
-    timeUnitValue = Math.floor(delta / (60 * 60 * 24));
-    timeUnitName =
-      timeUnitValue > 1
-        ? window.messageCatalog["days_ago"]
-        : window.messageCatalog["day_ago"];
-  } else if (delta / (60 * 60) > 1) {
-    timeUnitValue = Math.floor(delta / (60 * 60));
-    timeUnitName =
-      timeUnitValue > 1
-        ? window.messageCatalog["hours_ago"]
-        : window.messageCatalog["hour_ago"];
-  } else if (delta / 60 > 1) {
-    timeUnitValue = Math.floor(delta / 60);
-    timeUnitName =
-      timeUnitValue > 1
-        ? window.messageCatalog["minutes_ago"]
-        : window.messageCatalog["minute_ago"];
-  } else {
-    timeUnitValue = Math.floor(delta);
-    timeUnitName =
-      timeUnitValue > 1
-        ? window.messageCatalog["seconds_ago"]
-        : window.messageCatalog["second_ago"];
-  }
-
-  return `${timeUnitValue} ${timeUnitName}`;
+  const locale = document.documentElement.getAttribute("lang");
+  return DateTime.fromISO(timestamp, { locale }).toRelative();
 }
 
 function splitSitesByVaccineState(sites) {
