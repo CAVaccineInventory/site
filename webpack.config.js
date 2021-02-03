@@ -10,6 +10,7 @@ module.exports = {
     "counties-autocomplete": "./webpack/counties-autocomplete.js",
     "county-page": "./webpack/county-page.js",
     "region": "./webpack/region.js",
+    "login": "./webpack/login.js",
   },
   "devtool": "source-map",
   "output": {
