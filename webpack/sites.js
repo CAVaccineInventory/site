@@ -24,10 +24,6 @@ function generateCountyUrl(countyName) {
   return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
 }
 
-function shorten(text, maxLen) {
-  return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
-}
-
 function addSitesToPage(sites, containerId, userCounty) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
