@@ -5,7 +5,7 @@ permalink: /vaccination-sites
 add_to_nav: true
 order: 5
 ---
-<script src="{{ '/assets/js/airtable-autocomplete.js' | content_tag }}"></script>
+<script src="{{ '/assets/js/airtable-autocomplete.js' | asset_for }}"></script>
 
 {% t vaccination_sites.explainer  %}
 

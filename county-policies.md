@@ -5,7 +5,7 @@ permalink: /county-policies
 add_to_nav: true
 order: 3
 ---
-<script src="{{ '/assets/js/airtable-autocomplete.js' | content_tag }}"></script>
+<script src="{{ '/assets/js/airtable-autocomplete.js' | asset_for }}"></script>
 {% t county_policies.text  %}
 
 <div class="autoComplete_wrapper">
