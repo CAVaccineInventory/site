@@ -1,4 +1,5 @@
 const path = require("path");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
 module.exports = {
   "mode": "production",
@@ -14,6 +15,7 @@ module.exports = {
   "devtool": "source-map",
   "output": {
     "path": path.resolve(__dirname, "assets/js"),
+    "publicPath": "",
   },
   "module": {
     "rules": [
@@ -30,4 +32,7 @@ module.exports = {
       },
     ],
   },
+  "plugins": [
+    new WebpackManifestPlugin(),
+  ],
 };
