@@ -74,7 +74,7 @@ function addSitesToPage(sites, containerId, userCounty) {
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: labels.apptRequired,
       appointmentInstructions: info.schedulingInstructions,
-      latestNotesLabel: labels.latestNotes,
+      latestNotesLabel: labels.latestInfo,
       notes: urlify(flattenData(info.reportNotes)),
       noReports: labels.noReports,
     };
