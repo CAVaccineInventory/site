@@ -43,7 +43,7 @@ function addSitesToPage(sites, containerId, userCounty) {
 
     let otherRestrictions = "";
     if (info.isLimitedToPatients) {
-      window.messageCatalog.nearest_js_patients_only;
+      otherRestrictions = window.messageCatalog.nearest_js_patients_only;
     } else if (info.isCountyRestricted) {
       otherRestrictions = window.messageCatalog.nearest_js_county_only;
     }
