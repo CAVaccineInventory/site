@@ -7,6 +7,7 @@ global:
   location_notes: Notas del sitio
   latest_report: Información actualizada
   loading: Cargando...
+  super_site: Megacentro
 site_list:
   vaccine_sites: Vacunas reportadas disponibles
   no_vaccine_sites: Vacunas reportadas como no disponibles
@@ -106,6 +107,9 @@ pre_list_disclaimer:
 providers:
   header: |
     Esta es una descripción general de la información más reciente que tenemos de las principales redes de proveedores en California. Es posible que el personal que trabaja en una ubicación particular dentro de estas redes decida operar de manera diferente.
+footer:
+  lang_disclaimer: |
+    La traducción de este sitio web está en desarrollo activo. Es posible que parte de la información aún no esté disponible en este idioma. ¡Lamentamos las molestias!
 about_us:
   coordinators: "Algunos de los que trabajamos en este proyecto el día 1:"
   intro_1: |
