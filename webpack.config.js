@@ -1,7 +1,9 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   "mode": "production",
+  "plugins": [new MiniCssExtractPlugin()],
   "entry": {
     "main": "./webpack/index.js",
     "airtable-autocomplete": "./webpack/airtable-autocomplete.js",
@@ -10,10 +12,11 @@ module.exports = {
     "counties-autocomplete": "./webpack/counties-autocomplete.js",
     "county-page": "./webpack/county-page.js",
     "region": "./webpack/region.js",
+    "style": "./webpack/css/main.css",
   },
   "devtool": "source-map",
   "output": {
-    "path": path.resolve(__dirname, "assets/js"),
+    "path": path.resolve(__dirname, "assets/"),
     "environment": {
       "arrowFunction": false,
       "bigIntLiteral": false,
@@ -36,6 +39,24 @@ module.exports = {
       {
         test: /\.handlebars$/,
         loader: "handlebars-loader",
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader", {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  "postcss-import",
+                  "tailwindcss",
+                  "autoprefixer",
+                ],
+              },
+            },
+          },
+        ],
       },
     ],
   },
