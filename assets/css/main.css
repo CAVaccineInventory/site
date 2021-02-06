@@ -158,3 +158,9 @@ select {
 .word-break {
   word-break: break-word;
 }
+
+.site_vaccine_status.vaccine_yes .vaccine_available,
+.site_vaccine_status.vaccine_no .vaccine_not_available,
+.site_vaccine_status.vaccine_unknown .vaccine_unknown {
+  display: inline-block;
+}
