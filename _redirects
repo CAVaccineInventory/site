@@ -1,6 +1,7 @@
 # Place netlify redirects here. https://docs.netlify.com/routing/redirects/
-/who-we-are         /about-us
 /regions/*          /
+/vaccination-sites  /
+/who-we-are         /about-us
 /zh/*               /zh-hans/:splat
 # Give our volunteer-your-time form a nice url
 /volunteer          https://airtable.com/shrY9Ac8PGuudZAe3 
