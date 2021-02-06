@@ -26,14 +26,6 @@ async function fetchSites() {
   return _fetchedSites;
 }
 
-async function fetchZipCodesData() {
-  const res = await fetch("assets/json/zipCodes.json");
-  if (res.ok) {
-    return await res.json();
-  }
-  return null;
-}
-
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
@@ -114,14 +106,11 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function getAgeRestriction(p) {
+    const ageMatch = /^Yes: vaccinating (\d+)\+/;
     for (const prop of p["Availability Info"]) {
-      switch (prop) {
-        case "Yes: vaccinating 85+":
-          return 85;
-        case "Yes: vaccinating 75+":
-          return 75;
-        case "Yes: vaccinating 65+":
-          return 65;
+      const result = prop.match(ageMatch);
+      if (result) {
+        return result[1];
       }
     }
     return undefined;
@@ -226,7 +215,6 @@ export {
   getCoord,
   getCounty,
   getTimeDiffFromNow,
-  fetchZipCodesData,
   splitSitesByVaccineState,
   sortByRecency,
 };
