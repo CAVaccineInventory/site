@@ -26,14 +26,6 @@ async function fetchSites() {
   return _fetchedSites;
 }
 
-async function fetchZipCodesData() {
-  const res = await fetch("assets/json/zipCodes.json");
-  if (res.ok) {
-    return await res.json();
-  }
-  return null;
-}
-
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
@@ -223,7 +215,6 @@ export {
   getCoord,
   getCounty,
   getTimeDiffFromNow,
-  fetchZipCodesData,
   splitSitesByVaccineState,
   sortByRecency,
 };

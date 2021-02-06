@@ -4,8 +4,8 @@ import {
   getHasVaccine,
   getHasReport,
   getCoord,
-  fetchZipCodesData,
 } from "./data/locations.js";
+import zipCodes from "./json/zipCodes.json";
 
 import { addSitesToPage } from "./sites.js";
 import { addLocation, clearMap } from "./map.js";
@@ -16,7 +16,6 @@ let lastSearch;
 
 function loaded() {
   fetchSites();
-  fetchZipCodesData();
 
   const zipForm = document.getElementById("submit_zip_form");
   const zipInput = document.getElementById("js_zip_or_county");
@@ -225,34 +224,12 @@ async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
 }
 
 async function lookup(zip) {
-  const zipCodes = await fetchZipCodesData();
-  let longitude;
-  let latitude;
-  if (zipCodes[zip]) {
-    const location = zipCodes[zip].coordinates;
-    longitude = location.lng;
-    latitude = location.lat;
-  } else {
-    const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
-    const response = await fetch(geocodeURL);
-
-    if (!response.ok) {
-      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
-      return;
-    }
-
-    const results = await response.json();
-    if (results.nhits < 1) {
-      alert(window.messageCatalog["nearest_js_alert_zipcode"]);
-      return;
-    }
-
-    // Comes back in [long, lat]
-    location = results.records[0].geometry.coordinates;
-    longitude = location[0];
-    latitude = location[1];
+  const data = zipCodes[zip];
+  if (!data) {
+    alert(window.messageCatalog["nearest_js_alert_zipcode"]);
+    return;
   }
-  const coordinate = { longitude, latitude };
+  const coordinate = data.coordinates;
   return fetchFilterAndSortSites(coordinate);
 }
 
