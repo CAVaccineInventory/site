@@ -256,10 +256,7 @@ async function lookup(zip) {
   return fetchFilterAndSortSites(coordinate);
 }
 
-async function fetchFilterAndSortSites(
-  userCoord,
-  repositionMap = true
-) {
+async function fetchFilterAndSortSites(userCoord, repositionMap = true) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   let sites = await fetchSites();
