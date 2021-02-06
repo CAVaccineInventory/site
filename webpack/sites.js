@@ -35,7 +35,7 @@ function shorten(text, maxLen) {
   return text.length > maxLen ? `${text.slice(0, maxLen)}...` : text;
 }
 
-function addSitesToPage(sites, containerId, userCounty) {
+function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   const siteTemplate = document.getElementById("site_location_template")
     .content;
@@ -84,16 +84,6 @@ function addSitesToPage(sites, containerId, userCounty) {
       ".site_last_report_date"
     );
 
-    if (
-      userCounty &&
-      info.county &&
-      info.county.toLowerCase().includes(userCounty.toLowerCase())
-    ) {
-      const countyMatchElem = siteRootElem.querySelector(".site_in_county");
-      if (countyMatchElem) {
-        countyMatchElem.classList.remove("hidden");
-      }
-    }
     // Show whatever report we have
     if (info.hasReport) {
       noReportElem.remove();
