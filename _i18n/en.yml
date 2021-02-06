@@ -18,7 +18,6 @@ titles:
   about_us: About Us
   county_policies: County Policies
   home: COVID-19 Vaccine Availability
-  vaccination_sites: Vaccination Sites
   providers: Providers
   nearest: Vaccination Sites Near You
 nearest:
@@ -30,15 +29,6 @@ nearest:
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
-vaccination_sites:
-  explainer: |
-    This is a list of all of the sites we are aware of in California which may, 
-    at some point, receive the COVID-19 vaccine. <b>Most of them do not have the 
-    vaccine available</b>; we are calling as many as we can daily to update the 
-    list so please check the <a href="https://www.vaccinateca.com">latest report
-    </a>. If we missed a site, <a href="https://airtable.com/shrY44NvEjHBscrOH">
-    let us know</a>! We are working on expanding the list with additional 
-    pharmacies and other locations.
 head:
   meta_image_tag: |
     An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccines
