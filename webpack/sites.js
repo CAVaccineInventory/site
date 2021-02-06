@@ -24,7 +24,7 @@ function generateCountyUrl(countyName) {
   return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
 }
 
-function addSitesToPage(sites, containerId, userCounty) {
+function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
   const templateSource = document.querySelector("#siteLocationTemplate")

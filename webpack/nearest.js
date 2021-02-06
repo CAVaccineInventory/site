@@ -186,24 +186,6 @@ function toggleSubmitButtonState(button, isEnabled) {
   }
 }
 
-async function coordinatesToCounty(coordinates) {
-  const res = await fetch(
-    `https://geo.fcc.gov/api/census/area?lat=${coordinates.latitude}&lon=${coordinates.longitude}&format=json`
-  );
-  const data = await res.json();
-
-  if (
-    data &&
-    data.hasOwnProperty("results") &&
-    Array.isArray(data.results) &&
-    data.results.length > 1 &&
-    data.results[0].hasOwnProperty("county_name")
-  ) {
-    return data.results[0].county_name;
-  }
-  return false;
-}
-
 async function submitGeoLocation() {
   const button = document.getElementById("submit_geolocation");
   toggleSubmitButtonState(button, false);
@@ -239,20 +221,17 @@ async function submitGeoLocation() {
 }
 
 async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
-  const county = await coordinatesToCounty(coordinates);
-  await fetchFilterAndSortSites(coordinates, county, repositionMap);
+  await fetchFilterAndSortSites(coordinates, repositionMap);
 }
 
 async function lookup(zip) {
   const zipCodes = await fetchZipCodesData();
   let longitude;
   let latitude;
-  let county;
   if (zipCodes[zip]) {
     const location = zipCodes[zip].coordinates;
     longitude = location.lng;
     latitude = location.lat;
-    county = zipCodes[zip].county;
   } else {
     const geocodeURL = `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-code-latitude-and-longitude&q=${zip}`;
     const response = await fetch(geocodeURL);
@@ -272,27 +251,12 @@ async function lookup(zip) {
     location = results.records[0].geometry.coordinates;
     longitude = location[0];
     latitude = location[1];
-    try {
-      const city = results.fields.city.toLowerCase();
-      const zipToCounty = Object.values(zipCodes).find(
-        (zipData) => zipData.city.toLowerCase() === city
-      );
-      if (zipToCounty) {
-        county = zipToCounty.county;
-      }
-    } catch (e) {
-      console.error(e);
-    }
   }
   const coordinate = { longitude, latitude };
-  return fetchFilterAndSortSites(coordinate, county);
+  return fetchFilterAndSortSites(coordinate);
 }
 
-async function fetchFilterAndSortSites(
-  userCoord,
-  county,
-  repositionMap = true
-) {
+async function fetchFilterAndSortSites(userCoord, repositionMap = true) {
   const list = document.getElementById("sites");
   list.innerHTML = "";
   let sites = await fetchSites();
@@ -320,7 +284,7 @@ async function fetchFilterAndSortSites(
   if (repositionMap) {
     updateMap(userCoord, sites, true);
   }
-  addSitesToPage(sites, "sites", county);
+  addSitesToPage(sites, "sites");
 }
 
 function updateMap(coord, sites, repositionMap = true) {
