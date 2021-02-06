@@ -6,4 +6,5 @@ vendor
 .bundle
 .DS_Store
 node_modules
-assets/js/
+assets/*js*
+assets/*css*
