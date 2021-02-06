@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "lint": "prettier 'webpack/**/*.js' assets/css/*.css **/*.html && eslint .",
-    "lint:fix": "prettier --write 'webpack/**/*.js' assets/css/*.css **/*.html && eslint --fix ."
+    "lint": "prettier 'webpack/**/*.js' assets/postcss/*.css **/*.html && eslint .",
+    "lint:fix": "prettier --write 'webpack/**/*.js' assets/postcss/*.css **/*.html && eslint --fix ."
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
