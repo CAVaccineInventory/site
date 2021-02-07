@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "lint": "prettier 'webpack/**/*.js' assets/postcss/*.css **/*.html && eslint .",
-    "lint:fix": "prettier --write 'webpack/**/*.js' assets/postcss/*.css **/*.html && eslint --fix .",
+    "lint": "prettier 'webpack/**/*.js' postcss/*.css **/*.html && eslint .",
+    "lint:fix": "prettier --write 'webpack/**/*.js' postcss/*.css **/*.html && eslint --fix .",
     "build:css": "postcss postcss/*.css --dir assets/css/",
     "build:css:watch": "postcss postcss/*.css --dir assets/css/ --watch --verbose"
   },
