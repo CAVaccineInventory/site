@@ -3,4 +3,5 @@
 set -e -u
 
 npx webpack build
+npm run build:css
 bundle exec jekyll build

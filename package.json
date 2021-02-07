@@ -1,7 +1,9 @@
 {
   "scripts": {
-    "lint": "prettier 'webpack/**/*.js' assets/css/*.css **/*.html && eslint .",
-    "lint:fix": "prettier --write 'webpack/**/*.js' assets/css/*.css **/*.html && eslint --fix ."
+    "lint": "prettier 'webpack/**/*.js' postcss/*.css **/*.html && eslint .",
+    "lint:fix": "prettier --write 'webpack/**/*.js' postcss/*.css **/*.html && eslint --fix .",
+    "build:css": "postcss postcss/*.css --dir assets/css/",
+    "build:css:watch": "postcss postcss/*.css --dir assets/css/ --watch --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -28,11 +30,15 @@
   },
   "dependencies": {
     "@tarekraafat/autocomplete.js": "^8.2.0",
+    "autoprefixer": "^10.2.4",
     "core-js": "^3.8.3",
     "custom-event-polyfill": "^1.0.7",
     "handlebars-loader": "^1.7.1",
     "luxon": "^1.25.0",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.0",
     "regenerator-runtime": "^0.13.7",
+    "tailwindcss": "^2.0.2",
     "whatwg-fetch": "^3.5.0"
   }
 }
