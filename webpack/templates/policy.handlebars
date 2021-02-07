@@ -1,0 +1,53 @@
+<tr class="h-6">
+  <td>{{name}}</td>
+  <td class="truncate">
+    {{#if facebook}}
+      <a href="{{facebook}}">
+        <img
+          src="/assets/img/facebook.png"
+          class="w-5 h-5 mx-2"
+          alt="Link to {{name}} on Facebook"
+        />
+      </a>
+    {{/if}}
+  </td>
+  <td class="truncate">
+    {{#if twitter}}
+      <a href="{{twitter}}">
+        <img
+          src="/assets/img/twitter.svg"
+          class="w-5 h-5 mx-2"
+          alt="Link to {{name}} on Twitter"
+        />
+      </a>
+    {{/if}}
+  </td>
+  <td class="truncate">
+    {{#if infoURL}}
+      <a href="{{infoURL}}">
+        {{infoURL}}
+      </a>
+    {{/if}}
+  </td>
+  <td class="truncate">
+    {{#if locationsURL}}
+      <a href="{{locationsURL}}">
+        {{locationsURL}}
+      </a>
+    {{/if}}
+  </td>
+  <td class="truncate">
+    {{#if volunteering}}
+      <a href="{{volunteering}}">
+        {{volunteering}}
+      </a>
+    {{/if}}
+  </td>
+  <td class="truncate">
+    {{#if reservationURL}}
+      <a href="{{reservationURL}}">
+        {{reservationURL}}
+      </a>
+    {{/if}}
+  </td>
+</tr>

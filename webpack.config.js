@@ -9,6 +9,7 @@ module.exports = {
     "nearest": "./webpack/nearest.js",
     "counties-autocomplete": "./webpack/counties-autocomplete.js",
     "county-page": "./webpack/county-page.js",
+    "policies": "./webpack/policies.js",
   },
   "devtool": "source-map",
   "output": {
