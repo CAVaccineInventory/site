@@ -7,12 +7,12 @@ order: 3
 ---
 <script src="{{ '/assets/js/policies.js' | content_tag }}"></script>
 
-<table class="js-policies table-fixed w-screen">
+<table class="js-policies table-fixed w-full">
   <thead>
     <tr>
       <th class="w-16">County</th>
-      <th class="w-3"></th>
-      <th class="w-3"></th>
+      <th class="w-4"></th>
+      <th class="w-4"></th>
       <th class="w-1/12">Info URL</th>
       <th class="w-1/12">Locations URL</th>
       <th class="w-1/12">Volunteering Opportunities</th>
