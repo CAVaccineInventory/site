@@ -18,7 +18,7 @@ function extractZip(zipInput) {
   // Extract the five-digit component from a five- or nine-digit zip surrounded
   // by optional whitespace.  This syntax isn't enforced by a pattern attribute,
   // because then the pattern would have to be copied in more than one place.
-  let matches = zipInput.value.match(/^\s*(\d{5})(?:-\d{4})?\s*$/);
+  const matches = zipInput.value.match(/^\s*(\d{5})(?:-\d{4})?\s*$/);
   if (!matches) {
     return null;
   }
@@ -43,7 +43,9 @@ function loaded() {
       if (extractZip(zipInput)) {
         zipInput.setCustomValidity(""); // valid
       } else {
-        zipInput.setCustomValidity(window.messageCatalog["nearest_js_enter_valid_zipcode"]);
+        zipInput.setCustomValidity(
+          window.messageCatalog["nearest_js_enter_valid_zipcode"]
+        );
       }
     });
 
