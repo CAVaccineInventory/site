@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import { fetchProviders, findProviderByName } from "./providers.js";
 
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
@@ -13,18 +14,34 @@ async function fetchSites() {
     });
   }
   isFetching = true;
-  const response = await fetch("https://api.vaccinateca.com/v1/locations.json");
+  let response = await fetch("https://api.vaccinateca.com/v1/locations.json");
 
   if (!response.ok) {
     alert(window.messageCatalog["data_js_alert"]);
     return;
   }
-  const _fetchedData = await response.json();
-  _fetchedSites = _fetchedData["content"];
+  const fetchedData = await response.json();
+  _fetchedSites = fetchedData["content"];
+
+  const providers = await fetchProviders();
+
+  _fetchedSites.forEach((site) => {
+    if(site["Affiliation"] === "None / Unknown / Unimportant") {
+      return;
+    }
+
+    let provider = findProviderByName(providers, site["Affiliation"]);
+
+    if(provider) {
+      site["Provider"] = provider;
+    }
+  });
+
   isFetching = false;
   subscribers.forEach((cb) => cb(_fetchedSites));
   return _fetchedSites;
 }
+
 
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
