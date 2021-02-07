@@ -2,8 +2,8 @@
   "scripts": {
     "lint": "prettier 'webpack/**/*.js' assets/postcss/*.css **/*.html && eslint .",
     "lint:fix": "prettier --write 'webpack/**/*.js' assets/postcss/*.css **/*.html && eslint --fix .",
-    "build:css": "postcss assets/postcss/*.css --dir assets/css/",
-    "build:css:watch": "postcss assets/postcss/*.css --dir assets/css/ --watch --verbose"
+    "build:css": "postcss postcss/*.css --dir assets/css/",
+    "build:css:watch": "postcss postcss/*.css --dir assets/css/ --watch --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
