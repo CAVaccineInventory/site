@@ -55,6 +55,11 @@ function addSitesToPage(sites, containerId) {
       ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
     }
 
+    let appointmentRequiredLabel = labels.apptRequired;
+    if (info.isScheduleFull) {
+      appointmentRequiredLabel += `; ${labels.scheduleFull}`;
+    }
+
     const context = {
       name: info.name,
       county: info.county,
@@ -72,7 +77,7 @@ function addSitesToPage(sites, containerId) {
       ageRestriction: ageRestriction,
       otherRestrictions: otherRestrictions,
       appointmentRequired: info.isAppointmentRequired,
-      appointmentRequiredLabel: labels.apptRequired,
+      appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
       latestNotesLabel: labels.latestInfo,
       notes: urlify(flattenData(info.reportNotes)),

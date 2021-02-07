@@ -25,6 +25,7 @@ nearest:
   dropdown_2: Sites with reported doses
   dropdown_3: All known vaccination sites
   appointment_required: Appointment required
+  schedule_full: Schedule reported full
   latest_info: Latest info
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
