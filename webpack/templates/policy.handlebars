@@ -1,4 +1,4 @@
-<li class="policy-card rounded-lg mt-4 shadow">
+<li id="{{id}}" class="js-policy-card rounded-lg mt-4 shadow">
   <div class="py-4 px-2 border-b border-gray-400 bg-gray-400 bg-opacity-75 flex flex-row space-x-2 justify-between items-center rounded-lg rounded-b-none">
     <h4 class="px-2 text-xl font-bold">{{name}}</h4>
     <div class="flex flex-row">
@@ -21,16 +21,26 @@
   <div class="bg-gray-100 rounded-lg rounded-t-none">
     <div class="grid grid-cols-3 py-2 border-b border-gray-400">
       <div class="border-r border-gray-400 py-2 px-6">
-        <a href="{{infoURL}}">Vaccine info</a>
+        {{#if infoURL}}
+          <a href="{{infoURL}}">Vaccine info</a>
+        {{/if}}
       </div>
       <div class="border-r border-gray-400 py-2 px-6">
-        <a href="{{locationsURL}}">Vaccine locations</a>
+        {{#if locationsURL}}
+          <a href="{{locationsURL}}">Vaccine locations</a>
+        {{/if}}
       </div>
       <div class="py-2 px-6">
-        <a href="{{reservationURL}}">Vaccine appointments</a>
+        {{#if reservationURL}}
+          <a href="{{reservationURL}}">Vaccine appointments</a>
+        {{/if}}
       </div>
     </div>
     <div class="p-4">
+      <span>
+        <img class="inline" src="assets/img/info.svg">
+        <strong>Latest Info:</strong>
+      </span>
       {{notes}}
     </div>
   </div>

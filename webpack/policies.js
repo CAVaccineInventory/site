@@ -3,19 +3,23 @@ import policyTemplate from "./templates/policy.handlebars";
 
 window.addEventListener("load", loaded);
 
+function countyToAnchor(county) {
+  return county.toLowerCase().replace(/\s/g, "-");
+}
+
 async function loaded() {
-  console.log("loaded");
-  const counties = await fetchCounties();
+  const countyPolicies = await fetchCounties();
   const policyList = document.querySelector(".js-policies");
 
-  counties.sort((a, b) => {
+  countyPolicies.sort((a, b) => {
     return a["County"].localeCompare(b["County"]);
   });
 
-  for (const county of counties) {
+  for (const county of countyPolicies) {
     console.log(county);
     const templateInfo = {
       name: county["County"],
+      id: countyToAnchor(county["County"]),
       infoURL: county["Vaccine info URL"],
       locationsURL: county["Vaccine locations URL"],
       volunteering: county["Official volunteering opportunities"],
