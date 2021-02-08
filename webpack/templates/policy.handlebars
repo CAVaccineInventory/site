@@ -1,53 +1,37 @@
-<tr class="h-10">
-  <td>{{name}}</td>
-  <td class="truncate">
-    {{#if facebook}}
-      <a href="{{facebook}}">
-        <img
-          src="/assets/img/facebook.png"
-          class="w-5 h-5 mx-2"
-          alt="Link to {{name}} on Facebook"
-        />
-      </a>
-    {{/if}}
-  </td>
-  <td class="truncate">
-    {{#if twitter}}
-      <a href="{{twitter}}">
-        <img
-          src="/assets/img/twitter.svg"
-          class="w-5 h-5 mx-2"
-          alt="Link to {{name}} on Twitter"
-        />
-      </a>
-    {{/if}}
-  </td>
-  <td class="truncate">
-    {{#if infoURL}}
-      <a href="{{infoURL}}">
-        {{infoURL}}
-      </a>
-    {{/if}}
-  </td>
-  <td class="truncate">
-    {{#if locationsURL}}
-      <a href="{{locationsURL}}">
-        {{locationsURL}}
-      </a>
-    {{/if}}
-  </td>
-  <td class="truncate">
-    {{#if volunteering}}
-      <a href="{{volunteering}}">
-        {{volunteering}}
-      </a>
-    {{/if}}
-  </td>
-  <td class="truncate">
-    {{#if reservationURL}}
-      <a href="{{reservationURL}}">
-        {{reservationURL}}
-      </a>
-    {{/if}}
-  </td>
-</tr>
+<li class="policy-card rounded-lg mt-4 shadow">
+  <div class="py-4 px-2 border-b border-gray-400 bg-gray-400 bg-opacity-75 flex flex-row space-x-2 justify-between items-center rounded-lg rounded-b-none">
+    <h4 class="px-2 text-xl font-bold">{{name}}</h4>
+    <div class="flex flex-row">
+      {{#if twitter}}
+        <div>
+          <a href="{{twitter}}">
+            <img class="h-6 w-6 m-2" src="assets/img/twitter.svg">
+          </a>
+        </div>
+      {{/if}}
+      {{#if facebook}}
+        <div>
+          <a href="{{facebook}}">
+            <img class="h-6 w-6 m-2" src="assets/img/facebook.png">
+          </a>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="bg-gray-100 rounded-lg rounded-t-none">
+    <div class="grid grid-cols-3 py-2 border-b border-gray-400">
+      <div class="border-r border-gray-400 py-2 px-6">
+        <a href="{{infoURL}}">Vaccine info</a>
+      </div>
+      <div class="border-r border-gray-400 py-2 px-6">
+        <a href="{{locationsURL}}">Vaccine locations</a>
+      </div>
+      <div class="py-2 px-6">
+        <a href="{{reservationURL}}">Vaccine appointments</a>
+      </div>
+    </div>
+    <div class="p-4">
+      {{notes}}
+    </div>
+  </div>
+</li>

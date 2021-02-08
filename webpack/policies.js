@@ -6,7 +6,7 @@ window.addEventListener("load", loaded);
 async function loaded() {
   console.log("loaded");
   const counties = await fetchCounties();
-  const policyTable = document.querySelector(".js-policies tbody");
+  const policyList = document.querySelector(".js-policies");
 
   counties.sort((a, b) => {
     return a["County"].localeCompare(b["County"]);
@@ -19,11 +19,12 @@ async function loaded() {
       infoURL: county["Vaccine info URL"],
       locationsURL: county["Vaccine locations URL"],
       volunteering: county["Official volunteering opportunities"],
+      reservationURL: county["County vaccination reservations URL"],
       facebook: county["Facebook Page"],
       twitter: county["Twitter Page"],
-      reservationURL: county["County vaccination reservations URL"],
+      notes: county["Notes"],
     };
 
-    policyTable.innerHTML += policyTemplate(templateInfo);
+    policyList.innerHTML += policyTemplate(templateInfo);
   }
 }
