@@ -13,4 +13,10 @@ if [ ! -f $DIR/../assets/js/main.js ]; then
   npx webpack
 fi
 
+# Do the same for CSS
+if [ ! -f $DIR/../assets/css/main.css ]; then
+  echo "Running initial CSS compilation…"
+  npm run build:css
+fi
+
 npx nf start
