@@ -2,7 +2,7 @@ import {
   getDisplayableVaccineInfo,
   getTimeDiffFromNow,
 } from "./data/locations.js";
-import Handlebars from "handlebars";
+import siteTemplate from "./templates/siteLocation.handlebars";
 
 function urlify(text) {
   if (!text) {
@@ -27,9 +27,6 @@ function generateCountyUrl(countyName) {
 function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
-  const templateSource = document.querySelector("#siteLocationTemplate")
-    .innerHTML;
-  const siteTemplate = Handlebars.compile(templateSource);
   const labels = JSON.parse(
     document.querySelector("#siteLocationLabels").textContent
   );
