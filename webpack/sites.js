@@ -34,7 +34,7 @@ function addSitesToPage(sites, containerId) {
     document.querySelector("#siteLocationLabels").textContent
   );
 
-  for (const site of sites.slice(0, 50)) {
+  for (const site of sites) {
     const info = getDisplayableVaccineInfo(site);
 
     const addressLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
