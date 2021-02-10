@@ -282,7 +282,7 @@ async function fetchFilterAndSortSites(userCoord, repositionMap = true) {
   if (repositionMap) {
     updateMap(userCoord, sites, true);
   }
-  addSitesToPage(sites, "sites");
+  addSitesToPage(sites.slice(0, 50), "sites");
 }
 
 function updateMap(coord, sites, repositionMap = true) {
