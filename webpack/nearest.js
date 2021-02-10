@@ -14,6 +14,18 @@ window.addEventListener("load", loaded);
 
 let lastSearch;
 
+function extractZip(zipInput) {
+  // Extract the five-digit component from a five- or nine-digit zip surrounded
+  // by optional whitespace.  This syntax isn't enforced by a pattern attribute,
+  // because then the pattern would have to be copied in more than one place.
+  const matches = zipInput.value.match(/^\s*(\d{5})(?:-\d{4})?\s*$/);
+  if (!matches) {
+    return null;
+  }
+
+  return matches[1];
+}
+
 function loaded() {
   fetchSites();
 
@@ -24,6 +36,17 @@ function loaded() {
     // If a user clears the search field and hits enter, reset to unfiltered table
     zipInput.addEventListener("keyup", (e) => {
       toggleGeoLocationVisibility(e.target.value.length === 0);
+    });
+
+    zipInput.addEventListener("input", (e) => {
+      // Calculate validity of the input.
+      if (extractZip(zipInput)) {
+        zipInput.setCustomValidity(""); // valid
+      } else {
+        zipInput.setCustomValidity(
+          window.messageCatalog["nearest_js_enter_valid_zipcode"]
+        );
+      }
     });
 
     zipInput.addEventListener("focus", () => {
@@ -147,9 +170,11 @@ async function handleSearch(event, type) {
   const zipInput = document.getElementById("js_zip_or_county");
   switch (type) {
     case "zip":
-      const zip = zipInput.value;
-      await submitZip(zip);
-      sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
+      const zip = extractZip(zipInput);
+      if (zip) {
+        await submitZip(zip);
+        sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
+      }
       break;
     case "geolocation":
       toggleElementVisibility("js_my_location", true);
@@ -165,14 +190,10 @@ async function handleSearch(event, type) {
 }
 
 async function submitZip(zip) {
-  if (zip.length < 5 || zip.length > 5) {
-    alert("5 digit zip please");
-  } else {
-    const button = document.getElementById("submit_zip");
-    toggleSubmitButtonState(button, false);
-    await lookup(zip);
-    toggleSubmitButtonState(button, true);
-  }
+  const button = document.getElementById("submit_zip");
+  toggleSubmitButtonState(button, false);
+  await lookup(zip);
+  toggleSubmitButtonState(button, true);
 }
 
 function toggleSubmitButtonState(button, isEnabled) {
@@ -261,7 +282,7 @@ async function fetchFilterAndSortSites(userCoord, repositionMap = true) {
   if (repositionMap) {
     updateMap(userCoord, sites, true);
   }
-  addSitesToPage(sites, "sites");
+  addSitesToPage(sites.slice(0, 50), "sites");
 }
 
 function updateMap(coord, sites, repositionMap = true) {

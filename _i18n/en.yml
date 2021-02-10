@@ -25,6 +25,7 @@ nearest:
   dropdown_2: Sites with reported doses
   dropdown_3: All known vaccination sites
   appointment_required: Appointment required
+  schedule_full: Schedule full at last check
   latest_info: Latest info
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
@@ -105,6 +106,7 @@ data_js:
   alert: Could not retrieve the vaccination site data.
   call_back: Could not reach human, calling back later
 nearest_js:
+  enter_valid_zipcode: Please enter a valid zip code
   alert_detect: Failed to detect your location. Please try again or enter your zip code
   alert_zipcode: Failed to locate your zip code, please try again
   years_up: years old and up
