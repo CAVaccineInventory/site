@@ -4,3 +4,4 @@ import "custom-event-polyfill";
 import "whatwg-fetch";
 
 import "./mobileMenu";
+import "./languageSelector";

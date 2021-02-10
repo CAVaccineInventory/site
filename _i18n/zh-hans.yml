@@ -7,6 +7,7 @@ global:
   location_notes: 地点备注
   latest_report: 已更新
   loading: 载入中...
+  current_language: 简体中文
 site_list:
   vaccine_sites: 据汇报有可用疫苗
   no_vaccine_sites: 据汇报无可用疫苗

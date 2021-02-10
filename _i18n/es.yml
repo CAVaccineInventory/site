@@ -8,6 +8,7 @@ global:
   latest_report: Información actualizada
   loading: Cargando...
   super_site: Megacentro
+  current_language: Español
 site_list:
   vaccine_sites: Vacunas reportadas disponibles
   no_vaccine_sites: Vacunas reportadas como no disponibles

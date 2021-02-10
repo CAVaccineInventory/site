@@ -32,6 +32,15 @@
                 {% t item.title %}
               </a>
               {% endif %} {% endfor %}
+              <select id="language-selector" class="pl-2 pr-6">
+                {% for lang in site.languages %}{% assign selected = "" %}{% if
+                lang == site.lang %}{% assign selected = " selected" %}{% endif
+                %}
+                <option value="{{ lang }}" {{ selected }}>
+                  {{ site.translations[lang].global.current_language }}
+                </option>
+                {% endfor %}
+              </select>
             </div>
           </div>
         </div>
