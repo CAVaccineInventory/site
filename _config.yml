@@ -56,8 +56,6 @@ defaults:
       image: /assets/img/link_card_image.png
 
 collections:
-  regions:
-    output: true
   counties:
     output: true
 
