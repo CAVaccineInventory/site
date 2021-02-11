@@ -1,9 +1,10 @@
 <h3 class="flex flex-row items-center space-x-2">
-  {% if include.has_report == true %} {% if include.has_vaccine == true %} {%
-  assign icon = 'svg/checkmark.svg' %} {% else %} {% assign icon =
-  'svg/missing.svg' %} {% endif %} {% else %} {% assign icon =
-  'svg/question_mark.svg' %} {% endif %}
-  <div>{% include {{ icon }} %}</div>
+  <div>
+    {% if include.has_report == true %} {% if include.has_vaccine == true %}
+    <img src="/assets/img/checkmark.svg" /> {% else %}
+    <img src="/assets/img/missing.svg" /> {% endif %} {% else %}
+    <img src="/assets/img/question_mark.svg" /> {% endif %}
+  </div>
   <div
     class="text-2xl font-bold {% if include.has_report == true %}{% if include.has_vaccine == true %} text-green-600 {% else %} text-red-600 {% endif %}{% else %} text-gray-600{% endif %}"
   >
