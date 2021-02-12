@@ -18,10 +18,7 @@ function filterCounty(county) {
     policyCards.forEach((card) => card.classList.remove("hidden"));
   } else {
     for (const card of policyCards) {
-      console.log("Looking to filter", card);
-      console.log("with", county);
       if (card.id === countyToAnchor(county)) {
-        console.log("Showing", card);
         card.classList.remove("hidden");
       } else {
         card.classList.add("hidden");
