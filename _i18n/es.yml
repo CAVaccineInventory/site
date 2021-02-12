@@ -18,7 +18,6 @@ titles:
   about_us: Acerca de nosotros
   county_policies: Políticas del condado
   home: Disponibilidad de la vacuna contra el COVID-19
-  vaccination_sites: Sitios de vacunación
   providers: Proveedores
   nearest: Sitios de vacunación cercanos
 nearest:
@@ -26,13 +25,11 @@ nearest:
   dropdown_2: Sitios con dosis reportadas
   dropdown_3: Todos los sitios conocidos de vacunación
   appointment_required: Requiere cita
+  schedule_full: ""
   latest_info: Última información
   vaccines_available: Vacunas reportadas disponibles
   vaccines_not_available: Vacunas reportadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
-vaccination_sites:
-  explainer: |
-    Ésta es una lista de todos los sitios que conocemos en California que pueden, en algún momento, recibir la vacuna contra el COVID-19. <b>La mayoría de ellos no tienen vacuna disponible</b>; a diario llamamos a todos los que podemos para actualizar la lista. Por favor consulte el <a href="https://www.vaccinateca.com">informe más reciente</a>. Si nos falta un sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH">avísenos</a>! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
 head:
   meta_image_tag: |
     Una imagen del logotipo de VaccinateCA con el texto 'VaccinateCA. Encuentra vacunas
@@ -90,6 +87,7 @@ data_js:
   alert: No se pudieron recuperar los datos del sitio de vacunación.
   call_back: "No se pudo comunicar con una persona, llamaremos más tarde"
 nearest_js:
+  enter_valid_zipcode: ""
   alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código ZIP
   alert_zipcode: No se pudo localizar su código ZIP. Vuelva a intentarlo.
   years_up: años o mayor
