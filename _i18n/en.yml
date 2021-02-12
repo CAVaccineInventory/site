@@ -8,6 +8,8 @@ global:
   latest_report: Updated
   loading: Loading...
   super_site: Super Site
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: English
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
