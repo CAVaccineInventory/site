@@ -35,9 +35,8 @@ nearest:
 head:
   site_description: Malalathala ang ngayong COVID-19 bakuna availability sa mga ospital at botika sa buong California.
   social_card_text: "Hanapin ang bakunahan, kwalipikasyon, at appointment tagubilin."
-  meta_image_tag: |
-    Imahen nung logo ng VaccinateCA kasama ang nakasulat na 'VaccinateCA. Hanapin ang mga bakunang 
-    malapit sa inyo gamit ang tagasubaybay na ginawa ng aming komunidad
+  meta_image_tag: |-
+    Imahen nung logo ng VaccinateCA kasama ang nakasulat na 'VaccinateCA. Hanapin ang bakunahan, kwalipikasyon, at appointment tagubilin.'
 header:
   menu_open: Buksan ang pangunahing menu
 map:
