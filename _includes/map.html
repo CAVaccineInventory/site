@@ -1,9 +1,7 @@
 <script
-  type="module"
   id="js_map_src"
-  src="{{ '/assets/js/map.js' | content_tag }}"
+  src="{{ '/assets/js/mapLoader.js' | content_tag }}"
 ></script>
-
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&v=weekly"
   defer
@@ -12,13 +10,15 @@
 <!-- prettier-ignore -->
 <div
   id="js_map"
-  {% if include.locate_me %}data-locate{% endif %}
-  class="mt-16 h-72 md:h-96 w-full"
+  class="w-full h-full"
 ></div>
 
-<template id="locate_me_template">
-  <button
-    id="locate_me"
-    class="md:inline mt-2 px-3 py-2 font-medium rounded text-white bg-green-500 hover:bg-green-600"
-  ></button>
-</template>
+<script id="mapMarkerLabels" type="application/json">
+  {
+    "superSite": "{% t global.super_site %}",
+    "details": "{% t global.details %}",
+    "apptInfo": "{% t global.appt_info %}",
+    "address": "{% t global.address %}",
+    "latestInfo": "{% t global.latest_info %}"
+  }
+</script>

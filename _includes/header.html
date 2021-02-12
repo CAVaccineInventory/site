@@ -4,30 +4,32 @@
       <div class="flex items-center h-16">
         <div class="flex flex-grow items-center justify-between">
           <div class="flex-shrink-0">
-            <a href="/" class="flex items-center space-x-3">
+            <a
+              href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/"
+              class="flex items-center space-x-3"
+            >
               <img
-                class="h-8 w-8 invert"
+                class="h-8"
                 src="/assets/img/logo.png"
-                alt="VaccinateCA Logo"
+                alt="{{ site.title }}"
               />
-              <div class="text-xl leading-tight text-black">
-                {{ site.title }}
-              </div>
             </a>
           </div>
 
+          <a class="sr-only" href="#main">Skip to content</a>
+
           <div class="hidden lg:block">
-            <div class="ml-10 flex items-baseline space-x-2">
+            <div class="ml-8 flex items-baseline space-x-2">
               {% assign nav = site.pages | sort: 'order' %} {% for item in nav
               %} {% if item.title and item.add_to_nav %} {% if item.url ==
               page.url %} {% assign navItemClasses = "bg-gray-100" %} {% else %}
               {% assign navItemClasses = "" %} {% endif %}
 
               <a
-                href="{{ item.url }}"
+                href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ item.url }}"
                 class="{{ navItemClasses }} border border-transparent hover:border-gray-300 px-3 py-2 rounded-md text-sm font-normal text-black"
               >
-                {{ item.title }}
+                {% t item.title %}
               </a>
               {% endif %} {% endfor %}
             </div>
@@ -97,10 +99,10 @@
         navItemClasses = "" %} {% endif %}
 
         <a
-          href="{{ item.url }}"
+          href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}{{ item.url }}"
           class="{{ navItemClasses }} hover:underline text-black block px-3 py-2 rounded-md text-base font-normal"
         >
-          {{ item.title }}
+          {% t item.title %}
         </a>
         {% endif %} {% endfor %}
       </div>
@@ -108,12 +110,13 @@
   </div>
 </nav>
 
-{% if page.homepage != true and page.title %}
+{% include language_picker.html %} {% if page.homepage != true and page.title %}
 <header class="bg-white shadow">
   <div class="mx-auto">
     <div class="py-6 px-4 sm:px-6 xl:px-8">
       <h1 class="text-3xl font-bold leading-tight text-gray-900">
-        {{ page.title }}
+        {%if page.layout == "county"%}{{page.title}}{%else%}{% t page.title
+        %}{%endif%}
       </h1>
     </div>
   </div>

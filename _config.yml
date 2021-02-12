@@ -32,7 +32,6 @@ google_analytics_id: G-C1C9341MGL
 
 # Build settings
 plugins:
-  - jekyll-seo-tag
   - jekyll-multiple-languages-plugin
 
 ## Social media stuff supported by jekyll-seo-tag
@@ -57,17 +56,17 @@ defaults:
       image: /assets/img/link_card_image.png
 
 collections:
-  regions:
-    output: true
   counties:
     output: true
 
 include:
   - _redirects
 
-languages: ["en"]
+languages: ["en", "es", "zh-hans", "tl"]
 
-exclude_from_localizations: ["assets", "favicon.ico"]
+# I'm sure there's a better way to do this than copying assets into the lang 
+# folders, but I couldn't figure it out easily.
+exclude_from_localizations: ["favicon.ico"]
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -92,3 +91,6 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - script/
+  - webpack/
+  - Procfile
