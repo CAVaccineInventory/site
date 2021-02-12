@@ -8,6 +8,8 @@ global:
   latest_report: Updated
   loading: Loading...
   super_site: Super Site
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: English
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
@@ -58,6 +60,7 @@ not_found:
     finding vaccines in California, please check 
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Search by county...
   text: |
     The state of California has a vaccine strategy, but has delegated
     prioritization and administration to each county. Decisions as to which
