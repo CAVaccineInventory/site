@@ -29,7 +29,7 @@ function filterCounty(county) {
 }
 
 async function loaded() {
-  const countyPolicies = await fetchCounties();
+  let countyPolicies = await fetchCounties();
   const policyList = document.querySelector(".js-policies");
   const input = document.querySelector(".js-county-filter");
 
@@ -56,6 +56,9 @@ async function loaded() {
     }
   });
 
+  // Filter out counties without a name
+  countyPolicies = countyPolicies.filter((county) => county["County"]);
+  // Sort counties alphabetically
   countyPolicies.sort((a, b) => {
     return a["County"].localeCompare(b["County"]);
   });
