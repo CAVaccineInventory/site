@@ -15,11 +15,11 @@
   />
   <meta
     name="description"
-    content="Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California."
+    content="{% t head.site_description %}"
   />
   <meta
     property="og:description"
-    content="Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California."
+    content="{% t head.site_description %}"
   />
   <link
     rel="canonical"
@@ -32,19 +32,19 @@
   <meta property="og:site_name" content="VaccinateCA" />
   <meta
     property="og:image"
-    content="https://vaccinateca.com/assets/img/link_card_image.png"
+    content="https://vaccinateca.com/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png"
   />
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     property="twitter:image"
-    content="https://vaccinateca.com/assets/img/link_card_image.png"
+    content="https://vaccinateca.com/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png"
   />
   <meta property="twitter:title" content="{% t page.title %}" />
   <meta name="twitter:site" content="@ca_covid" />
   <script type="application/ld+json">
     {
-      "image": "https://vaccinateca.com/assets/img/link_card_image.png",
-      "description": "Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.",
+      "image": "https://vaccinateca.com/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png",
+      "description": "{% t head.site_description %}",
       "publisher": {
         "@type": "Organization",
         "logo": {

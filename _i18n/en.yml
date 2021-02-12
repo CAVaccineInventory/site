@@ -31,6 +31,8 @@ nearest:
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
 head:
+  site_description: Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
+  social_card_text: Find vaccine locations, qualification criteria, and appointment instructions.
   meta_image_tag: |
     An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccines
     near you with our community-run tracker'
