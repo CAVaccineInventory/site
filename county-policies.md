@@ -9,7 +9,8 @@ order: 3
 
 <input
   class="js-county-filter rounded-full border border-gray-300
-  hover:border-gray-400 focus:outline-none focus:border-gray-700 px-4 py-2 w-64" 
+  hover:border-gray-400 focus:outline-none focus:border-gray-700 px-4 py-2 w-64"
+  placeholder="{% t county_policies.search_by_county %}"
 />
 
 <ul class="js-policies">
