@@ -8,6 +8,8 @@ global:
   latest_report: Na-update
   loading: Naglo-load...
   super_site: Super Site
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: Tagalog
 site_list:
   vaccine_sites: Nasabing mayroong bakuna
   no_vaccine_sites: Nasabing walang bakuna
