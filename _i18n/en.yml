@@ -58,6 +58,7 @@ not_found:
     finding vaccines in California, please check 
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Search by county...
   text: |
     The state of California has a vaccine strategy, but has delegated
     prioritization and administration to each county. Decisions as to which
