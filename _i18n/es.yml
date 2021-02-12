@@ -25,6 +25,7 @@ nearest:
   dropdown_2: Sitios con dosis reportadas
   dropdown_3: Todos los sitios conocidos de vacunación
   appointment_required: Requiere cita
+  schedule_full: Programa completo en la última verificación
   latest_info: Última información
   vaccines_available: Vacunas reportadas disponibles
   vaccines_not_available: Vacunas reportadas como no disponibles
@@ -86,6 +87,7 @@ data_js:
   alert: No se pudieron recuperar los datos del sitio de vacunación.
   call_back: "No se pudo comunicar con una persona, llamaremos más tarde"
 nearest_js:
+  enter_valid_zipcode: Por favor ingrese un código ZIP válido
   alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código ZIP
   alert_zipcode: No se pudo localizar su código ZIP. Vuelva a intentarlo.
   years_up: años o mayor
