@@ -7,6 +7,7 @@ global:
   location_notes: 地点备注
   latest_report: 已更新
   loading: 载入中...
+  super_site: ""
 site_list:
   vaccine_sites: 据汇报有可用疫苗
   no_vaccine_sites: 据汇报无可用疫苗
@@ -17,7 +18,6 @@ titles:
   about_us: 关于我们
   county_policies: 县政策
   home: COVID-19疫苗供应情况
-  vaccination_sites: 疫苗接种地点
   providers: 提供者
   nearest: 您附近的疫苗接种地点
 nearest:
@@ -25,16 +25,13 @@ nearest:
   dropdown_2: 据汇报有疫苗的地点
   dropdown_3: 所有已知的疫苗接种地点
   appointment_required: 需要预约
+  schedule_full: ""
   latest_info: 最新信息
   vaccines_available: 据汇报有可用疫苗
   vaccines_not_available: 据汇报无可用疫苗
   vaccine_unknown: 未知疫苗状态
-vaccination_sites:
-  explainer: |
-    这是我们在加利福尼亚知道的所有站点的列表，这些站点在某些时候可能会收到COVID-19疫苗。<b>他们中大多数没有可用的疫苗</b>;我们每天都会召集尽可能多的人来更新列表，因此请查看<a href="https://www.vaccinateca.com">最新报告</a>。如果我们错过了一个网站，请<a href="https://airtable.com/shrY44NvEjHBscrOH">告诉我们</a>！我们正在与其他药店和其他地点一起扩大清单。
 head:
   meta_image_tag: |
-    一个加州疫苗组织的图标，带有文字：“加州疫苗组织。用我们的社区网站找到您附近的的疫苗。”
 header:
   menu_open: 打开主菜单
 map:
@@ -74,7 +71,7 @@ index:
     但是，寻找接种疫苗的地点和时间可能困难。
     我们是一群志愿者，每天通过电话联系医院和药店咨询它们的疫苗供应情况和获得疫苗的过程。
   disclaimer_1: |
-    加利福尼亚州政府已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>65岁及以上的居民接种新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接种计划发展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">县</a>官员都经常发布更新。这些政府网站是您获取官方信息的最佳来源。
+    加利福尼亚州政府已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>65岁及以上的居民接种新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接种计划发展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">县</a>官员都经常发布新闻。这些政府网站是您获取官方信息的最佳来源。
   disclaimer_2: |
     我们是一个民间社区主导的网站，不代表政府或任何医疗服务提供者。
   illustration: 医生接种疫苗的插图
@@ -84,11 +81,12 @@ index:
   locations_by_county: 根据县查询疫苗接种地点
   more_info: 有关疫苗供应的更多信息
   find_county: 找到你的县
-  about_us: 关于加州疫苗组织
+  about_us: ""
 data_js:
   alert: 检索疫苗接种地点数据失败。
   call_back: 没有联系到人，会稍后重新拨打
 nearest_js:
+  enter_valid_zipcode: ""
   alert_detect: 无法检测到您的位置。请重试或输入您的ZIP邮政编码
   alert_zipcode: 找不到您的邮政编码，请重试
   years_up: 岁及以上
@@ -105,10 +103,11 @@ pre_list_disclaimer:
 providers:
   header: |
     这是我们对加利福尼亚州所有主要提供商网络的最新信息的概述。在这些网络中特定位置工作的员工可能会选择不同的操作方式。
+footer:
+  lang_disclaimer: |
 about_us:
   coordinators: "在第1天为这个项目工作的我们中的一些人"
   intro_1: |
-    VaccinateCA是一项由社区推动的工作，旨在帮助加利福尼亚人学习有关冠状病毒疫苗的准确，最新且经过验证的信息，以便他们可以了解自己何时有资格以及如何排队。
   intro_2: |
     我们的专业人员每天都会在数百个潜在的疫苗接种地点给医疗专业人员打电话，询问他们是否有疫苗，如果有疫苗的话，将对谁进行管理以及如何预约。我们记下他们告诉我们的内容，并将其发布到本网站。
   faq_header: |-
