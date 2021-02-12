@@ -2,6 +2,8 @@ import { fetchCounties } from "./data/counties.js";
 import policyTemplate from "./templates/policy.handlebars";
 import autoComplete from "@tarekraafat/autocomplete.js";
 import counties from "./counties.js";
+import marked from "marked";
+import sanitizeHtml from "sanitize-html";
 
 window.addEventListener("load", loaded);
 
@@ -64,7 +66,9 @@ async function loaded() {
   });
 
   for (const county of countyPolicies) {
-    console.log(county);
+    let notes = county["Notes"];
+    notes = sanitizeHtml(marked(notes));
+
     const templateInfo = {
       name: county["County"],
       id: countyToAnchor(county["County"]),
@@ -74,7 +78,7 @@ async function loaded() {
       reservationURL: county["County vaccination reservations URL"],
       facebook: county["Facebook Page"],
       twitter: county["Twitter Page"],
-      notes: county["Notes"],
+      notes: notes,
     };
 
     policyList.innerHTML += policyTemplate(templateInfo);
