@@ -25,7 +25,6 @@ nearest:
   dropdown_2: Mga lugar na mayroong nasabing dosis
   dropdown_3: Lahat ng nalalaman na lugar ng pagbabakuna
   appointment_required: Kailangan ng appointment
-  schedule_full: ""
   latest_info: Pinakabagong impormasyon
   vaccines_available: Nasabing mayroong bakuna
   vaccines_not_available: Nasabing walang bakuna
@@ -106,7 +105,6 @@ data_js:
   alert: Hindi makuha ang impormasyon tungkol sa lugar ng pagbabakuna.
   call_back: "Hindi nakapagusap sa isang tao, tatawag uli mamaya"
 nearest_js:
-  enter_valid_zipcode: ""
   alert_detect: Hindi mahanap ang inyong lokasyon. Paki subukan uli mamaya o ilagay ang inyong zip code
   alert_zipcode: "Hindi mahanap ang inyong zip code, paki subukan uli"
   years_up: taon o mas matanda
