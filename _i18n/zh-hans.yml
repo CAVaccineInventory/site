@@ -7,7 +7,6 @@ global:
   location_notes: 地点备注
   latest_report: 已更新
   loading: 载入中...
-  super_site: ""
 site_list:
   vaccine_sites: 据汇报有可用疫苗
   no_vaccine_sites: 据汇报无可用疫苗
@@ -25,7 +24,6 @@ nearest:
   dropdown_2: 据汇报有疫苗的地点
   dropdown_3: 所有已知的疫苗接种地点
   appointment_required: 需要预约
-  schedule_full: ""
   latest_info: 最新信息
   vaccines_available: 据汇报有可用疫苗
   vaccines_not_available: 据汇报无可用疫苗
@@ -87,7 +85,6 @@ data_js:
   alert: 检索疫苗接种地点数据失败。
   call_back: 没有联系到人，会稍后重新拨打
 nearest_js:
-  enter_valid_zipcode: ""
   alert_detect: 无法检测到您的位置。请重试或输入您的ZIP邮政编码
   alert_zipcode: 找不到您的邮政编码，请重试
   years_up: 岁及以上
