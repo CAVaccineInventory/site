@@ -2,7 +2,7 @@
 global:
   details: Detalye
   appt_info: Impormasyon tungkol sa appointment
-  address: "Address\n"
+  address: Address
   latest_info: Pinakabagong impormasyon
   location_notes: Nota tungkol sa lokasyon
   latest_report: Na-update
@@ -25,6 +25,7 @@ nearest:
   dropdown_2: Mga lugar na mayroong nasabing dosis
   dropdown_3: Lahat ng nalalaman na lugar ng pagbabakuna
   appointment_required: Kailangan ng appointment
+  schedule_full: Kumpleto na ang iskedyul sa huling tseke
   latest_info: Pinakabagong impormasyon
   vaccines_available: Nasabing mayroong bakuna
   vaccines_not_available: Nasabing walang bakuna
@@ -42,12 +43,12 @@ map:
   not_supported: Hindi suportado ang paghahanap sa lugar
 search_form:
   enter_zip: Ilagay ang ZIP
-  enter_county: "o lalawigan "
+  enter_county: "o county "
   location: Gamitin ang aking lokasyon
   location_placeholder: Ang aking lokasyon
   submit_button: "Maghanap <span class=\"hidden md:inline\">ng Bakuna</span>"
 site_template:
-  county_header: Sa inyong lalawigan
+  county_header: Sa inyong county
   no_reports: Walang ulat sa pakikipag-ugnay
 not_found:
   text: |
@@ -57,21 +58,20 @@ not_found:
 county_policies:
   text: |
     Habang mayroong estratehiya para sa pagbabakuna ang estado ng California, na-i-delegate
-    nila ang prioritization at pagbibigay sa bawat lalawigan. Ang mga desisyon tungkol sa kung sinong
+    nila ang prioritization at pagbibigay sa bawat county. Ang mga desisyon tungkol sa kung sinong
     pasyente ang mababakunahan at kung papaano ay nasasa mga tagapagbigay ng pagaalaga
     sa kalusugan.
 
-    Na-kolekta namin **ang pinaka bagong impormasyon sa inyong lalawigan** dito.
-    Sa tingin namin, kung ang impormasyon na aming nakuha mula sa isang lalawigan ay hindi nakapagsang-ayon,
-     sa isang tagapagbigay ng pagaalaga sa kalusugan, ang malamang na tama  
-    ay yung maaaring (o hindi) makapag-bibigay ng inyeksyon sa inyong braso.
+    Na-kolekta namin **ang pinaka bagong impormasyon sa inyong county** dito.
+    Sa tingin namin, kung ang impormasyon na aming nakuha mula sa isang county ay hindi nakapagsang-ayon,
+     sa isang tagapagbigay ng healthcare worker, ang malamang na tama ay yung maaaring (o hindi) makapag-bibigay ng inyeksyon sa inyong braso.
 
-    May mga lalawigan na nakapaghanda ng mga sistema ng pag-iskedyul o may payo; paki-tignan ang 
-    inyong lalawigan dito.
+    May mga county na nakapaghanda ng mga sistema ng pag-iskedyul o may payo; paki-tignan ang 
+    inyong county dito.
 index:
-  header: Maghanap ng bakuna para sa COVID-19 para sa inyo o sa inyong minamahal
+  header: Maghanap ng bakuna para sa COVID-19 para sa inyo o sa inyong mahal sa buhay
   subtitle: |
-    Ang mga bakuna laban sa COVID-19 na ligtas at maaasahan ay maaari nang makuha ng mga may-edad at ng mga tagapagbigay ng pagaalaga sa kalusugan
+    Ang mga bakuna laban sa COVID-19 na ligtas at maaasahan ay maaari nang makuha ng mga may-edad at ng mga tagapagbigay ng healthcare worker
     sa California. Pero baka mahirap malaman kung saan at kung paanong makakuha ng bakuna. Tinatawagan namin
     ang mga ospital at botika araw araw upang matunton ang mga bakunang maaaring makuha at ang mga prosesong kailangan gawin upang makapagbakuna.
   disclaimer: |
@@ -81,35 +81,36 @@ index:
   disclaimer_1: |
     Na-aprubahan na ng estado ng California
     <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19"> </a>
-    ang pagbibigay ng bakuna laban sa COVID-19 para sa mga taong 65 taon o mas matanda. Ang programa ng pagbabakuna laban sa COVID-19 ng California
+    ang pagbibigay ng bakuna laban sa COVID-19 para sa mga taong 65 taon at pataas. Ang programa ng pagbabakuna laban sa COVID-19 ng California
     ay dali-daling nag-iiba.
     <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Ang mga opisyal ng gobyernong pederal</a>,
     <a href="https://covid19.ca.gov/vaccines/">ng estado</a>,
-    at <a href="https://www.vaccinateca.com/county-policies">ng lalawigan </a> 
-    ay madalas na naglalathala ng mga update. Ang mga website na ito, na gawa ng gubyerno,
+    at <a href="https://www.vaccinateca.com/county-policies">ng county </a> 
+    ay madalas na naglalathala ng mga pagbabago. Ang mga website na ito, na gawa ng gubyerno,
     ang pinaka mabisang pinagkukunan ng opisyal na impormasyon.
   disclaimer_2: |
     Kami ay isang website na gawa ng komunidad at hindi namin ni-rerepresenta ang gubyerno
-    o ang mga tagapagbigay ng pagaalaga sa kalusugan.
+    o ang mga tagapagbigay ng healthcare worker.
   illustration: Ilustrasyon ng isang doktor na nagbabakuna
-  positive_feedback: Paki alam ninyo sa amin kung kapaki-pakinabang ang aming website!
+  positive_feedback: Ipaalam ninyo sa amin kung nakakatulong ang aming website!
   corrections: |
     Kung mayroon kayong alam na lokasyon na wala sa aming listahan, o kung sa tingin ninyo na mali,  
     ang aming impormasyon sa pakikipag-ugnay,
     <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">paki alam niyo po sa amin.</a>
-  locations_by_county: Mga lokasyon ng pagbabakuna sa bawat lalawigan
+  locations_by_county: Mga lokasyon ng pagbabakuna sa bawat county
   more_info: Karagdagang impormasyon tungkol sa pagkakaroon ng bakuna
-  find_county: Hanapin ang inyong lalawigan
+  find_county: Hanapin ang inyong county
   about_us: Tungkol sa VaccinateCA
 data_js:
   alert: Hindi makuha ang impormasyon tungkol sa lugar ng pagbabakuna.
   call_back: "Hindi nakapagusap sa isang tao, tatawag uli mamaya"
 nearest_js:
+  enter_valid_zipcode: Mangyaring maglagay ng wastong zip code
   alert_detect: Hindi mahanap ang inyong lokasyon. Paki subukan uli mamaya o ilagay ang inyong zip code
   alert_zipcode: "Hindi mahanap ang inyong zip code, paki subukan uli"
   years_up: taon o mas matanda
   patients_only: Mga kasalukuyang pasyente lamang
-  county_only: Mga residente ng lalawigan lamang
+  county_only: Mga residente ng county lamang
 post_list_disclaimer:
   disclaimer: |
     Ginagawa namin ang lahat ng maaari upang mapanatili ang tama at pangkasalukuyang impormasyon sa aming website, pero ang mga patakaran tungkol sa kung sino ang maaaring makapagpabakuna
@@ -122,7 +123,7 @@ post_list_disclaimer:
     >. Makatutulong ang inyong reporta sa ibang mga taga-California.
 pre_list_disclaimer:
   disclaimer: |
-    Tinatawagan namin ang mga ospital, botika, at ibang tagapagbigay ng pagaalaga sa kalusugan sa buong California
+    Tinatawagan namin ang mga ospital, botika, at ibang tagapagbigay ng healthcare worker sa buong California
     araw araw upang malaman kung sila ay kasalukuyang nagbabakuna. Pinapaalam sa amin ng
     mga medikal na propesyonal na nagtatrabaho sa mga lugar na ito ang impormasyon
     tungkol sa mga programa ng pagbabakuna at iniuulat namin ang kanilang sinasabi dito. Harang ginagawa namin ang lahat ng aming magagawa
@@ -154,7 +155,7 @@ about_us:
     Pagsabihan ang inyong komunidad tungkol sa bakuna. Tulungan ninyong magpabakuna ang inyong mga mamahaling maaari nang makakuha ng bakuna. Tuluyang
     magsuot ng maskara at obserbahan ang mga patnubay tungkol sa pagpapanatili ng pagitan mula sa mga kapwa-tao.
   faq_help_answer_2: |
-    Ang pinaka kailangan namin sa ngayon ay mga responsableng boluntaryo na maaaring tumulong sa pagtatawag sa mga tagapagbigay ng pagaalaga sa kalusugan sa buong 
+    Ang pinaka kailangan namin sa ngayon ay mga responsableng boluntaryo na maaaring tumulong sa pagtatawag sa mga tagapagbigay ng healthcare worker sa buong 
     estado upang ma-ipagpatuloy namin ang pagbibigay ng kumpletong impormasyon tungkol sa pagkakaroon ng bakuna laban sa COVID-19 sa lahat  
     ng mga taga-California. 
   faq_help_answer_3: |
