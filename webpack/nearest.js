@@ -161,6 +161,17 @@ function toggleLoading(shouldShow) {
   }
 }
 
+function updateUrl(key, value) {
+  const url = new URL(window.location.href);
+  // Delete location keys and set the new one again
+  url.searchParams.delete("zip");
+  url.searchParams.delete("locate");
+  url.searchParams.set(key, value);
+  if (url.toString() !== window.location.href) {
+    window.history.pushState(null, null, url);
+  }
+}
+
 async function handleSearch(event, type) {
   if (event) {
     event.preventDefault();
@@ -172,12 +183,14 @@ async function handleSearch(event, type) {
     case "zip":
       const zip = extractZip(zipInput);
       if (zip) {
+        updateUrl("zip", zip);
         await submitZip(zip);
         sendAnalyticsEvent("Search Zip", "Vaccine Sites", "", zip);
       }
       break;
     case "geolocation":
       toggleElementVisibility("js_my_location", true);
+      updateUrl("locate", 1);
       zipInput.value = "";
       await submitGeoLocation();
       sendAnalyticsEvent("Locate Me", "Vaccine Sites", "", "");
