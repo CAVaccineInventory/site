@@ -5,16 +5,14 @@ permalink: /county-policies
 add_to_nav: true
 order: 3
 ---
-<script src="{{ '/assets/js/airtable-autocomplete.js' | content_tag }}"></script>
-{% t county_policies.text  %}
+<script src="{{ '/assets/js/policies.js' | content_tag }}"></script>
 
-<div class="autoComplete_wrapper">
-  {% assign counties_list = "" | split: "" %}
-  {% for region in site.data.regions_counties %}
-    {% assign counties_list = counties_list | concat: region[1] %}
-  {% endfor %}
-  {% assign counties = counties_list | join: ", " %}
-  <input type="text" id="autoComplete" placeholder="{% t county_policies.search_by_county %}" class="{{ site.data.styles.input }}" autofocus data-collection="{{ counties }}" />
-</div>
+<input
+  class="js-county-filter rounded-full border border-gray-300
+  hover:border-gray-400 focus:outline-none focus:border-gray-700 px-4 py-2 w-64"
+  placeholder="{% t county_policies.search_by_county %}"
+/>
 
-<iframe class="airtable-embed margin-top--l" src="https://airtable.com/embed/shrCqe8cuKc52Bqgb?backgroundColor=grayLight&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="98%" style="background: transparent; border: 1px solid #ccc;"></iframe>
+<ul class="js-policies">
+
+</ul>
