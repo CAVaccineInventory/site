@@ -58,8 +58,7 @@ window.addEventListener("load", () => {
     }
   });
 
-
-  const clickFirstResult = function() {
+  const clickFirstResult = function () {
     const firstResult = getFirstResult();
     if (firstResult) {
       firstResult.click();
