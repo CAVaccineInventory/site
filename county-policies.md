@@ -5,7 +5,7 @@ permalink: /county-policies
 add_to_nav: true
 order: 3
 ---
-<script src="/assets/js/policies.js"></script>
+<script src="{{ '/assets/js/policies.js' | content_tag }}"></script>
 
 <input
   class="js-county-filter rounded-full border border-gray-300
