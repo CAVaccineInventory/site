@@ -33,9 +33,10 @@ nearest:
   vaccines_not_available: Vacunas reportadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
 head:
+  site_description: Publicando la disponibilidad actualizada de la vacuna contra el COVID-19 en hospitales y farmacias de California.
+  social_card_text: "Encuentre lugares de vacunación, calificaciones, y instrucciones para reservar una cita."
   meta_image_tag: |
-    Una imagen del logotipo de VaccinateCA con el texto 'VaccinateCA. Encuentra vacunas
-    cerca de ti con nuestro rastreador administrado por la comunidad'
+    Una imagen del logotipo de VaccinateCA con el texto 'Encuentre lugares de vacunación, calificaciones, y instrucciones para reservar una cita.'
 header:
   menu_open: Abrir menú principal
 map:
@@ -58,6 +59,7 @@ not_found:
     encontrando vacunas en California, marque
     [VaccinateCA.com] (https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Buscar por condado...
   text: |
     El estado de California tiene una estrategia de vacunación, pero ha delegado priorización y administración a cada condado. Las decisiones sobre cuáles pacientes vacunar y de qué forma hacerlo, en última instancia, depende de los proveedores.
 
