@@ -26,24 +26,24 @@
   <meta property="og:site_name" content="VaccinateCA" />
   <meta
     property="og:image"
-    content="https://www.vaccinateca.com/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png"
+    content="/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png"
   />
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     property="twitter:image"
-    content="https://www.vaccinateca.com/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png"
+    content="/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png"
   />
   <meta property="twitter:title" content="{% t page.title %}" />
   <meta name="twitter:site" content="@ca_covid" />
   <script type="application/ld+json">
     {
-      "image": "https://www.vaccinateca.com/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png",
+      "image": "/assets/img{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/link_card_image.png",
       "description": "{% t head.site_description %}",
       "publisher": {
         "@type": "Organization",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.vaccinateca.com/assets/img/logo.png"
+          "url": "/assets/img/logo.png"
         }
       },
       "@type": "WebSite",
