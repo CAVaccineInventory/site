@@ -13,12 +13,13 @@ jobs:
 
     - name: Read Node version
       id: node_version
-      run: cat .node_version
+      run: |
+        echo "::set-output name=version::$(cat .node_version)"
 
     - name: Setup
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ steps.node_version.outputs.value }}
+        node-version: ${{ steps.node_version.outputs.version }}
 
     - name: Install
       run: npm install
