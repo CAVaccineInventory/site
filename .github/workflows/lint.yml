@@ -16,6 +16,9 @@ jobs:
       with:
         node-version: '14'
 
+    - name: Upgrade NPM to reduce `package-lock.json` thrash
+      run: npm install -g npm
+
     - name: Install
       run: npm install
 
