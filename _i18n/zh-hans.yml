@@ -7,6 +7,7 @@ global:
   location_notes: 地点备注
   latest_report: 已更新
   loading: 载入中...
+  super_site: 超级接种点
   # The language currently being viewed (i.e. "Español", not "Inglés")
   current_language: 简体中文
 site_list:
@@ -19,7 +20,6 @@ titles:
   about_us: 关于我们
   county_policies: 县政策
   home: COVID-19疫苗供应情况
-  vaccination_sites: 疫苗接种地点
   providers: 提供者
   nearest: 您附近的疫苗接种地点
 nearest:
@@ -27,16 +27,16 @@ nearest:
   dropdown_2: 据汇报有疫苗的地点
   dropdown_3: 所有已知的疫苗接种地点
   appointment_required: 需要预约
+  schedule_full: 截至上次查询，预约已满
   latest_info: 最新信息
   vaccines_available: 据汇报有可用疫苗
   vaccines_not_available: 据汇报无可用疫苗
   vaccine_unknown: 未知疫苗状态
-vaccination_sites:
-  explainer: |
-    这是我们在加利福尼亚知道的所有站点的列表，这些站点在某些时候可能会收到COVID-19疫苗。<b>他们中大多数没有可用的疫苗</b>;我们每天都会召集尽可能多的人来更新列表，因此请查看<a href="https://www.vaccinateca.com">最新报告</a>。如果我们错过了一个网站，请<a href="https://airtable.com/shrY44NvEjHBscrOH">告诉我们</a>！我们正在与其他药店和其他地点一起扩大清单。
 head:
+  site_description: 正在发布COVID-19疫苗在加州医院和药房的最新供应情况
+  social_card_text: 查询提供疫苗的地方，资格的规定和预约的方法。
   meta_image_tag: |
-    一个加州疫苗组织的图标，带有文字：“加州疫苗组织。用我们的社区网站找到您附近的的疫苗。”
+    一个加州疫苗组织的图标，带有文字：“查詢提供疫苗的地方，資格的規定和預約的方法。”
 header:
   menu_open: 打开主菜单
 map:
@@ -58,6 +58,7 @@ not_found:
     您访问的网页不存在。如果您需要在加利福尼亚州寻找疫苗的帮助，
     请查询[VaccinateCA.com](https://www.vaccinateca.com)。
 county_policies:
+  search_by_county: 按县搜索...
   text: |
     加利福尼亚州制定了疫苗战略，但是已委托每个县进行优先级划分和管理。
     对哪些患者如何提供疫苗的决定最终属于医疗服务提供者。
@@ -70,7 +71,7 @@ county_policies:
 index:
   header: 为您或您的亲人寻找新冠病毒COVID-19疫苗
   subtitle: |
-    在加利福尼亚，老年人和医护人员可以使用安全可靠的COVID-19疫苗。但是，很难找出在哪里以及如何进行接种。我们每天都致电医院和药房，以跟踪其疫苗供应情况以及获得疫苗的过程。
+    安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亚的几类人群。但是，寻找接种疫苗的地点和时间可能困难。我们每天都致电医院和药房，以跟踪其疫苗供应情况以及获得疫苗的过程。
   disclaimer: |
     安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亚的几类人群。
     但是，寻找接种疫苗的地点和时间可能困难。
@@ -91,6 +92,7 @@ data_js:
   alert: 检索疫苗接种地点数据失败。
   call_back: 没有联系到人，会稍后重新拨打
 nearest_js:
+  enter_valid_zipcode: 请输入有效的ZIP
   alert_detect: 无法检测到您的位置。请重试或输入您的ZIP邮政编码
   alert_zipcode: 找不到您的邮政编码，请重试
   years_up: 岁及以上
@@ -98,15 +100,20 @@ nearest_js:
   county_only: 仅限于县居民
 post_list_disclaimer:
   disclaimer: |-
-    我们会尽力使此站点上的信息保持最新，但是在您阅读本文时，特定位置的疫苗合格性和可用性可能已经改变。如果您在本网站上发现任何过时的东西，<a href="https://airtable.com/shrY44NvEjHBscrOH"
+    我们尽力更新此网站的信息，但是在您阅读本文时，某些地点的疫苗资格和可获得性可能已经改变。如果您在本网站上发现任何过时的信息，<a href="https://airtable.com/shrY44NvEjHBscrOH"
       class="font-medium text-yellow-600"
-    >请报告</a>。您的报告将帮助其他加利福尼亚人。
+    >请提交报告</a
+    >。您的报告将帮助其他的加利福尼亚人。
+     
 pre_list_disclaimer:
   disclaimer: |
     我们每天都会致电加利福尼亚州的医院，药房和其他医疗服务提供者，以了解他们当前是否正在提供疫苗。在这些医疗提供者工作的医疗专业人员向我们解释他们目前的疫苗接种计划，我们在此报告他们的看法。尽管我们会尽力核实所有收到的信息，如果您对疫苗接种地点有疑问，我们强烈建议您与医生或当地官员进行核对。
 providers:
   header: |
     这是我们对加利福尼亚州所有主要提供商网络的最新信息的概述。在这些网络中特定位置工作的员工可能会选择不同的操作方式。
+footer:
+  lang_disclaimer: |
+    本网站的翻译正在进行中。某些信息可能还没有中文版— 给您带来的不便，我们深表歉意！
 about_us:
   coordinators: "在第1天为这个项目工作的我们中的一些人"
   intro_1: |
