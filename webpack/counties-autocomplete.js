@@ -1,8 +1,10 @@
 import autoComplete from "@tarekraafat/autocomplete.js";
 
 window.addEventListener("load", () => {
-  const inputSelector = "#js_zip_or_county";
-  const input = document.querySelector(inputSelector);
+  const form = document.querySelector("#submit_zip_form");
+  const input = form.querySelector("#js_zip_or_county");
+  const button = form.querySelector("#submit_zip");
+
   if (!input) return;
   const counties = input.getAttribute("data-collection");
   if (!counties) return;
@@ -17,7 +19,7 @@ window.addEventListener("load", () => {
     resultsList: {
       idName: "main_search_autocomplete_list",
     },
-    selector: inputSelector,
+    selector: "#js_zip_or_county",
     query: {
       manipulate: (str) => {
         return str.trim();
@@ -56,13 +58,21 @@ window.addEventListener("load", () => {
     }
   });
 
+  const clickFirstResult = function () {
+    const firstResult = getFirstResult();
+    if (firstResult) {
+      firstResult.click();
+    }
+  };
+
   input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      const firstResult = getFirstResult();
-      if (firstResult) {
-        firstResult.click();
-      }
+      clickFirstResult();
     }
+  });
+
+  button.addEventListener("click", (event) => {
+    clickFirstResult();
   });
 
   // Auto focus

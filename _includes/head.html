@@ -60,13 +60,13 @@
 
   <!-- Accessible descripts of our images that show up on social media -->
   <meta name="twitter:image:alt" content="{% t head.meta_image_tag %}" />
-  <meta name="og:image:alt" content="{% t head.meta_image_tag %}" />
+  <meta property="og:image:alt" content="{% t head.meta_image_tag %}" />
 
   <!--
         Add custom styles sparingly. Bias heavily towards following the path
         laid out by the design system (See above).
     -->
-  <link href="{{ '/assets/css/main.css' | content_tag }}" rel="stylesheet" />
+  <link href="/assets/css/main.css" rel="stylesheet" />
 
   <script id="messageCatalog">
     window.messageCatalog = {
@@ -86,7 +86,7 @@
     };
   </script>
 
-  <script src="{{ '/assets/js/main.js' | content_tag }}"></script>
+  <script src="/assets/js/main.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"

@@ -27,15 +27,16 @@ nearest:
   dropdown_2: Mga lugar na mayroong nasabing dosis
   dropdown_3: Lahat ng nalalaman na lugar ng pagbabakuna
   appointment_required: Kailangan ng appointment
-  schedule_full: Kumpleto na ang iskedyul sa huling tseke
+  schedule_full: Puno na ang schedule sa huling pagtingin
   latest_info: Pinakabagong impormasyon
   vaccines_available: Nasabing mayroong bakuna
   vaccines_not_available: Nasabing walang bakuna
   vaccine_unknown: Hindi alam ang katayuan ng baksinasyon
 head:
+  site_description: Malalathala ang ngayong COVID-19 bakuna availability sa mga ospital at botika sa buong California.
+  social_card_text: "Hanapin ang bakunahan, kwalipikasyon, at appointment tagubilin."
   meta_image_tag: |
-    Imahen nung logo ng VaccinateCA kasama ang nakasulat na 'VaccinateCA. Hanapin ang mga bakunang 
-    malapit sa inyo gamit ang tagasubaybay na ginawa ng aming komunidad
+    Imahen nung logo ng VaccinateCA kasama ang nakasulat na 'VaccinateCA. Hanapin ang bakunahan, kwalipikasyon, at appointment tagubilin.'
 header:
   menu_open: Buksan ang pangunahing menu
 map:
@@ -58,6 +59,7 @@ not_found:
     para makahanap ng bakuna sa California, paki-tignan ang 
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Paghahanap ayon sa county ...
   text: |
     Habang mayroong estratehiya para sa pagbabakuna ang estado ng California, na-i-delegate
     nila ang prioritization at pagbibigay sa bawat county. Ang mga desisyon tungkol sa kung sinong
@@ -107,7 +109,7 @@ data_js:
   alert: Hindi makuha ang impormasyon tungkol sa lugar ng pagbabakuna.
   call_back: "Hindi nakapagusap sa isang tao, tatawag uli mamaya"
 nearest_js:
-  enter_valid_zipcode: Mangyaring maglagay ng wastong zip code
+  enter_valid_zipcode: Ibigay mo ang wastong zip code
   alert_detect: Hindi mahanap ang inyong lokasyon. Paki subukan uli mamaya o ilagay ang inyong zip code
   alert_zipcode: "Hindi mahanap ang inyong zip code, paki subukan uli"
   years_up: taon o mas matanda
