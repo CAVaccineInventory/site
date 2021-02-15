@@ -1,4 +1,12 @@
 const path = require("path");
+const webpack = require("webpack");
+
+let publicPath = undefined;
+if (process.env.NETLIFY) {
+  // environment variables are documented at https://docs.netlify.com/configure-builds/environment-variables/#read-only-variables
+  const root = process.env.CONTEXT === "production" ? process.env.URL : process.env.DEPLOY_PRIME_URL;
+  publicPath = `${root}/assets/js/`;
+}
 
 module.exports = {
   "mode": "production",
@@ -11,7 +19,7 @@ module.exports = {
     "county-page": "./webpack/county-page.js",
     "policies": "./webpack/policies.js",
   },
-  "devtool": "source-map",
+  "devtool": false,
   "output": {
     "path": path.resolve(__dirname, "assets/js"),
     "environment": {
@@ -45,4 +53,10 @@ module.exports = {
       "path": require.resolve("path-browserify"),
     },
   },
+  "plugins": [
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[file].map",
+      publicPath,
+    }),
+  ],
 };
