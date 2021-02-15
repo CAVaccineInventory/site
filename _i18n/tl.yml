@@ -18,7 +18,7 @@ site_list:
 #These are per-page strings.
 titles:
   about_us: Tungkol sa Amin
-  county_policies: Patakaran ng Kondehan
+  county_policies: Patakaran ng County
   home: Pagkakaroon ng Bakuna para sa COVID-19
   providers: "Mga Tagapagbigay ng Pangangalaga "
   nearest: Mga Lugar ng Pagbabakuna na Malapit sa Inyo
@@ -75,9 +75,9 @@ county_policies:
 index:
   header: Maghanap ng bakuna para sa COVID-19 para sa inyo o sa inyong mahal sa buhay
   subtitle: |
-    Ang mga bakuna laban sa COVID-19 na ligtas at maaasahan ay maaari nang makuha ng mga may-edad at ng mga tagapagbigay ng healthcare worker
+    Ang mga bakuna laban sa COVID-19 na ligtas at maaasahan ay maaari nang makuha ng mga may-edad at ng mga healthcare workers
     sa California. Pero baka mahirap malaman kung saan at kung paanong makakuha ng bakuna. Tinatawagan namin
-    ang mga ospital at botika araw araw upang matunton ang mga bakunang maaaring makuha at ang mga prosesong kailangan gawin upang makapagbakuna.
+    ang mga ospital at botika araw-araw upang matunton ang mga bakunang maaaring makuha at ang mga prosesong kailangan gawin upang makapagpabakuna.
   disclaimer: |
     Maaari nang makuha ng iba't ibang grupo ng tao sa California ang mga bakuna laban sa COVID-19 na ligtas at maaasahan. 
     Pero maaaring mahirap malaman kung saan at paano makakapagpabakuna. 
@@ -128,7 +128,7 @@ post_list_disclaimer:
 pre_list_disclaimer:
   disclaimer: |
     Tinatawagan namin ang mga ospital, botika, at ibang tagapagbigay ng healthcare worker sa buong California
-    araw araw upang malaman kung sila ay kasalukuyang nagbabakuna. Pinapaalam sa amin ng
+    araw-araw upang malaman kung sila ay kasalukuyang nagbabakuna. Pinapaalam sa amin ng
     mga medikal na propesyonal na nagtatrabaho sa mga lugar na ito ang impormasyon
     tungkol sa mga programa ng pagbabakuna at iniuulat namin ang kanilang sinasabi dito. Harang ginagawa namin ang lahat ng aming magagawa
     upang mapatunayan ang impormasyon na aming natatanggap, hinihikayat namin kayo na kausapin
