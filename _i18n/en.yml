@@ -8,6 +8,8 @@ global:
   latest_report: Updated
   loading: Loading...
   super_site: Super Site
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: English
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
@@ -31,9 +33,10 @@ nearest:
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
 head:
+  site_description: Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
+  social_card_text: Find vaccine locations, qualification criteria, and appointment instructions.
   meta_image_tag: |
-    An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccines
-    near you with our community-run tracker'
+    An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccine locations, qualification criteria, and appointment instructions.'
 header:
   menu_open: Open main menu
 map:
@@ -56,6 +59,7 @@ not_found:
     finding vaccines in California, please check 
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Search by county...
   text: |
     The state of California has a vaccine strategy, but has delegated
     prioritization and administration to each county. Decisions as to which
