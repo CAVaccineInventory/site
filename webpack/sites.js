@@ -6,7 +6,6 @@ import siteTemplate from "./templates/siteLocation.handlebars";
 import marked from "marked";
 import sanitizeHtml from "sanitize-html";
 
-
 function flattenData(strOrStrArray) {
   return Array.isArray(strOrStrArray)
     ? strOrStrArray.join("; ")
