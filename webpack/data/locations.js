@@ -14,7 +14,7 @@ async function fetchSites() {
     });
   }
   isFetching = true;
-  let response = await fetch("https://api.vaccinateca.com/v1/locations.json");
+  const response = await fetch("https://api.vaccinateca.com/v1/locations.json");
 
   if (!response.ok) {
     alert(window.messageCatalog["data_js_alert"]);
@@ -26,13 +26,13 @@ async function fetchSites() {
   const providers = await fetchProviders();
 
   _fetchedSites.forEach((site) => {
-    if(site["Affiliation"] === "None / Unknown / Unimportant") {
+    if (site["Affiliation"] === "None / Unknown / Unimportant") {
       return;
     }
 
-    let provider = findProviderByName(providers, site["Affiliation"]);
+    const provider = findProviderByName(providers, site["Affiliation"]);
 
-    if(provider) {
+    if (provider) {
       site["Provider"] = provider;
     }
   });
@@ -41,7 +41,6 @@ async function fetchSites() {
   subscribers.forEach((cb) => cb(_fetchedSites));
   return _fetchedSites;
 }
-
 
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {

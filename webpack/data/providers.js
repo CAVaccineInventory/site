@@ -19,8 +19,4 @@ function findProviderByName(providers, name) {
   return providers.find((p) => p["Provider"] === name);
 }
 
-export {
-  fetchProviders,
-  findProviderByName,
-  getProviderName
-};
+export { fetchProviders, findProviderByName, getProviderName };
