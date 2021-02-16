@@ -100,9 +100,11 @@
         <div
           class="site_latest_info px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm"
         >
-          <div class="mr-2 flex-none"><img src="/assets/img/info.svg" /></div>
           <div>
-            <span class="font-bold pr-2">{{latestNotesLabel}}</span>
+            <span class="font-bold pr-2 flex flex-row">
+              <img class="inline pr-2" src="/assets/img/info.svg"
+                                       /><div>{{latestNotesLabel}}</div>
+            </span>
             <span class="site_latest_info_details text-black
                           word-break">{{{notes}}}</span>
           </div>

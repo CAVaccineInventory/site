@@ -3,16 +3,8 @@ import {
   getTimeDiffFromNow,
 } from "./data/locations.js";
 import siteTemplate from "./templates/siteLocation.handlebars";
-
-function urlify(text) {
-  if (!text) {
-    return;
-  }
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  return text.replace(urlRegex, function (url) {
-    return '<a href="' + url + '">' + url + "</a>";
-  });
-}
+import marked from "marked";
+import sanitizeHtml from "sanitize-html";
 
 function flattenData(strOrStrArray) {
   return Array.isArray(strOrStrArray)
@@ -57,6 +49,12 @@ function addSitesToPage(sites, containerId) {
       appointmentRequiredLabel += `; ${labels.scheduleFull}`;
     }
 
+    let notes = info.reportNotes;
+    if (notes) {
+      notes = flattenData(notes);
+      notes = sanitizeHtml(marked(notes));
+    }
+
     const context = {
       name: info.name,
       county: info.county,
@@ -77,7 +75,7 @@ function addSitesToPage(sites, containerId) {
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
       latestNotesLabel: labels.latestInfo,
-      notes: urlify(flattenData(info.reportNotes)),
+      notes: notes,
       noReports: labels.noReports,
     };
 
