@@ -2,8 +2,7 @@ import { fetchCounties } from "./data/counties.js";
 import policyTemplate from "./templates/policy.handlebars";
 import autoComplete from "@tarekraafat/autocomplete.js";
 import counties from "./counties.js";
-import marked from "marked";
-import sanitizeHtml from "sanitize-html";
+import { markdownify } from "./markdown.js";
 
 window.addEventListener("load", loaded);
 
@@ -64,7 +63,7 @@ async function loaded() {
 
   for (const county of countyPolicies) {
     let notes = county["Notes"];
-    notes = sanitizeHtml(marked(notes));
+    notes = markdownify(notes);
 
     const templateInfo = {
       name: county["County"],
