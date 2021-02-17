@@ -4,7 +4,7 @@ async function fetchCounties() {
   const response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert("Could not retrieve the vaccination site data.");
+    alert("Could not retrieve the county data.");
     return;
   }
 

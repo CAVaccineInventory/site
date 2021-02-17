@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import { fetchProviders, findProviderByName } from "./providers.js";
 
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
@@ -19,8 +20,23 @@ async function fetchSites() {
     alert(window.messageCatalog["data_js_alert"]);
     return;
   }
-  const _fetchedData = await response.json();
-  _fetchedSites = _fetchedData["content"];
+  const fetchedData = await response.json();
+  _fetchedSites = fetchedData["content"];
+
+  const providers = await fetchProviders();
+
+  _fetchedSites.forEach((site) => {
+    if (site["Affiliation"] === "None / Unknown / Unimportant") {
+      return;
+    }
+
+    const provider = findProviderByName(providers, site["Affiliation"]);
+
+    if (provider) {
+      site["Provider"] = provider;
+    }
+  });
+
   isFetching = false;
   subscribers.forEach((cb) => cb(_fetchedSites));
   return _fetchedSites;
