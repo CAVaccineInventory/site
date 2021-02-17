@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import { markdownifyInline } from "../markdown";
 import { fetchProviders, findProviderByName } from "./providers.js";
 
 // Calls the JSON feed to pull down sites data
@@ -92,27 +93,18 @@ function getDisplayableVaccineInfo(p) {
     if (!Array.isArray(instructions)) {
       return null;
     }
-    return replaceAnyLinks(instructions.join(", "));
+    return markdownifyInline(instructions.join(", "));
   }
   function getRepNotes(p) {
     const notes = p["Latest report notes"];
     if (!Array.isArray(notes)) {
       return null;
     }
-    const linkifiedNotes = replaceAnyLinks(notes.join(" | "));
+    const linkifiedNotes = markdownifyInline(notes.join(" | "));
     if (linkifiedNotes.trim() === "") {
       return null;
     }
     return notes;
-  }
-
-  function replaceAnyLinks(body) {
-    // Regex from https://stackoverflow.com/a/3890175.
-    const urlRegex = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
-    if (!body) {
-      return "";
-    }
-    return body.replace(urlRegex, "<a href='$1' target='_blank'>$1</a>");
   }
 
   const hasReport = getHasReport(p);

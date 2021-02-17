@@ -3,8 +3,7 @@ import {
   getTimeDiffFromNow,
 } from "./data/locations.js";
 import siteTemplate from "./templates/siteLocation.handlebars";
-import marked from "marked";
-import sanitizeHtml from "sanitize-html";
+import { markdownify } from "./markdown.js";
 
 function flattenData(strOrStrArray) {
   return Array.isArray(strOrStrArray)
@@ -52,7 +51,7 @@ function addSitesToPage(sites, containerId) {
     let notes = info.reportNotes;
     if (notes) {
       notes = flattenData(notes);
-      notes = sanitizeHtml(marked(notes));
+      notes = markdownify(notes);
     }
 
     const context = {
