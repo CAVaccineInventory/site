@@ -19,27 +19,27 @@
     </div>
   </div>
   <div class="bg-gray-100 rounded-lg rounded-t-none">
-    <div class="grid grid-cols-2 md:grid-cols-4 py-2 border-b border-gray-400">
-      <div class="border-b border-r md:border-b-0 border-gray-400 py-2 px-6">
-        {{#if infoURL}}
+    <div class="grid grid-cols-2 md:grid-cols-4 py-2 border-b border-gray-400 gap-1">
+      {{#if infoURL}}
+      <div class="bg-white py-2 px-6">
           <a href="{{infoURL}}">Vaccine info</a>
-        {{/if}}
       </div>
-      <div class="border-b md:border-r md:border-b-0 border-gray-400 py-2 px-6">
-        {{#if locationsURL}}
+      {{/if}}
+      {{#if locationsURL}}
+      <div class="bg-white py-2 px-6">
           <a href="{{locationsURL}}">Vaccine locations</a>
-        {{/if}}
       </div>
-      <div class="border-r border-gray-400 py-2 px-6">
-        {{#if reservationURL}}
+      {{/if}}
+      {{#if reservationURL}}
+      <div class="bg-white py-2 px-6">
           <a href="{{reservationURL}}">Vaccine appointments</a>
-        {{/if}}
       </div>
-      <div class="py-2 px-6">
-        {{#if volunteering}}
+      {{/if}}
+      {{#if volunteering}}
+      <div class="bg-white py-2 px-6">
           <a href="{{volunteering}}">Volunteering opportunities</a>
-        {{/if}}
       </div>
+      {{/if}}
     </div>
     <div class="p-4">
       <span>
