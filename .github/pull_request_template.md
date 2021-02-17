@@ -36,6 +36,7 @@ Open the deploy preview and manually perform the following tests with the browse
 #### County Vaccination Site List page
 - [ ] List of locations displays successfully on load, split into sites with vaccine and without vaccine
 - [ ] Vaccination Site Cards show relevant information
+- [ ] County policy card shows up near top of page
 
 #### County Policies page
 - [ ] Shows list of policies per county
