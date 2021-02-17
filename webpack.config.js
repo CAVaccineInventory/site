@@ -12,7 +12,6 @@ module.exports = {
   "mode": "production",
   "entry": {
     "main": "./webpack/index.js",
-    "airtable-autocomplete": "./webpack/airtable-autocomplete.js",
     "mapLoader": "./webpack/mapLoader.js",
     "nearest": "./webpack/nearest.js",
     "counties-autocomplete": "./webpack/counties-autocomplete.js",
