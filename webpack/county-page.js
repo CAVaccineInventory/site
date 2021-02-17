@@ -51,7 +51,9 @@ async function fetchCountySites() {
 
 async function fetchCountyCard() {
   const countyPolicies = await fetchCounties();
-  const countyPolicy = countyPolicies.find((county) => county["County"] === currentCounty());
+  const countyPolicy = countyPolicies.find(
+    (county) => county["County"] === currentCounty()
+  );
 
   let notes = countyPolicy["Notes"];
   notes = sanitizeHtml(marked(notes));
@@ -67,5 +69,7 @@ async function fetchCountyCard() {
     notes: notes,
   };
 
-  document.querySelector(".js-county-policy").innerHTML = policyTemplate(templateInfo);
+  document.querySelector(".js-county-policy").innerHTML = policyTemplate(
+    templateInfo
+  );
 }
