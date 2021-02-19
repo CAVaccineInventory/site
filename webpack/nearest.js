@@ -304,10 +304,7 @@ async function updateSitesFromMap() {
   );
 
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
-  addSitesOrHideIfEmpty(
-    sitesWithoutVaccine,
-    "js-sites-without-vaccine"
-  );
+  addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
