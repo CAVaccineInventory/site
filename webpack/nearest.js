@@ -260,7 +260,9 @@ async function lookup(zip) {
 }
 
 async function updateSitesFromMap() {
-  document.querySelectorAll(".js-sites").forEach((site) => site.innerHTML = "");
+  document
+    .querySelectorAll(".js-sites")
+    .forEach((site) => (site.innerHTML = ""));
 
   let sites = await fetchSites();
   // Remove sites without coordinates
@@ -297,10 +299,15 @@ async function updateSitesFromMap() {
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
   sitesWithNoReport = sitesWithNoReport.slice(0, 50);
 
-  updateMap(sitesWithVaccine.concat(sitesWithoutVaccine.concat(sitesWithNoReport)));
+  updateMap(
+    sitesWithVaccine.concat(sitesWithoutVaccine.concat(sitesWithNoReport))
+  );
 
   addSitesOrRemoveParentIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
-  addSitesOrRemoveParentIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
+  addSitesOrRemoveParentIfEmpty(
+    sitesWithoutVaccine,
+    "js-sites-without-vaccine"
+  );
   addSitesOrRemoveParentIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
@@ -313,9 +320,7 @@ function updateMap(sites) {
     });
   } else {
     // If the map is missing, listen for it to be initialized and then retry
-    document.addEventListener("mapInit", () =>
-      updateMap(sites)
-    );
+    document.addEventListener("mapInit", () => updateMap(sites));
   }
 }
 
@@ -330,9 +335,7 @@ function moveMap(coordinates) {
     map.setZoom(12);
   } else {
     // If the map is missing, listen for it to be initialized and then retry
-    document.addEventListener("mapInit", () =>
-      moveMap(coordinates)
-    );
+    document.addEventListener("mapInit", () => moveMap(coordinates));
   }
 }
 
