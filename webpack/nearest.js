@@ -327,7 +327,7 @@ function moveMap(coordinates) {
       lng: coordinates.longitude,
     };
     map.setCenter(mapCoord);
-    map.setZoom(10);
+    map.setZoom(12);
   } else {
     // If the map is missing, listen for it to be initialized and then retry
     document.addEventListener("mapInit", () =>
