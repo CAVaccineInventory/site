@@ -18,6 +18,15 @@ function currentCounty() {
   return document.getElementById("county_name").textContent.trim();
 }
 
+function addSitesOrRemoveIfEmpty(sites, containerId) {
+  if (!sites.length) {
+    const container = document.getElementById(containerId);
+    container.parentElement.remove();
+  } else {
+    addSitesToPage(sites, containerId);
+  }
+}
+
 async function fetchCountySites() {
   let sites = await fetchSites();
   const county = currentCounty();
