@@ -5,7 +5,7 @@ import {
   getCounty,
 } from "./data/locations.js";
 
-import { addSitesOrRemoveParentIfEmpty } from "./sites.js";
+import { addSitesOrHideIfEmpty } from "./sites.js";
 import { fetchCounties } from "./data/counties.js";
 import policyTemplate from "./templates/policy.handlebars";
 import marked from "marked";
@@ -35,9 +35,9 @@ async function fetchCountySites() {
     sitesWithNoReport,
   } = splitSitesByVaccineState(sites);
 
-  addSitesOrRemoveParentIfEmpty(sitesWithVaccine, "sitesWithVaccine");
-  addSitesOrRemoveParentIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
-  addSitesOrRemoveParentIfEmpty(sitesWithNoReport, "sitesWithoutReport");
+  addSitesOrHideIfEmpty(sitesWithVaccine, "sitesWithVaccine");
+  addSitesOrHideIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
+  addSitesOrHideIfEmpty(sitesWithNoReport, "sitesWithoutReport");
 }
 
 async function fetchCountyCard() {

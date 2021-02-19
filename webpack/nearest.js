@@ -9,7 +9,7 @@ import {
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
 
-import { addSitesOrRemoveParentIfEmpty } from "./sites.js";
+import { addSitesOrHideIfEmpty } from "./sites.js";
 import { addLocation, clearMap } from "./map.js";
 
 window.addEventListener("load", loaded);
@@ -303,12 +303,12 @@ async function updateSitesFromMap() {
     sitesWithVaccine.concat(sitesWithoutVaccine.concat(sitesWithNoReport))
   );
 
-  addSitesOrRemoveParentIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
-  addSitesOrRemoveParentIfEmpty(
+  addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
+  addSitesOrHideIfEmpty(
     sitesWithoutVaccine,
     "js-sites-without-vaccine"
   );
-  addSitesOrRemoveParentIfEmpty(sitesWithNoReport, "js-sites-without-report");
+  addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
 function updateMap(sites) {
