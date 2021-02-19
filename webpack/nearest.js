@@ -3,6 +3,8 @@ import {
   fetchSites,
   getHasVaccine,
   getHasReport,
+  sortByRecency,
+  splitSitesByVaccineState,
   getCoord,
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
@@ -72,8 +74,10 @@ function loaded() {
     return;
   }
 
-  handleUrlParamOnLoad();
   addListeners();
+  document.addEventListener("mapInit", () => {
+    handleUrlParamOnLoad();
+  });
 }
 
 function toggleElementVisibility(elementId, isVisible) {
@@ -136,18 +140,10 @@ function addListeners() {
 
   document.addEventListener("mapInit", () => {
     window.map.addListener(
-      "center_changed",
-      debounce(() => mapMovement())
+      "bounds_changed",
+      debounce(() => updateSitesFromMap())
     );
   });
-}
-
-function mapMovement() {
-  const newCoord = {
-    latitude: window.map.getCenter().lat(),
-    longitude: window.map.getCenter().lng(),
-  };
-  updateSitesFromCoordinates(newCoord, false);
 }
 
 function toggleLoading(shouldShow) {
@@ -235,7 +231,7 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
-        await updateSitesFromCoordinates(coordinates);
+        await moveMap(coordinates);
         onFinish();
         resolve();
       },
@@ -253,10 +249,6 @@ async function submitGeoLocation() {
   });
 }
 
-async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
-  await fetchFilterAndSortSites(coordinates, repositionMap);
-}
-
 async function lookup(zip) {
   const data = zipCodes[zip];
   if (!data) {
@@ -264,52 +256,58 @@ async function lookup(zip) {
     return;
   }
   const coordinate = data.coordinates;
-  return fetchFilterAndSortSites(coordinate);
+  return moveMap(coordinate);
 }
 
-async function fetchFilterAndSortSites(userCoord, repositionMap = true) {
-  const list = document.getElementById("sites");
-  list.innerHTML = "";
-  let sites = await fetchSites();
-  sites = sites.filter((s) => s.Latitude && s.Longitude);
-  const filterElem = document.querySelector("#filter");
-  const filter = filterElem ? filterElem.value : "stocked";
+async function updateSitesFromMap() {
+  document.querySelectorAll(".js-sites").forEach((site) => site.innerHTML = "");
 
-  if (filter == "reports") {
+  let sites = await fetchSites();
+  // Remove sites without coordinates
+  sites = sites.filter((s) => s.Latitude && s.Longitude);
+
+  const filterElem = document.querySelector("#filter");
+  const filter = filterElem ? filterElem.value : "any";
+
+  if (filter === "reports") {
     sites = sites.filter((site) => {
       return getHasReport(site);
     });
-  } else if (filter == "stocked") {
+  } else if (filter === "stocked") {
     sites = sites.filter((site) => {
       return getHasVaccine(site);
     });
   }
 
-  for (const site of sites) {
-    const siteCoord = getCoord(site);
-    const distance = distanceBetweenCoordinates(userCoord, siteCoord);
-    site.distance = distance;
-  }
+  const bounds = window.map.getBounds();
+  sites = sites.filter((site) => {
+    const { latitude, longitude } = getCoord(site);
+    return bounds.contains({ lat: latitude, lng: longitude });
+  });
 
-  sites.sort((a, b) => a.distance - b.distance);
-  if (repositionMap) {
-    updateMap(userCoord, sites, true);
-  }
-  addSitesToPage(sites.slice(0, 50), "sites");
+  sortByRecency(sites);
+
+
+  let {
+    sitesWithVaccine,
+    sitesWithoutVaccine,
+    sitesWithNoReport,
+  } = splitSitesByVaccineState(sites);
+
+  sitesWithVaccine = sitesWithVaccine.slice(0, 50);
+  sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
+  sitesWithNoReport = sitesWithNoReport.slice(0, 50);
+
+  updateMap(sitesWithVaccine.concat(sitesWithoutVaccine.concat(sitesWithNoReport)));
+
+  addSitesToPage(sitesWithVaccine, "js-sites-with-vaccine");
+  addSitesToPage(sitesWithoutVaccine, "js-sites-without-vaccine");
+  addSitesToPage(sitesWithNoReport, "js-sites-without-report");
 }
 
-function updateMap(coord, sites, repositionMap = true) {
+function updateMap(sites) {
   const map = window.map;
   if (map) {
-    if (repositionMap) {
-      const mapCoord = {
-        lat: coord.latitude,
-        lng: coord.longitude,
-      };
-      map.setCenter(mapCoord);
-      map.setZoom(10);
-    }
-
     clearMap();
     sites.forEach((site) => {
       addLocation(site);
@@ -317,7 +315,24 @@ function updateMap(coord, sites, repositionMap = true) {
   } else {
     // If the map is missing, listen for it to be initialized and then retry
     document.addEventListener("mapInit", () =>
-      updateMap(coord, sites, repositionMap)
+      updateMap(sites)
+    );
+  }
+}
+
+function moveMap(coordinates) {
+  const map = window.map;
+  if (map) {
+    const mapCoord = {
+      lat: coordinates.latitude,
+      lng: coordinates.longitude,
+    };
+    map.setCenter(mapCoord);
+    map.setZoom(10);
+  } else {
+    // If the map is missing, listen for it to be initialized and then retry
+    document.addEventListener("mapInit", () =>
+      moveMap(coordinates)
     );
   }
 }
