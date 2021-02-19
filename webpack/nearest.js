@@ -9,7 +9,7 @@ import {
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
 
-import { addSitesToPage } from "./sites.js";
+import { addSitesOrRemoveParentIfEmpty } from "./sites.js";
 import { addLocation, clearMap } from "./map.js";
 
 window.addEventListener("load", loaded);
@@ -287,7 +287,6 @@ async function updateSitesFromMap() {
 
   sortByRecency(sites);
 
-
   let {
     sitesWithVaccine,
     sitesWithoutVaccine,
@@ -300,9 +299,9 @@ async function updateSitesFromMap() {
 
   updateMap(sitesWithVaccine.concat(sitesWithoutVaccine.concat(sitesWithNoReport)));
 
-  addSitesToPage(sitesWithVaccine, "js-sites-with-vaccine");
-  addSitesToPage(sitesWithoutVaccine, "js-sites-without-vaccine");
-  addSitesToPage(sitesWithNoReport, "js-sites-without-report");
+  addSitesOrRemoveParentIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
+  addSitesOrRemoveParentIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
+  addSitesOrRemoveParentIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
 function updateMap(sites) {
