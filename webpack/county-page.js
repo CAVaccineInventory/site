@@ -5,7 +5,7 @@ import {
   getCounty,
 } from "./data/locations.js";
 
-import { addSitesToPage } from "./sites.js";
+import { addSitesOrRemoveParentIfEmpty } from "./sites.js";
 import { fetchCounties } from "./data/counties.js";
 import policyTemplate from "./templates/policy.handlebars";
 import marked from "marked";
@@ -16,15 +16,6 @@ window.addEventListener("load", fetchCountyCard);
 
 function currentCounty() {
   return document.getElementById("county_name").textContent.trim();
-}
-
-function addSitesOrRemoveIfEmpty(sites, containerId) {
-  if (!sites.length) {
-    const container = document.getElementById(containerId);
-    container.parentElement.remove();
-  } else {
-    addSitesToPage(sites, containerId);
-  }
 }
 
 async function fetchCountySites() {
@@ -44,9 +35,9 @@ async function fetchCountySites() {
     sitesWithNoReport,
   } = splitSitesByVaccineState(sites);
 
-  addSitesOrRemoveIfEmpty(sitesWithVaccine, "sitesWithVaccine");
-  addSitesOrRemoveIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
-  addSitesOrRemoveIfEmpty(sitesWithNoReport, "sitesWithoutReport");
+  addSitesOrRemoveParentIfEmpty(sitesWithVaccine, "sitesWithVaccine");
+  addSitesOrRemoveParentIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
+  addSitesOrRemoveParentIfEmpty(sitesWithNoReport, "sitesWithoutReport");
 }
 
 async function fetchCountyCard() {

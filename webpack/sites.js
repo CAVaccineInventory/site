@@ -88,4 +88,15 @@ function addSitesToPage(sites, containerId) {
   containerElem.innerHTML = fragmentElem.innerHTML;
 }
 
-export { addSitesToPage };
+function addSitesOrRemoveParentIfEmpty(sites, containerId) {
+  if (!sites.length) {
+    const container = document.getElementById(containerId);
+    container.parentElement.classList.add("hidden");
+  } else {
+    const container = document.getElementById(containerId);
+    container.parentElement.classList.remove("hidden");
+    addSitesToPage(sites, containerId);
+  }
+}
+
+export { addSitesToPage, addSitesOrRemoveParentIfEmpty };
