@@ -291,7 +291,7 @@ async function updateSitesFromMap() {
   sites = sites.filter((s) => s.Latitude && s.Longitude);
 
   const filterElem = document.querySelector("#filter");
-  const filter = filterElem ? filterElem.value : "any";
+  const filter = filterElem ? filterElem.value : "stocked";
 
   if (filter === "reports") {
     sites = sites.filter((site) => {
