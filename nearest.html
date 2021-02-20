@@ -10,7 +10,8 @@ permalink: /near-me
   {% include search_form.html %}
   <div class="relative pt-4 sm:pt-0 sm:pl-4">
     <select
-      class="js-nearest-filter border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
+      id="js-nearest-filter"
+      class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
     >
       <option value="reports">{% t nearest.dropdown_1 %}</option>
       <option selected value="stocked">{% t nearest.dropdown_2 %}</option>

@@ -129,7 +129,7 @@ function addListeners() {
       geoLocationElem.remove();
     }
   }
-  const filterElem = document.querySelector(".js-nearest-filter");
+  const filterElem = document.getElementById("js-nearest-filter");
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
       if (lastSearch) {
