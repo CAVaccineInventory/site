@@ -129,10 +129,11 @@ function addListeners() {
       geoLocationElem.remove();
     }
   }
-  const filterElem = document.getElementById("filter");
+  const filterElem = document.querySelector(".js-nearest-filter");
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
       if (lastSearch) {
+        updateSitesOnMap(filterElem);
         handleSearch(undefined, lastSearch);
       }
     });
@@ -155,6 +156,27 @@ function toggleLoading(shouldShow) {
     elem.classList.add("hidden");
     document.getElementById("post_list_container").classList.remove("hidden");
   }
+}
+
+async function updateSitesOnMap(filterElement) {
+  let sites = await fetchSites();
+  const filter = filterElem ? filterElem.value : "any";
+  if (filter === "reports") {
+    sites = sites.filter((site) => {
+      return getHasReport(site);
+    });
+  } else if (filter === "stocked") {
+    sites = sites.filter((site) => {
+      return getHasVaccine(site);
+    });
+  }
+
+  tryOrDelayToMapInit((map) => {
+    clearMap();
+    sites.forEach((site) => {
+      addLocation(site);
+    });
+  });
 }
 
 function updateUrl(key, value) {
@@ -299,26 +321,9 @@ async function updateSitesFromMap() {
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
   sitesWithNoReport = sitesWithNoReport.slice(0, 50);
 
-  updateMap(
-    sitesWithVaccine.concat(sitesWithoutVaccine.concat(sitesWithNoReport))
-  );
-
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
   addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
-}
-
-function updateMap(sites) {
-  const map = window.map;
-  if (map) {
-    clearMap();
-    sites.forEach((site) => {
-      addLocation(site);
-    });
-  } else {
-    // If the map is missing, listen for it to be initialized and then retry
-    document.addEventListener("mapInit", () => updateMap(sites));
-  }
 }
 
 function moveMap(coordinates) {
