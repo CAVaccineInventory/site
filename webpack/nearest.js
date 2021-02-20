@@ -160,7 +160,7 @@ function toggleLoading(shouldShow) {
 
 async function updateSitesOnMap(filterElement) {
   let sites = await fetchSites();
-  const filter = filterElem ? filterElem.value : "any";
+  const filter = filterElement ? filterElement.value : "any";
   if (filter === "reports") {
     sites = sites.filter((site) => {
       return getHasReport(site);
