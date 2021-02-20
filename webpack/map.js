@@ -76,7 +76,17 @@ function clearMap() {
   window.mapMarkers = [];
 }
 
+function tryOrDelayToMapInit(callback) {
+  const map = window.map;
+  if (map) {
+    callback(map);
+  } else {
+    // If the map is missing, listen for it to be initialized and then retry
+    document.addEventListener("mapInit", callback);
+  }
+}
+
 // State tracking for info cards
 let prevInfowindow = false;
 
-export { addLocation, clearMap };
+export { addLocation, clearMap, tryOrDelayToMapInit };

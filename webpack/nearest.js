@@ -10,7 +10,7 @@ import {
 import zipCodes from "./json/zipCodes.json";
 
 import { addSitesOrHideIfEmpty } from "./sites.js";
-import { addLocation, clearMap } from "./map.js";
+import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 
 window.addEventListener("load", loaded);
 
@@ -322,18 +322,14 @@ function updateMap(sites) {
 }
 
 function moveMap(coordinates) {
-  const map = window.map;
-  if (map) {
+  tryOrDelayToMapInit((map) => {
     const mapCoord = {
       lat: coordinates.latitude,
       lng: coordinates.longitude,
     };
     map.setCenter(mapCoord);
     map.setZoom(12);
-  } else {
-    // If the map is missing, listen for it to be initialized and then retry
-    document.addEventListener("mapInit", () => moveMap(coordinates));
-  }
+  });
 }
 
 // https://www.freecodecamp.org/news/javascript-debounce-example/
