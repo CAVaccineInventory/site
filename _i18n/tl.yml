@@ -75,8 +75,8 @@ county_policies:
 index:
   header: Maghanap ng bakuna para sa COVID-19 para sa inyo o sa inyong mahal sa buhay
   subtitle: |
-    Ang mga bakuna laban sa COVID-19 na ligtas at maaasahan ay maaari nang makuha ng mga may-edad at ng mga healthcare workers
-    sa California. Pero baka mahirap malaman kung saan at kung paanong makakuha ng bakuna. Tinatawagan namin
+    Ang mga bakuna laban sa COVID-19 na ligtas at epektibo ay maaari nang makuha ng mga may-edad at ng mga healthcare workers
+    sa California nguni’t maaaring mahirap malaman kung saan at kung paanong makakuha ng bakuna. Tinatawagan namin
     ang mga ospital at botika araw-araw upang matunton ang mga bakunang maaaring makuha at ang mga prosesong kailangan gawin upang makapagpabakuna.
   disclaimer: |
     Maaari nang makuha ng iba't ibang grupo ng tao sa California ang mga bakuna laban sa COVID-19 na ligtas at maaasahan. 
@@ -146,27 +146,27 @@ footer:
 about_us:
   coordinators: "Ang ilan sa amin na nagtrabaho sa proyektong ito mula sa pinakaunang araw:"
   intro_1: |
-    VaccinateCA ay isang gawain ng mga miyembro ng komunidad upang matulungan ang mga taga-California na matutunan ang tumpak, bago, at beripikadong impormasyon tungkol 
-    sa bakuna para sa coronavirus. Sa ganon, maaari nilang matutunan kung kailan sila pweding magpabakuna at kung papaano silang makakapila para sa pagpapabakuna.
+    VaccinateCA ay isang gawain ng mga miyembro ng komunidad upang matulungan ang mga residente ng California na malaman at maintindihan ang tama, bago, at beripikadong impormasyon tungkol 
+    sa bakuna para sa coronavirus. Sa ganon, maaari nilang matutunan kung kailan sila maaring magpabakuna at kung papaano sila makakapagpalista para sa pagpapabakuna.
   intro_2: |
-    Araw araw na tinatawagan ng aming mga propesyonal ang mga propesyonal sa medisina sa daan-daang mga pwedeng lugar ng pagpapabakuna. Tinatanong namin kung
-     mayroon silang bakuna at kung mayroon sila, kung kanino nila ito maaaring ibigay at kung papaanong makakuha ng appointment. Kinokolekta
-     namin itong impormasyon at inilalathala sa website na ito.
+    Araw araw ay tinatawagan namin ang mga propesyonal sa medisina sa daan-daang mga maaring lugar ng pagpapabakuna. Inaalam namin kung
+     mayroon silang bakuna at kung mayroon man, kung kanino nila ito maaaring ibigay at kung papaanong makakuha ng appointment. Kinokolekta
+     namin itong impormasyon at inilalathala dito sa website na ito.
   faq_header: |
     Madalas na Tinatanong (FAQ)
   faq_help: "Paano akong makakatulong?"
   faq_help_answer_1: |
-    Pagsabihan ang inyong komunidad tungkol sa bakuna. Tulungan ninyong magpabakuna ang inyong mga mamahaling maaari nang makakuha ng bakuna. Tuluyang
-    magsuot ng maskara at obserbahan ang mga patnubay tungkol sa pagpapanatili ng pagitan mula sa mga kapwa-tao.
+    Ikalat ang mahalagang komunidad tungkol sa bakuna. Tulungan ninyong magpabakuna ang inyong mga mga minamahal o pamilya na maaari nang makakuha ng bakuna. Tuluyang
+    magsuot ng maskara at sundin ang mga patnubay tungkol sa pagpapanatili ng distansiya sa mga ibang.
   faq_help_answer_2: |
-    Ang pinaka kailangan namin sa ngayon ay mga responsableng boluntaryo na maaaring tumulong sa pagtatawag sa mga tagapagbigay ng healthcare worker sa buong 
+    Ang pinaka mahalagang pangangailangan namin sa ngayon ay mga responsableng boluntaryo na maaaring tumulong sa pagtatawag sa mga tagapagbigay ng healthcare worker sa buong 
     estado upang ma-ipagpatuloy namin ang pagbibigay ng kumpletong impormasyon tungkol sa pagkakaroon ng bakuna laban sa COVID-19 sa lahat  
-    ng mga taga-California. 
+    kababayan natin sa California.
   faq_help_answer_3: |
-    Kung gusto niyong mag-boluntaryo, paki<a href="https://airtable.com/shrY9Ac8PGuudZAe3">alam niyo sa amin</a>.
+    Kung nais ninyong mag-boluntaryo, <a href="https://airtable.com/shrY9Ac8PGuudZAe3">ipa-alam niyo sa amin</a>.
   faq_help_answer_4: |
-    <a href="https://twitter.com/ca_covid">Sundan niyo kami sa Twitter</a> upang malaman ang pinaka bagong mga ibang 
-    oportunidad na makatulong.
+    <a href="https://twitter.com/ca_covid">Sundan niyo kami sa Twitter</a> upang malaman ang pinaka bagong mga iba't ibang 
+    oportunidad upang makatulong.
   faq_help_answer_5: |
     Hindi rin namin kailangan ng pera. Maraming mga prokeyto sa pagkakawanggawa <i>na nangangailangan</i>; mapapahalagahan nila ang inyong suporta. 
   faq_press: |
