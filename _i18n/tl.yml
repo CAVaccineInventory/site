@@ -75,8 +75,8 @@ county_policies:
 index:
   header: Maghanap ng bakuna para sa COVID-19 para sa inyo o sa inyong mahal sa buhay
   subtitle: |
-    Ang mga bakuna laban sa COVID-19 na ligtas at maaasahan ay maaari nang makuha ng mga may-edad at ng mga healthcare workers
-    sa California. Pero baka mahirap malaman kung saan at kung paanong makakuha ng bakuna. Tinatawagan namin
+    Ang mga bakuna laban sa COVID-19 na ligtas at epektibo ay maaari nang makuha ng mga may-edad at ng mga healthcare workers
+    sa California nguni’t maaaring mahirap malaman kung saan at kung paanong makakuha ng bakuna. Tinatawagan namin
     ang mga ospital at botika araw-araw upang matunton ang mga bakunang maaaring makuha at ang mga prosesong kailangan gawin upang makapagpabakuna.
   disclaimer: |
     Maaari nang makuha ng iba't ibang grupo ng tao sa California ang mga bakuna laban sa COVID-19 na ligtas at maaasahan. 
@@ -98,9 +98,9 @@ index:
   illustration: Ilustrasyon ng isang doktor na nagbabakuna
   positive_feedback: Ipaalam ninyo sa amin kung nakakatulong ang aming website!
   corrections: |
-    Kung mayroon kayong alam na lokasyon na wala sa aming listahan, o kung sa tingin ninyo ay mali,  
-    ang aming impormasyon sa pakikipag-ugnay,
-    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">paki alam niyo po sa amin.</a>
+    Kung mayroon kayong alam na lokasyon na wala sa aming listahan, o kung sa tingin ninyo ay may dapat ayusin na
+    impormasyon kaming nailathala,
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">ipaki alam niyo po sa amin.</a>
   locations_by_county: Mga lokasyon ng pagbabakuna sa bawat county
   more_info: Karagdagang impormasyon tungkol sa pagkakaroon ng bakuna
   find_county: Hanapin ang inyong county
@@ -144,67 +144,67 @@ footer:
     Ang pagsalin sa wika ng website na ito ay aktibo naming ginagawa. Maaaring may impormasyon
     na hindi pa na-isalin sa wikang ito - paumanhin sa abala!
 about_us:
-  coordinators: "Ang ilan sa amin na nagtrabaho sa proyektong ito mula sa pinakaunang araw:"
+  coordinators: "Ito ang ilan sa amin na nagtrabaho sa proyektong ito mula sa simula nitong proyektong ito pinakaunang araw:"
   intro_1: |
-    VaccinateCA ay isang gawain ng mga miyembro ng komunidad upang matulungan ang mga taga-California na matutunan ang tumpak, bago, at beripikadong impormasyon tungkol 
-    sa bakuna para sa coronavirus. Sa ganon, maaari nilang matutunan kung kailan sila pweding magpabakuna at kung papaano silang makakapila para sa pagpapabakuna.
+    VaccinateCA ay isang gawain ng mga miyembro ng komunidad upang matulungan ang mga residente ng California na malaman at maintindihan ang tama, bago, at beripikadong impormasyon tungkol 
+    sa bakuna para sa coronavirus. Sa ganon, maaari nilang matutunan kung kailan sila maaring magpabakuna at kung papaano sila makakapagpalista para sa pagpapabakuna.
   intro_2: |
-    Araw araw na tinatawagan ng aming mga propesyonal ang mga propesyonal sa medisina sa daan-daang mga pwedeng lugar ng pagpapabakuna. Tinatanong namin kung
-     mayroon silang bakuna at kung mayroon sila, kung kanino nila ito maaaring ibigay at kung papaanong makakuha ng appointment. Kinokolekta
-     namin itong impormasyon at inilalathala sa website na ito.
+    Araw araw ay tinatawagan namin ang mga propesyonal sa medisina sa daan-daang mga maaring lugar ng pagpapabakuna. Inaalam namin kung
+     mayroon silang bakuna at kung mayroon man, kung kanino nila ito maaaring ibigay at kung papaanong makakuha ng appointment. Kinokolekta
+     namin itong impormasyon at inilalathala dito sa website na ito.
   faq_header: |
-    Madalas na Tinatanong (FAQ)
+    Mga Kasagutan sa Madalas na mga Tanong
   faq_help: "Paano akong makakatulong?"
   faq_help_answer_1: |
-    Pagsabihan ang inyong komunidad tungkol sa bakuna. Tulungan ninyong magpabakuna ang inyong mga mamahaling maaari nang makakuha ng bakuna. Tuluyang
-    magsuot ng maskara at obserbahan ang mga patnubay tungkol sa pagpapanatili ng pagitan mula sa mga kapwa-tao.
+    Ikalat ang mahalagang komunidad tungkol sa bakuna. Tulungan ninyong magpabakuna ang inyong mga mga minamahal o pamilya na maaari nang makakuha ng bakuna. Tuluyang
+    magsuot ng maskara at sundin ang mga patnubay tungkol sa pagpapanatili ng distansiya sa mga ibang.
   faq_help_answer_2: |
-    Ang pinaka kailangan namin sa ngayon ay mga responsableng boluntaryo na maaaring tumulong sa pagtatawag sa mga tagapagbigay ng healthcare worker sa buong 
+    Ang pinaka mahalagang pangangailangan namin sa ngayon ay mga responsableng boluntaryo na maaaring tumulong sa pagtatawag sa mga tagapagbigay ng healthcare worker sa buong 
     estado upang ma-ipagpatuloy namin ang pagbibigay ng kumpletong impormasyon tungkol sa pagkakaroon ng bakuna laban sa COVID-19 sa lahat  
-    ng mga taga-California. 
+    kababayan natin sa California.
   faq_help_answer_3: |
-    Kung gusto niyong mag-boluntaryo, paki<a href="https://airtable.com/shrY9Ac8PGuudZAe3">alam niyo sa amin</a>.
+    Kung nais ninyong mag-boluntaryo, <a href="https://airtable.com/shrY9Ac8PGuudZAe3">ipa-alam niyo sa amin</a>.
   faq_help_answer_4: |
-    <a href="https://twitter.com/ca_covid">Sundan niyo kami sa Twitter</a> upang malaman ang pinaka bagong mga ibang 
-    oportunidad na makatulong.
+    <a href="https://twitter.com/ca_covid">Sundan niyo kami sa Twitter</a> upang malaman ang pinaka bagong mga iba't ibang 
+    oportunidad upang makatulong.
   faq_help_answer_5: |
-    Hindi rin namin kailangan ng pera. Maraming mga prokeyto sa pagkakawanggawa <i>na nangangailangan</i>; mapapahalagahan nila ang inyong suporta. 
+    Hindi po namin kailangan ng pera o pinansiyal na tulong. Kung nais ninyong magbigay tulong na pinansiyal, maraming ibang mga proyekto sa pagkakawanggawa <i>na mas nangangailangan at</i>; mapapahalagahan nila ang inyong suporta. 
   faq_press: |
     Isa akong reporter. Paano ko kayong makakausap?
   faq_press_answer: |
-    Pakiusap na mag-email sa <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; mabilis namin kayong sasagutin.
+    Magpadala lang po ng email sa <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; mabilis namin kayong sasagutin.
   faq_medical: |
-    Nagtatrabaho aka sa isang tagapagbigay ng pangangalaga sa kalusugan! Papaano ko kayong mapapakiusapang i-update ang inyong impormasyon o di kaya kayo'y mapakiusapan?
+    Nagtatrabaho ak a sa isang tagapagbigay ng pangangalaga sa kalusugan! Papaano ko kayong mapapakiusapang i-update ang inyong impormasyon o di kaya kayo'y kausapin?
   faq_medical_answer_1: |
-    Mahalagang mahalaga sa amin ang inyong mga ginagawa at nandito kami para suportahan kayo!
+    Mahalagang mahalaga sa amin ang inyong mga serbisyo at naririto kami para suportahan kayo!
   faq_medical_answer_2: |
-    Kung maaari, magpadala kayo ng text sa<a href="tel:+14153014597">(415) 301-4597</a> kasama ang inyong mensahe, inyong institusyong pinagtatrabahuhan, at ang 
-    inyong extension sa loob ng inyong sistema o ang pangalan ng inyong kontakto para matawagan namin at mapatunayan ang inyong impormasyon. Hindi kami makatatangap ng litrato sa numerong ito 
-    kaya hanggang maaari, text lamang ang paki-padala. 
+    Kung maaari, magpadala kayo ng text sa<a href="tel:+14153014597">(415) 301-4597</a> kasama ang inyong mensahe, ang pangalan ng inyong lugar ng trabaho, ang 
+    inyong extension sa trabaho o ang pangalan ng tao na makakapagpatunay ng inyong trabaho para matawagan namin at mapatunayan ang inyong impormasyon. Hindi kami makatatanggap ng litrato sa numerong ito 
+    kaya, text lamang ang ipadala. 
   faq_medical_answer_3: |
-    Mababasa namin ang inyong mensahe at magagawa ng isa sa amin ang kailangang gawin sa madaling panahon. 
+    Mababasa namin agad ang inyong mensahe at sasagutin namin kayo sa sapat na panahon. 
   faq_community: |
     Nagtatrabaho ako sa isang organisasyong nagtatrabaho para sa komunidad o para sa gubyerno. Pwede ba tayong mag-usap?
   faq_community_answer_1: |
-    Gusto naming suportahan ang inyong importanteng ginagawa upang mapabakunahan ang mga taga-California sa pinakamabilis na paraan. 
-    <a href="mailto:partners@vaccinateca.com">Paki-email kami sa partners@vaccinateca.com</a> para mapagusapan natin ito.
+    Gusto naming suportahan ang inyong mahalagang gawain upang mapabakunahan ang mga taga-California sa pinakamabilis na paraan. 
+    <a href="mailto:partners@vaccinateca.com">Paki-email kami sa partners@vaccinateca.com</a> upang mapagusapan natin ito.
   faq_toil: |
     Napapataasan o napapababaan ba ng proyektong ito ang gawain ng sistema ng pangangalaga sa kalusugan?
   faq_toil_answr_1: |
-    Ang karamihan ng mga ospital ay tinatawagan ng libulibong beses sa isang araw. Mas marami kaysa sa dati ang tumatawag sa kanila 
+    Ang karamihan ng mga ospital ay tinatawagan ng maraming beses sa isang araw. Mas marami kaysa sa dati ang tumatawag sa kanila 
      at pare-pareho ang tinatanong: "Mayroon ba kayong bakuna?"
   faq_toil_answr_2: |
-    Sa aming pagtanong at paglathala ng sagot, maaari naming mabawasan ang mga tawag sa ospital at mapanatili ang kanilang bandwidth para sa kanilang mga kailangang gawin.
-    Naililigtas din namin ang mga nagpapabakuna mula sa pagtawag sa mga dosenang lokasyon para makahanap ng isang mayroong
+    Sa aming pagtanong at paglathala ng sagot, maaari naming mabawasan ito'ng mga napakaraming tawag at mapanatili ang kanilang atensiyon para sa kanilang mga kailangang gawin.
+    Natutulungan din namin ang mga nagpapabakuna mula sa pagtatawag sa mga dosenang lokasyon para lang makahanap ng isang lugar na mayroong
     kakayahang magbakuna. 
   faq_accurate: |
     Tama ba ang impormasyon sa website na ito?
   faq_accurate_answer_1: |
-    Tanging inilalathala namin ang impormasyon na ibinigay sa amin ng mga nagbabakuna nung oras na tinawagan namin sila. Komplikado ang sitwasyong ito. Maraming pwedeng manibago sa supply
+    Tanging inilalathala lamang namin ang impormasyon na ibinigay sa amin ng mga nagbabakuna nung oras na tinawagan namin sila. Komplikado ang sitwasyong ito-at maraming pwedeng magbago sa supply
      kahit sa loob ng isang araw at maaaring hindi alam ng lahat ng mga tauhan sa isang lugar ang pinaka-bagong impormasyon tungkol sa kanilang  
     mga patakaran. 
   faq_accurate_answer_2: |
-    Ginagawa namin ang lahat ng aming nakakaya pero hindi namin magagarantiya ang lahat. 
+    Ginagawa namin ang lahat ng aming makakaya pero hindi namin magagarantiya ang lahat. 
   faq_who: |
     Sino ho kayo?
   faq_who_answer: |
