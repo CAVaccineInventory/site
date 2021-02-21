@@ -10,7 +10,7 @@ permalink: /near-me
   {% include search_form.html %}
   <div class="relative pt-4 sm:pt-0 sm:pl-4">
     <select
-      id="filter"
+      id="js-nearest-filter"
       class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
     >
       <option value="reports">{% t nearest.dropdown_1 %}</option>
@@ -25,7 +25,27 @@ permalink: /near-me
   </div>
   <div id="loading" class="mt-4 hidden">{% t global.loading %}</div>
   <div class="results flex flex-col-reverse lg:grid lg:grid-cols-2">
-    <div id="main"><ol id="sites"></ol></div>
+    <div id="main">
+      <section class="mt-0 md:mt-10 hidden">
+        {% include vaccine_section_title.html has_report=true
+        has_vaccine=true %}
+        <ol class="js-sites" id="js-sites-with-vaccine">
+        </ol>
+      </section>
+
+      <section class="md:mt-5 hidden">
+        {% include vaccine_section_title.html has_report=true
+        has_vaccine=false %}
+        <ol class="js-sites" id="js-sites-without-vaccine">
+        </ol>
+      </section>
+
+      <section class="md:mt-5 hidden">
+        {% include vaccine_section_title.html has_report=false %}
+        <ol class="js-sites" id="js-sites-without-report">
+        </ol>
+      </section>
+    </div>
     <div class="pt-4 h-72 lg:pl-4 lg:h-screen">
       {% include map.html %}
     </div>

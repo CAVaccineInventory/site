@@ -3,12 +3,14 @@ import {
   fetchSites,
   getHasVaccine,
   getHasReport,
+  sortByRecency,
+  splitSitesByVaccineState,
   getCoord,
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
 
-import { addSitesToPage } from "./sites.js";
-import { addLocation, clearMap } from "./map.js";
+import { addSitesOrHideIfEmpty } from "./sites.js";
+import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 
 window.addEventListener("load", loaded);
 
@@ -72,8 +74,10 @@ function loaded() {
     return;
   }
 
-  handleUrlParamOnLoad();
   addListeners();
+  document.addEventListener("mapInit", () => {
+    handleUrlParamOnLoad();
+  });
 }
 
 function toggleElementVisibility(elementId, isVisible) {
@@ -125,10 +129,11 @@ function addListeners() {
       geoLocationElem.remove();
     }
   }
-  const filterElem = document.getElementById("filter");
+  const filterElem = document.getElementById("js-nearest-filter");
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
       if (lastSearch) {
+        updateSitesOnMap(filterElem);
         handleSearch(undefined, lastSearch);
       }
     });
@@ -136,18 +141,10 @@ function addListeners() {
 
   document.addEventListener("mapInit", () => {
     window.map.addListener(
-      "center_changed",
-      debounce(() => mapMovement())
+      "bounds_changed",
+      debounce(() => updateSitesFromMap())
     );
   });
-}
-
-function mapMovement() {
-  const newCoord = {
-    latitude: window.map.getCenter().lat(),
-    longitude: window.map.getCenter().lng(),
-  };
-  updateSitesFromCoordinates(newCoord, false);
 }
 
 function toggleLoading(shouldShow) {
@@ -159,6 +156,27 @@ function toggleLoading(shouldShow) {
     elem.classList.add("hidden");
     document.getElementById("post_list_container").classList.remove("hidden");
   }
+}
+
+async function updateSitesOnMap(filterElement) {
+  let sites = await fetchSites();
+  const filter = filterElement ? filterElement.value : "any";
+  if (filter === "reports") {
+    sites = sites.filter((site) => {
+      return getHasReport(site);
+    });
+  } else if (filter === "stocked") {
+    sites = sites.filter((site) => {
+      return getHasVaccine(site);
+    });
+  }
+
+  tryOrDelayToMapInit((map) => {
+    clearMap();
+    sites.forEach((site) => {
+      addLocation(site);
+    });
+  });
 }
 
 function updateUrl(key, value) {
@@ -235,7 +253,7 @@ async function submitGeoLocation() {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         };
-        await updateSitesFromCoordinates(coordinates);
+        await moveMap(coordinates);
         onFinish();
         resolve();
       },
@@ -253,10 +271,6 @@ async function submitGeoLocation() {
   });
 }
 
-async function updateSitesFromCoordinates(coordinates, repositionMap = true) {
-  await fetchFilterAndSortSites(coordinates, repositionMap);
-}
-
 async function lookup(zip) {
   const data = zipCodes[zip];
   if (!data) {
@@ -264,76 +278,63 @@ async function lookup(zip) {
     return;
   }
   const coordinate = data.coordinates;
-  return fetchFilterAndSortSites(coordinate);
+  return moveMap(coordinate);
 }
 
-async function fetchFilterAndSortSites(userCoord, repositionMap = true) {
-  const list = document.getElementById("sites");
-  list.innerHTML = "";
+async function updateSitesFromMap() {
+  document
+    .querySelectorAll(".js-sites")
+    .forEach((site) => (site.innerHTML = ""));
+
   let sites = await fetchSites();
+  // Remove sites without coordinates
   sites = sites.filter((s) => s.Latitude && s.Longitude);
+
   const filterElem = document.querySelector("#filter");
   const filter = filterElem ? filterElem.value : "stocked";
 
-  if (filter == "reports") {
+  if (filter === "reports") {
     sites = sites.filter((site) => {
       return getHasReport(site);
     });
-  } else if (filter == "stocked") {
+  } else if (filter === "stocked") {
     sites = sites.filter((site) => {
       return getHasVaccine(site);
     });
   }
 
-  for (const site of sites) {
-    const siteCoord = getCoord(site);
-    const distance = distanceBetweenCoordinates(userCoord, siteCoord);
-    site.distance = distance;
-  }
+  const bounds = window.map.getBounds();
+  sites = sites.filter((site) => {
+    const { latitude, longitude } = getCoord(site);
+    return bounds.contains({ lat: latitude, lng: longitude });
+  });
 
-  sites.sort((a, b) => a.distance - b.distance);
-  if (repositionMap) {
-    updateMap(userCoord, sites, true);
-  }
-  addSitesToPage(sites.slice(0, 50), "sites");
+  sortByRecency(sites);
+
+  let {
+    sitesWithVaccine,
+    sitesWithoutVaccine,
+    sitesWithNoReport,
+  } = splitSitesByVaccineState(sites);
+
+  sitesWithVaccine = sitesWithVaccine.slice(0, 50);
+  sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
+  sitesWithNoReport = sitesWithNoReport.slice(0, 50);
+
+  addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
+  addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
+  addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
-function updateMap(coord, sites, repositionMap = true) {
-  const map = window.map;
-  if (map) {
-    if (repositionMap) {
-      const mapCoord = {
-        lat: coord.latitude,
-        lng: coord.longitude,
-      };
-      map.setCenter(mapCoord);
-      map.setZoom(10);
-    }
-
-    clearMap();
-    sites.forEach((site) => {
-      addLocation(site);
-    });
-  } else {
-    // If the map is missing, listen for it to be initialized and then retry
-    document.addEventListener("mapInit", () =>
-      updateMap(coord, sites, repositionMap)
-    );
-  }
-}
-
-// https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
-function distanceBetweenCoordinates(coord1, coord2) {
-  const p = Math.PI / 180;
-  const a =
-    0.5 -
-    Math.cos((coord2.latitude - coord1.latitude) * p) / 2 +
-    (Math.cos(coord1.latitude * p) *
-      Math.cos(coord2.latitude * p) *
-      (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
-      2;
-  // 12742 is the diameter of earth in km
-  return 12742 * Math.asin(Math.sqrt(a));
+function moveMap(coordinates) {
+  tryOrDelayToMapInit((map) => {
+    const mapCoord = {
+      lat: coordinates.latitude,
+      lng: coordinates.longitude,
+    };
+    map.setCenter(mapCoord);
+    map.setZoom(12);
+  });
 }
 
 // https://www.freecodecamp.org/news/javascript-debounce-example/
