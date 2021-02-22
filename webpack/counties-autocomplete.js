@@ -9,8 +9,7 @@ window.addEventListener("load", () => {
   const counties = input.getAttribute("data-collection");
   if (!counties) return;
   const countiesAutocompleteSource = counties.split(",").map((c) => {
-    const county = c.replace(/^\s*(.*\S)\s*$/, "$1");
-    return county + (county === "San Francisco" ? "" : " County");
+    return c.replace(/^\s*(.*\S)\s*$/, "$1");
   });
   const autoCompleteInstance = new autoComplete({
     data: {
@@ -32,7 +31,6 @@ window.addEventListener("load", () => {
       const lang = document.documentElement.getAttribute("lang");
       const langPrefix = lang == "en" ? "" : `/${lang}`;
       const newUrl = `${langPrefix}/counties/${selected
-        .replace(" County", "")
         .trim()
         .replace(/\ /g, "_")}`;
       window.location.href = newUrl;
