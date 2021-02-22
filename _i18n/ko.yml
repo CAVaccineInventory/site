@@ -45,8 +45,8 @@ map:
   failed: "요청 실패, 다시 시도해 주세요."
   not_supported: 위치추적 지원 안됨
 search_form:
-  enter_zip: ZIP 코드 입력
-  enter_county: 혹은 카운티
+  enter_zip: ZIP 코드
+  enter_county: 혹은 카운티 입력
   location: 내 위치 사용
   location_placeholder: 내 위치
   submit_button: "<span class=\"hidden md:inline\">백신</span> 찾기"
@@ -66,9 +66,9 @@ county_policies:
 
     카운티 마다 별도의 예약 시스템과 조언들이 있습니다. 밑에서 본인의 카운티를 체크해주세요.
 index:
-  header: 본인 혹은 사랑하는 이를 위한 COVID-19 백신 찾기
+  header: 본인 혹은 가족 및 지인들을 위한 COVID-19 백신 찾기
   subtitle: |
-    안전하고 신뢰가는 COVID-19 백신은 캘리포니아의 고령자와 의료 종사자들에게 현재 공급되고 있습니다. 하지만 어디서 어떻게 접종을 받을 수 있는지 알기 어렵습니다. 본 사이트는 매일 주기적으로 병원들과 약국에 연락하여 백신 여부와 접종 절차를 업데이트 하고 있습니다.
+    캘리포니아에서는 안전과 신뢰성이있는 COVID-19 백신을 고령자 분들과 의료진에게 공급 되고 있습니다. 하지만 접종 관련 정보가 찾기 어렵습니다. 본 사이트는 매일 병원과 약국에 연락을 하여 해당 위치의 백신 재고와 접종 절차를 업데이트하고 있습니다. 
   disclaimer: |
     안전하고 신뢰가는 COVID-19 백신은 캘리포니아의 해당되는 사람들에게 제공되고 있습니다. 하지만 어디서 어떻게 접종을 받을 수 있는지 알기 어렵습니다. 본 사이트는 매일 주기적으로 병원들과 약국에 연락하여 백신 여부와 접종 절차를 업데이트 하고 있습니다.
   disclaimer_1: |
@@ -80,8 +80,8 @@ index:
   corrections: |
     본 사이트에 없는 장소 혹은 연락정보가 잘못 표기되있다면 <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">알려주세요.</a>
   locations_by_county: 카운티별 백신 접종 위치
-  more_info: 백신 재고에 관한 더 자세한 정보들
-  find_county: 카운티 보기
+  more_info: 백신 재고에 관한 추가 정보
+  find_county: 다른 카운티 보기
   about_us: " VaccinateCA 소개"
 data_js:
   alert: 백신 접종 위치에 관한 정보를 불러오지 못함.
