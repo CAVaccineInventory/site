@@ -61,6 +61,10 @@ async function loaded() {
     return a["County"].localeCompare(b["County"]);
   });
 
+  const labels = JSON.parse(
+    document.getElementById("js-county-policy-labels").textContent
+  );
+
   for (const county of countyPolicies) {
     let notes = county["Notes"];
     notes = markdownify(notes);
@@ -68,12 +72,17 @@ async function loaded() {
     const templateInfo = {
       name: county["County"],
       id: countyToAnchor(county["County"]),
+      infoLabel: labels["vaccineInfo"],
       infoURL: county["Vaccine info URL"],
+      locationsLabel: labels["vaccineLocations"],
       locationsURL: county["Vaccine locations URL"],
-      volunteering: county["Official volunteering opportunities"],
+      reservationLabel: labels["vaccineAppointments"],
       reservationURL: county["County vaccination reservations URL"],
+      volunteeringLabel: labels["volunteeringOpportunities"],
+      volunteeringURL: county["Official volunteering opportunities"],
       facebook: county["Facebook Page"],
       twitter: county["Twitter Page"],
+      latestInfo: labels["latestInfo"],
       notes: notes,
     };
 
