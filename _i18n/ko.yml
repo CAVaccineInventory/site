@@ -45,8 +45,8 @@ map:
   failed: "요청 실패, 다시 시도해 주세요."
   not_supported: 위치추적 지원 안됨
 search_form:
-  enter_zip: ZIP 코드 입력
-  enter_county: 혹은 카운티
+  enter_zip: ZIP 코드
+  enter_county: 혹은 카운티 입력
   location: 내 위치 사용
   location_placeholder: 내 위치
   submit_button: "<span class=\"hidden md:inline\">백신</span> 찾기"
@@ -66,7 +66,7 @@ county_policies:
 
     카운티 마다 별도의 예약 시스템과 조언들이 있습니다. 밑에서 본인의 카운티를 체크해주세요.
 index:
-  header: 본인 혹은 사랑하는 이를 위한 COVID-19 백신 찾기
+  header: 본인 혹은 가족 및 지인들을 위한 COVID-19 백신 찾기
   subtitle: |
     안전하고 신뢰가는 COVID-19 백신은 캘리포니아의 고령자와 의료 종사자들에게 현재 공급되고 있습니다. 하지만 어디서 어떻게 접종을 받을 수 있는지 알기 어렵습니다. 본 사이트는 매일 주기적으로 병원들과 약국에 연락하여 백신 여부와 접종 절차를 업데이트 하고 있습니다.
   disclaimer: |
