@@ -35,7 +35,7 @@ policy:
   vaccine_info: Vaccine Info
   vaccine_locations: Vaccine Locations
   vaccine_appointments: Vaccine Appointments
-  volunteer_opportunities: Vaccine Opportunities
+  volunteer_opportunities: Volunteer Opportunities
 head:
   site_description: Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
   social_card_text: Find vaccine locations, qualification criteria, and appointment instructions.

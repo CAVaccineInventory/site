@@ -78,7 +78,7 @@ async function loaded() {
       locationsURL: county["Vaccine locations URL"],
       reservationLabel: labels["vaccineAppointments"],
       reservationURL: county["County vaccination reservations URL"],
-      volunteeringLabel: labels["volunteeringOpportunities"],
+      volunteeringLabel: labels["volunteerOpportunities"],
       volunteeringURL: county["Official volunteering opportunities"],
       facebook: county["Facebook Page"],
       twitter: county["Twitter Page"],
