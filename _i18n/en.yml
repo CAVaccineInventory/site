@@ -28,10 +28,14 @@ nearest:
   dropdown_3: All known vaccination sites
   appointment_required: Appointment required
   schedule_full: Schedule full at last check
-  latest_info: Latest info
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
+policy:
+  vaccine_info: Vaccine Info
+  vaccine_locations: Vaccine Locations
+  vaccine_appointments: Vaccine Appointments
+  volunteer_opportunities: Volunteer Opportunities
 head:
   site_description: Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
   social_card_text: Find vaccine locations, qualification criteria, and appointment instructions.
