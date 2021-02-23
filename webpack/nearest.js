@@ -290,7 +290,7 @@ async function updateSitesFromMap() {
   // Remove sites without coordinates
   sites = sites.filter((s) => s.Latitude && s.Longitude);
 
-  const filterElem = document.querySelector("#filter");
+  const filterElem = document.getElementById("js-nearest-filter");
   const filter = filterElem ? filterElem.value : "stocked";
 
   if (filter === "reports") {
