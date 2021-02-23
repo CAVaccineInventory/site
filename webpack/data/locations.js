@@ -157,6 +157,19 @@ function getDisplayableVaccineInfo(p) {
     }
   }
 
+  function getMajorProviderNotes(p) {
+    const majorProviders = ["CVS", "Kaiser Permanente", "Sutter Health"];
+    if (!p["Provider"]) {
+      return null;
+    }
+
+    if (majorProviders.includes(p["Provider"]["Provider"])) {
+      return markdownifyInline(p["Provider"]["Public Notes"]);
+    } else {
+      return null;
+    }
+  }
+
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -170,6 +183,7 @@ function getDisplayableVaccineInfo(p) {
     county: p["County"],
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
+    majorProviderNotes: getMajorProviderNotes(p),
     hasVaccine: getYesNo(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };

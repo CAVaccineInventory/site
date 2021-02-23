@@ -94,6 +94,16 @@
             </div>
           </div>
         {{/if}}
+        {{#if majorProviderInfo }}
+        <div class="px-4 py-4 flex flex-row items-center border-t border-gray-100 text-sm">
+          <span class="font-bold pr-2"
+            >Provider Level Info:</span
+          >
+          <span class="word-break">
+            {{{ majorProviderInfo }}}
+          </span>
+        </div>
+        {{/if}}
       {{/if}}
       </div>
       {{#if notes}}
