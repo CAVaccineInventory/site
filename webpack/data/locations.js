@@ -158,16 +158,11 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function getMajorProviderNotes(p) {
-    const majorProviders = ["CVS", "Kaiser Permanente", "Sutter Health"];
-    if (!p["Provider"]) {
+    if ((!p["Provider"]) || (!p["Provider"]["Public Notes"])) {
       return null;
     }
 
-    if (majorProviders.includes(p["Provider"]["Provider"])) {
-      return markdownifyInline(p["Provider"]["Public Notes"]);
-    } else {
-      return null;
-    }
+    return markdownifyInline(p["Provider"]["Public Notes"]);
   }
 
   return {
