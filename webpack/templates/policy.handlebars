@@ -1,5 +1,5 @@
 <li id="{{id}}" class="js-policy-card rounded-lg mt-4 shadow">
-  <div class="py-4 px-2 border-b border-gray-400 bg-gray-400 bg-opacity-75 flex flex-row space-x-2 justify-between items-center rounded-lg rounded-b-none">
+  <div class="py-4 px-2 border-b border-gray-400 bg-gray-400 bg-opacity-75 flex flex-row space-s-2 justify-between items-center rounded-lg rounded-b-none">
     <h4 class="px-2 text-xl font-bold">{{name}}</h4>
     <div class="flex flex-row">
       {{#if twitter}}
@@ -46,7 +46,7 @@
         <img class="inline" src="/assets/img/info.svg">
         <strong>{{latestInfo}}:</strong>
       </span>
-      <div class="break-words">
+      <div dir="ltr" class="text-left break-words">
         {{{notes}}}
       </div>
     </div>
