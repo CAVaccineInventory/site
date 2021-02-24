@@ -25,7 +25,11 @@ permalink: /near-me
   </div>
   <div id="loading" class="mt-4 hidden">{% t global.loading %}</div>
   <div class="results flex flex-col-reverse lg:grid lg:grid-cols-2">
-    <div id="main">
+    <div id="main" class="pt-4">
+      <div id="js-unknown-zip-code-alert"
+        class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded hidden">
+        {% t nearest_js.alert_zipcode %}
+      </div>
       <section class="mt-0 md:mt-10 hidden">
         {% include vaccine_section_title.html has_report=true
         has_vaccine=true %}
