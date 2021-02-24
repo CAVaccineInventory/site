@@ -12,7 +12,11 @@ module.exports = {
     "ecmaVersion": 12,
     "sourceType": "module",
   },
-  "ignorePatterns": ["assets/js/**", "_site/**"],
+  "ignorePatterns": [
+    "assets/js/**",
+    "_site/**",
+    "vendor/**"
+  ],
   "rules": {
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
