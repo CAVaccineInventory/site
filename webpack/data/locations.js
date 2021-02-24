@@ -158,7 +158,7 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function getMajorProviderNotes(p) {
-    if ((!p["Provider"]) || (!p["Provider"]["Public Notes"])) {
+    if (!p["Provider"] || !p["Provider"]["Public Notes"]) {
       return null;
     }
 
