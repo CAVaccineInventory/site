@@ -77,10 +77,12 @@ exclude_from_localizations: ["favicon.ico"]
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - netlify.toml
   - package.json
   - package-lock.json
   - CODEOWNERS
   - LICENSE
+  - README.md
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -94,3 +96,8 @@ exclude:
   - script/
   - webpack/
   - Procfile
+  - postcss.config.js
+  - postcss/
+  - webpack.config.js
+  - tailwind.config.js
+  - counties.py
