@@ -76,6 +76,7 @@ function addSitesToPage(sites, containerId) {
       latestNotesLabel: labels.latestInfo,
       notes: notes,
       noReports: labels.noReports,
+      majorProviderInfoLabel: labels.majorProvider,
       majorProviderInfo: info.majorProviderNotes,
     };
 

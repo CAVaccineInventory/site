@@ -57,6 +57,7 @@ search_form:
 site_template:
   county_header: Within your county
   no_reports: No contact reports
+  major_provider: Provider level notes
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 
