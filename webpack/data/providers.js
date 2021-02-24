@@ -16,6 +16,15 @@ function getProviderName(p) {
 }
 
 function findProviderByName(providers, name) {
+  switch (name) {
+    case "Kaiser":
+      name = "Kaiser Permanente";
+      break;
+    case "Sutter":
+      name = "Sutter Health";
+      break;
+  }
+
   return providers.find((p) => p["Provider"] === name);
 }
 
