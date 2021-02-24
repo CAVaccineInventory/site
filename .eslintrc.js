@@ -15,7 +15,7 @@ module.exports = {
   "ignorePatterns": [
     "assets/js/**",
     "_site/**",
-    "vendor/**"
+    "vendor/**",
   ],
   "rules": {
     "comma-dangle": ["error", {
