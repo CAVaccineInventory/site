@@ -76,6 +76,8 @@ function addSitesToPage(sites, containerId) {
       latestNotesLabel: labels.latestInfo,
       notes: notes,
       noReports: labels.noReports,
+      providerInfoLabel: labels.providerInfo,
+      providerInfo: info.providerNotes,
     };
 
     fragmentElem.innerHTML += siteTemplate(context);
