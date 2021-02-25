@@ -47,7 +47,9 @@ async function fetchCountyCard() {
   );
 
   let notes = countyPolicy["Notes"];
-  notes = sanitizeHtml(marked(notes));
+  if (notes) {
+    notes = sanitizeHtml(marked(notes));
+  }
 
   const templateInfo = {
     name: countyPolicy["County"],
