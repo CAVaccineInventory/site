@@ -157,6 +157,14 @@ function getDisplayableVaccineInfo(p) {
     }
   }
 
+  function getProviderNotes(p) {
+    if (!p["Provider"] || !p["Provider"]["Public Notes"]) {
+      return null;
+    }
+
+    return markdownifyInline(p["Provider"]["Public Notes"]);
+  }
+
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -170,6 +178,7 @@ function getDisplayableVaccineInfo(p) {
     county: p["County"],
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
+    providerNotes: getProviderNotes(p),
     hasVaccine: getYesNo(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
