@@ -194,6 +194,8 @@ async function handleSearch(event, type) {
   if (event) {
     event.preventDefault();
   }
+  // Hide the alert. If it's already hidden, this won't do anything.
+  document.getElementById("js-unknown-zip-code-alert").classList.add("hidden");
   toggleLoading(true);
   lastSearch = type;
   const zipInput = document.getElementById("js_zip_or_county");
@@ -274,7 +276,10 @@ async function submitGeoLocation() {
 async function lookup(zip) {
   const data = zipCodes[zip];
   if (!data) {
-    alert(window.messageCatalog["nearest_js_alert_zipcode"]);
+    // Display an alert.
+    document
+      .getElementById("js-unknown-zip-code-alert")
+      .classList.remove("hidden");
     return;
   }
   const coordinate = data.coordinates;
