@@ -103,7 +103,6 @@ select {
 }
 
 #county-filter-results {
-  position: absolute;
   z-index: 1;
   @apply shadow-md bg-white rounded-lg absolute right-0 left-0 mx-5;
 }

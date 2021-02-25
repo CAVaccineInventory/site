@@ -36,6 +36,7 @@ async function loaded() {
     selector: ".js-county-filter",
     resultsList: {
       idName: "county-filter-results",
+      destination: "#js-autocomplete-results-location",
     },
     query: {
       manipulate: (str) => {
@@ -43,8 +44,25 @@ async function loaded() {
       },
     },
     onSelection: (feedback) => {
-      filterCounty(countyToAnchor(feedback.selection.value));
+      const selectedValue = feedback.selection.value;
+      filterCounty(countyToAnchor(selectedValue));
+      input.value = selectedValue;
     },
+  });
+
+  const clearButton = document.getElementById("js-clear-button");
+
+  input.addEventListener("input", (e) => {
+    if (input.value.length == 0) {
+      clearButton.classList.add("invisible");
+    } else {
+      clearButton.classList.remove("invisible");
+    }
+  });
+
+  clearButton.addEventListener("click", (e) => {
+    filterCounty();
+    input.value = "";
   });
 
   // If a user clears the search field and hits enter, reset to unfiltered table
