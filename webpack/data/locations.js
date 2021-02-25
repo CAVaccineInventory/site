@@ -157,7 +157,7 @@ function getDisplayableVaccineInfo(p) {
     }
   }
 
-  function getMajorProviderNotes(p) {
+  function getProviderNotes(p) {
     if (!p["Provider"] || !p["Provider"]["Public Notes"]) {
       return null;
     }
@@ -178,7 +178,7 @@ function getDisplayableVaccineInfo(p) {
     county: p["County"],
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
-    majorProviderNotes: getMajorProviderNotes(p),
+    providerNotes: getProviderNotes(p),
     hasVaccine: getYesNo(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
