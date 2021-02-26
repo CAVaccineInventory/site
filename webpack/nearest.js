@@ -31,7 +31,7 @@ function extractZip(zipInput) {
 function loaded() {
   fetchSites();
 
-  const zipForm = document.getElementById("submit_zip_form");
+  const zipForm = document.getElementById("js-submit-zip-form");
   const zipInput = document.getElementById("js_zip_or_county");
   if (zipInput) {
     let timeoutId;
@@ -110,7 +110,7 @@ function handleUrlParamOnLoad() {
 }
 
 function addListeners() {
-  document.getElementById("submit_zip_form").addEventListener("submit", (e) => {
+  document.getElementById("js-submit-zip-form").addEventListener("submit", (e) => {
     try {
       e.target.checkValidity();
     } catch (err) {

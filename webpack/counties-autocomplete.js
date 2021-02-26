@@ -1,7 +1,7 @@
 import autoComplete from "@tarekraafat/autocomplete.js";
 
 window.addEventListener("load", () => {
-  const form = document.querySelector("#submit_zip_form");
+  const form = document.getElementById("js-submit-zip-form");
   const input = form.querySelector("#js_zip_or_county");
   const button = form.querySelector("#submit_zip");
 
