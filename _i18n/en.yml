@@ -37,7 +37,7 @@ policy:
   vaccine_appointments: Vaccine Appointments
   volunteer_opportunities: Volunteer Opportunities
 provider:
-  info: Info
+  info: Provider Website
   locations: Locations
   appointments: Appointments
 head:
