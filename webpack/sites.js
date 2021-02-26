@@ -48,6 +48,10 @@ function addSitesToPage(sites, containerId) {
       appointmentRequiredLabel += `; ${labels.scheduleFull}`;
     }
 
+    if (info.isComingSoon) {
+      appointmentRequiredLabel += `; ${labels.comingSoon}`;
+    }
+
     let notes = info.reportNotes;
     if (notes) {
       notes = flattenData(notes);
