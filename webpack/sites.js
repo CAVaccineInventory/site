@@ -19,7 +19,7 @@ function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
   const labels = JSON.parse(
-    document.querySelector("#siteLocationLabels").textContent
+    document.getElementById("js-site-location-labels").textContent
   );
 
   for (const site of sites) {
