@@ -22,6 +22,7 @@ titles:
   home: COVID-19 Vaccine Availability
   providers: Providers
   nearest: Vaccination Sites Near You
+  vaccinebot: VaccineBot
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
