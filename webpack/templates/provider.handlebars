@@ -5,21 +5,21 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x
     gap-1 border-b border-gray-200">
-    {{#if infoURL}}
-      <div class="p-3">
+    <div class="p-3 {{#unless infoURL}}hidden md:block{{/unless}}">
+      {{#if infoURL}}
         <a href="{{infoURL}}">{{infoLabel}}</a>
-      </div>
-    {{/if}}
-    {{#if locationURL}}
-      <div class="p-3">
-        <a href="{{locationURL}}">{{locationLabel}}</a>
-      </div>
-    {{/if}}
-    {{#if appointmentURL}}
-      <div class="p-3">
-        <a href="{{appointmentURL}}">{{appointmentLabel}}</a>
-      </div>
       {{/if}}
+    </div>
+    <div class="p-3 {{#unless locationURL}}hidden md:block{{/unless}}">
+      {{#if locationURL}}
+        <a href="{{locationURL}}">{{locationLabel}}</a>
+      {{/if}}
+    </div>
+    <div class="p-3 {{#unless appointmentURL}}hidden md:block{{/unless}}">
+      {{#if appointmentURL}}
+        <a href="{{appointmentURL}}">{{appointmentLabel}}</a>
+      {{/if}}
+    </div>
   </div>
   <div class="px-3 pt-3 pb-1">
     {{{notes}}}
