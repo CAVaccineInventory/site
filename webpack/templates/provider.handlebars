@@ -3,10 +3,25 @@
     <h4 class="px-2 text-xl font-bold">{{name}}</h3>
     <span class="rounded-full bg-gray-100 px-2">{{type}}</span>
   </div>
-  <p>
-    <a href="{{infoURL}}">Info</a>
-    <a href="{{locationURL}}">Location</a>
-    <a href="{{appointmentURL}}">Appointments</a>
-  </p>
-  notes: {{notes}}
+  <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x
+    gap-1 border-b border-gray-200">
+    {{#if infoURL}}
+      <div class="p-3">
+        <a href="{{infoURL}}">Info</a>
+      </div>
+    {{/if}}
+    {{#if locationURL}}
+      <div class="p-3">
+        <a href="{{locationURL}}">Locations</a>
+      </div>
+    {{/if}}
+    {{#if appointmentURL}}
+      <div class="p-3">
+        <a href="{{appointmentURL}}">Appointments</a>
+      </div>
+      {{/if}}
+  </div>
+  <div class="px-3 pt-3 pb-1">
+    {{{notes}}}
+  </div>
 </li>
