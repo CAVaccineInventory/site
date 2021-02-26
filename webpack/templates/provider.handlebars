@@ -7,17 +7,17 @@
     gap-1 border-b border-gray-200">
     {{#if infoURL}}
       <div class="p-3">
-        <a href="{{infoURL}}">Info</a>
+        <a href="{{infoURL}}">{{infoLabel}}</a>
       </div>
     {{/if}}
     {{#if locationURL}}
       <div class="p-3">
-        <a href="{{locationURL}}">Locations</a>
+        <a href="{{locationURL}}">{{locationLabel}}</a>
       </div>
     {{/if}}
     {{#if appointmentURL}}
       <div class="p-3">
-        <a href="{{appointmentURL}}">Appointments</a>
+        <a href="{{appointmentURL}}">{{appointmentLabel}}</a>
       </div>
       {{/if}}
   </div>
