@@ -7,7 +7,7 @@ window.map = {};
 
 // Initialize and populate the map
 async function initMap() {
-  const mapElement = document.getElementById("js_map");
+  const mapElement = document.getElementById("js-map");
   const map = new google.maps.Map(mapElement, {
     zoom: 6,
     center: { lng: -119.335893, lat: 37.25967 },
