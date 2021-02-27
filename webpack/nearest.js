@@ -32,7 +32,7 @@ function loaded() {
   fetchSites();
 
   const zipForm = document.getElementById("js-submit-zip-form");
-  const zipInput = document.getElementById("js_zip_or_county");
+  const zipInput = document.getElementById("js-zip-or-county");
   if (zipInput) {
     let timeoutId;
     // If a user clears the search field and hits enter, reset to unfiltered table
@@ -98,7 +98,7 @@ function handleUrlParamOnLoad() {
   const urlParams = new URLSearchParams(window.location.search);
   const zip = urlParams.get("zip");
   if (zip) {
-    const zipInput = document.getElementById("js_zip_or_county");
+    const zipInput = document.getElementById("js-zip-or-county");
     if (zipInput) {
       zipInput.value = zip;
     }
@@ -198,7 +198,7 @@ async function handleSearch(event, type) {
   document.getElementById("js-unknown-zip-code-alert").classList.add("hidden");
   toggleLoading(true);
   lastSearch = type;
-  const zipInput = document.getElementById("js_zip_or_county");
+  const zipInput = document.getElementById("js-zip-or-county");
   switch (type) {
     case "zip":
       const zip = extractZip(zipInput);

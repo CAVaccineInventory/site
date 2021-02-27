@@ -2,7 +2,7 @@ import autoComplete from "@tarekraafat/autocomplete.js";
 
 window.addEventListener("load", () => {
   const form = document.getElementById("js-submit-zip-form");
-  const input = form.querySelector("#js_zip_or_county");
+  const input = form.querySelector("#js-zip-or-county");
   const button = form.querySelector("#submit_zip");
 
   if (!input) return;
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
     resultsList: {
       idName: "main_search_autocomplete_list",
     },
-    selector: "#js_zip_or_county",
+    selector: "#js-zip-or-county",
     query: {
       manipulate: (str) => {
         return str.trim();
