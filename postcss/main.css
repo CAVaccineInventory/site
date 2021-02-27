@@ -73,10 +73,6 @@ select {
   border-bottom-color: white;
 }
 
-.airtable-embed {
-  height: 85vh;
-}
-
 .autoComplete_wrapper {
   position: relative;
   display: inline-block;

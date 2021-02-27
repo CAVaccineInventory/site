@@ -1,0 +1,22 @@
+---
+layout: default
+title: titles.providers
+add_to_nav: true
+order: 4
+---
+
+{% t providers.header %}
+
+<script src="/assets/js/providers.js"></script>
+
+<script id="js-provider-labels" type="application/json">
+  {
+    "info": "{% t provider.info %}",
+    "locations": "{% t provider.locations %}",
+    "appointments": "{% t provider.appointments %}"
+  }
+</script>
+
+<ul id="js-providers">
+
+</ul>
