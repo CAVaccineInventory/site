@@ -110,14 +110,16 @@ function handleUrlParamOnLoad() {
 }
 
 function addListeners() {
-  document.getElementById("js-submit-zip-form").addEventListener("submit", (e) => {
-    try {
-      e.target.checkValidity();
-    } catch (err) {
-      console.error(err);
-    }
-    handleSearch(e, "zip");
-  });
+  document
+    .getElementById("js-submit-zip-form")
+    .addEventListener("submit", (e) => {
+      try {
+        e.target.checkValidity();
+      } catch (err) {
+        console.error(err);
+      }
+      handleSearch(e, "zip");
+    });
 
   const geoLocationElem = document.getElementById("submit_geolocation");
   if (geoLocationElem) {
