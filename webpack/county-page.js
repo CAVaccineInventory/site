@@ -36,7 +36,7 @@ async function fetchCountySites() {
   } = splitSitesByVaccineState(sites);
 
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
-  addSitesOrHideIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
+  addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "sitesWithoutReport");
 }
 
