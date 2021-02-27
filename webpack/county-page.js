@@ -37,7 +37,7 @@ async function fetchCountySites() {
 
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
   addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
-  addSitesOrHideIfEmpty(sitesWithNoReport, "sitesWithoutReport");
+  addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
 async function fetchCountyCard() {
