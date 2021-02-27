@@ -15,7 +15,7 @@ window.addEventListener("load", fetchCountySites);
 window.addEventListener("load", fetchCountyCard);
 
 function currentCounty() {
-  return document.getElementById("county_name").textContent.trim();
+  return document.getElementById("js-county-name").textContent.trim();
 }
 
 async function fetchCountySites() {
