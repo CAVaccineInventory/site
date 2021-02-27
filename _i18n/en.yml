@@ -29,6 +29,7 @@ nearest:
   appointment_required: Appointment required
   schedule_full: Schedule full at last check
   coming_soon: Coming soon
+  second_dose_only: Second dose only
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
