@@ -3,7 +3,7 @@ import autoComplete from "@tarekraafat/autocomplete.js";
 window.addEventListener("load", () => {
   const form = document.getElementById("js-submit-zip-form");
   const input = form.querySelector("#js-zip-or-county");
-  const button = form.querySelector("#submit_zip");
+  const button = form.querySelector("#js-submit-zip");
 
   if (!input) return;
   const counties = input.getAttribute("data-collection");

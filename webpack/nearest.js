@@ -223,7 +223,7 @@ async function handleSearch(event, type) {
 }
 
 async function submitZip(zip) {
-  const button = document.getElementById("submit_zip");
+  const button = document.getElementById("js-submit-zip");
   toggleSubmitButtonState(button, false);
   await lookup(zip);
   toggleSubmitButtonState(button, true);
