@@ -40,9 +40,7 @@ window.addEventListener("load", () => {
   });
 
   const getFirstResult = () => {
-    const resultsList = document.querySelector(
-      `#${autoCompleteInstance.resultsList.idName}`
-    );
+    const resultsList = document.getElementById(autoCompleteInstance.resultsList.idName);
     if (resultsList) {
       return resultsList.firstChild;
     }
