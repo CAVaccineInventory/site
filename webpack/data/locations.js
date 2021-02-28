@@ -143,6 +143,8 @@ function getDisplayableVaccineInfo(p) {
         "Yes: appointment calendar currently full"
       ),
       isComingSoon: doesLocationHaveProp(p, "Yes: coming soon"),
+      secondDoseOnly: doesLocationHaveProp(p, "Scheduling second dose only"),
+
       isLimitedToPatients: doesLocationHaveProp(
         p,
         "Yes: must be a current patient"
