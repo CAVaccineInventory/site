@@ -56,7 +56,7 @@ function loaded() {
       if (zipInput.value.length === 0) {
         toggleGeoLocationVisibility(true);
       }
-      toggleElementVisibility("js_my_location", false);
+      toggleElementVisibility("js-my-location", false);
     });
     zipInput.addEventListener("blur", (e) => {
       clearTimeout(timeoutId);
@@ -66,7 +66,7 @@ function loaded() {
 
       // Show my location again if it was used for the last search
       if (!zipInput.value.length && lastSearch == "geolocation") {
-        toggleElementVisibility("js_my_location", true);
+        toggleElementVisibility("js-my-location", true);
       }
     });
   }
@@ -211,7 +211,7 @@ async function handleSearch(event, type) {
       }
       break;
     case "geolocation":
-      toggleElementVisibility("js_my_location", true);
+      toggleElementVisibility("js-my-location", true);
       updateUrl("locate", 1);
       zipInput.value = "";
       await submitGeoLocation();
