@@ -76,7 +76,7 @@ window.addEventListener("load", () => {
   });
 
   // Auto focus
-  const findYourCounty = document.getElementById("js_find_your_county");
+  const findYourCounty = document.getElementById("js-find-your-county");
   if (findYourCounty) {
     findYourCounty.addEventListener("click", (e) => {
       e.preventDefault();
