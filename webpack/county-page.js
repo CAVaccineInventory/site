@@ -46,6 +46,10 @@ async function fetchCountyCard() {
     (county) => county["County"].replace(" County", "") === currentCounty()
   );
 
+  const labels = JSON.parse(
+    document.getElementById("js-county-policy-labels").textContent
+  );
+
   let notes = countyPolicy["Notes"];
   if (notes) {
     notes = sanitizeHtml(marked(notes));
@@ -54,12 +58,17 @@ async function fetchCountyCard() {
   const templateInfo = {
     name: countyPolicy["County"],
     infoURL: countyPolicy["Vaccine info URL"],
+    infoLabel: labels["vaccineInfo"],
     locationsURL: countyPolicy["Vaccine locations URL"],
+    locationsLabel: labels["vaccineLocations"],
     volunteering: countyPolicy["Official volunteering opportunities"],
+    volunteeringLabel: labels["volunteerOpportunities"],
     reservationURL: countyPolicy["countyPolicy vaccination reservations URL"],
+    reservationLabel: labels["vaccineAppointments"],
     facebook: countyPolicy["Facebook Page"],
     twitter: countyPolicy["Twitter Page"],
     notes: notes,
+    latestInfo: labels["latestInfo"],
   };
 
   document.querySelector(".js-county-policy").innerHTML = policyTemplate(
