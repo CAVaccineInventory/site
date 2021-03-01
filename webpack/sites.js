@@ -83,7 +83,7 @@ function addSitesToPage(sites, containerId) {
     fragmentElem.innerHTML += siteTemplate(context);
   }
   const containerElem = document.getElementById(containerId);
-  const loading = containerElem.querySelector(".loading");
+  const loading = containerElem.querySelector(".js-loading");
   if (loading) {
     loading.remove();
   }
