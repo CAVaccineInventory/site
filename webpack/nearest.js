@@ -153,10 +153,10 @@ function toggleLoading(shouldShow) {
   const elem = document.getElementById("js-loading");
   if (shouldShow) {
     elem.classList.remove("hidden");
-    document.getElementById("post_list_container").classList.remove("hidden");
+    document.getElementById("js-post-list-container").classList.remove("hidden");
   } else {
     elem.classList.add("hidden");
-    document.getElementById("post_list_container").classList.remove("hidden");
+    document.getElementById("js-post-list-container").classList.remove("hidden");
   }
 }
 
