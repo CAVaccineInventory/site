@@ -91,7 +91,7 @@ function toggleElementVisibility(elementId, isVisible) {
 }
 
 function toggleGeoLocationVisibility(isVisible) {
-  toggleElementVisibility("submit_geolocation", isVisible);
+  toggleElementVisibility("js-submit-geolocation", isVisible);
 }
 
 function handleUrlParamOnLoad() {
@@ -121,7 +121,7 @@ function addListeners() {
       handleSearch(e, "zip");
     });
 
-  const geoLocationElem = document.getElementById("submit_geolocation");
+  const geoLocationElem = document.getElementById("js-submit-geolocation");
   if (geoLocationElem) {
     if (navigator.geolocation) {
       geoLocationElem.addEventListener("click", (e) => {
@@ -242,7 +242,7 @@ function toggleSubmitButtonState(button, isEnabled) {
 }
 
 async function submitGeoLocation() {
-  const button = document.getElementById("submit_geolocation");
+  const button = document.getElementById("js-submit-geolocation");
   toggleSubmitButtonState(button, false);
   button.value = "Locating...";
 
