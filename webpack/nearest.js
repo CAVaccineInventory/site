@@ -150,7 +150,7 @@ function addListeners() {
 }
 
 function toggleLoading(shouldShow) {
-  const elem = document.getElementById("loading");
+  const elem = document.getElementById("js-loading");
   if (shouldShow) {
     elem.classList.remove("hidden");
     document.getElementById("post_list_container").classList.remove("hidden");
