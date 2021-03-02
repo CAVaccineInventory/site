@@ -15,7 +15,7 @@ window.addEventListener("load", fetchCountySites);
 window.addEventListener("load", fetchCountyCard);
 
 function currentCounty() {
-  return document.getElementById("county_name").textContent.trim();
+  return document.getElementById("js-county-name").textContent.trim();
 }
 
 async function fetchCountySites() {
@@ -35,9 +35,9 @@ async function fetchCountySites() {
     sitesWithNoReport,
   } = splitSitesByVaccineState(sites);
 
-  addSitesOrHideIfEmpty(sitesWithVaccine, "sitesWithVaccine");
-  addSitesOrHideIfEmpty(sitesWithoutVaccine, "sitesWithoutVaccine");
-  addSitesOrHideIfEmpty(sitesWithNoReport, "sitesWithoutReport");
+  addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
+  addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
+  addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
 }
 
 async function fetchCountyCard() {

@@ -1,9 +1,9 @@
 import autoComplete from "@tarekraafat/autocomplete.js";
 
 window.addEventListener("load", () => {
-  const form = document.querySelector("#submit_zip_form");
-  const input = form.querySelector("#js_zip_or_county");
-  const button = form.querySelector("#submit_zip");
+  const form = document.getElementById("js-submit-zip-form");
+  const input = form.querySelector("#js-zip-or-county");
+  const button = form.querySelector("#js-submit-zip");
 
   if (!input) return;
   const counties = input.getAttribute("data-collection");
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
     resultsList: {
       idName: "main_search_autocomplete_list",
     },
-    selector: "#js_zip_or_county",
+    selector: "#js-zip-or-county",
     query: {
       manipulate: (str) => {
         return str.trim();
@@ -40,8 +40,8 @@ window.addEventListener("load", () => {
   });
 
   const getFirstResult = () => {
-    const resultsList = document.querySelector(
-      `#${autoCompleteInstance.resultsList.idName}`
+    const resultsList = document.getElementById(
+      autoCompleteInstance.resultsList.idName
     );
     if (resultsList) {
       return resultsList.firstChild;
@@ -76,7 +76,7 @@ window.addEventListener("load", () => {
   });
 
   // Auto focus
-  const findYourCounty = document.getElementById("js_find_your_county");
+  const findYourCounty = document.getElementById("js-find-your-county");
   if (findYourCounty) {
     findYourCounty.addEventListener("click", (e) => {
       e.preventDefault();

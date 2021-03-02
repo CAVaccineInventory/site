@@ -69,7 +69,7 @@ order: 6
 <h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
   {% t about_us.coordinators %}
 </h3>
-<span id="people-list">
+<span id="js-people-list">
 {% for coordinator in site.data.coordinators %} <a href="{{ coordinator[1] }}">{{ coordinator[0] }}</a> {% endfor %}
 </span>.
 
@@ -83,8 +83,8 @@ function shuffleArray(array) {
   }
 }
 
-const peopleElements = [...document.querySelectorAll('#people-list a')];
-const peopleListElement = document.querySelector("#people-list");
+const peopleElements = [...document.querySelectorAll('#js-people-list a')];
+const peopleListElement = document.getElementById("js-people-list");
 
 shuffleArray(peopleElements);
 peopleListElement.innerHTML = "";
