@@ -12,7 +12,17 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    padding: ["responsive"],
+    margin: ["responsive"],
+    inset: ["responsive"],
+    borderRadius: ["responsive"],
+    clear: ["responsive"],
+    float: ["responsive"],
+    textAlign: ["responsive"],
+    space: ["responsive"],
+    divide: ["responsive"],
+    extend: {
+    },
   },
   plugins: [
     require("tailwindcss-rtl"),
