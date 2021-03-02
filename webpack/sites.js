@@ -19,7 +19,7 @@ function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
   const labels = JSON.parse(
-    document.querySelector("#siteLocationLabels").textContent
+    document.getElementById("js-site-location-labels").textContent
   );
 
   for (const site of sites) {
@@ -91,7 +91,7 @@ function addSitesToPage(sites, containerId) {
     fragmentElem.innerHTML += siteTemplate(context);
   }
   const containerElem = document.getElementById(containerId);
-  const loading = containerElem.querySelector(".loading");
+  const loading = containerElem.querySelector(".js-loading");
   if (loading) {
     loading.remove();
   }

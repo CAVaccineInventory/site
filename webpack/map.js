@@ -16,7 +16,7 @@ function addLocation(p) {
   }
 
   const markerLabels = JSON.parse(
-    document.querySelector("#mapMarkerLabels").textContent
+    document.getElementById("js-map-marker-labels").textContent
   );
   const markerContent = mapMarker({
     name: info.name,

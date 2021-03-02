@@ -8,7 +8,7 @@
   <!-- Main form -->
   <form
     class="flex flex-row"
-    id="submit_zip_form"
+    id="js-submit-zip-form"
     action="{% link nearest.html %}"
     method="GET"
   >
@@ -18,7 +18,7 @@
       concat: region[1] %} {% endfor %} {% assign counties = counties_list |
       join: ", " %}
       <input
-        id="js_zip_or_county"
+        id="js-zip-or-county"
         name="zip"
         class="rounded-full search-input border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-700f px-4 py-2 md:w-64"
         placeholder="{% t search_form.enter_zip %}{% if include.counties_autocomplete %} {% t search_form.enter_county %}{% endif %}..."
@@ -27,7 +27,7 @@
         data-collection="{{ counties }}"
       />
       <div
-        id="js_my_location"
+        id="js-my-location"
         class="hidden absolute top-1/2 transform -translate-y-1/2 start-8 bg-gray-100 rounded-full px-3 py-1 text-sm pointer-events-none"
       >
         {% t search_form.location_placeholder %}
@@ -35,7 +35,7 @@
       <a
         class="hidden absolute bg-white z-10 start-0 top-full flex flex-row border border-gray-200 rounded-full px-4 py-1 items-center space-s-2 mt-1 up-arrow"
         href="{% link nearest.html %}?locate=1"
-        id="submit_geolocation"
+        id="js-submit-geolocation"
       >
         <svg
           width="14"
@@ -57,7 +57,7 @@
     </div>
     <button
       class="rounded-full bg-green-600 text-white hover:bg-green-700 px-10 md:px-5 ms-2"
-      id="submit_zip"
+      id="js-submit-zip"
     >
       {% t search_form.submit_button %}
     </button>

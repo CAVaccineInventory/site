@@ -31,8 +31,8 @@ function extractZip(zipInput) {
 function loaded() {
   fetchSites();
 
-  const zipForm = document.getElementById("submit_zip_form");
-  const zipInput = document.getElementById("js_zip_or_county");
+  const zipForm = document.getElementById("js-submit-zip-form");
+  const zipInput = document.getElementById("js-zip-or-county");
   if (zipInput) {
     let timeoutId;
     // If a user clears the search field and hits enter, reset to unfiltered table
@@ -56,7 +56,7 @@ function loaded() {
       if (zipInput.value.length === 0) {
         toggleGeoLocationVisibility(true);
       }
-      toggleElementVisibility("js_my_location", false);
+      toggleElementVisibility("js-my-location", false);
     });
     zipInput.addEventListener("blur", (e) => {
       clearTimeout(timeoutId);
@@ -66,7 +66,7 @@ function loaded() {
 
       // Show my location again if it was used for the last search
       if (!zipInput.value.length && lastSearch == "geolocation") {
-        toggleElementVisibility("js_my_location", true);
+        toggleElementVisibility("js-my-location", true);
       }
     });
   }
@@ -91,14 +91,14 @@ function toggleElementVisibility(elementId, isVisible) {
 }
 
 function toggleGeoLocationVisibility(isVisible) {
-  toggleElementVisibility("submit_geolocation", isVisible);
+  toggleElementVisibility("js-submit-geolocation", isVisible);
 }
 
 function handleUrlParamOnLoad() {
   const urlParams = new URLSearchParams(window.location.search);
   const zip = urlParams.get("zip");
   if (zip) {
-    const zipInput = document.getElementById("js_zip_or_county");
+    const zipInput = document.getElementById("js-zip-or-county");
     if (zipInput) {
       zipInput.value = zip;
     }
@@ -110,16 +110,18 @@ function handleUrlParamOnLoad() {
 }
 
 function addListeners() {
-  document.getElementById("submit_zip_form").addEventListener("submit", (e) => {
-    try {
-      e.target.checkValidity();
-    } catch (err) {
-      console.error(err);
-    }
-    handleSearch(e, "zip");
-  });
+  document
+    .getElementById("js-submit-zip-form")
+    .addEventListener("submit", (e) => {
+      try {
+        e.target.checkValidity();
+      } catch (err) {
+        console.error(err);
+      }
+      handleSearch(e, "zip");
+    });
 
-  const geoLocationElem = document.getElementById("submit_geolocation");
+  const geoLocationElem = document.getElementById("js-submit-geolocation");
   if (geoLocationElem) {
     if (navigator.geolocation) {
       geoLocationElem.addEventListener("click", (e) => {
@@ -148,13 +150,17 @@ function addListeners() {
 }
 
 function toggleLoading(shouldShow) {
-  const elem = document.getElementById("loading");
+  const elem = document.getElementById("js-loading");
   if (shouldShow) {
     elem.classList.remove("hidden");
-    document.getElementById("post_list_container").classList.remove("hidden");
+    document
+      .getElementById("js-post-list-container")
+      .classList.remove("hidden");
   } else {
     elem.classList.add("hidden");
-    document.getElementById("post_list_container").classList.remove("hidden");
+    document
+      .getElementById("js-post-list-container")
+      .classList.remove("hidden");
   }
 }
 
@@ -198,7 +204,7 @@ async function handleSearch(event, type) {
   document.getElementById("js-unknown-zip-code-alert").classList.add("hidden");
   toggleLoading(true);
   lastSearch = type;
-  const zipInput = document.getElementById("js_zip_or_county");
+  const zipInput = document.getElementById("js-zip-or-county");
   switch (type) {
     case "zip":
       const zip = extractZip(zipInput);
@@ -209,7 +215,7 @@ async function handleSearch(event, type) {
       }
       break;
     case "geolocation":
-      toggleElementVisibility("js_my_location", true);
+      toggleElementVisibility("js-my-location", true);
       updateUrl("locate", 1);
       zipInput.value = "";
       await submitGeoLocation();
@@ -223,7 +229,7 @@ async function handleSearch(event, type) {
 }
 
 async function submitZip(zip) {
-  const button = document.getElementById("submit_zip");
+  const button = document.getElementById("js-submit-zip");
   toggleSubmitButtonState(button, false);
   await lookup(zip);
   toggleSubmitButtonState(button, true);
@@ -240,7 +246,7 @@ function toggleSubmitButtonState(button, isEnabled) {
 }
 
 async function submitGeoLocation() {
-  const button = document.getElementById("submit_geolocation");
+  const button = document.getElementById("js-submit-geolocation");
   toggleSubmitButtonState(button, false);
   button.value = "Locating...";
 
