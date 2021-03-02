@@ -22,7 +22,7 @@ order: 3
   focus:outline-none border border-gray-300
   hover:border-gray-500">
   <input
-    class="js-county-filter rounded-l-full w-full px-4 text-gray-700 leading-tight focus:outline-none"
+    class="js-county-filter rounded-s-full w-full px-4 text-gray-700 leading-tight focus:outline-none"
     placeholder="{% t county_policies.search_by_county %}"
   />
   <svg

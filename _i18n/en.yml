@@ -10,6 +10,8 @@ global:
   super_site: Super Site
   # The language currently being viewed (i.e. "Español", not "Inglés")
   current_language: English
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable

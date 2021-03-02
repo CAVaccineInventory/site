@@ -28,12 +28,12 @@
       />
       <div
         id="js-my-location"
-        class="hidden absolute top-1/2 transform -translate-y-1/2 left-8 bg-gray-100 rounded-full px-3 py-1 text-sm pointer-events-none"
+        class="hidden absolute top-1/2 transform -translate-y-1/2 start-8 bg-gray-100 rounded-full px-3 py-1 text-sm pointer-events-none"
       >
         {% t search_form.location_placeholder %}
       </div>
       <a
-        class="hidden absolute bg-white z-10 left-0 top-full flex flex-row border border-gray-200 rounded-full px-4 py-1 items-center space-x-2 mt-1 up-arrow"
+        class="hidden absolute bg-white z-10 start-0 top-full flex flex-row border border-gray-200 rounded-full px-4 py-1 items-center space-s-2 mt-1 up-arrow"
         href="{% link nearest.html %}?locate=1"
         id="js-submit-geolocation"
       >
@@ -56,7 +56,7 @@
       </a>
     </div>
     <button
-      class="rounded-full bg-green-600 text-white hover:bg-green-700 px-10 md:px-5 ml-2"
+      class="rounded-full bg-green-600 text-white hover:bg-green-700 px-10 md:px-5 ms-2"
       id="js-submit-zip"
     >
       {% t search_form.submit_button %}
