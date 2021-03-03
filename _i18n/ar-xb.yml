@@ -1,0 +1,351 @@
+global:
+  details: ‮ᗡǝʇɐıʅs‬
+  appt_info: ‮∀ddoıuʇɯǝuʇ ıuɟoɹɯɐʇıou‬
+  address: ‮∀ppɹǝss‬
+  latest_info: ‮⅂ɐʇǝsʇ ıuɟo‬
+  location_notes: ‮⅂oɔɐʇıou uoʇǝs‬
+  latest_report: ‮∩dpɐʇǝp‬
+  loading: ‮⅂oɐpıuƃ...‬
+  super_site: ‮Sndǝɹ Sıʇǝ‬
+  current_language: ‮Ǝuƃʅısɥ‬
+  dir: rtl
+site_list:
+  vaccine_sites: ‮Ʌɐɔɔıuǝs ɹǝdoɹʇǝp ɐʌɐıʅɐqʅǝ‬
+  no_vaccine_sites: ‮Ʌɐɔɔıuǝs ɹǝdoɹʇǝp nuɐʌɐıʅɐqʅǝ‬
+  no_report_sites: ‮∩uɔouʇɐɔʇǝp ʅoɔɐʇıous‬
+titles:
+  about_us: ‮∀qonʇ ∩s‬
+  county_policies: ‮Ↄonuʇʎ Ԁoʅıɔıǝs‬
+  home: ‮ↃOɅIᗡ-19 Ʌɐɔɔıuǝ ∀ʌɐıʅɐqıʅıʇʎ‬
+  providers: ‮Ԁɹoʌıpǝɹs‬
+  nearest: ‮Ʌɐɔɔıuɐʇıou Sıʇǝs Nǝɐɹ ⅄on‬
+  vaccinebot: ‮ɅɐɔɔıuǝԐoʇ‬
+nearest:
+  dropdown_1: ‮Sıʇǝs ʍǝ ɥɐʌǝ ɔouʇɐɔʇǝp‬
+  dropdown_2: ‮Sıʇǝs ʍıʇɥ ɹǝdoɹʇǝp posǝs‬
+  dropdown_3: ‮∀ʅʅ ʞuoʍu ʌɐɔɔıuɐʇıou sıʇǝs‬
+  appointment_required: ‮∀ddoıuʇɯǝuʇ ɹǝbnıɹǝp‬
+  schedule_full: ‮Sɔɥǝpnʅǝ ɟnʅʅ ɐʇ ʅɐsʇ ɔɥǝɔʞ‬
+  coming_soon: ‮Ↄoɯıuƃ soou‬
+  second_dose_only: ‮Sǝɔoup posǝ ouʅʎ‬
+  vaccines_available: ‮Ʌɐɔɔıuǝs ɹǝdoɹʇǝp ɐʌɐıʅɐqʅǝ‬
+  vaccines_not_available: ‮Ʌɐɔɔıuǝs ɹǝdoɹʇǝp nuɐʌɐıʅɐqʅǝ‬
+  vaccine_unknown: ‮∩uʞuoʍu ʌɐɔɔıuǝ sʇɐʇns‬
+policy:
+  vaccine_info: ‮Ʌɐɔɔıuǝ Iuɟo‬
+  vaccine_locations: ‮Ʌɐɔɔıuǝ ⅂oɔɐʇıous‬
+  vaccine_appointments: ‮Ʌɐɔɔıuǝ ∀ddoıuʇɯǝuʇs‬
+  volunteer_opportunities: ‮Ʌoʅnuʇǝǝɹ Oddoɹʇnuıʇıǝs‬
+provider:
+  info: ‮Ԁɹoʌıpǝɹ Mǝqsıʇǝ‬
+  locations: ‮⅂oɔɐʇıous‬
+  appointments: ‮∀ddoıuʇɯǝuʇs‬
+head:
+  site_description: >-
+    ‮Ԁnqʅısɥıuƃ nd-ʇo-pɐʇǝ ↃOɅIᗡ-19 ʌɐɔɔıuǝ ɐʌɐıʅɐqıʅıʇʎ ɐʇ ɥosdıʇɐʅs ɐup
+    dɥɐɹɯɐɔıǝs ɐɔɹoss Ↄɐʅıɟoɹuıɐ.‬
+  social_card_text: >-
+    ‮Ⅎıup ʌɐɔɔıuǝ ʅoɔɐʇıous, bnɐʅıɟıɔɐʇıou ɔɹıʇǝɹıɐ, ɐup ɐddoıuʇɯǝuʇ
+    ıusʇɹnɔʇıous.‬
+  meta_image_tag: >-
+    ‮∀u ıɯɐƃǝ oɟ ʇɥǝ ɅɐɔɔıuɐʇǝↃ∀ ʅoƃo ʍıʇɥ ʇɥǝ ʇǝxʇ 'ɅɐɔɔıuɐʇǝↃ∀. Ⅎıup ʌɐɔɔıuǝ
+    ʅoɔɐʇıous, bnɐʅıɟıɔɐʇıou ɔɹıʇǝɹıɐ, ɐup ɐddoıuʇɯǝuʇ ıusʇɹnɔʇıous.'
+
+    ‬
+header:
+  menu_open: ‮Odǝu ɯɐıu ɯǝun‬
+map:
+  locate_button: ‮⅂oɔɐʇǝ ɐɹonup ɯǝ!‬
+  locating: ‮⅂oɔɐʇıuƃ...‬
+  failed: '‮Ⅎɐıʅǝp, dʅǝɐsǝ ʇɹʎ ɐƃɐıu‬'
+  not_supported: ‮⅁ǝoʅoɔɐʇıou uoʇ snddoɹʇǝp‬
+search_form:
+  enter_zip: ‮Ǝuʇǝɹ ZIԀ‬
+  enter_county: ‮oɹ ɔonuʇʎ‬
+  location: ‮∩sǝ ɯʎ ʅoɔɐʇıou‬
+  location_placeholder: ‮Wʎ ʅoɔɐʇıou‬
+  submit_button: '‮Ⅎıup <span class="hidden md:inline">Ʌɐɔɔıuǝ</span>‬'
+site_template:
+  county_header: ‮Mıʇɥıu ʎonɹ ɔonuʇʎ‬
+  no_reports: ‮No ɔouʇɐɔʇ ɹǝdoɹʇs‬
+  provider_info: ‮Ԁɹoʌıpǝɹ uǝʇʍoɹʞ ıuɟo‬
+not_found:
+  text: |-
+    ‮⊥ɥǝ dɐƃǝ ʎon'ʌǝ ɹǝbnǝsʇǝp poǝs uoʇ ǝxısʇ. Iɟ ʎon'ɹǝ ʅooʞıuƃ ɟoɹ ɥǝʅd ʍıʇɥ 
+    ɟıupıuƃ ʌɐɔɔıuǝs ıu Ↄɐʅıɟoɹuıɐ, dʅǝɐsǝ ɔɥǝɔʞ 
+    [ɅɐɔɔıuɐʇǝↃ∀.ɔoɯ](ɥʇʇds://ʍʍʍ.ʌɐɔɔıuɐʇǝɔɐ.ɔoɯ).
+    ‬
+county_policies:
+  search_by_county: ‮Sǝɐɹɔɥ qʎ ɔonuʇʎ...‬
+  text: |-
+    ‮⊥ɥǝ sʇɐʇǝ oɟ Ↄɐʅıɟoɹuıɐ ɥɐs ɐ ʌɐɔɔıuǝ sʇɹɐʇǝƃʎ, qnʇ ɥɐs pǝʅǝƃɐʇǝp
+    dɹıoɹıʇızɐʇıou ɐup ɐpɯıuısʇɹɐʇıou ʇo ǝɐɔɥ ɔonuʇʎ. ᗡǝɔısıous ɐs ʇo ʍɥıɔɥ
+    dɐʇıǝuʇs ʇo ʌɐɔɔıuɐʇǝ ɐup ıu ʍɥɐʇ ɟɐsɥıou ɐɹǝ nʅʇıɯɐʇǝʅʎ nd ʇo ɯǝpıɔɐʅ
+    dɹoʌıpǝɹs.
+
+    Mǝ ɥɐʌǝ ɔoʅʅǝɔʇǝp ʇɥǝ **ɯosʇ ɹǝɔǝuʇ ɔonuʇʎ-ʅǝʌǝʅ ıuɟoɹɯɐʇıou** qǝʅoʍ.
+    Ԑɹoɐpʅʎ, ʍǝ ʇɥıuʞ ʇɥɐʇ ıɟ ʇɥǝ ıuɟoɹɯɐʇıou ʍǝ ɥɐʌǝ ou ɟıʅǝ ɟɹoɯ ɐ ɔonuʇʎ
+    pısɐƃɹǝǝs ʍıʇɥ ɐ ɯǝpıɔɐʅ dɹoʌıpǝɹ ıu ıʇ, ʇɥǝ ouǝ ɯosʇ ʅıʞǝʅʎ ʇo qǝ ɹıƃɥʇ ıs 
+    ʇɥǝ ouǝ ʍɥo ɔonʅp (oɹ ɔonʅp uoʇ) dnʇ ɐ sɥoʇ ıu soɯǝouǝ's ɐɹɯ.
+
+    Soɯǝ ɔonuʇıǝs ɥɐʌǝ sǝʇ nd sɔɥǝpnʅıuƃ sʎsʇǝɯs oɹ ɥɐʌǝ ɐpʌıɔǝ; dʅǝɐsǝ ɔɥǝɔʞ 
+    ʎonɹ ɔonuʇʎ qǝʅoʍ.
+    ‬
+index:
+  header: ‮Ⅎıup ɐ ↃOɅIᗡ-19 ʌɐɔɔıuǝ ɟoɹ ʎonɹsǝʅɟ oɹ ɐ ʅoʌǝp ouǝ‬
+  subtitle: >-
+    ‮Sɐɟǝ ɐup ɹǝʅıɐqʅǝ ↃOɅIᗡ-19 ʌɐɔɔıuǝs ɐɹǝ qǝɔoɯıuƃ ɐʌɐıʅɐqʅǝ ʇo sǝuıoɹs ɐup
+    ɥǝɐʅʇɥɔɐɹǝ ʍoɹʞǝɹs
+
+    ıu Ↄɐʅıɟoɹuıɐ. Ԑnʇ ıʇ ɔɐu qǝ pıɟɟıɔnʅʇ ʇo ɟıup onʇ ʍɥǝɹǝ ɐup ɥoʍ ʇo ƃǝʇ ɐ
+    sɥoʇ. Mǝ ɔɐʅʅ
+
+    ɥosdıʇɐʅs ɐup dɥɐɹɯɐɔıǝs pɐıʅʎ ʇo ʇɹɐɔʞ ʇɥǝıɹ ʌɐɔɔıuǝ ɐʌɐıʅɐqıʅıʇʎ ɐup ʇɥǝıɹ
+    dɹoɔǝssǝs ɟoɹ ƃǝʇʇıuƃ ouǝ.
+
+    ‬
+  disclaimer: >-
+    ‮Sɐɟǝ ɐup ɹǝʅıɐqʅǝ ↃOɅIᗡ-19 ʌɐɔɔıuǝs ɐɹǝ ɐʌɐıʅɐqʅǝ ʇo sǝʌǝɹɐʅ ƃɹonds oɟ
+    dǝodʅǝ ıu Ↄɐʅıɟoɹuıɐ. 
+
+    Ԑnʇ ıʇ ɔɐu qǝ pıɟɟıɔnʅʇ ʇo ɟıup onʇ ʍɥǝɹǝ ɐup ɥoʍ ʇo ƃǝʇ ɐ sɥoʇ. 
+
+    Mǝ ɐɹǝ ɐ ƃɹond oɟ ʌoʅnuʇǝǝɹs ɔɐʅʅıuƃ ɥosdıʇɐʅs ɐup dɥɐɹɯɐɔıǝs pɐıʅʎ ʇo ʇɹɐɔʞ
+    ʇɥǝıɹ ʌɐɔɔıuǝ ɐʌɐıʅɐqıʅıʇʎ ɐup ʇɥǝıɹ dɹoɔǝssǝs ɟoɹ ƃǝʇʇıuƃ ouǝ.
+
+    ‬
+  disclaimer_1: >-
+    ‮⊥ɥǝ Sʇɐʇǝ oɟ Ↄɐʅıɟoɹuıɐ ɥɐs
+
+    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">ɐddɹoʌǝp</a>
+
+    ƃıʌıuƃ ʇɥǝ ↃOɅIᗡ-19 ʌɐɔɔıuǝ ʇo dǝodʅǝ ɐƃǝ 65 ɐup oʅpǝɹ. Ↄɐʅıɟoɹuıɐ’s
+    sʇɐʇǝʍıpǝ
+
+    ↃOɅIᗡ-19 ʌɐɔɔıuɐʇıou dɹoƃɹɐɯ ɥɐs qǝǝu ǝʌoʅʌıuƃ ɹɐdıpʅʎ.
+
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Ⅎǝpǝɹɐʅ</a>,
+
+    <a href="https://covid19.ca.gov/vaccines/">sʇɐʇǝ</a>,
+
+    ɐup <a href="https://www.vaccinateca.com/county-policies">ɔonuʇʎ</a>
+    oɟɟıɔıɐʅs ɐɹǝ
+
+    ɐʅʅ dnqʅısɥıuƃ ɟɹǝbnǝuʇ ndpɐʇǝs. ⊥ɥǝsǝ ƃoʌǝɹuɯǝuʇ ʍǝqsıʇǝs ɐɹǝ ʎonɹ qǝsʇ
+
+    sonɹɔǝ ɟoɹ oɟɟıɔıɐʅ ıuɟoɹɯɐʇıou.
+
+    ‬
+  disclaimer_2: |-
+    ‮Mǝ ɐɹǝ ɐ ɔoɯɯnuıʇʎ-ʅǝp ʍǝqsıʇǝ ɐup po uoʇ ɹǝdɹǝsǝuʇ ʇɥǝ ƃoʌǝɹuɯǝuʇ oɹ ɐuʎ
+    ɥǝɐʅʇɥɔɐɹǝ dɹoʌıpǝɹ.
+    ‬
+  illustration: ‮Iʅʅnsʇɹɐʇıou oɟ poɔʇoɹ ɐpɯıuısʇǝɹıuƃ ʌɐɔɔıuǝs‬
+  positive_feedback: ‮⅂ǝʇ ns ʞuoʍ ıɟ ʎon ɟonup ʇɥıs sıʇǝ nsǝɟnʅ!‬
+  corrections: >-
+    ‮Iɟ ʎon ɥɐʌǝ ɐ ɯıssıuƃ ʅoɔɐʇıou ʇo ɹǝdoɹʇ, oɹ ʇɥıuʞ ʍǝ ɥɐʌǝ ıuɔoɹɹǝɔʇ
+
+    ɔouʇɐɔʇ ıuɟoɹɯɐʇıou,
+
+    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">dʅǝɐsǝ
+    ʅǝʇ ns ʞuoʍ.</a>
+
+    ‬
+  locations_by_county: ‮Ʌɐɔɔıuɐʇıou ʅoɔɐʇıous qʎ ɔonuʇʎ‬
+  more_info: ‮Woɹǝ ıuɟoɹɯɐʇıou ɐqonʇ ʌɐɔɔıuǝ ɐʌɐıʅɐqıʅıʇʎ‬
+  find_county: ‮Ⅎıup ʎonɹ ɔonuʇʎ‬
+  about_us: ‮∀qonʇ ɅɐɔɔıuɐʇǝↃ∀‬
+data_js:
+  alert: ‮Ↄonʅp uoʇ ɹǝʇɹıǝʌǝ ʇɥǝ ʌɐɔɔıuɐʇıou sıʇǝ pɐʇɐ.‬
+  call_back: '‮Ↄonʅp uoʇ ɹǝɐɔɥ ɥnɯɐu, ɔɐʅʅıuƃ qɐɔʞ ʅɐʇǝɹ‬'
+nearest_js:
+  enter_valid_zipcode: ‮Ԁʅǝɐsǝ ǝuʇǝɹ ɐ ʌɐʅıp zıd ɔopǝ‬
+  alert_detect: ‮Ⅎɐıʅǝp ʇo pǝʇǝɔʇ ʎonɹ ʅoɔɐʇıou. Ԁʅǝɐsǝ ʇɹʎ ɐƃɐıu oɹ ǝuʇǝɹ ʎonɹ zıd ɔopǝ‬
+  alert_zipcode: '‮Ⅎɐıʅǝp ʇo ʅoɔɐʇǝ ʎonɹ zıd ɔopǝ, dʅǝɐsǝ ʇɹʎ ɐƃɐıu‬'
+  years_up: ‮ʎǝɐɹs oʅp ɐup nd‬
+  patients_only: ‮Ↄnɹɹǝuʇ dɐʇıǝuʇs ouʅʎ‬
+  county_only: ‮Ↄonuʇʎ ɹǝsıpǝuʇs ouʅʎ‬
+post_list_disclaimer:
+  disclaimer: |-
+    ‮Mǝ po onɹ qǝsʇ ʇo ʞǝǝd ʇɥǝ ıuɟoɹɯɐʇıou ou ʇɥıs sıʇǝ ɔnɹɹǝuʇ, qnʇ ʌɐɔɔıuǝ
+    ǝʅıƃıqıʅıʇʎ ɐup ɐʌɐıʅɐqıʅıʇʎ ɐʇ ɐ sdǝɔıɟıɔ ʅoɔɐʇıou ɯɐʎ ɥɐʌǝ ɔɥɐuƃǝp qʎ ʇɥǝ
+    ʇıɯǝ ʎon ɹǝɐp ʇɥıs. Iɟ ʎon ɟıup ɐuʎʇɥıuƃ ou ʇɥıs sıʇǝ ʇɥɐʇ ıs onʇ oɟ pɐʇǝ,
+    <a href="https://airtable.com/shrY44NvEjHBscrOH"
+      class="font-medium text-yellow-600"
+    >
+      dʅǝɐsǝ ɹǝdoɹʇ ıʇ</a
+    >. ⅄onɹ ɹǝdoɹʇ ʍıʅʅ ɥǝʅd oʇɥǝɹ Ↄɐʅıɟoɹuıɐus.
+    ‬
+pre_list_disclaimer:
+  disclaimer: |-
+    ‮Mǝ ɔɐʅʅ ɥosdıʇɐʅs, dɥɐɹɯɐɔıǝs, ɐup oʇɥǝɹ ɥǝɐʅʇɥ dɹoʌıpǝɹs ɐɔɹoss Ↄɐʅıɟoɹuıɐ
+    ǝʌǝɹʎ pɐʎ ʇo ɟıup onʇ ıɟ ʇɥǝʎ ɐɹǝ ɔnɹɹǝuʇʅʎ ɐpɯıuısʇǝɹıuƃ ʌɐɔɔıuǝs. ⊥ɥǝ
+    ɯǝpıɔɐʅ dɹoɟǝssıouɐʅs ʍoɹʞıuƃ ɐʇ ʇɥǝsǝ dɹoʌıpǝɹs ʇǝʅʅ ns ɐqonʇ ʇɥǝıɹ ɔnɹɹǝuʇ
+    ʌɐɔɔıuɐʇıou dɹoƃɹɐɯs ɐup ʍǝ ɹǝdoɹʇ ʍɥɐʇ ʇɥǝʎ sɐʎ ɥǝɹǝ. Mɥıʅǝ ʍǝ po onɹ qǝsʇ
+    ʇo ʌǝɹıɟʎ ɐʅʅ ıuɟoɹɯɐʇıou ʍǝ ɹǝɔǝıʌǝ, ʍǝ sʇɹouƃʅʎ ǝuɔonɹɐƃǝ ʎon ʇo ɔɥǝɔʞ
+    ʍıʇɥ ʎonɹ poɔʇoɹ oɹ ʅoɔɐʅ oɟɟıɔıɐʅs ıɟ ʎon ɥɐʌǝ bnǝsʇıous ɐqonʇ ɐ 
+    ʌɐɔɔıuɐʇıou sıʇǝ.
+    ‬
+providers:
+  header: >-
+    ‮⊥ɥıs ıs ɐu oʌǝɹʌıǝʍ oɟ ʇɥǝ ʅɐʇǝsʇ ıuɟoɹɯɐʇıou ʍǝ ɥɐʌǝ ɟoɹ ɐʅʅ ɯɐɾoɹ
+    dɹoʌıpǝɹ 
+
+    uǝʇʍoɹʞs ıu Ↄɐʅıɟoɹuıɐ. Iʇ ıs dossıqʅǝ ʇɥɐʇ ʇɥǝ sʇɐɟɟ ʍoɹʞıuƃ ɐʇ ɐ
+    dɐɹʇıɔnʅɐɹ 
+
+    ʅoɔɐʇıou ʍıʇɥıu ʇɥǝsǝ uǝʇʍoɹʞs ʍıʅʅ ɔɥoosǝ ʇo odǝɹɐʇǝ pıɟɟǝɹǝuʇʅʎ.
+
+    ‬
+footer:
+  lang_disclaimer: |-
+    ‮⊥ɹɐusʅɐʇıou oɟ ʇɥıs ʍǝqsıʇǝ ıs ıu ɐɔʇıʌǝ pǝʌǝʅodɯǝuʇ. Soɯǝ ıuɟoɹɯɐʇıou ɯɐʎ
+    uoʇ ʎǝʇ qǝ ɐʌɐıʅɐqʅǝ ıu ʇɥıs ʅɐuƃnɐƃǝ— ʍǝ ɐdoʅoƃızǝ ɟoɹ ʇɥǝ ıuɔouʌǝuıǝuɔǝ!
+    ‬
+about_us:
+  coordinators: '‮Soɯǝ oɟ ns ʍɥo ʍoɹʞǝp ou ʇɥıs dɹoɾǝɔʇ ou ᗡɐʎ 1:‬'
+  intro_1: >-
+    ‮ɅɐɔɔıuɐʇǝↃ∀ ıs ɐ ɔoɯɯnuıʇʎ-pɹıʌǝu ǝɟɟoɹʇ ʇo ɥǝʅd Ↄɐʅıɟoɹuıɐus ʅǝɐɹu
+    ɐɔɔnɹɐʇǝ, nd-ʇo-pɐʇǝ, ʌǝɹıɟıǝp ıuɟoɹɯɐʇıou ɐqonʇ
+
+    ʇɥǝ ɔoɹouɐʌıɹns ʌɐɔɔıuǝ, so ʇɥǝʎ ɔɐu ʅǝɐɹu ʍɥǝu ʇɥǝʎ ʍıʅʅ qǝ ǝʅıƃıqʅǝ ɐup
+    ɥoʍ ʇo ʇɐʞǝ ʇɥǝıɹ dʅɐɔǝ ıu ʅıuǝ.
+
+    ‬
+  intro_2: >-
+    ‮Onɹ dɹoɟǝssıouɐʅs ɔɐʅʅ ɯǝpıɔɐʅ dɹoɟǝssıouɐʅs ɐʇ ɥnupɹǝps oɟ doʇǝuʇıɐʅ
+    ʌɐɔɔıuɐʇıou sıʇǝs pɐıʅʎ, ɐsʞıuƃ ʇɥǝɯ ıɟ ʇɥǝʎ 
+
+    ɥɐʌǝ ʇɥǝ ʌɐɔɔıuǝ ɐup ıɟ so ʇo ʍɥoɯ ʇɥǝʎ ʍıʅʅ ɐpɯıuısʇǝɹ ıʇ ʇo ɐup ɥoʍ ʇo ƃǝʇ
+    ɐu ɐddoıuʇɯǝuʇ. Mǝ ʍɹıʇǝ poʍu ʍɥɐʇ 
+
+    ʇɥǝʎ ʇǝʅʅ ns, ɐup dnqʅısɥ ıʇ ʇo ʇɥıs sıʇǝ.
+
+    ‬
+  faq_header: |-
+    ‮Ⅎɹǝbnǝuʇʅʎ ∀sʞǝp Ònǝsʇıous (Ⅎ∀Ò)
+    ‬
+  faq_help: ‮Hoʍ ɔɐu I ɥǝʅd?‬
+  faq_help_answer_1: >-
+    ‮⅁ǝʇ ʇɥǝ ʍoɹp onʇ ɐqonʇ ʇɥǝ ʌɐɔɔıuǝ ıu ʎonɹ ɔoɯɯnuıʇʎ. Hǝʅd ʎonɹ ǝʅıƃıqʅǝ
+    ʅoʌǝp ouǝs ƃǝʇ ʇɥǝ ʌɐɔɔıuǝ. Ↄouʇıunǝ 
+
+    ʍǝɐɹıuƃ ʎonɹ ɯɐsʞ ɐup oqsǝɹʌǝ soɔıɐʅ pısʇɐuɔıuƃ ƃnıpǝʅıuǝs.
+
+    ‬
+  faq_help_answer_2: >-
+    ‮Mɥɐʇ ʍǝ uǝǝp ʇɥǝ ɯosʇ ɹıƃɥʇ uoʍ ɐɹǝ ɹǝsdousıqʅǝ ʌoʅnuʇǝǝɹs ʍɥo ɔɐu ɥǝʅd ns
+    ɔɐʅʅ ɥǝɐʅʇɥɔɐɹǝ dɹoʌıpǝɹs ɐɔɹoss 
+
+    ʇɥǝ sʇɐʇǝ so ʍǝ ɔɐu ɔouʇıunǝ ʇo oɟɟǝɹ ɔoɯdɹǝɥǝusıʌǝ ıuɟoɹɯɐʇıou ɐqonʇ
+    ↃOɅIᗡ-19 ʌɐɔɔıuǝ ɐʌɐıʅɐqıʅıʇʎ ʇo ɐʅʅ 
+
+    Ↄɐʅıɟoɹuıɐus. 
+
+    ‬
+  faq_help_answer_3: >-
+    ‮Iɟ ʎon'p ʅıʞǝ ʇo ʌoʅnuʇǝǝɹ ʇo ɥǝʅd ns ɯɐʞǝ ɔɐʅʅs, dʅǝɐsǝ<a href="https://airtable.com/shrY9Ac8PGuudZAe3">ʅǝʇ ns ʞuoʍ</a>.
+
+    ‬
+  faq_help_answer_4: >-
+    ‮<a href="https://twitter.com/ca_covid">Ⅎoʅʅoʍ ns ou ⊥ʍıʇʇǝɹ</a> ʇo ʞǝǝd nd
+    ʇo pɐʇǝ ou oʇɥǝɹ 
+
+    oddoɹʇnuıʇıǝs ʇo ɥǝʅd onʇ.
+
+    ‬
+  faq_help_answer_5: >-
+    ‮Mǝ pou'ʇ uǝǝp ɯouǝʎ. Wɐuʎ ɔɥɐɹıʇɐqʅǝ dɹoɾǝɔʇs <i>po</i>; ʇɥǝʎ ʍonʅp
+    ɐddɹǝɔıɐʇǝ ʎonɹ ƃǝuǝɹons snddoɹʇ.
+
+    ‬
+  faq_press: |-
+    ‮I ɐɯ ɐ ɹǝdoɹʇǝɹ. Ↄɐu I ƃǝʇ ıu ʇonɔɥ?
+    ‬
+  faq_press_answer: >-
+    ‮Ԁʅǝɐsǝ ǝɯɐıʅ <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; ʍǝ'ʅʅ qǝ ıu
+    ʇonɔɥ bnıɔʞʅʎ.
+
+    ‬
+  faq_medical: >-
+    ‮I ʍoɹʞ ɐʇ ɐ ɯǝpıɔɐʅ dɹoʌıpǝɹ! Hoʍ po I ɐsʞ ʎon ʇo ndpɐʇǝ onɹ ıuɟoɹɯɐʇıou oɹ
+    ɯɐʞǝ ɐ ɹǝbnǝsʇ oɟ ʎon?
+
+    ‬
+  faq_medical_answer_1: |-
+    ‮Mǝ ɐddɹǝɔıɐʇǝ ʇɥǝ ʍoɹʞ ʎon ɐɹǝ poıuƃ, ɐup ɐɹǝ ɥǝɹǝ ʇo snddoɹʇ ıʇ!
+    ‬
+  faq_medical_answer_2: >-
+    ‮Ԁʅǝɐsǝ ʇǝxʇ <a href="tel:+14153014597">(415) 301-4597</a> ʍıʇɥ ʎonɹ
+    ɯǝssɐƃǝ, ıusʇıʇnʇıouɐʅ ɐɟɟıʅıɐʇıou, ɐup ɐu 
+
+    ıuʇǝɹuɐʅ ǝxʇǝusıou oɹ ɔouʇɐɔʇ uɐɯǝ so ʍǝ ɔɐu ɔɐʅʅ qɐɔʞ ʇo ʌǝɹıɟʎ. Mǝ ɔɐuuoʇ
+    ɹǝɔǝıʌǝ dɥoʇos ɐʇ ʇɥıs unɯqǝɹ; 
+
+    ʇǝxʇ ouʅʎ, dʅǝɐsǝ.
+
+    ‬
+  faq_medical_answer_3: >-
+    ‮Ouǝ oɟ ʇɥǝ oɹƃɐuızǝɹs ʍıʅʅ ɹǝɐp ʎonɹ ɯǝssɐƃǝ ɐup ʇɐʞǝ ɐɔʇıou ɐs soou ɐs
+    ɹǝɐsouɐqʅʎ dossıqʅǝ.
+
+    ‬
+  faq_community: >-
+    ‮I ʍoɹʞ ıu ɐ ɔoɯɯnuıʇʎ-ɟɐɔıuƃ oɹƃɐuızɐʇıou oɹ ɟoɹ ʇɥǝ ƃoʌǝɹuɯǝuʇ. Ↄɐu ʍǝ
+    pısɔnss ʇɥıs?
+
+    ‬
+  faq_community_answer_1: >-
+    ‮Mǝ ʍɐuʇ ʇo snddoɹʇ ʇɥǝ nɹƃǝuʇ ʍoɹʞ ʎon ɐɹǝ poıuƃ ıu ƃǝʇʇıuƃ Ↄɐʅıɟoɹuıɐus
+    ʌɐɔɔıuɐʇǝp ɐs bnıɔʞʅʎ ɐs dossıqʅǝ. 
+
+    Ԁʅǝɐsǝ ǝɯɐıʅ ns ɐʇ <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> ʇo
+    pısɔnss.
+
+    ‬
+  faq_toil: |-
+    ‮ᗡoǝs ʇɥıs ǝɟɟoɹʇ ıuɔɹǝɐsǝ oɹ pǝɔɹǝɐsǝ ʇoıʅ ıu ʇɥǝ ɥǝɐʅʇɥɔɐɹǝ sʎsʇǝɯ?
+    ‬
+  faq_toil_answr_1: >-
+    ‮Wosʇ ɥosdıʇɐʅs ʍıʅʅ ƃǝʇ ʇɥonsɐups oɟ dɥouǝ ɔɐʅʅs dǝɹ pɐʎ. ⊥ɥǝʎ ɐɹǝ
+    ɔnɹɹǝuʇʅʎ qǝıuƃ sʅɐɯɯǝp qʎ ɯɐuʎ ɯoɹǝ dǝodʅǝ ʇɥɐu 
+
+    nsnɐʅ ɐsʞıuƃ ʇɥǝɯ ʇɥǝ sɐɯǝ bnǝsʇıou: "ᗡo ʎon ɥɐʌǝ ʇɥǝ ʌɐɔɔıuǝ?"
+
+    ‬
+  faq_toil_answr_2: >-
+    ‮Ԑʎ ɐsʞıuƃ ʇɥɐʇ bnǝsʇıou ɐup dnqʅısɥıuƃ ʇɥǝ ɐusʍǝɹ, ʍǝ ɔɐu sɐʌǝ ʇɥǝıɹ dɥouǝ
+    qɐupʍıpʇɥ ɟoɹ ʇɥǝ pɐʎ-ʇo-pɐʎ odǝɹɐʇıous 
+
+    oɟ ʇɥǝ ɥosdıʇɐʅ. Mǝ ɐʅso sɐʌǝ dǝodʅǝ sǝǝʞıuƃ ʇɥǝ ʌɐɔɔıuǝ ɟɹoɯ ɥɐʌıuƃ ʇo ɔɐʅʅ
+    pozǝus oɟ ʅoɔɐʇıous ʇo ɟıup ouǝ ʇɥɐʇ 
+
+    ɥɐs ɐʌɐıʅɐqıʅıʇʎ.
+
+    ‬
+  faq_accurate: |-
+    ‮Is ʇɥǝ ıuɟoɹɯɐʇıou ou ʇɥıs ʍǝqsıʇǝ ɐɔɔnɹɐʇǝ?
+    ‬
+  faq_accurate_answer_1: >-
+    ‮Mǝ dnqʅısɥ ouʅʎ ʍɥɐʇ ʇɥǝ ʌɐɔɔıuǝ sıʇǝ ʇoʅp ns ʍɥǝu ʍǝ ɔɐʅʅǝp. ⊥ɥǝ sıʇnɐʇıou
+    ıs ɔoɯdʅǝx, snddʅıǝs ɯɐʎ ʌɐɹʎ ʇɥɹonƃɥonʇ
+
+    ʇɥǝ pɐʎ, ɐup uoʇ ǝʌǝɹʎouǝ ɐʇ ʇɥǝ sıʇǝ ɯıƃɥʇ ɥɐʌǝ nd-ʇo-ʇɥǝ-ɯıunʇǝ
+    ıuɟoɹɯɐʇıou ɐs ʇo ʍɥɐʇ ʇɥǝıɹ doʅıɔıǝs ɐɔʇnɐʅʅʎ 
+
+    ɐɹǝ.
+
+    ‬
+  faq_accurate_answer_2: |-
+    ‮Mǝ'ɹǝ poıuƃ onɹ qǝsʇ, qnʇ ɔɐu'ʇ ɯɐʞǝ ɐuʎ ƃnɐɹɐuʇǝǝs.
+    ‬
+  faq_who: |-
+    ‮Mɥo ɐɹǝ ʎon?
+    ‬
+  faq_who_answer: >-
+    ‮Mǝ ɐɹǝ ɐ ɔoɯɯnuıʇʎ-pɹıʌǝu oɹƃɐuızɐʇıou, ʍıʇɥ oʌǝɹ 300 ʌoʅnuʇǝǝɹs ʍoɹʞıuƃ
+    ʍıʇɥ ns. ∀s oɟ ſɐunɐɹʎ 23ɹp, 2021, onɹ 
+
+    ɔoɹǝ ʇǝɐɯ ʍɐs ɐddɹoxıɯɐʇǝʅʎ 20 dǝodʅǝ.
+
+    ‬

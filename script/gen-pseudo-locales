@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+
+// This script will generate the localization files for the en-xa and ar-xb
+// pseudo-locales. en-xa is a fake locale which doubles several characters to
+// make the text longer (English is a comparatively concise language) and adds
+// an assortment of accents to make sure that UTF-8 is being handled correctly.
+// ar-xb is a fake locale which is RTL (each string has Unicode formatting marks
+// at the beginning and end to force RTL handling); text is rendered upside down
+// to make it largely legible.
+//
+// (Note that the Google/Android version of these locales is "en-XA" and
+// "ar-XB", but Netlify force-downcases URLs, which in turn breaks some
+// assumptions in our code, so we use lowercase here.)
+//
+// The output of this script won't work on its own - it blindly replaces HTML
+// tags, URLs, Liquid tags, etc. If you're updating the pseudolocale files,
+// you'll need to patch them up, sorry.
+
+const fs = require("fs");
+const path = require("path");
+const localize = require("pseudo-localization").localize;
+const yaml = require("js-yaml");
+
+const i18n = path.join(__dirname, "../_i18n");
+const src = yaml.load(fs.readFileSync(path.join(i18n, "en.yml")));
+
+function translateTree(tree, translator) {
+  if (typeof tree === "string") {
+    return translator(tree);
+  }
+
+  const translated = {};
+  for (const key in tree) {
+    if (!Object.prototype.hasOwnProperty.call(tree, key)) {
+      continue;
+    }
+    translated[key] = translateTree(tree[key], translator);
+  }
+  return translated;
+}
+
+const accented = translateTree(src, (s) => localize(s, { strategy: "accented" }));
+fs.writeFileSync(path.join(i18n, "en-xa.yml"), yaml.dump(accented));
+const bidi = translateTree(src, (s) => localize(s, { strategy: "bidi" }));
+fs.writeFileSync(path.join(i18n, "ar-xb.yml"), yaml.dump(bidi));
+
+fs.mkdirSync(path.join(i18n, "en-xa"), { recursive: true });
+fs.mkdirSync(path.join(i18n, "ar-xb"), { recursive: true });
+fs.readdirSync(path.join(i18n, "en")).forEach((file) => {
+  const untranslated = fs.readFileSync(path.join(i18n, "en", file), { encoding: "utf-8" });
+  const accented = localize(untranslated, { strategy: "accented" });
+  fs.writeFileSync(path.join(i18n, "en-xa", file), accented);
+  const bidi = localize(untranslated, { strategy: "bidi" });
+  fs.writeFileSync(path.join(i18n, "ar-xb", file), bidi);
+});

@@ -62,7 +62,7 @@ collections:
 include:
   - _redirects
 
-languages: ["en", "es",  "ko", "tl", "zh-hans"]
+languages: ["en", "es",  "ko", "tl", "zh-hans", "en-xa", "ar-xb"]
 
 # I'm sure there's a better way to do this than copying assets into the lang 
 # folders, but I couldn't figure it out easily.

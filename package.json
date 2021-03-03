@@ -17,7 +17,9 @@
     "eslint-plugin-es": "github:mysticatea/eslint-plugin-es",
     "foreman": "^3.0.1",
     "handlebars": "^4.7.6",
+    "js-yaml": "^3.14.1",
     "prettier": "^2.1.1",
+    "pseudo-localization": "^2.1.1",
     "tailwindcss-rtl": "^0.7.3",
     "webpack": "^5.19.0",
     "webpack-cli": "^4.4.0"
