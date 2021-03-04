@@ -10,6 +10,8 @@ global:
   super_site: Megacentro
   # The language currently being viewed (i.e. "Español", not "Inglés")
   current_language: Español
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
 site_list:
   vaccine_sites: Vacunas reportadas disponibles
   no_vaccine_sites: Vacunas reportadas como no disponibles
@@ -22,16 +24,27 @@ titles:
   home: Disponibilidad de la vacuna contra el COVID-19
   providers: Proveedores
   nearest: Sitios de vacunación cercanos
+  vaccinebot: VaccineBot
 nearest:
   dropdown_1: Sitios que hemos contactado
   dropdown_2: Sitios con dosis reportadas
   dropdown_3: Todos los sitios conocidos de vacunación
   appointment_required: Requiere cita
   schedule_full: Programa completo en la última verificación
-  latest_info: Última información
+  coming_soon: Empezando pronto
+  second_dose_only: "Solamente segunda dosis "
   vaccines_available: Vacunas reportadas disponibles
   vaccines_not_available: Vacunas reportadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
+policy:
+  vaccine_info: Información sobre la vacuna
+  vaccine_locations: Sitios de vacunas
+  vaccine_appointments: Citas de vacunas
+  volunteer_opportunities: Oportunidades para voluntarios
+provider:
+  info: Sitio web del proveedor
+  locations: Sitios
+  appointments: Citas
 head:
   site_description: Publicando la disponibilidad actualizada de la vacuna contra el COVID-19 en hospitales y farmacias de California.
   social_card_text: "Encuentre lugares de vacunación, calificaciones, y instrucciones para reservar una cita."
@@ -53,6 +66,7 @@ search_form:
 site_template:
   county_header: Dentro de su condado
   no_reports: No reportes de contacto
+  provider_info: Información del proveedor
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
