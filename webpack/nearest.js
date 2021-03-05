@@ -134,7 +134,9 @@ function addListeners() {
   }
 
   const filterElem = document.getElementById("js-nearest-filter");
-  const availabilityFilterElem = document.getElementById("js-availability-filter");
+  const availabilityFilterElem = document.getElementById(
+    "js-availability-filter"
+  );
 
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
@@ -331,7 +333,9 @@ async function updateSitesFromMap() {
     });
   }
 
-  const availabilityFilterElement = document.getElementById("js-availability-filter");
+  const availabilityFilterElement = document.getElementById(
+    "js-availability-filter"
+  );
   if (availabilityFilterElement && availabilityFilterElement.value != "none") {
     sites = filterSitesByAvailability(sites, availabilityFilterElement.value);
   }
