@@ -17,6 +17,15 @@ permalink: /near-me
       <option selected value="stocked">{% t nearest.dropdown_2 %}</option>
       <option value="any">{% t nearest.dropdown_3 %}</option>
     </select>
+    <select
+      id="js-availability-filter"
+      class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
+    >
+      <option value="none">None</option>
+      {% for filter in site.data.availability_info %}
+      <option value="{{ filter }}">{{ filter }}</option>
+      {% endfor %}
+    </select>
   </div>
 </div>
 <div class="lg:container mx-auto">

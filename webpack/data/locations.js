@@ -244,6 +244,12 @@ function sortByRecency(sites) {
   });
 }
 
+function filterSitesByAvailability(sites, filter) {
+  return sites.filter((site) => {
+    return site["Availability Info"].some((value) => value == filter);
+  });
+}
+
 export {
   fetchSites,
   getHasVaccine,
@@ -254,4 +260,5 @@ export {
   getTimeDiffFromNow,
   splitSitesByVaccineState,
   sortByRecency,
+  filterSitesByAvailability,
 };

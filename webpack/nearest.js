@@ -5,6 +5,7 @@ import {
   getHasReport,
   sortByRecency,
   splitSitesByVaccineState,
+  filterSitesByAvailability,
   getCoord,
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
@@ -131,11 +132,23 @@ function addListeners() {
       geoLocationElem.remove();
     }
   }
+
   const filterElem = document.getElementById("js-nearest-filter");
+  const availabilityFilterElem = document.getElementById("js-availability-filter");
+
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
       if (lastSearch) {
-        updateSitesOnMap(filterElem);
+        updateSitesOnMap(filterElem, availabilityFilterElem);
+        handleSearch(undefined, lastSearch);
+      }
+    });
+  }
+
+  if (availabilityFilterElem) {
+    availabilityFilterElem.addEventListener("change", (e) => {
+      if (lastSearch) {
+        updateSitesOnMap(filterElem, availabilityFilterElem);
         handleSearch(undefined, lastSearch);
       }
     });
@@ -164,7 +177,7 @@ function toggleLoading(shouldShow) {
   }
 }
 
-async function updateSitesOnMap(filterElement) {
+async function updateSitesOnMap(filterElement, availabilityFilterElement) {
   let sites = await fetchSites();
   const filter = filterElement ? filterElement.value : "any";
   if (filter === "reports") {
@@ -175,6 +188,10 @@ async function updateSitesOnMap(filterElement) {
     sites = sites.filter((site) => {
       return getHasVaccine(site);
     });
+  }
+
+  if (availabilityFilterElement && availabilityFilterElement.value != "none") {
+    sites = filterSitesByAvailability(sites, availabilityFilterElement.value);
   }
 
   tryOrDelayToMapInit((map) => {
@@ -312,6 +329,11 @@ async function updateSitesFromMap() {
     sites = sites.filter((site) => {
       return getHasVaccine(site);
     });
+  }
+
+  const availabilityFilterElement = document.getElementById("js-availability-filter");
+  if (availabilityFilterElement && availabilityFilterElement.value != "none") {
+    sites = filterSitesByAvailability(sites, availabilityFilterElement.value);
   }
 
   const bounds = window.map.getBounds();
