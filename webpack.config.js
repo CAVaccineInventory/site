@@ -59,4 +59,9 @@ module.exports = {
       publicPath,
     }),
   ],
+  "optimization": {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 };
