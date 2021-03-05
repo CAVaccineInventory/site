@@ -7,16 +7,6 @@ order: 3
 ---
 <script src="/assets/js/policies.js"></script>
 
-<script id="js-county-policy-labels" type="application/json">
-  {
-    "vaccineInfo": "{% t policy.vaccine_info %}",
-    "vaccineLocations": "{% t policy.vaccine_locations %}",
-    "vaccineAppointments": "{% t policy.vaccine_appointments %}",
-    "volunteerOpportunities": "{% t policy.volunteer_opportunities %}",
-    "latestInfo": "{% t global.latest_info %}"
-  }
-</script>
-
 <div
   class="bg-white w-96 flex items-center rounded-full
   focus:outline-none border border-gray-300
