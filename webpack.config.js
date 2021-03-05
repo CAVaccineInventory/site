@@ -53,6 +53,9 @@ module.exports = {
       "path": require.resolve("path-browserify"),
     },
   },
+  "resolveLoader": {
+    modules: ["node_modules", path.resolve(__dirname, "webpack/loaders")],
+  },
   "plugins": [
     new webpack.SourceMapDevToolPlugin({
       filename: "[file].map",

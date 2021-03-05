@@ -4,6 +4,7 @@ import {
 } from "./data/locations.js";
 import siteTemplate from "./templates/siteLocation.handlebars";
 import { markdownify } from "./markdown.js";
+import { t } from "./i18n.js";
 
 function flattenData(strOrStrArray) {
   return Array.isArray(strOrStrArray)
@@ -18,9 +19,6 @@ function generateCountyUrl(countyName) {
 function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
-  const labels = JSON.parse(
-    document.getElementById("js-site-location-labels").textContent
-  );
 
   for (const site of sites) {
     const info = getDisplayableVaccineInfo(site);
@@ -43,17 +41,17 @@ function addSitesToPage(sites, containerId) {
       ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
     }
 
-    let appointmentRequiredLabel = labels.apptRequired;
+    let appointmentRequiredLabel = t("nearest.appointment_required");
     if (info.isScheduleFull) {
-      appointmentRequiredLabel += `; ${labels.scheduleFull}`;
+      appointmentRequiredLabel += `; ${t("nearest.schedule_full")}`;
     }
 
     if (info.isComingSoon) {
-      appointmentRequiredLabel += `; ${labels.comingSoon}`;
+      appointmentRequiredLabel += `; ${t("nearest.coming_soon")}`;
     }
 
     if (info.secondDoseOnly) {
-      appointmentRequiredLabel += `; ${labels.secondDoseOnly}`;
+      appointmentRequiredLabel += `; ${t("nearest.second_dose_only")}`;
     }
 
     let notes = info.reportNotes;
@@ -70,21 +68,21 @@ function addSitesToPage(sites, containerId) {
       addressLink: addressLink,
       hasReport: info.hasReport,
       hasVaccine: info.hasVaccine == "Yes",
-      hasVaccineLabel: labels.hasVaccine,
+      hasVaccineLabel: t("nearest.vaccines_available"),
       noVaccine: info.hasVaccine == "No",
-      noVaccineLabel: labels.noVaccine,
+      noVaccineLabel: t("nearest.vaccines_not_available"),
       unknownVaccine: info.hasVaccine == "Unknown",
-      unknownVaccineLabel: labels.unknownVaccine,
+      unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
       ageRestriction: ageRestriction,
       otherRestrictions: otherRestrictions,
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
-      latestNotesLabel: labels.latestInfo,
+      latestNotesLabel: t("global.latest_info"),
       notes: notes,
-      noReports: labels.noReports,
-      providerInfoLabel: labels.providerInfo,
+      noReports: t("site_template.no_reports"),
+      providerInfoLabel: t("site_template.provider_info"),
       providerInfo: info.providerNotes,
     };
 

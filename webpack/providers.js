@@ -1,15 +1,13 @@
 import { fetchProviders } from "./data/providers.js";
 import providerTemplate from "./templates/provider.handlebars";
 import { markdownify } from "./markdown.js";
+import { t } from "./i18n.js";
 
 window.addEventListener("load", loadProviders);
 
 async function loadProviders() {
   const providers = await fetchProviders();
   const providerList = document.getElementById("js-providers");
-  const labels = JSON.parse(
-    document.getElementById("js-provider-labels").textContent
-  );
 
   for (const provider of providers) {
     let notes = provider["Public Notes"];
@@ -21,11 +19,11 @@ async function loadProviders() {
       name: provider["Provider"],
       type: provider["Provider network type"],
       infoURL: provider["Vaccine info URL"],
-      infoLabel: labels["info"],
+      infoLabel: t("provider.info"),
       locationURL: provider["Vaccine locations URL"],
-      locationLabel: labels.locations,
+      locationLabel: t("provider.locations"),
       appointmentURL: provider["Appointments URL"],
-      appointmentLabel: labels.appointments,
+      appointmentLabel: t("provider.appointments"),
       notes: notes,
     };
 

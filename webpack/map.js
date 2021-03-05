@@ -1,5 +1,6 @@
 import mapMarker from "./templates/mapMarker.handlebars";
 import { getDisplayableVaccineInfo } from "./data/locations.js";
+import { t } from "./i18n";
 
 window.mapMarkers = [];
 
@@ -15,9 +16,6 @@ function addLocation(p) {
     return false;
   }
 
-  const markerLabels = JSON.parse(
-    document.getElementById("js-map-marker-labels").textContent
-  );
   const markerContent = mapMarker({
     name: info.name,
     superSite: info.isSuperSite,
@@ -25,11 +23,11 @@ function addLocation(p) {
     schedulingInstructions: info.schedulingInstructions,
     address: info.address,
     reportNotes: info.reportNotes,
-    superSiteLabel: markerLabels.superSite,
-    detailsLabel: markerLabels.details,
-    schedulingInstructionsLabel: markerLabels.apptInfo,
-    addressLabel: markerLabels.address,
-    reportNotesLabel: markerLabels.latestInfo,
+    superSiteLabel: t("global.super_site"),
+    detailsLabel: t("global.details"),
+    schedulingInstructionsLabel: t("global.appt_info"),
+    addressLabel: t("global.address"),
+    reportNotesLabel: t("global.latest_info"),
   });
 
   // Populate the marker and info card
