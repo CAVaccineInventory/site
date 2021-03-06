@@ -20,8 +20,8 @@ permalink: /near-me
     <select
       id="js-availability-filter"
       class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
+      multiple
     >
-      <option value="none">All Sites</option>
       {% for filter in site.data.availability_info %}
       <option value="{{ filter[1] }}">{{ filter[0] }}</option>
       {% endfor %}

@@ -192,8 +192,9 @@ async function updateSitesOnMap(filterElement, availabilityFilterElement) {
     });
   }
 
-  if (availabilityFilterElement && availabilityFilterElement.value != "none") {
-    sites = filterSitesByAvailability(sites, availabilityFilterElement.value);
+  if (availabilityFilterElement) {
+    const filters = Array.from(availabilityFilterElement.querySelectorAll(":checked")).map((e) => e.value);
+    sites = filterSitesByAvailability(sites, filters);
   }
 
   tryOrDelayToMapInit((map) => {
@@ -336,8 +337,9 @@ async function updateSitesFromMap() {
   const availabilityFilterElement = document.getElementById(
     "js-availability-filter"
   );
-  if (availabilityFilterElement && availabilityFilterElement.value != "none") {
-    sites = filterSitesByAvailability(sites, availabilityFilterElement.value);
+  if (availabilityFilterElement) {
+    const filters = Array.from(availabilityFilterElement.querySelectorAll(":checked")).map((e) => e.value);
+    sites = filterSitesByAvailability(sites, filters);
   }
 
   const bounds = window.map.getBounds();

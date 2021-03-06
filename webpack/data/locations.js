@@ -244,9 +244,13 @@ function sortByRecency(sites) {
   });
 }
 
-function filterSitesByAvailability(sites, filter) {
+function filterSitesByAvailability(sites, filters) {
+  if (filters.length === 0) {
+    return sites;
+  }
+
   return sites.filter((site) => {
-    return site["Availability Info"].some((value) => value == filter);
+    return site["Availability Info"].some((value) => filters.includes(value));
   });
 }
 
