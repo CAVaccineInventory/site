@@ -4,10 +4,12 @@ async function fetchCounties() {
   const response = await fetch(siteURL);
 
   if (!response.ok) {
-    alert("Could not retrieve the vaccination site data.");
+    alert("Could not retrieve the county data.");
     return;
   }
-  return response.json()["content"];
+
+  const json = await response.json();
+  return json["content"];
 }
 
 export { fetchCounties };

@@ -8,9 +8,9 @@ permalink: /near-me
   class="py-4 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center sticky top-0 z-10 bg-white border-b border-gray-200"
 >
   {% include search_form.html %}
-  <div class="relative pt-4 sm:pt-0 sm:pl-4">
+  <div class="relative pt-4 sm:pt-0 sm:ps-4">
     <select
-      id="filter"
+      id="js-nearest-filter"
       class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
     >
       <option value="reports">{% t nearest.dropdown_1 %}</option>
@@ -23,19 +23,41 @@ permalink: /near-me
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     <p>{% t pre_list_disclaimer.disclaimer %}</p>
   </div>
-  <div id="loading" class="mt-4 hidden">{% t global.loading %}</div>
+  <div id="js-loading" class="mt-4 hidden">{% t global.loading %}</div>
   <div class="results flex flex-col-reverse lg:grid lg:grid-cols-2">
-    <div id="main"><ol id="sites"></ol></div>
-    <div class="pt-4 h-72 lg:pl-4 lg:h-screen">
+    <div id="main" class="pt-4">
+      {% capture translated_message %}
+      {% t nearest_js.alert_zipcode %}
+      {% endcapture %}
+      {% include alert.html message=translated_message %}
+      <section class="mt-0 md:mt-10 hidden">
+        {% include vaccine_section_title.html has_report=true
+        has_vaccine=true %}
+        <ol class="js-sites" id="js-sites-with-vaccine">
+        </ol>
+      </section>
+
+      <section class="md:mt-5 hidden">
+        {% include vaccine_section_title.html has_report=true
+        has_vaccine=false %}
+        <ol class="js-sites" id="js-sites-without-vaccine">
+        </ol>
+      </section>
+
+      <section class="md:mt-5 hidden">
+        {% include vaccine_section_title.html has_report=false %}
+        <ol class="js-sites" id="js-sites-without-report">
+        </ol>
+      </section>
+    </div>
+    <div class="pt-4 h-72 lg:ps-4 lg:h-screen">
       {% include map.html %}
     </div>
   </div>
 
-  <div id="post_list_container" class="hidden">
+  <div id="js-post-list-container" class="hidden">
     <div class="text-sm my-6">
       {% t post_list_disclaimer.disclaimer %}
     </div>
   </div>
 </div>
-
-{% include site_template.html %}

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html
+  lang="{{ page.lang | default: site.lang | default: 'en' }}"
+  dir="{% t global.dir %}"
+>
   {% include head.html %}
 
   <body>
-    <script src="{{ '/assets/js/county-page.js' | content_tag }}"></script>
-    <p id="county_name" class="hidden">{{ page.title }}</p>
-
-    {% include site_template.html %}
+    <script src="/assets/js/county-page.js"></script>
+    <p id="js-county-name" class="hidden">{{ page.title }}</p>
 
     <div>
       {% include header.html %}
       <main class="mx-auto">
         <div class="md:pb-6">
           <div class="main-content px-4 md:px-8">
-            <div class="pt-3 mt-3 md:pt-6 md:mt-6">
-              <p class="text-lg md:text-xl">{% tf county_header.html %}</p>
+            <div>
+              <ul class="js-county-policy"></ul>
+              <p class="text-lg md:text-xl mt-3">{% tf county_header.html %}</p>
               <div class="text-sm">
                 <p>{% t pre_list_disclaimer.disclaimer %}</p>
               </div>
               <section class="mt-0 md:mt-10">
                 {% include vaccine_section_title.html has_report=true
                 has_vaccine=true %}
-                <ol id="sitesWithVaccine">
+                <ol id="js-sites-with-vaccine">
                   {% include loading.html %}
                 </ol>
               </section>
@@ -29,14 +31,14 @@
               <section class="md:mt-5">
                 {% include vaccine_section_title.html has_report=true
                 has_vaccine=false %}
-                <ol id="sitesWithoutVaccine">
+                <ol id="js-sites-without-vaccine">
                   {% include loading.html %}
                 </ol>
               </section>
 
               <section class="md:mt-5">
                 {% include vaccine_section_title.html has_report=false %}
-                <ol id="sitesWithoutReport">
+                <ol id="js-sites-without-report">
                   {% include loading.html %}
                 </ol>
               </section>

@@ -1,12 +1,12 @@
 <nav class="bg-white border-b border-gray-200">
   <div class="mx-auto">
-    <div class="px-4 pl-4 pr-2 xl:px-8">
+    <div class="ps-4 pe-2 xl:px-8">
       <div class="flex items-center h-16">
         <div class="flex flex-grow items-center justify-between">
           <div class="flex-shrink-0">
             <a
               href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/"
-              class="flex items-center space-x-3"
+              class="flex items-center space-s-3"
             >
               <img
                 class="h-8"
@@ -19,7 +19,7 @@
           <a class="sr-only" href="#main">Skip to content</a>
 
           <div class="hidden lg:block">
-            <div class="ml-8 flex items-baseline space-x-2">
+            <div class="ms-8 flex items-baseline space-s-2">
               {% assign nav = site.pages | sort: 'order' %} {% for item in nav
               %} {% if item.title and item.add_to_nav %} {% if item.url ==
               page.url %} {% assign navItemClasses = "bg-gray-100" %} {% else %}
@@ -110,13 +110,13 @@
   </div>
 </nav>
 
-{% include language_picker.html %} {% if page.homepage != true and page.title %}
+{% include language_picker.html %} {% if page.homepage != true and page.layout
+!= "county" and page.title %}
 <header class="bg-white shadow">
   <div class="mx-auto">
     <div class="py-6 px-4 sm:px-6 xl:px-8">
       <h1 class="text-3xl font-bold leading-tight text-gray-900">
-        {%if page.layout == "county"%}{{page.title}}{%else%}{% t page.title
-        %}{%endif%}
+        {% t page.title %}
       </h1>
     </div>
   </div>

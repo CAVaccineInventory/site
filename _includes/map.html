@@ -1,7 +1,4 @@
-<script
-  id="js_map_src"
-  src="{{ '/assets/js/mapLoader.js' | content_tag }}"
-></script>
+<script id="js_map_src" src="/assets/js/mapLoader.js"></script>
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLgxtP80D9RxICUGicbeZf29_qUii9_sk&v=weekly"
   defer
@@ -9,16 +6,6 @@
 
 <!-- prettier-ignore -->
 <div
-  id="js_map"
+  id="js-map"
   class="w-full h-full"
 ></div>
-
-<script id="mapMarkerLabels" type="application/json">
-  {
-    "superSite": "{% t global.super_site %}",
-    "details": "{% t global.details %}",
-    "apptInfo": "{% t global.appt_info %}",
-    "address": "{% t global.address %}",
-    "latestInfo": "{% t global.latest_info %}"
-  }
-</script>

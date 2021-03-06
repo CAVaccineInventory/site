@@ -8,6 +8,10 @@ global:
   latest_report: Updated
   loading: Loading...
   super_site: Super Site
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: English
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
 site_list:
   vaccine_sites: Vaccines reported available
   no_vaccine_sites: Vaccines reported unavailable
@@ -20,20 +24,32 @@ titles:
   home: COVID-19 Vaccine Availability
   providers: Providers
   nearest: Vaccination Sites Near You
+  vaccinebot: VaccineBot
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
   dropdown_3: All known vaccination sites
   appointment_required: Appointment required
   schedule_full: Schedule full at last check
-  latest_info: Latest info
+  coming_soon: Coming soon
+  second_dose_only: Second dose only
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
+policy:
+  vaccine_info: Vaccine Info
+  vaccine_locations: Vaccine Locations
+  vaccine_appointments: Vaccine Appointments
+  volunteer_opportunities: Volunteer Opportunities
+provider:
+  info: Provider Website
+  locations: Locations
+  appointments: Appointments
 head:
+  site_description: Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
+  social_card_text: Find vaccine locations, qualification criteria, and appointment instructions.
   meta_image_tag: |
-    An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccines
-    near you with our community-run tracker'
+    An image of the VaccinateCA logo with the text 'VaccinateCA. Find vaccine locations, qualification criteria, and appointment instructions.'
 header:
   menu_open: Open main menu
 map:
@@ -50,12 +66,14 @@ search_form:
 site_template:
   county_header: Within your county
   no_reports: No contact reports
+  provider_info: Provider network info
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 
     finding vaccines in California, please check 
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Search by county...
   text: |
     The state of California has a vaccine strategy, but has delegated
     prioritization and administration to each county. Decisions as to which

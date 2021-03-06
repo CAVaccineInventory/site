@@ -48,6 +48,9 @@ select {
   background-position-y: 50%;
   background-position-x: 97%;
 }
+[dir="rtl"] select {
+  background-position-x: 3%;
+}
 
 .up-arrow:before {
   content: "";
@@ -59,6 +62,10 @@ select {
   height: 0;
   border: 10px solid transparent;
   border-bottom-color: #e5e7eb;
+}
+[dir="rtl"] .up-arrow:before {
+  left: auto;
+  right: 20px;
 }
 
 .up-arrow:after {
@@ -72,9 +79,9 @@ select {
   border: 9px solid transparent;
   border-bottom-color: white;
 }
-
-.airtable-embed {
-  height: 85vh;
+[dir="rtl"] .up-arrow:after {
+  left: auto;
+  right: 21px;
 }
 
 .autoComplete_wrapper {
@@ -100,6 +107,11 @@ select {
   box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
   outline: 0;
   z-index: 1;
+}
+
+#county-filter-results {
+  z-index: 1;
+  @apply shadow-md bg-white rounded-lg absolute end-0 start-0 mx-5;
 }
 
 #main_search_autocomplete_list {
@@ -151,7 +163,10 @@ select {
 
 .search-input {
   background: url(/assets/img/search.svg) no-repeat scroll 8px 48%;
-  padding-left: 32px;
+  padding-inline-start: 32px;
+}
+[dir="rtl"] .search-input {
+  background-position-x: calc(100% - 8px);
 }
 
 .icon {

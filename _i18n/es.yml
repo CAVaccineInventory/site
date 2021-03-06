@@ -8,6 +8,10 @@ global:
   latest_report: Información actualizada
   loading: Cargando...
   super_site: Megacentro
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: Español
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
 site_list:
   vaccine_sites: Vacunas reportadas disponibles
   no_vaccine_sites: Vacunas reportadas como no disponibles
@@ -18,25 +22,34 @@ titles:
   about_us: Acerca de nosotros
   county_policies: Políticas del condado
   home: Disponibilidad de la vacuna contra el COVID-19
-  vaccination_sites: Sitios de vacunación
   providers: Proveedores
   nearest: Sitios de vacunación cercanos
+  vaccinebot: VaccineBot
 nearest:
   dropdown_1: Sitios que hemos contactado
   dropdown_2: Sitios con dosis reportadas
   dropdown_3: Todos los sitios conocidos de vacunación
   appointment_required: Requiere cita
-  latest_info: Última información
+  schedule_full: Programa completo en la última verificación
+  coming_soon: Empezando pronto
+  second_dose_only: Solamente segunda dosis
   vaccines_available: Vacunas reportadas disponibles
   vaccines_not_available: Vacunas reportadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
-vaccination_sites:
-  explainer: |
-    Ésta es una lista de todos los sitios que conocemos en California que pueden, en algún momento, recibir la vacuna contra el COVID-19. <b>La mayoría de ellos no tienen vacuna disponible</b>; a diario llamamos a todos los que podemos para actualizar la lista. Por favor consulte el <a href="https://www.vaccinateca.com">informe más reciente</a>. Si nos falta un sitio, <a href="https://airtable.com/shrY44NvEjHBscrOH">avísenos</a>! Estamos trabajando para ampliar la lista con farmacias adicionales y otras ubicaciones.
+policy:
+  vaccine_info: Información sobre la vacuna
+  vaccine_locations: Sitios de vacunas
+  vaccine_appointments: Citas de vacunas
+  volunteer_opportunities: Oportunidades para voluntarios
+provider:
+  info: Sitio web del proveedor
+  locations: Sitios
+  appointments: Citas
 head:
+  site_description: Publicando la disponibilidad actualizada de la vacuna contra el COVID-19 en hospitales y farmacias de California.
+  social_card_text: "Encuentre lugares de vacunación, calificaciones, y instrucciones para reservar una cita."
   meta_image_tag: |
-    Una imagen del logotipo de VaccinateCA con el texto 'VaccinateCA. Encuentra vacunas
-    cerca de ti con nuestro rastreador administrado por la comunidad'
+    Una imagen del logotipo de VaccinateCA con el texto 'Encuentre lugares de vacunación, calificaciones, y instrucciones para reservar una cita.'
 header:
   menu_open: Abrir menú principal
 map:
@@ -53,12 +66,14 @@ search_form:
 site_template:
   county_header: Dentro de su condado
   no_reports: No reportes de contacto
+  provider_info: Información del proveedor
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
     encontrando vacunas en California, marque
     [VaccinateCA.com] (https://www.vaccinateca.com).
 county_policies:
+  search_by_county: Buscar por condado...
   text: |
     El estado de California tiene una estrategia de vacunación, pero ha delegado priorización y administración a cada condado. Las decisiones sobre cuáles pacientes vacunar y de qué forma hacerlo, en última instancia, depende de los proveedores.
 
@@ -90,6 +105,7 @@ data_js:
   alert: No se pudieron recuperar los datos del sitio de vacunación.
   call_back: "No se pudo comunicar con una persona, llamaremos más tarde"
 nearest_js:
+  enter_valid_zipcode: Por favor ingrese un código ZIP válido
   alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código ZIP
   alert_zipcode: No se pudo localizar su código ZIP. Vuelva a intentarlo.
   years_up: años o mayor

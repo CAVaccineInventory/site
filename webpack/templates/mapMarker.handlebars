@@ -1,5 +1,5 @@
 <div class="mapInfo">
-  <h1 class="text-green-600">
+  <h1 dir="ltr" class="text-green-600">
     {{name}}
   </h1>
   {{#if superSite}}
@@ -12,13 +12,13 @@
   <b>
     {{detailsLabel}}:
   </b>
-  {{details}}<br />
+  <span dir="ltr">{{details}}</span><br />
 
   {{#if schedulingInstructions}}
     <b>
       {{schedulingInstructionsLabel}}:
     </b>
-    {{{schedulingInstructions}}}
+    <span dir="ltr">{{{schedulingInstructions}}}</span>
     <br />
   {{/if}}
 
@@ -26,13 +26,13 @@
     <b>
       {{addressLabel}}:
     </b>
-    {{address}}<br />
+    <span dir="ltr">{{address}}</span><br />
   {{/if}}
 
   {{#if reportNotes}}
     <b>
       {{reportNotesLabel}}:
     </b>
-    {{reportNotes}}<br />
+    <span dir="ltr">{{reportNotes}}</span><br />
   {{/if}}
 </div>

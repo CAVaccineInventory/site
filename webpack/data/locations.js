@@ -1,4 +1,6 @@
 import { DateTime } from "luxon";
+import { markdownifyInline } from "../markdown";
+import { fetchProviders, findProviderByName } from "./providers.js";
 
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
@@ -19,8 +21,23 @@ async function fetchSites() {
     alert(window.messageCatalog["data_js_alert"]);
     return;
   }
-  const _fetchedData = await response.json();
-  _fetchedSites = _fetchedData["content"];
+  const fetchedData = await response.json();
+  _fetchedSites = fetchedData["content"];
+
+  const providers = await fetchProviders();
+
+  _fetchedSites.forEach((site) => {
+    if (site["Affiliation"] === "None / Unknown / Unimportant") {
+      return;
+    }
+
+    const provider = findProviderByName(providers, site["Affiliation"]);
+
+    if (provider) {
+      site["Provider"] = provider;
+    }
+  });
+
   isFetching = false;
   subscribers.forEach((cb) => cb(_fetchedSites));
   return _fetchedSites;
@@ -76,27 +93,18 @@ function getDisplayableVaccineInfo(p) {
     if (!Array.isArray(instructions)) {
       return null;
     }
-    return replaceAnyLinks(instructions.join(", "));
+    return markdownifyInline(instructions.join(", "));
   }
   function getRepNotes(p) {
     const notes = p["Latest report notes"];
     if (!Array.isArray(notes)) {
       return null;
     }
-    const linkifiedNotes = replaceAnyLinks(notes.join(" | "));
+    const linkifiedNotes = markdownifyInline(notes.join(" | "));
     if (linkifiedNotes.trim() === "") {
       return null;
     }
     return notes;
-  }
-
-  function replaceAnyLinks(body) {
-    // Regex from https://stackoverflow.com/a/3890175.
-    const urlRegex = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
-    if (!body) {
-      return "";
-    }
-    return body.replace(urlRegex, "<a href='$1' target='_blank'>$1</a>");
   }
 
   const hasReport = getHasReport(p);
@@ -134,6 +142,9 @@ function getDisplayableVaccineInfo(p) {
         p,
         "Yes: appointment calendar currently full"
       ),
+      isComingSoon: doesLocationHaveProp(p, "Yes: coming soon"),
+      secondDoseOnly: doesLocationHaveProp(p, "Scheduling second dose only"),
+
       isLimitedToPatients: doesLocationHaveProp(
         p,
         "Yes: must be a current patient"
@@ -149,6 +160,14 @@ function getDisplayableVaccineInfo(p) {
     }
   }
 
+  function getProviderNotes(p) {
+    if (!p["Provider"] || !p["Provider"]["Public Notes"]) {
+      return null;
+    }
+
+    return markdownifyInline(p["Provider"]["Public Notes"]);
+  }
+
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -162,6 +181,7 @@ function getDisplayableVaccineInfo(p) {
     county: p["County"],
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
+    providerNotes: getProviderNotes(p),
     hasVaccine: getYesNo(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };

@@ -1,5 +1,6 @@
 import mapMarker from "./templates/mapMarker.handlebars";
 import { getDisplayableVaccineInfo } from "./data/locations.js";
+import { t } from "./i18n";
 
 window.mapMarkers = [];
 
@@ -15,9 +16,6 @@ function addLocation(p) {
     return false;
   }
 
-  const markerLabels = JSON.parse(
-    document.querySelector("#mapMarkerLabels").textContent
-  );
   const markerContent = mapMarker({
     name: info.name,
     superSite: info.isSuperSite,
@@ -25,11 +23,11 @@ function addLocation(p) {
     schedulingInstructions: info.schedulingInstructions,
     address: info.address,
     reportNotes: info.reportNotes,
-    superSiteLabel: markerLabels.superSite,
-    detailsLabel: markerLabels.details,
-    schedulingInstructionsLabel: markerLabels.apptInfo,
-    addressLabel: markerLabels.address,
-    reportNotesLabel: markerLabels.latestInfo,
+    superSiteLabel: t("global.super_site"),
+    detailsLabel: t("global.details"),
+    schedulingInstructionsLabel: t("global.appt_info"),
+    addressLabel: t("global.address"),
+    reportNotesLabel: t("global.latest_info"),
   });
 
   // Populate the marker and info card
@@ -76,7 +74,17 @@ function clearMap() {
   window.mapMarkers = [];
 }
 
+function tryOrDelayToMapInit(callback) {
+  const map = window.map;
+  if (map) {
+    callback(map);
+  } else {
+    // If the map is missing, listen for it to be initialized and then retry
+    document.addEventListener("mapInit", callback);
+  }
+}
+
 // State tracking for info cards
 let prevInfowindow = false;
 
-export { addLocation, clearMap };
+export { addLocation, clearMap, tryOrDelayToMapInit };

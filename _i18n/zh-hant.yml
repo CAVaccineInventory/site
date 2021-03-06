@@ -1,0 +1,176 @@
+# These are strings used in multiple places
+global:
+  details: 詳細信息
+  appt_info: 預約信息
+  address: 地址
+  latest_info: 最新信息
+  location_notes: 地點備註
+  latest_report: 已更新
+  loading: 載入中...
+  super_site: 超級接種點
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: 繁體中文
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
+site_list:
+  vaccine_sites: 據匯報有可用疫苗
+  no_vaccine_sites: 據匯報無可用疫苗
+  no_report_sites: 尚未聯系的地點
+
+#These are per-page strings.
+titles:
+  about_us: 關于我們
+  county_policies: 縣政策
+  home: COVID-19疫苗供應情況
+  providers: 提供者
+  nearest: 您附近的疫苗接種地點
+  vaccinebot: VaccineBot
+nearest:
+  dropdown_1: 我們聯系過的地點
+  dropdown_2: 據匯報有疫苗的地點
+  dropdown_3: 所有已知的疫苗接種地點
+  appointment_required: 需要預約
+  schedule_full: 截至上次查詢，預約已滿
+  coming_soon: 行將到來
+  second_dose_only: 只有第二劑
+  vaccines_available: 據匯報有可用疫苗
+  vaccines_not_available: 據匯報無可用疫苗
+  vaccine_unknown: 未知疫苗狀態
+policy:
+  vaccine_info: 疫苗信息
+  vaccine_locations: 疫苗接種地點
+  vaccine_appointments: 疫苗預約
+  volunteer_opportunities: 義工機會
+provider:
+  info: 提供者網站
+  locations: 地點
+  appointments: 預約
+head:
+  site_description: 正在發布COVID-19疫苗在加州醫院和藥房的最新供應情況。
+  social_card_text: 查詢提供疫苗的地方，資格的規定和預約的方法。
+  meta_image_tag: |-
+    一個VaccinateCA加州疫苗組織的圖標，帶有文字：“加州疫苗組織。查詢提供疫苗的地方，資格的規定和預約的方法。”
+header:
+  menu_open: 打開主頁
+map:
+  locate_button: 在我附近尋找!
+  locating: 定位中...
+  failed: 失敗，請重試
+  not_supported: 不支持地理位置
+search_form:
+  enter_zip: 輸入郵政編碼ZIP
+  enter_county: 或縣
+  location: 使用我的地理位置
+  location_placeholder: 我的位置
+  submit_button: "查找<span class=\"hidden md:inline\">疫苗</span>"
+site_template:
+  county_header: 在您的縣內
+  no_reports: 沒有聯系報告
+  provider_info: 提供者網絡信息
+not_found:
+  text: |-
+    您訪問的網頁不存在。如果您需要在加利福尼亞州尋找疫苗的幫助，請查詢
+    [VaccinateCA.com](https://www.vaccinateca.com)。
+county_policies:
+  search_by_county: 按縣搜索...
+  text: |-
+    加利福尼亞州制定了疫苗戰略，但是已委托每個縣進行優先級劃分和管理。對哪些患者如何提供疫苗的決定最終屬于醫療服務提供者。
+    我們在下面收集了**最新的縣級信息**。
+    大致上，我們認為如果我們記錄的縣級信息和縣內的醫療提供者有差異，能夠在現場提供（或不提供）疫苗的人最有可能是具有正確信息的。
+    有些縣建立了預訂系統或者有建議；請在下面查看您的縣的信息。
+index:
+  header: 為您或您的親人尋找新冠病毒COVID-19疫苗
+  subtitle: |-
+    安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亞的幾類人群。但是，尋找接種疫苗的地點和時間可能困難。我們每天都致電醫院和藥房，以跟蹤其疫苗供應情況以及獲得疫苗的過程
+  disclaimer: |-
+    安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亞的幾類人群。
+    但是，尋找接種疫苗的地點和時間可能困難。
+    我們是一群志願者，每天通過電話聯系醫院和藥店咨詢它們的疫苗供應情況和獲得疫苗的過程。
+  disclaimer_1: |-
+    加利福尼亞州政府已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>65歲及以上的居民接種新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接種計劃發展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">聯邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">縣</a>官員都經常發布更新。這些政府網站是您獲取官方信息的最佳來源。
+  disclaimer_2: |-
+    我們是一個民間社區主導的網站，不代表政府或任何醫療服務提供者。
+  illustration: 醫生接種疫苗的插圖
+  positive_feedback: 如果這個網站對您有幫助，請告訴我們！
+  corrections: |-
+    如果您發現了本網站沒有列出的新接種地點，或者認為我們的聯系信息有誤，<a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">請告訴我們。</a>
+  locations_by_county: 根據縣查詢疫苗接種地點
+  more_info: 有關疫苗供應的更多信息
+  find_county: 找到你的縣
+  about_us: 關于VaccinateCA加州疫苗組織
+data_js:
+  alert: 檢索疫苗接種地點數據失敗。
+  call_back: 沒有聯系到人，會稍後重新撥打
+nearest_js:
+  enter_valid_zipcode: 請輸入有效的郵政編碼ZIP
+  alert_detect: 無法檢測到您的位置。請重試或輸入您的ZIP郵政編碼
+  alert_zipcode: 找不到您的郵政編碼，請重試
+  years_up: 歲及以上
+  patients_only: 僅限于當前的患者
+  county_only: 僅限于縣居民
+post_list_disclaimer:
+  disclaimer: |
+    我們盡力更新此網站的信息，但是在您閱讀本文時，某些地點的疫苗資格和可獲得性可能已經改變。如果您在本網站上發現任何過時的信息，<a href="https://airtable.com/shrY44NvEjHBscrOH"
+      class="font-medium text-yellow-600"
+    >請提交報告</a
+    >。您的報告將幫助其他的加利福尼亞人。
+pre_list_disclaimer:
+  disclaimer: |-
+    我們每天都會致電加利福尼亞州的醫院，藥房和其他醫療服務提供者，以了解他們當前是否正在提供疫苗。在這些醫療提供者工作的醫療專業人員向我們解釋他們目前的疫苗接種計劃，我們在此報告他們的看法。盡管我們會盡力核實所有收到的信息，如果您對疫苗接種地點有疑問，我們強烈建議您與醫生或當地官員進行核對。
+providers:
+  header: |-
+    這是我們對加利福尼亞州所有主要提供商網絡的最新信息的概述。在這些網絡中特定位置工作的員工可能會選擇不同的操作方式。
+footer:
+  lang_disclaimer: |-
+    本網站的翻譯正在進行中。某些信息可能還沒有中文版— 給您帶來的不便，我們深表歉意！
+about_us:
+  coordinators: "在第1天為這個項目工作的我們中的一些人:"
+  intro_1: |-
+    VaccinateCA是一項由社區推動的工作，旨在幫助加利福尼亞人學習有關冠狀病毒疫苗的准確，最新且經過驗證的信息，以便他們可以了解自己何時有資格以及如何排隊。
+  intro_2: |-
+    我們的專業人員每天都會在數百個潛在的疫苗接種地點給醫療專業人員打電話，詢問他們是否有疫苗，如果有疫苗的話，將對誰進行接種以及如何預約。我們記下他們告訴我們的內容，並將其發布到本網站。
+  faq_header: |-
+    常見問題解答（FAQ)
+  faq_help: 有什麽可以幫忙的嗎？
+  faq_help_answer_1: |-
+    在社區中宣傳疫苗。幫助您的合格親人獲得疫苗。繼續戴上口罩，並遵守社交隔離准則。
+  faq_help_answer_2: |-
+    我們現在最需要的是負責任的志願者，他們可以幫助我們致電全州的醫療服務提供者，以便我們可以繼續為所有加利福尼亞人提供有關COVID-19疫苗可用性的全面信息。
+  faq_help_answer_3: |-
+    如果您想自願幫助我們打電話，請<a href="https://airtable.com/shrY9Ac8PGuudZAe3">告訴我們</a>。
+  faq_help_answer_4: |2-
+     <a href="https://twitter.com/ca_covid">在Twitter上關注我們，</a>以了解其他幫助的最新機會。
+  faq_help_answer_5: |-
+    我們不需要錢。許多慈善項目<i>都有</i>;他們將感謝您的大力支持。
+  faq_press: |-
+    我是記者。我可以聯系你們嗎？
+  faq_press_answer: |-
+    請發電子郵件至<a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a> ;我們會盡快與您聯系。
+  faq_medical: |-
+    我在醫療服務提供者上班！我如何要求您更新我們的信息或提出要求？
+  faq_medical_answer_1: |-
+    我們感謝您正在做的工作，並隨時為您提供支持！
+  faq_medical_answer_2: |-
+    請發短信給<a href="tel:+14153014597">（415）301-4597</a> ，並附上您的信息，機構隸屬關系以及內部分機或聯系人姓名，以便我們回電進行驗證。我們無法使用該號碼接收照片；請只輸入文字。
+  faq_medical_answer_3: |-
+    一位組織者將閱讀您的消息，並盡快采取行動。
+  faq_community: |-
+    我在面向社區的組織中工作或為政府工作。我們可以討論這個嗎？
+  faq_community_answer_1: |-
+    我們希望支持您為盡快為加利福尼亞人接種疫苗所做的緊急工作。請給我們發送電子郵件至<a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a>進行討論。
+  faq_toil: |-
+    這種努力會增加還是減少醫療保健系統的工作量？
+  faq_toil_answr_1: |-
+    大多數醫院每天都會接到數千個電話。目前，他們比平時受到更多人的猛烈評擊，問他們同樣的問題：“您們有疫苗嗎？”
+  faq_toil_answr_2: |-
+    通過詢問該問題並發布答案，我們可以為醫院的日常操作節省他們的電話帶寬。我們還使尋求疫苗的人們不必打電話到數十個地點來找到有這種疫苗的地點。
+  faq_accurate: |-
+    這網站上的信息是否准確？
+  faq_accurate_answer_1: |-
+    我們只發布疫苗網站在我們致電時告訴我們的內容。情況很複雜，一天中的供應可能會有所不同，而且並非站點上的每個人都可能掌握有關其實際政策的最新信息。
+  faq_accurate_answer_2: |2-
+     我們正在盡力而為，但不能做出任何保證。
+  faq_who: |-
+    你是誰？
+  faq_who_answer: |-
+    我們是一個社區驅動的組織，有300多名志願者與我們合作。截至2021年1月23日，我們的核心團隊大約有20人。

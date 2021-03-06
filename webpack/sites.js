@@ -3,16 +3,8 @@ import {
   getTimeDiffFromNow,
 } from "./data/locations.js";
 import siteTemplate from "./templates/siteLocation.handlebars";
-
-function urlify(text) {
-  if (!text) {
-    return;
-  }
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  return text.replace(urlRegex, function (url) {
-    return '<a href="' + url + '">' + url + "</a>";
-  });
-}
+import { markdownify } from "./markdown.js";
+import { t } from "./i18n.js";
 
 function flattenData(strOrStrArray) {
   return Array.isArray(strOrStrArray)
@@ -27,9 +19,6 @@ function generateCountyUrl(countyName) {
 function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
-  const labels = JSON.parse(
-    document.querySelector("#siteLocationLabels").textContent
-  );
 
   for (const site of sites) {
     const info = getDisplayableVaccineInfo(site);
@@ -52,9 +41,23 @@ function addSitesToPage(sites, containerId) {
       ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
     }
 
-    let appointmentRequiredLabel = labels.apptRequired;
+    let appointmentRequiredLabel = t("nearest.appointment_required");
     if (info.isScheduleFull) {
-      appointmentRequiredLabel += `; ${labels.scheduleFull}`;
+      appointmentRequiredLabel += `; ${t("nearest.schedule_full")}`;
+    }
+
+    if (info.isComingSoon) {
+      appointmentRequiredLabel += `; ${t("nearest.coming_soon")}`;
+    }
+
+    if (info.secondDoseOnly) {
+      appointmentRequiredLabel += `; ${t("nearest.second_dose_only")}`;
+    }
+
+    let notes = info.reportNotes;
+    if (notes) {
+      notes = flattenData(notes);
+      notes = markdownify(notes);
     }
 
     const context = {
@@ -65,30 +68,43 @@ function addSitesToPage(sites, containerId) {
       addressLink: addressLink,
       hasReport: info.hasReport,
       hasVaccine: info.hasVaccine == "Yes",
-      hasVaccineLabel: labels.hasVaccine,
+      hasVaccineLabel: t("nearest.vaccines_available"),
       noVaccine: info.hasVaccine == "No",
-      noVaccineLabel: labels.noVaccine,
+      noVaccineLabel: t("nearest.vaccines_not_available"),
       unknownVaccine: info.hasVaccine == "Unknown",
-      unknownVaccineLabel: labels.unknownVaccine,
+      unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
       ageRestriction: ageRestriction,
       otherRestrictions: otherRestrictions,
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
-      latestNotesLabel: labels.latestInfo,
-      notes: urlify(flattenData(info.reportNotes)),
-      noReports: labels.noReports,
+      latestNotesLabel: t("global.latest_info"),
+      notes: notes,
+      noReports: t("site_template.no_reports"),
+      providerInfoLabel: t("site_template.provider_info"),
+      providerInfo: info.providerNotes,
     };
 
     fragmentElem.innerHTML += siteTemplate(context);
   }
   const containerElem = document.getElementById(containerId);
-  const loading = containerElem.querySelector(".loading");
+  const loading = containerElem.querySelector(".js-loading");
   if (loading) {
     loading.remove();
   }
   containerElem.innerHTML = fragmentElem.innerHTML;
 }
 
-export { addSitesToPage };
+function addSitesOrHideIfEmpty(sites, containerId) {
+  if (!sites.length) {
+    const container = document.getElementById(containerId);
+    container.parentElement.classList.add("hidden");
+  } else {
+    const container = document.getElementById(containerId);
+    container.parentElement.classList.remove("hidden");
+    addSitesToPage(sites, containerId);
+  }
+}
+
+export { addSitesToPage, addSitesOrHideIfEmpty };

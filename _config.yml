@@ -23,7 +23,7 @@ email: media@vaccinateca.com
 description: >- # this means to ignore newlines until "baseurl:"
   Publishing up-to-date COVID-19 vaccine availability at hospitals and pharmacies across California.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://vaccinateca.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.vaccinateca.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ca_covid
 github_username: CAVaccineInventory
 
@@ -62,7 +62,7 @@ collections:
 include:
   - _redirects
 
-languages: ["en", "es", "zh-hans", "tl"]
+languages: ["en", "es",  "ko", "tl", "zh-hans", "zh-hant"]
 
 # I'm sure there's a better way to do this than copying assets into the lang 
 # folders, but I couldn't figure it out easily.
@@ -77,10 +77,12 @@ exclude_from_localizations: ["favicon.ico"]
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - netlify.toml
   - package.json
   - package-lock.json
   - CODEOWNERS
   - LICENSE
+  - README.md
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -94,3 +96,8 @@ exclude:
   - script/
   - webpack/
   - Procfile
+  - postcss.config.js
+  - postcss/
+  - webpack.config.js
+  - tailwind.config.js
+  - counties.py

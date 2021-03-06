@@ -1,8 +1,10 @@
 import autoComplete from "@tarekraafat/autocomplete.js";
 
 window.addEventListener("load", () => {
-  const inputSelector = "#js_zip_or_county";
-  const input = document.querySelector(inputSelector);
+  const form = document.getElementById("js-submit-zip-form");
+  const input = form.querySelector("#js-zip-or-county");
+  const button = form.querySelector("#js-submit-zip");
+
   if (!input) return;
   const counties = input.getAttribute("data-collection");
   if (!counties) return;
@@ -17,7 +19,7 @@ window.addEventListener("load", () => {
     resultsList: {
       idName: "main_search_autocomplete_list",
     },
-    selector: inputSelector,
+    selector: "#js-zip-or-county",
     query: {
       manipulate: (str) => {
         return str.trim();
@@ -38,8 +40,8 @@ window.addEventListener("load", () => {
   });
 
   const getFirstResult = () => {
-    const resultsList = document.querySelector(
-      `#${autoCompleteInstance.resultsList.idName}`
+    const resultsList = document.getElementById(
+      autoCompleteInstance.resultsList.idName
     );
     if (resultsList) {
       return resultsList.firstChild;
@@ -56,17 +58,25 @@ window.addEventListener("load", () => {
     }
   });
 
+  const clickFirstResult = function () {
+    const firstResult = getFirstResult();
+    if (firstResult) {
+      firstResult.click();
+    }
+  };
+
   input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      const firstResult = getFirstResult();
-      if (firstResult) {
-        firstResult.click();
-      }
+      clickFirstResult();
     }
   });
 
+  button.addEventListener("click", (event) => {
+    clickFirstResult();
+  });
+
   // Auto focus
-  const findYourCounty = document.getElementById("js_find_your_county");
+  const findYourCounty = document.getElementById("js-find-your-county");
   if (findYourCounty) {
     findYourCounty.addEventListener("click", (e) => {
       e.preventDefault();
