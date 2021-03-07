@@ -10,6 +10,8 @@ global:
   super_site: 超级接种点
   # The language currently being viewed (i.e. "Español", not "Inglés")
   current_language: 简体中文
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
 site_list:
   vaccine_sites: 据汇报有可用疫苗
   no_vaccine_sites: 据汇报无可用疫苗
@@ -22,16 +24,27 @@ titles:
   home: COVID-19疫苗供应情况
   providers: 提供者
   nearest: 您附近的疫苗接种地点
+  vaccinebot: VaccineBot
 nearest:
   dropdown_1: 我们联系过的地点
   dropdown_2: 据汇报有疫苗的地点
   dropdown_3: 所有已知的疫苗接种地点
   appointment_required: 需要预约
   schedule_full: 截至上次查询，预约已满
-  latest_info: 最新信息
+  coming_soon: 行将到来
+  second_dose_only: 只有第二剂
   vaccines_available: 据汇报有可用疫苗
   vaccines_not_available: 据汇报无可用疫苗
   vaccine_unknown: 未知疫苗状态
+policy:
+  vaccine_info: 疫苗信息
+  vaccine_locations: 疫苗接种地点
+  vaccine_appointments: 疫苗预约
+  volunteer_opportunities: 义工机会
+provider:
+  info: 提供者网站
+  locations: 地点
+  appointments: 预约
 head:
   site_description: 正在发布COVID-19疫苗在加州医院和药房的最新供应情况
   social_card_text: 查询提供疫苗的地方，资格的规定和预约的方法。
@@ -53,6 +66,7 @@ search_form:
 site_template:
   county_header: 在你的县内
   no_reports: 没有联系报告
+  provider_info: 提供者网络信息
 not_found:
   text: |
     您访问的网页不存在。如果您需要在加利福尼亚州寻找疫苗的帮助，

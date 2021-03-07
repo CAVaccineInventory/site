@@ -9,7 +9,7 @@ async function fetchCounties() {
   }
 
   const json = await response.json();
-  return json["content"];
+  return json["content"].filter((county) => county["County"]);
 }
 
 export { fetchCounties };
