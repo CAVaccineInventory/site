@@ -149,9 +149,18 @@ function getDisplayableVaccineInfo(p) {
         "Yes: must be a current patient"
       ),
       veteransOnly: doesLocationHaveProp(p, "Yes: must be a veteran"),
-      educationWorkers: doesLocationHaveProp(p, "Yes: Vaccinating education and childcare workers"),
-      foodWorkers: doesLocationHaveProp(p, "Yes: Vaccinating agriculture and food workers"),
-      emergencyWorkers: doesLocationHaveProp(p, "Yes: Vaccinating emergency services workers"),
+      educationWorkers: doesLocationHaveProp(
+        p,
+        "Yes: Vaccinating education and childcare workers"
+      ),
+      foodWorkers: doesLocationHaveProp(
+        p,
+        "Yes: Vaccinating agriculture and food workers"
+      ),
+      emergencyWorkers: doesLocationHaveProp(
+        p,
+        "Yes: Vaccinating emergency services workers"
+      ),
     };
   }
 
