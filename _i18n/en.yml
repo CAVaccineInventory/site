@@ -25,6 +25,7 @@ titles:
   providers: Providers
   nearest: Vaccination Sites Near You
   vaccinebot: VaccineBot
+  volunteer: Volunteer
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
