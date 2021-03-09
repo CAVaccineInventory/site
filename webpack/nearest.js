@@ -193,7 +193,9 @@ async function updateSitesOnMap(filterElement, availabilityFilterElement) {
   }
 
   if (availabilityFilterElement) {
-    const filters = Array.from(availabilityFilterElement.querySelectorAll(":checked")).map((e) => e.value);
+    const filters = Array.from(
+      availabilityFilterElement.querySelectorAll(":checked")
+    ).map((e) => e.value);
     sites = filterSitesByAvailability(sites, filters);
   }
 
@@ -338,7 +340,9 @@ async function updateSitesFromMap() {
     "js-availability-filter"
   );
   if (availabilityFilterElement) {
-    const filters = Array.from(availabilityFilterElement.querySelectorAll(":checked")).map((e) => e.value);
+    const filters = Array.from(
+      availabilityFilterElement.querySelectorAll(":checked")
+    ).map((e) => e.value);
     sites = filterSitesByAvailability(sites, filters);
   }
 
