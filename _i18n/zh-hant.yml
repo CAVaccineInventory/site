@@ -25,13 +25,14 @@ titles:
   providers: 提供者
   nearest: 您附近的疫苗接種地點
   vaccinebot: VaccineBot
+  volunteer: 志工召募
 nearest:
   dropdown_1: 我們聯系過的地點
   dropdown_2: 據匯報有疫苗的地點
   dropdown_3: 所有已知的疫苗接種地點
   appointment_required: 需要預約
   schedule_full: 截至上次查詢，預約已滿
-  coming_soon: 行將到來
+  coming_soon: 即將到貨
   second_dose_only: 只有第二劑
   vaccines_available: 據匯報有可用疫苗
   vaccines_not_available: 據匯報無可用疫苗
@@ -66,7 +67,7 @@ search_form:
 site_template:
   county_header: 在您的縣內
   no_reports: 沒有聯系報告
-  provider_info: 提供者網絡信息
+  provider_info: 提供者信息
 not_found:
   text: |-
     您訪問的網頁不存在。如果您需要在加利福尼亞州尋找疫苗的幫助，請查詢
