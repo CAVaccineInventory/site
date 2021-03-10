@@ -197,6 +197,7 @@ async function updateSitesOnMap() {
   }
 
   const filters = [];
+
   const ageFilter = document.getElementById("js-age-filter");
   if (ageFilter) {
     const ageChosen = ageFilter.value;
@@ -214,7 +215,12 @@ async function updateSitesOnMap() {
     }
   }
 
-  filteredSites = filterSitesByAvailability(sites, filters);
+  const veteranFilter = document.getElementById("js-veteran-filter");
+  if (veteranFilter && veteranFilter.checked) {
+    filters.push("Yes: must be a veteran");
+  }
+
+  filteredSites = filterSitesByAvailability(filteredSites, filters);
 
   tryOrDelayToMapInit((map) => {
     clearMap();

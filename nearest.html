@@ -33,12 +33,10 @@ permalink: /near-me
         <option value="85">85+</option>
       </select>
     </label>
-    {% for filter in site.data.availability_info %}
-      <label class="rounded border border-gray-200 px-2 py-2 mt-2">
-        <input type="checkbox" value="{{ filter[1] }}" checked />
-        {{ filter[0] }}
-      </label>
-    {% endfor %}
+    <label class="rounded border border-gray-200 p-2 mt-2">
+      <input id="js-veteran-filter" type="checkbox" value="veteran" />
+      Veteran
+    </label>
   </div>
 </div>
 <div class="lg:container mx-auto">
