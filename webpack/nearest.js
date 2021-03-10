@@ -201,11 +201,16 @@ async function updateSitesOnMap() {
   if (ageFilter) {
     const ageChosen = ageFilter.value;
     switch (ageChosen) {
-      case "85": filters.push("Yes: vaccinating 85+");
-      case "80": filters.push("Yes: vaccinating 80+");
-      case "75": filters.push("Yes: vaccinating 75+");
-      case "70": filters.push("Yes: vaccinating 70+");
-      case "65": filters.push("Yes: vaccinating 65+");
+      case "85":
+        filters.push("Yes: vaccinating 85+");
+      case "80":
+        filters.push("Yes: vaccinating 80+");
+      case "75":
+        filters.push("Yes: vaccinating 75+");
+      case "70":
+        filters.push("Yes: vaccinating 70+");
+      case "65":
+        filters.push("Yes: vaccinating 65+");
     }
   }
 
