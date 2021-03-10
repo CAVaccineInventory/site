@@ -184,9 +184,6 @@ async function updateSitesOnMap() {
   window.filteredSites = await fetchSites();
 
   const filterElement = document.getElementById("js-nearest-filter");
-  const availabilityFilterElement = document.getElementById(
-    "js-availability-filter"
-  );
   const filter = filterElement ? filterElement.value : "any";
 
   if (filter === "reports") {
@@ -199,12 +196,20 @@ async function updateSitesOnMap() {
     });
   }
 
-  if (availabilityFilterElement) {
-    const filters = Array.from(
-      availabilityFilterElement.querySelectorAll(":checked")
-    ).map((e) => e.value);
-    filteredSites = filterSitesByAvailability(filteredSites, filters);
+  const filters = [];
+  const ageFilter = document.getElementById("js-age-filter");
+  if (ageFilter) {
+    const ageChosen = ageFilter.value;
+    switch (ageChosen) {
+      case "85": filters.push("Yes: vaccinating 85+");
+      case "80": filters.push("Yes: vaccinating 80+");
+      case "75": filters.push("Yes: vaccinating 75+");
+      case "70": filters.push("Yes: vaccinating 70+");
+      case "65": filters.push("Yes: vaccinating 65+");
+    }
   }
+
+  filteredSites = filterSitesByAvailability(sites, filters);
 
   tryOrDelayToMapInit((map) => {
     clearMap();
