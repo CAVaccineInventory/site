@@ -22,8 +22,8 @@ permalink: /near-me
 
     </div>
   </div>
-  <div id="js-availability-filter"
-    class="flex flex-row flex-wrap items-center justify-center space-x-4">
+  <fieldset class="flex flex-row flex-wrap items-baseline justify-center space-x-4">
+    <legend class="contents p-2">Patient Info:</legend>
     <label class="rounded-full border border-gray-200 p-2 mt-2">
       <select id="js-age-filter" class="px-5">
         <option value="65" selected>65+</option>
@@ -38,7 +38,7 @@ permalink: /near-me
       Veteran
     </label>
   </div>
-</div>
+</fieldset>
 <div class="lg:container mx-auto">
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     <p>{% t pre_list_disclaimer.disclaimer %}</p>
