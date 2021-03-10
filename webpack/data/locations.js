@@ -161,6 +161,10 @@ function getDisplayableVaccineInfo(p) {
         p,
         "Vaccinating emergency services workers"
       ),
+      highRisk: doesLocationHaveProp(
+        p,
+        "Vaccinating high-risk individuals"
+      ),
     };
   }
 
