@@ -141,7 +141,7 @@ function addListeners() {
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
       if (lastSearch) {
-        updateSitesOnMap(filterElem, availabilityFilterElem);
+        updateSitesOnMap();
         handleSearch(undefined, lastSearch);
       }
     });
@@ -150,7 +150,7 @@ function addListeners() {
   if (availabilityFilterElem) {
     availabilityFilterElem.addEventListener("change", (e) => {
       if (lastSearch) {
-        updateSitesOnMap(filterElem, availabilityFilterElem);
+        updateSitesOnMap();
         handleSearch(undefined, lastSearch);
       }
     });
@@ -179,8 +179,13 @@ function toggleLoading(shouldShow) {
   }
 }
 
-async function updateSitesOnMap(filterElement, availabilityFilterElement) {
+async function updateSitesOnMap() {
   let sites = await fetchSites();
+
+  const filterElement = document.getElementById("js-nearest-filter");
+  const availabilityFilterElement = document.getElementById(
+    "js-availability-filter"
+  );
   const filter = filterElement ? filterElement.value : "any";
   if (filter === "reports") {
     sites = sites.filter((site) => {
