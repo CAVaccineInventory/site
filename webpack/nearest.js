@@ -16,6 +16,7 @@ import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 window.addEventListener("load", loaded);
 
 let lastSearch;
+window.filteredSites = [];
 
 function extractZip(zipInput) {
   // Extract the five-digit component from a five- or nine-digit zip surrounded
@@ -180,19 +181,20 @@ function toggleLoading(shouldShow) {
 }
 
 async function updateSitesOnMap() {
-  let sites = await fetchSites();
+  window.filteredSites = await fetchSites();
 
   const filterElement = document.getElementById("js-nearest-filter");
   const availabilityFilterElement = document.getElementById(
     "js-availability-filter"
   );
   const filter = filterElement ? filterElement.value : "any";
+
   if (filter === "reports") {
-    sites = sites.filter((site) => {
+    filteredSites = filteredSites.filter((site) => {
       return getHasReport(site);
     });
   } else if (filter === "stocked") {
-    sites = sites.filter((site) => {
+    filteredSites = filteredSites.filter((site) => {
       return getHasVaccine(site);
     });
   }
@@ -201,15 +203,17 @@ async function updateSitesOnMap() {
     const filters = Array.from(
       availabilityFilterElement.querySelectorAll(":checked")
     ).map((e) => e.value);
-    sites = filterSitesByAvailability(sites, filters);
+    filteredSites = filterSitesByAvailability(filteredSites, filters);
   }
 
   tryOrDelayToMapInit((map) => {
     clearMap();
-    sites.forEach((site) => {
+    filteredSites.forEach((site) => {
       addLocation(site);
     });
   });
+
+  updateSitesFromMap();
 }
 
 function updateUrl(key, value) {
@@ -320,50 +324,30 @@ async function lookup(zip) {
 }
 
 async function updateSitesFromMap() {
+  // If we get called before we've properly filtered sites on the map, lets
+  // make sure we do that.
+  if (window.filteredSites.length < 1) {
+    updateSitesOnMap();
+    return;
+  }
+
   document
     .querySelectorAll(".js-sites")
     .forEach((site) => (site.innerHTML = ""));
 
-  let sites = await fetchSites();
-  // Remove sites without coordinates
-  sites = sites.filter((s) => s.Latitude && s.Longitude);
-
-  const filterElem = document.getElementById("js-nearest-filter");
-  const filter = filterElem ? filterElem.value : "stocked";
-
-  if (filter === "reports") {
-    sites = sites.filter((site) => {
-      return getHasReport(site);
-    });
-  } else if (filter === "stocked") {
-    sites = sites.filter((site) => {
-      return getHasVaccine(site);
-    });
-  }
-
-  const availabilityFilterElement = document.getElementById(
-    "js-availability-filter"
-  );
-  if (availabilityFilterElement) {
-    const filters = Array.from(
-      availabilityFilterElement.querySelectorAll(":checked")
-    ).map((e) => e.value);
-    sites = filterSitesByAvailability(sites, filters);
-  }
-
   const bounds = window.map.getBounds();
-  sites = sites.filter((site) => {
+  const sitesToShow = window.filteredSites.filter((site) => {
     const { latitude, longitude } = getCoord(site);
     return bounds.contains({ lat: latitude, lng: longitude });
   });
 
-  sortByRecency(sites);
+  sortByRecency(sitesToShow);
 
   let {
     sitesWithVaccine,
     sitesWithoutVaccine,
     sitesWithNoReport,
-  } = splitSitesByVaccineState(sites);
+  } = splitSitesByVaccineState(sitesToShow);
 
   sitesWithVaccine = sitesWithVaccine.slice(0, 50);
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
