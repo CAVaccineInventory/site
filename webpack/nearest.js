@@ -202,6 +202,7 @@ async function updateSitesOnMap() {
   if (ageFilter) {
     const ageChosen = ageFilter.value;
     switch (ageChosen) {
+      case "none":
       case "85":
         filters.push("Yes: vaccinating 85+");
       case "80":
@@ -212,7 +213,7 @@ async function updateSitesOnMap() {
         filters.push("Yes: vaccinating 70+");
       case "65":
         filters.push("Yes: vaccinating 65+");
-      default:
+      case "16":
         filters.push("Yes: vaccinating 18+");
         filters.push("Yes: vaccinating 16+");
     }
