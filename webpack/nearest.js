@@ -215,6 +215,32 @@ async function updateSitesOnMap() {
     }
   }
 
+  const eligiblityFilter = document.getElementById("js-eligibility-criteria");
+  if (eligiblityFilter) {
+    const fields = {
+      "education": "Vaccinating education and childcare workers",
+      "food": "Vaccinating agriculture and food workers",
+      "emergency": "Vaccinating emergency services workers",
+      "high-risk": "Vaccinating high-risk individuals",
+    };
+
+    const criteriaChosen = eligiblityFilter.value;
+
+    switch (criteriaChosen) {
+      case "any":
+        for (const prop in fields) {
+          if (fields.hasOwnProperty(prop)) {
+            filters.push(fields[prop]);
+          }
+        }
+        break;
+      case "none":
+        break;
+      default:
+        filters.push(fields[criteriaChosen]);
+    }
+  }
+
   const veteranFilter = document.getElementById("js-veteran-filter");
   if (veteranFilter && veteranFilter.checked) {
     filters.push("Yes: must be a veteran");
