@@ -224,7 +224,6 @@ async function updateSitesOnMap() {
       "education": "Vaccinating education and childcare workers",
       "food": "Vaccinating agriculture and food workers",
       "emergency": "Vaccinating emergency services workers",
-      "high-risk": "Vaccinating high-risk individuals",
     };
 
     const criteriaChosen = eligiblityFilter.value;
@@ -242,6 +241,10 @@ async function updateSitesOnMap() {
       default:
         filters.push(fields[criteriaChosen]);
     }
+  }
+  const highRiskFilter = document.getElementById("js-high-risk-filter");
+  if (highRiskFilter && highRiskFilter.checked) {
+    filters.push("Vaccinating high-risk individuals");
   }
 
   const veteranFilter = document.getElementById("js-veteran-filter");
