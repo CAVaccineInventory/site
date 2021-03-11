@@ -222,9 +222,9 @@ async function updateSitesOnMap() {
   const eligiblityFilter = document.getElementById("js-eligibility-filter");
   if (eligiblityFilter) {
     const fields = {
-      "education": "Vaccinating education and childcare workers",
-      "food": "Vaccinating agriculture and food workers",
-      "emergency": "Vaccinating emergency services workers",
+      education: "Vaccinating education and childcare workers",
+      food: "Vaccinating agriculture and food workers",
+      emergency: "Vaccinating emergency services workers",
     };
 
     const criteriaChosen = eligiblityFilter.value;
