@@ -218,7 +218,7 @@ async function updateSitesOnMap() {
     }
   }
 
-  const eligiblityFilter = document.getElementById("js-eligibility-criteria");
+  const eligiblityFilter = document.getElementById("js-eligibility-filter");
   if (eligiblityFilter) {
     const fields = {
       "education": "Vaccinating education and childcare workers",
