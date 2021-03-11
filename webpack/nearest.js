@@ -16,7 +16,7 @@ import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 window.addEventListener("load", loaded);
 
 let lastSearch;
-window.filteredSites = [];
+window.filteredSites;
 
 function extractZip(zipInput) {
   // Extract the five-digit component from a five- or nine-digit zip surrounded
@@ -371,7 +371,7 @@ async function lookup(zip) {
 async function updateSitesFromMap() {
   // If we get called before we've properly filtered sites on the map, lets
   // make sure we do that.
-  if (window.filteredSites.length < 1) {
+  if (!window.filteredSites) {
     updateSitesOnMap();
     return;
   }
