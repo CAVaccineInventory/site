@@ -212,6 +212,9 @@ async function updateSitesOnMap() {
         filters.push("Yes: vaccinating 70+");
       case "65":
         filters.push("Yes: vaccinating 65+");
+      default:
+        filters.push("Yes: vaccinating 18+");
+        filters.push("Yes: vaccinating 16+");
     }
   }
 
