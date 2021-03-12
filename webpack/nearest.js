@@ -265,7 +265,6 @@ async function updateSitesOnMap() {
     filteredSites = filterSitesByAvailability(filteredSites, filters);
   }
 
-
   tryOrDelayToMapInit((map) => {
     clearMap();
     filteredSites.forEach((site) => {
