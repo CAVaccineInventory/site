@@ -27,12 +27,29 @@ function addSitesToPage(sites, containerId) {
       info.address
     )}`;
 
-    let otherRestrictions = "";
+    const otherRestrictions = [];
     if (info.isLimitedToPatients) {
-      otherRestrictions = window.messageCatalog.nearest_js_patients_only;
+      otherRestrictions.push(window.messageCatalog.nearest_js_patients_only);
     } else if (info.isCountyRestricted) {
-      otherRestrictions = window.messageCatalog.nearest_js_county_only;
+      otherRestrictions.push(window.messageCatalog.nearest_js_county_only);
     }
+
+    if (info.veteransOnly) {
+      otherRestrictions.push("Must be a veteran");
+    }
+    if (info.educationWorkers) {
+      otherRestrictions.push("Education & childcare workers");
+    }
+    if (info.foodWorkers) {
+      otherRestrictions.push("Agriculture & food workers");
+    }
+    if (info.emergencyWorkers) {
+      otherRestrictions.push("Emergency service workers");
+    }
+    if (info.highRisk) {
+      otherRestrictions.push("High-risk individuals");
+    }
+
     const latestReportTime = `${
       window.messageCatalog["global_latest_report"]
     } ${getTimeDiffFromNow(info.latestReportDate)}`;
@@ -75,7 +92,7 @@ function addSitesToPage(sites, containerId) {
       unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
       ageRestriction: ageRestriction,
-      otherRestrictions: otherRestrictions,
+      otherRestrictions: otherRestrictions.join("<br />"),
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
