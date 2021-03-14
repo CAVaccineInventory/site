@@ -40,19 +40,19 @@ function addSitesToPage(sites, containerId) {
       );
     }
     if (info.veteransOnly) {
-      restrictions.push("Must be a veteran");
+      restrictions.push(t("site_template.veterans"));
     }
     if (info.educationWorkers) {
-      restrictions.push("Education & childcare workers");
+      restrictions.push(t("site_template.education_workers"));
     }
     if (info.foodWorkers) {
-      restrictions.push("Agriculture & food workers");
+      restrictions.push(t("site_template.food_workers"));
     }
     if (info.emergencyWorkers) {
-      restrictions.push("Emergency service workers");
+      restrictions.push(t("site_template.emergency_workers"));
     }
     if (info.highRisk) {
-      restrictions.push("High-risk individuals");
+      restrictions.push(t("site_template.high_risk_individuals"));
     }
 
     const latestReportTime = `${
