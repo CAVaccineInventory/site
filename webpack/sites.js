@@ -52,7 +52,9 @@ function addSitesToPage(sites, containerId) {
       restrictions.push(t("site_template.emergency_workers"));
     }
     if (info.highRisk) {
-      const link = `<a href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx">${t("site_template.high_risk_individuals")}</a>`;
+      const link = `<a href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx">${t(
+        "site_template.high_risk_individuals"
+      )}</a>`;
       restrictions.push(link);
     }
 
