@@ -35,7 +35,9 @@ function addSitesToPage(sites, containerId) {
     }
 
     if (info.ageRestriction) {
-      restrictions.push(`${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`);
+      restrictions.push(
+        `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`
+      );
     }
     if (info.veteransOnly) {
       restrictions.push("Must be a veteran");
