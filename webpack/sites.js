@@ -52,7 +52,8 @@ function addSitesToPage(sites, containerId) {
       restrictions.push(t("site_template.emergency_workers"));
     }
     if (info.highRisk) {
-      restrictions.push(t("site_template.high_risk_individuals"));
+      const link = `<a href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx">${t("site_template.high_risk_individuals")}</a>`;
+      restrictions.push(link);
     }
 
     const latestReportTime = `${
@@ -91,7 +92,7 @@ function addSitesToPage(sites, containerId) {
       unknownVaccine: info.hasVaccine == "Unknown",
       unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
-      restrictions: restrictions.join("<br />"),
+      restrictions: restrictions,
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
