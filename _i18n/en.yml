@@ -69,6 +69,11 @@ site_template:
   county_header: Within your county
   no_reports: No contact reports
   provider_info: Provider network info
+  veterans: Must be a veteran
+  education_workers: Education & childcare workers
+  food_workers: Agriculture & food workers
+  emergency_workers: Emergency service workers
+  high_risk_individuals: High-risk individuals
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 

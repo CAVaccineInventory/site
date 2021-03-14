@@ -27,20 +27,40 @@ function addSitesToPage(sites, containerId) {
       info.address
     )}`;
 
-    let otherRestrictions = "";
+    const restrictions = [];
     if (info.isLimitedToPatients) {
-      otherRestrictions = window.messageCatalog.nearest_js_patients_only;
-    } else if (info.isCountyRestricted) {
-      otherRestrictions = window.messageCatalog.nearest_js_county_only;
+      restrictions.push(window.messageCatalog.nearest_js_patients_only);
     }
+    if (info.isCountyRestricted) {
+      restrictions.push(window.messageCatalog.nearest_js_county_only);
+    }
+    if (info.ageRestriction) {
+      restrictions.push(
+        `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`
+      );
+    }
+    if (info.veteransOnly) {
+      restrictions.push(t("site_template.veterans"));
+    }
+    if (info.educationWorkers) {
+      restrictions.push(t("site_template.education_workers"));
+    }
+    if (info.foodWorkers) {
+      restrictions.push(t("site_template.food_workers"));
+    }
+    if (info.emergencyWorkers) {
+      restrictions.push(t("site_template.emergency_workers"));
+    }
+    if (info.highRisk) {
+      const link = `<a href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx">${t(
+        "site_template.high_risk_individuals"
+      )}</a>`;
+      restrictions.push(link);
+    }
+
     const latestReportTime = `${
       window.messageCatalog["global_latest_report"]
     } ${getTimeDiffFromNow(info.latestReportDate)}`;
-    let ageRestriction = "";
-    if (info.ageRestriction) {
-      ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
-    }
-
     let appointmentRequiredLabel = t("nearest.appointment_required");
     if (info.isScheduleFull) {
       appointmentRequiredLabel += `; ${t("nearest.schedule_full")}`;
@@ -74,8 +94,7 @@ function addSitesToPage(sites, containerId) {
       unknownVaccine: info.hasVaccine == "Unknown",
       unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
-      ageRestriction: ageRestriction,
-      otherRestrictions: otherRestrictions,
+      restrictions: restrictions,
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,
