@@ -27,37 +27,35 @@ function addSitesToPage(sites, containerId) {
       info.address
     )}`;
 
-    const otherRestrictions = [];
+    const restrictions = [];
     if (info.isLimitedToPatients) {
-      otherRestrictions.push(window.messageCatalog.nearest_js_patients_only);
+      restrictions.push(window.messageCatalog.nearest_js_patients_only);
     } else if (info.isCountyRestricted) {
-      otherRestrictions.push(window.messageCatalog.nearest_js_county_only);
+      restrictions.push(window.messageCatalog.nearest_js_county_only);
     }
 
+    if (info.ageRestriction) {
+      restrictions.push(`${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`);
+    }
     if (info.veteransOnly) {
-      otherRestrictions.push("Must be a veteran");
+      restrictions.push("Must be a veteran");
     }
     if (info.educationWorkers) {
-      otherRestrictions.push("Education & childcare workers");
+      restrictions.push("Education & childcare workers");
     }
     if (info.foodWorkers) {
-      otherRestrictions.push("Agriculture & food workers");
+      restrictions.push("Agriculture & food workers");
     }
     if (info.emergencyWorkers) {
-      otherRestrictions.push("Emergency service workers");
+      restrictions.push("Emergency service workers");
     }
     if (info.highRisk) {
-      otherRestrictions.push("High-risk individuals");
+      restrictions.push("High-risk individuals");
     }
 
     const latestReportTime = `${
       window.messageCatalog["global_latest_report"]
     } ${getTimeDiffFromNow(info.latestReportDate)}`;
-    let ageRestriction = "";
-    if (info.ageRestriction) {
-      ageRestriction = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
-    }
-
     let appointmentRequiredLabel = t("nearest.appointment_required");
     if (info.isScheduleFull) {
       appointmentRequiredLabel += `; ${t("nearest.schedule_full")}`;
@@ -91,8 +89,7 @@ function addSitesToPage(sites, containerId) {
       unknownVaccine: info.hasVaccine == "Unknown",
       unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
-      ageRestriction: ageRestriction,
-      otherRestrictions: otherRestrictions.join("<br />"),
+      restrictions: restrictions.join("<br />"),
       appointmentRequired: info.isAppointmentRequired,
       appointmentRequiredLabel: appointmentRequiredLabel,
       appointmentInstructions: info.schedulingInstructions,

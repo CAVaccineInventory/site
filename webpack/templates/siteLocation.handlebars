@@ -37,7 +37,8 @@
   {{#if hasReport}}
     <div class="relative grid grid-cols-12 py-2">
       <div
-        class="site_vaccine_status py-2 px-4 h-full text-sm md:text-base space-s-2 border-0 md:border-e border-gray-100 col-span-7 md:col-span-4"
+        class="site_vaccine_status py-2 px-4 h-full text-sm md:text-base
+        space-s-2 col-span-9 md:col-span-12"
       >
         {{#if hasVaccine}}
         <div class="vaccine_available flex flex-row items-center space-s-2">
@@ -68,18 +69,15 @@
       </div>
     {{#if hasVaccine}}
       <div
-        class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-5 self-center justify-self-center md:hidden"
+        class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-3 self-center justify-self-center md:hidden"
         >{{ lastReportTime }}</div>
       <!-- Divider -->
       <div
         class="mobile_divider col-span-12 border-b border-gray-100 my-2 md:hidden"
       ></div>
       <div
-        class="site_age_restriction py-2 px-4 h-full flex flex-row items-center text-sm md:text-base border-e border-gray-100 py-2 col-span-6 md:col-span-4"
-        >{{ ageRestriction }}</div>
-      <div
-        class="site_other_restrictions py-2 px-4 h-full flex flex-row items-center text-sm md:text-base col-span-6 md:col-span-4"
-        >{{{ otherRestrictions }}}</div>
+        class="py-2 px-4 h-full flex flex-row items-center text-sm md:text-base col-span-12"
+        >{{{ restrictions }}}</div>
       </div>
       {{#if appointmentRequired }}
         <div
