@@ -30,10 +30,10 @@ function addSitesToPage(sites, containerId) {
     const restrictions = [];
     if (info.isLimitedToPatients) {
       restrictions.push(window.messageCatalog.nearest_js_patients_only);
-    } else if (info.isCountyRestricted) {
+    }
+    if (info.isCountyRestricted) {
       restrictions.push(window.messageCatalog.nearest_js_county_only);
     }
-
     if (info.ageRestriction) {
       restrictions.push(
         `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`
