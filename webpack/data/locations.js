@@ -14,6 +14,11 @@ async function fetchSites() {
       subscribers.push(resolve);
     });
   }
+
+  if (_fetchedSites) {
+    return _fetchedSites;
+  }
+
   isFetching = true;
   const response = await fetch("https://api.vaccinateca.com/v1/locations.json");
 
