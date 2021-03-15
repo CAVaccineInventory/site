@@ -397,6 +397,10 @@ async function updateSitesFromMap() {
   const bounds = window.map.getBounds();
   const sitesToShow = window.filteredSites.filter((site) => {
     const { latitude, longitude } = getCoord(site);
+    if (!latitude || !longitude) {
+      return false;
+    }
+
     return bounds.contains({ lat: latitude, lng: longitude });
   });
 
