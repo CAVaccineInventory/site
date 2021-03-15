@@ -5,6 +5,7 @@ import {
   getHasReport,
   sortByRecency,
   splitSitesByVaccineState,
+  filterSitesByAvailability,
   getCoord,
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
@@ -15,6 +16,7 @@ import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 window.addEventListener("load", loaded);
 
 let lastSearch;
+window.filteredSites;
 
 function extractZip(zipInput) {
   // Extract the five-digit component from a five- or nine-digit zip surrounded
@@ -131,11 +133,25 @@ function addListeners() {
       geoLocationElem.remove();
     }
   }
+
   const filterElem = document.getElementById("js-nearest-filter");
+  const availabilityFilterElem = document.getElementById(
+    "js-availability-filter"
+  );
+
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
       if (lastSearch) {
-        updateSitesOnMap(filterElem);
+        updateSitesOnMap();
+        handleSearch(undefined, lastSearch);
+      }
+    });
+  }
+
+  if (availabilityFilterElem) {
+    availabilityFilterElem.addEventListener("change", (e) => {
+      if (lastSearch) {
+        updateSitesOnMap();
         handleSearch(undefined, lastSearch);
       }
     });
@@ -164,25 +180,99 @@ function toggleLoading(shouldShow) {
   }
 }
 
-async function updateSitesOnMap(filterElement) {
-  let sites = await fetchSites();
+async function updateSitesOnMap() {
+  window.filteredSites = await fetchSites();
+
+  const filterElement = document.getElementById("js-nearest-filter");
   const filter = filterElement ? filterElement.value : "any";
+
+  const availabilityFilterElem = document.getElementById(
+    "js-availability-filter"
+  );
+
   if (filter === "reports") {
-    sites = sites.filter((site) => {
+    availabilityFilterElem.classList.add("hidden");
+    filteredSites = filteredSites.filter((site) => {
       return getHasReport(site);
     });
-  } else if (filter === "stocked") {
-    sites = sites.filter((site) => {
+  } else if (filter === "any") {
+    availabilityFilterElem.classList.add("hidden");
+  } else {
+    // Only "stocked", so lets show the additional filters and use them
+    availabilityFilterElem.classList.remove("hidden");
+
+    filteredSites = filteredSites.filter((site) => {
       return getHasVaccine(site);
     });
+
+    const filters = [];
+
+    const ageFilter = document.getElementById("js-age-filter");
+    if (ageFilter) {
+      const ageChosen = ageFilter.value;
+      switch (ageChosen) {
+        case "none":
+        case "85":
+          filters.push("Yes: vaccinating 85+");
+        case "80":
+          filters.push("Yes: vaccinating 80+");
+        case "75":
+          filters.push("Yes: vaccinating 75+");
+        case "70":
+          filters.push("Yes: vaccinating 70+");
+        case "65":
+          filters.push("Yes: vaccinating 65+");
+        case "16":
+          filters.push("Yes: vaccinating 18+");
+          filters.push("Yes: vaccinating 16+");
+      }
+    }
+
+    const eligiblityFilter = document.getElementById("js-eligibility-filter");
+    if (eligiblityFilter) {
+      const fields = {
+        education: "Vaccinating education and childcare workers",
+        food: "Vaccinating agriculture and food workers",
+        emergency: "Vaccinating emergency services workers",
+      };
+
+      const criteriaChosen = eligiblityFilter.value;
+
+      switch (criteriaChosen) {
+        case "any":
+          for (const prop in fields) {
+            if (fields.hasOwnProperty(prop)) {
+              filters.push(fields[prop]);
+            }
+          }
+          break;
+        case "none":
+          break;
+        default:
+          filters.push(fields[criteriaChosen]);
+      }
+    }
+    const highRiskFilter = document.getElementById("js-high-risk-filter");
+    if (highRiskFilter && highRiskFilter.checked) {
+      filters.push("Vaccinating high-risk individuals");
+    }
+
+    const veteranFilter = document.getElementById("js-veteran-filter");
+    if (veteranFilter && veteranFilter.checked) {
+      filters.push("Yes: must be a veteran");
+    }
+
+    filteredSites = filterSitesByAvailability(filteredSites, filters);
   }
 
   tryOrDelayToMapInit((map) => {
     clearMap();
-    sites.forEach((site) => {
+    filteredSites.forEach((site) => {
       addLocation(site);
     });
   });
+
+  updateSitesFromMap();
 }
 
 function updateUrl(key, value) {
@@ -293,40 +383,34 @@ async function lookup(zip) {
 }
 
 async function updateSitesFromMap() {
+  // If we get called before we've properly filtered sites on the map, lets
+  // make sure we do that.
+  if (!window.filteredSites) {
+    updateSitesOnMap();
+    return;
+  }
+
   document
     .querySelectorAll(".js-sites")
     .forEach((site) => (site.innerHTML = ""));
 
-  let sites = await fetchSites();
-  // Remove sites without coordinates
-  sites = sites.filter((s) => s.Latitude && s.Longitude);
-
-  const filterElem = document.getElementById("js-nearest-filter");
-  const filter = filterElem ? filterElem.value : "stocked";
-
-  if (filter === "reports") {
-    sites = sites.filter((site) => {
-      return getHasReport(site);
-    });
-  } else if (filter === "stocked") {
-    sites = sites.filter((site) => {
-      return getHasVaccine(site);
-    });
-  }
-
   const bounds = window.map.getBounds();
-  sites = sites.filter((site) => {
+  const sitesToShow = window.filteredSites.filter((site) => {
     const { latitude, longitude } = getCoord(site);
+    if (!latitude || !longitude) {
+      return false;
+    }
+
     return bounds.contains({ lat: latitude, lng: longitude });
   });
 
-  sortByRecency(sites);
+  sortByRecency(sitesToShow);
 
   let {
     sitesWithVaccine,
     sitesWithoutVaccine,
     sitesWithNoReport,
-  } = splitSitesByVaccineState(sites);
+  } = splitSitesByVaccineState(sitesToShow);
 
   sitesWithVaccine = sitesWithVaccine.slice(0, 50);
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);

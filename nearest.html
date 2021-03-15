@@ -5,20 +5,52 @@ permalink: /near-me
 ---
 
 <div
-  class="py-4 flex flex-row flex-wrap sm:flex-nowrap justify-center items-center sticky top-0 z-10 bg-white border-b border-gray-200"
+  class="py-4 sticky top-0 z-10 bg-white border-b border-gray-200"
 >
-  {% include search_form.html %}
-  <div class="relative pt-4 sm:pt-0 sm:ps-4">
-    <select
-      id="js-nearest-filter"
-      class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2 focus:outline-none"
-    >
-      <option value="reports">{% t nearest.dropdown_1 %}</option>
-      <option selected value="stocked">{% t nearest.dropdown_2 %}</option>
-      <option value="any">{% t nearest.dropdown_3 %}</option>
-    </select>
+  <div class="flex flex-row flex-wrap sm:flex-nowrap justify-center
+              items-center">
+    {% include search_form.html %}
+    <div class="relative pt-4 sm:pt-0 sm:ps-4">
+      <select
+        id="js-nearest-filter"
+        class="border border-gray-200 bg-transparent text-gray-700 rounded-full px-5 py-2"
+      >
+        <option value="reports">{% t nearest.dropdown_1 %}</option>
+        <option selected value="stocked">{% t nearest.dropdown_2 %}</option>
+        <option value="any">{% t nearest.dropdown_3 %}</option>
+      </select>
+
+    </div>
   </div>
-</div>
+  <fieldset id="js-availability-filter"
+    class="flex flex-row flex-wrap items-baseline justify-center space-x-4">
+    <legend class="contents p-2">{% t nearest.patient_info %}:</legend>
+    <select id="js-age-filter" class="rounded-full border border-gray-200 px-5 py-2 mt-2">
+      <option value="none" selected>{% t nearest.age %}</option>
+      <option value="16">{% t nearest.under_65 %}</option>
+      <option value="65">65+</option>
+      <option value="70">70+</option>
+      <option value="75">75+</option>
+      <option value="80">80+</option>
+      <option value="85">85+</option>
+    </select>
+    <select id="js-eligibility-filter" class="border border-gray-200 rounded-full px-5 py-2 mt-2">
+      <option value="any" selected>{% t nearest.profession %}</option>
+      <option value="education">{% t nearest.education_profession %}</option>
+      <option value="food">{% t nearest.food_profession %}</option>
+      <option value="emergency">{% t nearest.emergency_profession %}</option>
+      <option value="none">{% t nearest.no_profession %}</option>
+    </select>
+    <label class="rounded border border-gray-200 p-2 mt-2">
+      <input id="js-high-risk-filter" type="checkbox" value="high-risk" />
+      {% t nearest.high_risk %}
+    </label>
+    <label class="rounded border border-gray-200 p-2 mt-2">
+      <input id="js-veteran-filter" type="checkbox" value="veteran" />
+      {% t nearest.veteran %}
+    </label>
+  </div>
+</fieldset>
 <div class="lg:container mx-auto">
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     <p>{% t pre_list_disclaimer.disclaimer %}</p>

@@ -38,6 +38,16 @@ nearest:
   vaccines_available: Vaccines reported available
   vaccines_not_available: Vaccines reported unavailable
   vaccine_unknown: Unknown vaccine status
+  patient_info: Patient Info
+  age: Show all ages
+  under_65: Under 65
+  profession: Show all professions
+  no_profession: None of these professions
+  education_profession: Education or childcare worker
+  food_profession: Agriculture or food worker
+  emergency_profession: Emergency service worker
+  high_risk: High-risk individual
+  veteran: Veteran
 policy:
   vaccine_info: Vaccine Info
   vaccine_locations: Vaccine Locations
