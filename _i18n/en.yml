@@ -26,7 +26,7 @@ titles:
   nearest: Vaccination Sites Near You
   vaccinebot: VaccineBot
   volunteer: Volunteer
-  checklist: Eligibility Checklist
+  checklist: Am I eligible?
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
