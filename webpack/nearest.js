@@ -16,7 +16,6 @@ import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 window.addEventListener("load", loaded);
 
 let lastSearch;
-window.filteredSites;
 
 function extractZip(zipInput) {
   // Extract the five-digit component from a five- or nine-digit zip surrounded
@@ -210,6 +209,7 @@ async function updateSitesOnMap() {
     const ageFilter = document.getElementById("js-age-filter");
     if (ageFilter) {
       const ageChosen = ageFilter.value;
+      // Heads up, we're relying on switch statement cascading here!
       switch (ageChosen) {
         case "none":
         case "85":
