@@ -106,10 +106,12 @@ county_policies:
     your county below.
 index:
   header: Find a COVID-19 vaccine for yourself or a loved one
-  subtitle: | 
-     Safe and reliable COVID-19 vaccines are becoming available to seniors and healthcare workers
-     in California. But it can be difficult to find out where and how to get a shot. We call
-     hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
+  subtitle: |
+     Safe and reliable COVID-19 vaccines are becoming available in California to
+     seniors, workers in essential industries, and high-risk individuals. But it
+     can be difficult to find out where and how to get a shot. We call hospitals
+     and pharmacies daily to track their vaccine availability and their
+     processes for getting one.
   eligible: Not sure if you're eligible? <a href="/checklist">Find out</a>.
   disclaimer: |
     Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
