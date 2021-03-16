@@ -46,6 +46,10 @@ async function fetchCountyCard() {
   const countyPolicy = countyPolicies.find(
     (county) => county["County"].replace(" County", "").trim() === currentCounty()
   );
+  if (!countyPolicy) {
+    Sentry.captureMessage(`Couldn't find county for ${currentCounty()}`);
+    return;
+  }
 
   let notes = countyPolicy["Notes"];
   if (notes) {
