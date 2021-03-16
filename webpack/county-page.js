@@ -44,7 +44,8 @@ async function fetchCountySites() {
 async function fetchCountyCard() {
   const countyPolicies = await fetchCounties();
   const countyPolicy = countyPolicies.find(
-    (county) => county["County"].replace(" County", "").trim() === currentCounty()
+    (county) =>
+      county["County"].replace(" County", "").trim() === currentCounty()
   );
   if (!countyPolicy) {
     Sentry.captureMessage(`Couldn't find county for ${currentCounty()}`);
