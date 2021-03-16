@@ -67,20 +67,17 @@
         </div>
         {{/if}}
       </div>
+    </div>
     {{#if hasVaccine}}
       <div
         class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-3 self-center justify-self-center md:hidden"
         >{{ lastReportTime }}</div>
       <!-- Divider -->
       {{#if restrictions}}
-      <div
-        class="col-span-12 border-b border-gray-100 my-2"
-      ></div>
-      <div class="py-2 px-4 h-full flex flex-col items-start text-sm col-span-12">
+      <div class="py-2 px-4 h-full flex flex-col items-start text-sm">
         {{#each restrictions}}
         <span>{{{this}}}</span>
         {{/each}}
-        </div>
       </div>
       {{/if}}
       {{#if appointmentRequired }}
