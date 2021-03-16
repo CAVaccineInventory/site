@@ -3,7 +3,7 @@ layout: default
 title: titles.about_us
 permalink: /about-us
 add_to_nav: true
-order: 6
+order: 5
 ---
 
 {% t about_us.intro_1 %}
