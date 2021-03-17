@@ -47,10 +47,10 @@ async function fetchSites() {
       site["Provider"] = provider;
     }
 
-    const vfStatus = getVaccineSpotterStatusForLocation(vfData, site);
+    const vaccineSpotterStatus = getVaccineSpotterStatusForLocation(vfData, site);
 
-    if (vfStatus) {
-      site["vaccineSpotterStatus"] = vfStatus;
+    if (vaccineSpotterStatus) {
+      site["vaccineSpotterStatus"] = vaccineSpotter;
     }
   });
 
