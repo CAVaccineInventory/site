@@ -5,10 +5,10 @@ async function fetchVaccineSpotterData() {
 
   if (!response.ok) {
     Sentry.captureMessage("Couldn't get vaccine spotter info", {
-      "contexts": {
-        "response": {
-          "status": response.status,
-          "bodyText": response.body.text(),
+      contexts: {
+        response: {
+          status: response.status,
+          bodyText: response.body.text(),
         },
       },
     });
