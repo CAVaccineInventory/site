@@ -34,7 +34,7 @@ async function fetchSites() {
   _fetchedSites = fetchedData["content"];
 
   const providers = await fetchProviders();
-  const vfData = await fetchVaccineSpotterData();
+  const vsData = await fetchVaccineSpotterData();
 
   _fetchedSites.forEach((site) => {
     if (site["Affiliation"] === "None / Unknown / Unimportant") {
@@ -48,7 +48,7 @@ async function fetchSites() {
     }
 
     const vaccineSpotterStatus = getVaccineSpotterStatusForLocation(
-      vfData,
+      vsData,
       site
     );
 
