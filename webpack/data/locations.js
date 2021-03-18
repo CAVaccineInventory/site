@@ -53,7 +53,7 @@ async function fetchSites() {
     );
 
     if (vaccineSpotterStatus) {
-      site["vaccineSpotterStatus"] = vaccineSpotter;
+      site["vaccineSpotterStatus"] = vaccineSpotterStatus;
     }
   });
 
