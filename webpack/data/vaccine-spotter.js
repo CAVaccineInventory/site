@@ -4,7 +4,14 @@ async function fetchVaccineSpotterData() {
   const response = await fetch(url);
 
   if (!response.ok) {
-    alert("Could not retrieve VaccineSpotter data");
+    Sentry.captureMessage("Couldn't get vaccine spotter info", {
+      "contexts": {
+        "response": {
+          "status": response.status,
+          "bodyText": response.body.text(),
+        },
+      },
+    });
     return null;
   }
 
