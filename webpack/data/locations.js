@@ -204,6 +204,47 @@ function getDisplayableVaccineInfo(p) {
     return markdownifyInline(p["Provider"]["Public Notes"]);
   }
 
+  function hasVaccineSpotterInfo(p) {
+    if (!p["vaccineSpotterStatus"] || !p["vaccineSpotterStatus"]["carriesVaccine"]) {
+      return null;
+    }
+
+    return p["vaccineSpotterStatus"]["carriesVaccine"];
+  }
+
+  function getVaccineSpotterAvailability(p) {
+    if (!p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["carriesVaccine"] ||
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
+      !p["vaccineSpotterStatus"]["lastCheckedAt"]) {
+      return null;
+    }
+
+    const status = p["vaccineSpotterStatus"];
+    const lastCheckedAt = DateTime.fromISO(status["lastCheckedAt"]);
+
+    const sixHoursAgo = DateTime.fromJSDate(new Date()).minus({ hours: 6 });
+    const reportedAvailable = status["appointmentsAvailable"] && (lastCheckedAt >= sixHoursAgo);
+
+    return reportedAvailable;
+  }
+
+  function getVaccineSpotterUpdatedAt(p) {
+    if (!p["vaccineSpotterStatus"] || !p["vaccineSpotterStatus"]["lastCheckedAt"]) {
+      return null;
+    }
+
+    return DateTime.fromISO(p["vaccineSpotterStatus"]["lastCheckedAt"]).toRelative();
+  }
+
+  function getVaccineSpotterURL(p) {
+    if (!p["vaccineSpotterStatus"] || !p["vaccineSpotterStatus"]["url"]) {
+      return null;
+    }
+
+    return p["vaccineSpotterStatus"]["url"];
+  }
+
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -219,6 +260,10 @@ function getDisplayableVaccineInfo(p) {
     latestReportDate: p["Latest report"],
     providerNotes: getProviderNotes(p),
     hasVaccine: getYesNo(p),
+    vaccineSpotterExists: hasVaccineSpotterInfo(p),
+    vaccineSpotterAppointmentAvailability: getVaccineSpotterAvailability(p),
+    vaccineSpotterUpdatedAt: getVaccineSpotterUpdatedAt(p),
+    vaccineSpotterURL: getVaccineSpotterURL(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
 }

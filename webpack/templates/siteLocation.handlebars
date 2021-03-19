@@ -90,6 +90,18 @@
           </div>
         </div>
       {{/if}}
+      {{#if appointmentInfo}}
+        <div class="px-4 py-4 items-center border-b border-gray-100 text-sm">
+          <span class="font-bold pe-2 flex flex-row">Availability from VaccineSpotter.org</span>
+          <div>
+            {{#if appointmentsAvailabile }}
+            Appointments are available as of {{appointmentUpdatedAt}}.
+            {{else}}
+            Appointments are not available as of {{appointmentUpdatedAt}}.
+            {{/if}}
+          </div>
+        </div>
+      {{/if}}
     {{/if}}
     </div>
   {{/if}}
