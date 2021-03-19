@@ -113,6 +113,11 @@ function addSitesToPage(sites, containerId) {
     loading.remove();
   }
   containerElem.innerHTML = fragmentElem.innerHTML;
+
+  const copyButton = document.querySelector(".site_copy_button");
+  copyButton.addEventListener("click", (e) => {
+    alert("copied!");
+  });
 }
 
 function addSitesOrHideIfEmpty(sites, containerId) {

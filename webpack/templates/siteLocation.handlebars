@@ -27,12 +27,17 @@
         {{/if}}
       </div>
     </div>
-    <!-- Last report on desktop -->
-    {{#if hasReport }}
-    <div
-      class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full hidden md:flex whitespace-nowrap"
-      >{{ lastReportTime  }}</div>
-    {{/if}}
+    <div class="flex flex-col">
+      <button
+        class="site_copy_button text-xs text-white bg-green-600 hover:bg-green-700 px-2 py-1 my-1 rounded-full self-end hidden md:flex whitespace-nowrap"
+        >Copy Text</button>
+      <!-- Last report on desktop -->
+      {{#if hasReport }}
+      <div
+        class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 my-1 rounded-full hidden md:flex whitespace-nowrap"
+        >{{ lastReportTime  }}</div>
+      {{/if}}
+    </div>
   </div>
   {{#if hasReport}}
     <div class="relative grid grid-cols-12 py-2">
