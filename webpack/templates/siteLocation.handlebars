@@ -30,7 +30,7 @@
     <!-- Last report on desktop -->
     {{#if hasReport }}
     <div
-      class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full hidden md:flex whitespace-nowrap"
+      class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full whitespace-nowrap"
       >{{ lastReportTime  }}</div>
     {{/if}}
   </div>
@@ -38,7 +38,7 @@
     <div class="relative grid grid-cols-12 py-2">
       <div
         class="site_vaccine_status py-2 px-4 h-full text-sm md:text-base
-        space-s-2 col-span-9 md:col-span-12"
+        space-s-2 col-span-12"
       >
         {{#if hasVaccine}}
         <div class="vaccine_available flex flex-row items-center space-s-2">
@@ -67,20 +67,13 @@
         </div>
         {{/if}}
       </div>
+    </div>
     {{#if hasVaccine}}
-      <div
-        class="site_last_report_date text-xs text-black bg-gray-200 px-2 py-1 rounded-full col-span-3 self-center justify-self-center md:hidden"
-        >{{ lastReportTime }}</div>
-      <!-- Divider -->
       {{#if restrictions}}
-      <div
-        class="col-span-12 border-b border-gray-100 my-2"
-      ></div>
-      <div class="py-2 px-4 h-full flex flex-col items-start text-sm col-span-12">
+      <div class="py-2 px-4 h-full flex flex-col items-start text-sm">
         {{#each restrictions}}
         <span>{{{this}}}</span>
         {{/each}}
-        </div>
       </div>
       {{/if}}
       {{#if appointmentRequired }}
