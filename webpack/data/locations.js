@@ -65,9 +65,13 @@ async function fetchSites() {
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
-    return (
-      p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
-    );
+    if (p["vaccineSpotterStatus"] && p["vaccineSpotterStatus"]["carriesVaccine"]) {
+      return true;
+    } else {
+      return (
+        p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
+      );
+    }
   } catch (_err) {
     return false;
   }
