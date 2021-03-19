@@ -95,9 +95,13 @@
           <span class="font-bold pe-2 flex flex-row">Availability from VaccineSpotter.org</span>
           <div>
             {{#if appointmentsAvailabile }}
-            Appointments are available as of {{appointmentUpdatedAt}}.
+              Appointments are available as of {{appointmentUpdatedAt}}.
+              <a class="rounded-full bg-green-600 text-white hover:bg-green-700
+                px-2" href="{{appointmentURL}}">Book Now</a>
             {{else}}
-            Appointments are not available as of {{appointmentUpdatedAt}}.
+              Appointments are not available as of {{appointmentUpdatedAt}}.
+              <span class="rounded-full cursor-not-allowed bg-gray-600 text-white hover:bg-gray-700
+                px-2">Book Now</a>
             {{/if}}
           </div>
         </div>
