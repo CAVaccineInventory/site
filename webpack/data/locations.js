@@ -1,6 +1,10 @@
 import { DateTime } from "luxon";
 import { markdownifyInline } from "../markdown";
 import { fetchProviders, findProviderByName } from "./providers.js";
+import {
+  fetchVaccineSpotterData,
+  getVaccineSpotterStatusForLocation,
+} from "./vaccine-spotter.js";
 
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
@@ -30,6 +34,7 @@ async function fetchSites() {
   _fetchedSites = fetchedData["content"];
 
   const providers = await fetchProviders();
+  const vsData = await fetchVaccineSpotterData();
 
   _fetchedSites.forEach((site) => {
     if (site["Affiliation"] === "None / Unknown / Unimportant") {
@@ -40,6 +45,15 @@ async function fetchSites() {
 
     if (provider) {
       site["Provider"] = provider;
+    }
+
+    const vaccineSpotterStatus = getVaccineSpotterStatusForLocation(
+      vsData,
+      site
+    );
+
+    if (vaccineSpotterStatus) {
+      site["vaccineSpotterStatus"] = vaccineSpotterStatus;
     }
   });
 
