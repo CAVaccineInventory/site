@@ -84,6 +84,9 @@ site_template:
   food_workers: Agriculture & food workers
   emergency_workers: Emergency service workers
   high_risk_individuals: High-risk individuals
+  copy_text: Copy Text
+  copied_text: Copied to Clipboard
+  vaccinating: Vaccinating
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 
