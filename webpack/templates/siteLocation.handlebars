@@ -91,19 +91,28 @@
         </div>
       {{/if}}
       {{#if appointmentInfo}}
-        <div class="px-4 py-4 items-center border-b border-gray-100 text-sm">
-          <span class="font-bold pe-2 flex flex-row">Availability from VaccineSpotter.org</span>
-          <div>
-            {{#if appointmentsAvailabile}}
-              Appointments are available as of {{appointmentUpdatedAt}}.
-              <a class="rounded-full bg-green-600 text-white hover:bg-green-700
-                px-2" href="{{appointmentURL}}">Book Now</a>
-            {{else}}
-              Appointments are not available as of {{appointmentUpdatedAt}}.
-              <span class="rounded-full cursor-not-allowed bg-gray-600 text-white hover:bg-gray-700
-                px-2">Book Now</a>
-            {{/if}}
+        <div class="px-4 py-4  border-b border-gray-100 text-sm flex
+          flex-col">
+          <div class="font-bold pe-2 flex flex-row">
+            Availability from VaccineSpotter.org
           </div>
+            {{#if appointmentsAvailabile}}
+              <p>
+                Appointments are available as of {{appointmentUpdatedAt}}.
+              </p>
+              <div>
+                <a class="rounded-full bg-green-600 text-white hover:bg-green-700
+                  px-4 py-2" href="{{appointmentURL}}">Book Now</a>
+              </div>
+            {{else}}
+              <p>
+                Appointments are not available as of {{appointmentUpdatedAt}}.
+              </p>
+              <div>
+                <a class="rounded-full bg-gray-400 text-white hover:bg-gray-600
+                  px-4 py-2" href="{{appointmentURL}}">Check Now</a>
+              </div>
+            {{/if}}
         </div>
       {{/if}}
     {{/if}}
