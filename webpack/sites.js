@@ -105,19 +105,15 @@ function addSitesToPage(sites, containerId) {
       providerInfo: info.providerNotes,
     };
 
-    fragmentElem.innerHTML += siteTemplate(context);
+    const range = document.createRange().createContextualFragment(siteTemplate(context));
+    range.querySelector('.site_copy_button').addEventListener('click', () => {
+      navigator.clipboard.writeText(buildCopyString(context));  
+    })
+    fragmentElem.appendChild(range);
   }
   const containerElem = document.getElementById(containerId);
-  const loading = containerElem.querySelector(".js-loading");
-  if (loading) {
-    loading.remove();
-  }
-  containerElem.innerHTML = fragmentElem.innerHTML;
-
-  const copyButton = document.querySelector(".site_copy_button");
-  copyButton.addEventListener("click", (e) => {
-    alert("copied!");
-  });
+  containerElem.innerHTML ='';
+  containerElem.appendChild(fragmentElem);
 }
 
 function addSitesOrHideIfEmpty(sites, containerId) {
@@ -129,6 +125,12 @@ function addSitesOrHideIfEmpty(sites, containerId) {
     container.parentElement.classList.remove("hidden");
     addSitesToPage(sites, containerId);
   }
+}
+
+function buildCopyString(context) {
+  // TODO: actually finish :)
+  return `${context.name} ${context.address}\n` +
+         `${context.hasVaccine ? context.hasVaccineLabel : context.noVaccine ? context.noVaccineLabel : context.unknownVaccineLabel}`
 }
 
 export { addSitesToPage, addSitesOrHideIfEmpty };
