@@ -1,6 +1,10 @@
 import { DateTime } from "luxon";
 import { markdownifyInline } from "../markdown";
 import { fetchProviders, findProviderByName } from "./providers.js";
+import {
+  fetchVaccineSpotterData,
+  getVaccineSpotterStatusForLocation,
+} from "./vaccine-spotter.js";
 
 // Calls the JSON feed to pull down sites data
 let isFetching = false;
@@ -30,6 +34,7 @@ async function fetchSites() {
   _fetchedSites = fetchedData["content"];
 
   const providers = await fetchProviders();
+  const vsData = await fetchVaccineSpotterData();
 
   _fetchedSites.forEach((site) => {
     if (site["Affiliation"] === "None / Unknown / Unimportant") {
@@ -41,6 +46,15 @@ async function fetchSites() {
     if (provider) {
       site["Provider"] = provider;
     }
+
+    const vaccineSpotterStatus = getVaccineSpotterStatusForLocation(
+      vsData,
+      site
+    );
+
+    if (vaccineSpotterStatus) {
+      site["vaccineSpotterStatus"] = vaccineSpotterStatus;
+    }
   });
 
   isFetching = false;
@@ -51,9 +65,16 @@ async function fetchSites() {
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
-    return (
-      p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
-    );
+    if (
+      p["vaccineSpotterStatus"] &&
+      p["vaccineSpotterStatus"]["carriesVaccine"]
+    ) {
+      return true;
+    } else {
+      return (
+        p["Latest report yes?"] == 1 && p["Location Type"] != "Test Location"
+      );
+    }
   } catch (_err) {
     return false;
   }
@@ -186,6 +207,58 @@ function getDisplayableVaccineInfo(p) {
     return markdownifyInline(p["Provider"]["Public Notes"]);
   }
 
+  function hasVaccineSpotterInfo(p) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["carriesVaccine"]
+    ) {
+      return null;
+    }
+
+    return p["vaccineSpotterStatus"]["carriesVaccine"];
+  }
+
+  function getVaccineSpotterAvailability(p) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["carriesVaccine"] ||
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
+      !p["vaccineSpotterStatus"]["lastCheckedAt"]
+    ) {
+      return null;
+    }
+
+    const status = p["vaccineSpotterStatus"];
+    const lastCheckedAt = DateTime.fromISO(status["lastCheckedAt"]);
+
+    const sixHoursAgo = DateTime.fromJSDate(new Date()).minus({ hours: 6 });
+    const reportedAvailable =
+      status["appointmentsAvailable"] && lastCheckedAt >= sixHoursAgo;
+
+    return reportedAvailable;
+  }
+
+  function getVaccineSpotterUpdatedAt(p) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["lastCheckedAt"]
+    ) {
+      return null;
+    }
+
+    return DateTime.fromISO(
+      p["vaccineSpotterStatus"]["lastCheckedAt"]
+    ).toRelative();
+  }
+
+  function getVaccineSpotterURL(p) {
+    if (!p["vaccineSpotterStatus"] || !p["vaccineSpotterStatus"]["url"]) {
+      return null;
+    }
+
+    return p["vaccineSpotterStatus"]["url"];
+  }
+
   return {
     status: getVaccineStatus(p),
     hasReport: hasReport,
@@ -201,6 +274,10 @@ function getDisplayableVaccineInfo(p) {
     latestReportDate: p["Latest report"],
     providerNotes: getProviderNotes(p),
     hasVaccine: getYesNo(p),
+    vaccineSpotterExists: hasVaccineSpotterInfo(p),
+    vaccineSpotterAppointmentAvailability: getVaccineSpotterAvailability(p),
+    vaccineSpotterUpdatedAt: getVaccineSpotterUpdatedAt(p),
+    vaccineSpotterURL: getVaccineSpotterURL(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
 }
