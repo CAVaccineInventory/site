@@ -65,7 +65,10 @@ async function fetchSites() {
 // Utilities for working with the JSON feed
 function getHasVaccine(p) {
   try {
-    if (p["vaccineSpotterStatus"] && p["vaccineSpotterStatus"]["carriesVaccine"]) {
+    if (
+      p["vaccineSpotterStatus"] &&
+      p["vaccineSpotterStatus"]["carriesVaccine"]
+    ) {
       return true;
     } else {
       return (
@@ -205,7 +208,10 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function hasVaccineSpotterInfo(p) {
-    if (!p["vaccineSpotterStatus"] || !p["vaccineSpotterStatus"]["carriesVaccine"]) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["carriesVaccine"]
+    ) {
       return null;
     }
 
@@ -213,10 +219,12 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function getVaccineSpotterAvailability(p) {
-    if (!p["vaccineSpotterStatus"] ||
+    if (
+      !p["vaccineSpotterStatus"] ||
       !p["vaccineSpotterStatus"]["carriesVaccine"] ||
       !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
-      !p["vaccineSpotterStatus"]["lastCheckedAt"]) {
+      !p["vaccineSpotterStatus"]["lastCheckedAt"]
+    ) {
       return null;
     }
 
@@ -224,17 +232,23 @@ function getDisplayableVaccineInfo(p) {
     const lastCheckedAt = DateTime.fromISO(status["lastCheckedAt"]);
 
     const sixHoursAgo = DateTime.fromJSDate(new Date()).minus({ hours: 6 });
-    const reportedAvailable = status["appointmentsAvailable"] && (lastCheckedAt >= sixHoursAgo);
+    const reportedAvailable =
+      status["appointmentsAvailable"] && lastCheckedAt >= sixHoursAgo;
 
     return reportedAvailable;
   }
 
   function getVaccineSpotterUpdatedAt(p) {
-    if (!p["vaccineSpotterStatus"] || !p["vaccineSpotterStatus"]["lastCheckedAt"]) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["lastCheckedAt"]
+    ) {
       return null;
     }
 
-    return DateTime.fromISO(p["vaccineSpotterStatus"]["lastCheckedAt"]).toRelative();
+    return DateTime.fromISO(
+      p["vaccineSpotterStatus"]["lastCheckedAt"]
+    ).toRelative();
   }
 
   function getVaccineSpotterURL(p) {
