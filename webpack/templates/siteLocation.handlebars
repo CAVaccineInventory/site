@@ -76,24 +76,11 @@
         {{/each}}
       </div>
       {{/if}}
-      {{#if appointmentRequired }}
-        <div
-          class="site_appointment_required px-4 py-4 flex flex-row items-center border-b border-gray-100 text-sm"
-        >
-        <div class="me-2 flex-none"><img src="/assets/img/calendar.svg" /></div>
-          <div>
-            <span class="font-bold pe-2"
-              >{{ appointmentRequiredLabel }}</span
-            >
-            <span dir="ltr" class="site_appointment_details text-black
-            word-break">{{{appointmentInstructions}}}</span>
-          </div>
-        </div>
-      {{/if}}
       {{#if appointmentInfo}}
         <div class="px-4 py-4  border-b border-gray-100 text-sm flex
           flex-col">
           <div class="font-bold pe-2 flex flex-row">
+            <img class="me-2" src="/assets/img/calendar.svg" />
             Availability from VaccineSpotter.org
           </div>
             {{#if appointmentsAvailabile}}
@@ -114,6 +101,21 @@
               </div>
             {{/if}}
         </div>
+      {{else}}
+        {{! Only show this section if we don't have VS data }}
+        {{#if appointmentRequired }}
+          <div
+            class="px-4 py-4 flex flex-row items-center border-b border-gray-100 text-sm"
+          >
+          <div class="me-2 flex-none"><img src="/assets/img/calendar.svg" /></div>
+            <div>
+              <span class="font-bold pe-2"
+                >{{ appointmentRequiredLabel }}</span
+              >
+              <span dir="ltr" class="text-black word-break">{{{appointmentInstructions}}}</span>
+            </div>
+          </div>
+        {{/if}}
       {{/if}}
     {{/if}}
     </div>
