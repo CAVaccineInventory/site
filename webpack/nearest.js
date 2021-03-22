@@ -422,7 +422,7 @@ async function updateSitesFromMap() {
 
     sitesToShow.sort((a, b) => a.distance - b.distance);
 
-    sitesToShow = sitesToShow.slice(0, 150);
+    sitesToShow = sitesToShow.slice(0, 50);
   }
 
   sortByRecency(sitesToShow);
