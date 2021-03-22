@@ -13,7 +13,7 @@ global:
   # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
   dir: rtl
 site_list:
-  vaccine_sites: اطلاعات واکسن در دست رست نیست
+  vaccine_sites: واکسن در دست رست
   no_vaccine_sites: واکسن موجود نیست
   no_report_sites: مکانهای بدون تماس
 
