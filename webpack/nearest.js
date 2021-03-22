@@ -408,7 +408,7 @@ async function updateSitesFromMap() {
 
   // If we cull too many sites from the bounds check, lets populate it with
   // proximity
-  if (sitesToShow.length < 50) {
+  if (sitesToShow.length < 10) {
     sitesToShow = window.filteredSites;
 
     for (const site of sitesToShow) {
