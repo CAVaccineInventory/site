@@ -194,25 +194,13 @@ function initCopyButton(copyButton, info) {
     await navigator.clipboard.writeText(copyString);
 
     copyButton.textContent = t("site_template.copied_text");
-    copyButton.classList.remove(
-      "bg-green-600",
-      "hover:bg-green-700",
-      "text-white"
-    );
-    copyButton.classList.add("bg-gray-200", "hover:bg-gray-300", "text-black");
+    copyButton.classList.remove("not_copied");
+    copyButton.classList.add("copied");
     copyButton.blur();
     if (lastInteractedCopyButton && lastInteractedCopyButton !== copyButton) {
       lastInteractedCopyButton.textContent = t("site_template.copy_text");
-      lastInteractedCopyButton.classList.remove(
-        "bg-gray-200",
-        "hover:bg-gray-300",
-        "text-black"
-      );
-      lastInteractedCopyButton.classList.add(
-        "bg-green-600",
-        "hover:bg-green-700",
-        "text-white"
-      );
+      lastInteractedCopyButton.classList.remove("copied");
+      lastInteractedCopyButton.classList.add("not_copied");
     }
     lastInteractedCopyButton = copyButton;
   });
