@@ -114,12 +114,13 @@ function getDisplayableVaccineInfo(p) {
       )
       .join(" | ");
   }
-  function getSchedulingInstructions(p) {
+  function getSchedulingInstructions(p, asHtml) {
     const instructions = p["Appointment scheduling instructions"];
     if (!Array.isArray(instructions)) {
       return null;
     }
-    return markdownifyInline(instructions.join(", "));
+    const joined = instructions.join(", ");
+    return asHtml ? markdownifyInline(joined) : joined;
   }
   function getRepNotes(p) {
     const notes = p["Latest report notes"];
@@ -263,7 +264,8 @@ function getDisplayableVaccineInfo(p) {
     status: getVaccineStatus(p),
     hasReport: hasReport,
     name: p["Name"],
-    schedulingInstructions: getSchedulingInstructions(p),
+    schedulingInstructions: getSchedulingInstructions(p, true),
+    schedulingInstructionsPlainText: getSchedulingInstructions(p, false),
     address: p["Address"] || null,
     reportNotes: getRepNotes(p),
     longitude: p["Longitude"],
