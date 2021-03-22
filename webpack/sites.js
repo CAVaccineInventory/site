@@ -176,7 +176,9 @@ function initCopyButton(copyButton, info) {
       appointmentInfo += ` (${info.vaccineSpotterURL})\n`;
     } else if (info.isAppointmentRequired) {
       appointmentInfo = `${generateAppointmentRequiredLabel(info)}`;
-      appointmentInfo += info.schedulingInstructionsPlainText ? ` (${info.schedulingInstructionsPlainText})\n` : '\n';
+      appointmentInfo += info.schedulingInstructionsPlainText
+        ? ` (${info.schedulingInstructionsPlainText})\n`
+        : "\n";
     }
 
     const restrictions = generateRestrictions(info, true);
