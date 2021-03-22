@@ -397,7 +397,7 @@ async function updateSitesFromMap() {
     .forEach((site) => (site.innerHTML = ""));
 
   const bounds = window.map.getBounds();
-  const sitesToShow = window.filteredSites.filter((site) => {
+  let sitesToShow = window.filteredSites.filter((site) => {
     const { latitude, longitude } = getCoord(site);
     if (!latitude || !longitude) {
       return false;
@@ -405,6 +405,25 @@ async function updateSitesFromMap() {
 
     return bounds.contains({ lat: latitude, lng: longitude });
   });
+
+  // If we cull too many sites from the bounds check, lets populate it with
+  // proximity
+  if (sitesToShow.length < 50) {
+    sitesToShow = window.filteredSites;
+
+    for (const site of sitesToShow) {
+      const center = {
+        latitude: window.map.getCenter().lat(),
+        longitude: window.map.getCenter().lng(),
+      };
+      const siteCoord = getCoord(site);
+      site.distance = distanceBetweenCoordinates(center, siteCoord);
+    }
+
+    sitesToShow.sort((a, b) => a.distance - b.distance);
+
+    sitesToShow = sitesToShow.slice(0, 150);
+  }
 
   sortByRecency(sitesToShow);
 
@@ -432,6 +451,20 @@ function moveMap(coordinates) {
     map.setCenter(mapCoord);
     map.setZoom(12);
   });
+}
+
+// https://github.com/skalnik/aqi-wtf/blob/main/app.js#L238-L250
+function distanceBetweenCoordinates(coord1, coord2) {
+  const p = Math.PI / 180;
+  const a =
+   0.5 -
+   Math.cos((coord2.latitude - coord1.latitude) * p) / 2 +
+   (Math.cos(coord1.latitude * p) *
+     Math.cos(coord2.latitude * p) *
+     (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
+     2;
+  // 12742 is the diameter of earth in km
+  return 12742 * Math.asin(Math.sqrt(a));
 }
 
 // https://www.freecodecamp.org/news/javascript-debounce-example/
