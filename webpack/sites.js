@@ -175,9 +175,8 @@ function initCopyButton(copyButton, info) {
         : `Appointments are not available as of ${info.vaccineSpotterUpdatedAt}`;
       appointmentInfo += ` (${info.vaccineSpotterURL})\n`;
     } else if (info.isAppointmentRequired) {
-      appointmentInfo = `${generateAppointmentRequiredLabel(info)} (${
-        info.schedulingInstructionsPlainText
-      })\n`;
+      appointmentInfo = `${generateAppointmentRequiredLabel(info)}`;
+      appointmentInfo += info.schedulingInstructionsPlainText ? ` (${info.schedulingInstructionsPlainText})\n` : '\n';
     }
 
     const restrictions = generateRestrictions(info, true);
