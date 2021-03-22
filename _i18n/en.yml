@@ -87,6 +87,8 @@ site_template:
   copy_text: Copy Text
   copied_text: Copied to Clipboard
   vaccinating: Vaccinating
+  appointments_available: Appointments are available as of {{time}}.
+  appointments_unavailable: Appointments are not available as of {{time}}.
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 

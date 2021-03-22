@@ -88,9 +88,9 @@
             <img class="me-2" src="/assets/img/calendar.svg" />
             Availability from VaccineSpotter.org
           </div>
-            {{#if appointmentsAvailabile}}
+            {{#if appointmentsAvailable}}
               <p>
-                Appointments are available as of {{appointmentUpdatedAt}}.
+                {{appointmentsAvailableLabel}}
               </p>
               <div>
                 <a class="rounded-full bg-green-600 text-white hover:bg-green-700
@@ -98,7 +98,7 @@
               </div>
             {{else}}
               <p>
-                Appointments are not available as of {{appointmentUpdatedAt}}.
+                {{appointmentsUnavailableLabel}}
               </p>
               <div>
                 <a class="rounded-full bg-gray-400 text-white hover:bg-gray-600
