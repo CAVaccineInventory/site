@@ -59,8 +59,13 @@ function addSitesToPage(sites, containerId) {
       appointmentInstructions: info.schedulingInstructions,
       appointmentInfo: info.vaccineSpotterExists,
       appointmentsAvailable: info.vaccineSpotterAppointmentAvailability,
-      appointmentsAvailableLabel: t("site_template.appointments_available", {time: info.vaccineSpotterUpdatedAt}),
-      appointmentsUnavailableLabel: t("site_template.appointments_unavailable", {time: info.vaccineSpotterUpdatedAt}),
+      appointmentsAvailableLabel: t("site_template.appointments_available", {
+        time: info.vaccineSpotterUpdatedAt,
+      }),
+      appointmentsUnavailableLabel: t(
+        "site_template.appointments_unavailable",
+        { time: info.vaccineSpotterUpdatedAt }
+      ),
       appointmentUpdatedAt: info.vaccineSpotterUpdatedAt,
       appointmentURL: info.vaccineSpotterURL,
       latestNotesLabel: t("global.latest_info"),
@@ -69,9 +74,11 @@ function addSitesToPage(sites, containerId) {
       providerInfoLabel: t("site_template.provider_info"),
       providerInfo: info.providerNotes,
       copyTextLabel: t("site_template.copy_text"),
-      availabilityVaccineSpotterLabel: t("site_template.availability_vaccinespotter"),
+      availabilityVaccineSpotterLabel: t(
+        "site_template.availability_vaccinespotter"
+      ),
       bookNowLabel: t("site_template.book_now"),
-      checkNowLabel: t("site_template.check_now")
+      checkNowLabel: t("site_template.check_now"),
     };
 
     const range = document
