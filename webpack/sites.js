@@ -69,6 +69,9 @@ function addSitesToPage(sites, containerId) {
       providerInfoLabel: t("site_template.provider_info"),
       providerInfo: info.providerNotes,
       copyTextLabel: t("site_template.copy_text"),
+      availabilityVaccineSpotterLabel: t("site_template.availability_vaccinespotter"),
+      bookNowLabel: t("site_template.book_now"),
+      checkNowLabel: t("site_template.check_now")
     };
 
     const range = document

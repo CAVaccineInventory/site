@@ -87,6 +87,9 @@ site_template:
   copy_text: Copy Text
   copied_text: Copied to Clipboard
   vaccinating: Vaccinating
+  availability_vaccinespotter: Availability from VaccineSpotter.org
+  book_now: Book Now
+  check_now: Check Now
   appointments_available: Appointments are available as of {{time}}.
   appointments_unavailable: Appointments are not available as of {{time}}.
 not_found:
