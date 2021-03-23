@@ -40,7 +40,7 @@ nearest:
   vaccine_unknown: Unknown vaccine status
   patient_info: Patient Info
   age: Show all ages
-  under_65: Under 65
+  under_50: Under 50
   profession: Show all professions
   no_profession: None of these professions
   education_profession: Education or childcare worker

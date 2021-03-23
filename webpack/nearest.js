@@ -222,6 +222,8 @@ async function updateSitesOnMap() {
           filters.push("Yes: vaccinating 70+");
         case "65":
           filters.push("Yes: vaccinating 65+");
+        case "50":
+          filters.push("Yes: vaccinating 50+");
         case "16":
           filters.push("Yes: vaccinating 18+");
           filters.push("Yes: vaccinating 16+");
