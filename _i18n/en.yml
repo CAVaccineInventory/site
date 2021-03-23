@@ -192,8 +192,10 @@ about_us:
     they tell us, and publish it to this site.
   equity_title: Our Commitment to Equitable Access to Vaccine Information
   equity: |
-    Nationwide evidence indicates that, despite being more severely affected by
-    the covid-19 pandemic, members of marginalized communities have received
+    <a
+    href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">Nationwide
+    evidence</a> indicates that, despite being more severely affected by the
+    covid-19 pandemic, members of marginalized communities have received
     disproportionately fewer vaccines than those with more resources.
 
     VaccinateCA is committed to ensuring that those with historical
