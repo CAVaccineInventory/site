@@ -7,7 +7,6 @@
 
   <body>
     <script src="/assets/js/county-page.js"></script>
-    <p id="js-county-name" class="hidden">{{ page.title }}</p>
 
     <div>
       {% include header.html %}
@@ -15,7 +14,7 @@
         <div class="md:pb-6">
           <div class="main-content px-4 md:px-8">
             <div>
-              <ul class="js-county-policy"></ul>
+              <ul id="js-county-policy" data-county="{{ page.title }}"></ul>
               <p class="text-lg md:text-xl mt-3">{% tf county_header.html %}</p>
               <div class="text-sm">
                 <p>{% t pre_list_disclaimer.disclaimer %}</p>

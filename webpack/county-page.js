@@ -16,7 +16,7 @@ window.addEventListener("load", fetchCountySites);
 window.addEventListener("load", fetchCountyCard);
 
 function currentCounty() {
-  return document.getElementById("js-county-name").textContent.trim();
+  return document.getElementById("js-county-policy").dataset.county;
 }
 
 async function fetchCountySites() {
@@ -73,7 +73,7 @@ async function fetchCountyCard() {
     latestInfo: t("global.latest_info"),
   };
 
-  document.querySelector(".js-county-policy").innerHTML = policyTemplate(
+  document.getElementById("js-county-policy").innerHTML = policyTemplate(
     templateInfo
   );
 }
