@@ -16,8 +16,6 @@ function lookup(key, translations) {
   return val;
 }
 
-
-
 export function t(key, values = {}, lang = undefined) {
   if (lang) {
     lang = document.documentElement.getAttribute("lang");
@@ -39,7 +37,7 @@ export function t(key, values = {}, lang = undefined) {
 
   if (values && str) {
     for (const key in values) {
-      str =str.replaceAll(`{{${key}}}`, values[key])
+      str = str.replaceAll(`{{${key}}}`, values[key]);
     }
   }
   return str;

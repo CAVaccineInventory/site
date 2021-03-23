@@ -47,11 +47,8 @@ function addSitesToPage(sites, containerId) {
       addressLink: addressLink,
       hasReport: info.hasReport,
       hasVaccine: info.hasVaccine == "Yes",
-      hasVaccineLabel: t("nearest.vaccines_available"),
       noVaccine: info.hasVaccine == "No",
-      noVaccineLabel: t("nearest.vaccines_not_available"),
       unknownVaccine: info.hasVaccine == "Unknown",
-      unknownVaccineLabel: t("nearest.vaccine_unknown"),
       lastReportTime: latestReportTime,
       restrictions: restrictions,
       appointmentRequired: info.isAppointmentRequired,
@@ -59,19 +56,10 @@ function addSitesToPage(sites, containerId) {
       appointmentInstructions: info.schedulingInstructions,
       appointmentInfo: info.vaccineSpotterExists,
       appointmentsAvailable: info.vaccineSpotterAppointmentAvailability,
-      appointmentsAvailableLabel: t("site_template.appointments_available", {time: info.vaccineSpotterUpdatedAt}),
-      appointmentsUnavailableLabel: t("site_template.appointments_unavailable", {time: info.vaccineSpotterUpdatedAt}),
       appointmentUpdatedAt: info.vaccineSpotterUpdatedAt,
       appointmentURL: info.vaccineSpotterURL,
-      latestNotesLabel: t("global.latest_info"),
       notes: notes,
-      noReports: t("site_template.no_reports"),
-      providerInfoLabel: t("site_template.provider_info"),
       providerInfo: info.providerNotes,
-      copyTextLabel: t("site_template.copy_text"),
-      availabilityVaccineSpotterLabel: t("site_template.availability_vaccinespotter"),
-      bookNowLabel: t("site_template.book_now"),
-      checkNowLabel: t("site_template.check_now")
     };
 
     const range = document
