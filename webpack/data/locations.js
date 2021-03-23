@@ -67,7 +67,8 @@ function getHasVaccine(p) {
   try {
     if (
       p["vaccineSpotterStatus"] &&
-      p["vaccineSpotterStatus"]["carriesVaccine"]
+      (p["vaccineSpotterStatus"]["carriesVaccine"] ||
+        p["vaccineSpotterStatus"]["appointmentsAvailable"])
     ) {
       return true;
     } else {
@@ -209,20 +210,12 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function hasVaccineSpotterInfo(p) {
-    if (
-      !p["vaccineSpotterStatus"] ||
-      !p["vaccineSpotterStatus"]["carriesVaccine"]
-    ) {
-      return null;
-    }
-
-    return p["vaccineSpotterStatus"]["carriesVaccine"];
+    return !!p["vaccineSpotterStatus"];
   }
 
   function getVaccineSpotterAvailability(p) {
     if (
       !p["vaccineSpotterStatus"] ||
-      !p["vaccineSpotterStatus"]["carriesVaccine"] ||
       !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
       !p["vaccineSpotterStatus"]["lastCheckedAt"]
     ) {
