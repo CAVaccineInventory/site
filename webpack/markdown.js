@@ -38,7 +38,7 @@ function customMarked() {
 }
 
 function markdownify(str) {
-  return sanitizeHtml(customMarked()(str, newTabLinkRenderer));
+  return sanitizeHtml(customMarked()(str));
 }
 
 function markdownifyInline(str) {
