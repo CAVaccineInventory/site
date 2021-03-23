@@ -44,6 +44,9 @@ module.exports = {
       {
         test: /\.handlebars$/,
         loader: "handlebars-loader",
+        options: {
+          helperDirs: [path.resolve(__dirname, "webpack/handlebars-helpers")],
+        },
       },
     ],
   },

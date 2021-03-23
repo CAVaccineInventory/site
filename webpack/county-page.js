@@ -10,7 +10,6 @@ import { fetchCounties } from "./data/counties.js";
 import policyTemplate from "./templates/policy.handlebars";
 import marked from "marked";
 import sanitizeHtml from "sanitize-html";
-import { t } from "./i18n.js";
 
 window.addEventListener("load", fetchCountySites);
 window.addEventListener("load", fetchCountyCard);
@@ -60,17 +59,12 @@ async function fetchCountyCard() {
   const templateInfo = {
     name: countyPolicy["County"],
     infoURL: countyPolicy["Vaccine info URL"],
-    infoLabel: t("policy.vaccine_info"),
     locationsURL: countyPolicy["Vaccine locations URL"],
-    locationsLabel: t("policy.vaccine_locations"),
     volunteering: countyPolicy["Official volunteering opportunities"],
-    volunteeringLabel: t("policy.volunteer_opportunities"),
     reservationURL: countyPolicy["countyPolicy vaccination reservations URL"],
-    reservationLabel: t("policy.vaccine_appointments"),
     facebook: countyPolicy["Facebook Page"],
     twitter: countyPolicy["Twitter Page"],
     notes: notes,
-    latestInfo: t("global.latest_info"),
   };
 
   document.getElementById("js-county-policy").innerHTML = policyTemplate(

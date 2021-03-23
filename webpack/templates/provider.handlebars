@@ -8,17 +8,17 @@
     gap-1 border-b border-gray-200">
     <div class="p-3 {{#unless infoURL}}hidden md:block{{/unless}}">
       {{#if infoURL}}
-        <a href="{{infoURL}}">{{infoLabel}}</a>
+        <a href="{{infoURL}}">{{t "provider.info"}}</a>
       {{/if}}
     </div>
     <div class="p-3 {{#unless locationURL}}hidden md:block{{/unless}}">
       {{#if locationURL}}
-        <a href="{{locationURL}}">{{locationLabel}}</a>
+        <a href="{{locationURL}}">{{t "provider.locations"}}</a>
       {{/if}}
     </div>
     <div class="p-3 {{#unless appointmentURL}}hidden md:block{{/unless}}">
       {{#if appointmentURL}}
-        <a href="{{appointmentURL}}">{{appointmentLabel}}</a>
+        <a href="{{appointmentURL}}">{{t "provider.appointments"}}</a>
       {{/if}}
     </div>
   </div>
