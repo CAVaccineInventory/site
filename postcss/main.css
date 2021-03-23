@@ -183,3 +183,11 @@ select {
 .site_vaccine_status.vaccine_unknown .vaccine_unknown {
   display: inline-block;
 }
+
+.site_copy_button.copied {
+  @apply bg-gray-200 hover:bg-gray-300 text-black;
+}
+
+.site_copy_button.not_copied {
+  @apply bg-green-600 hover:bg-green-700 text-white;
+}
