@@ -10,6 +10,10 @@ order: 5
 
 {% t about_us.intro_2 %}
 
+<h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
+  {% t about_us.equity_title %}
+</h2>
+
 {% t about_us.equity %}
 
 <h2 class="text-2xl font-bold leading-tight text-gray-900 mt-8 mb-4">
