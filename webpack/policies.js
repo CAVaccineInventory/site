@@ -3,7 +3,6 @@ import policyTemplate from "./templates/policy.handlebars";
 import autoComplete from "@tarekraafat/autocomplete.js";
 import counties from "./counties.js";
 import { markdownify } from "./markdown.js";
-import { t } from "./i18n.js";
 
 window.addEventListener("load", loaded);
 
@@ -87,17 +86,12 @@ async function loaded() {
     const templateInfo = {
       name: county["County"],
       id: countyToAnchor(county["County"]),
-      infoLabel: t("policy.vaccine_info"),
       infoURL: county["Vaccine info URL"],
-      locationsLabel: t("policy.vaccine_locations"),
       locationsURL: county["Vaccine locations URL"],
-      reservationLabel: t("policy.vaccine_appointments"),
       reservationURL: county["County vaccination reservations URL"],
-      volunteeringLabel: t("policy.volunteer_opportunities"),
       volunteeringURL: county["Official volunteering opportunities"],
       facebook: county["Facebook Page"],
       twitter: county["Twitter Page"],
-      latestInfo: t("global.latest_info"),
       notes: notes,
     };
 

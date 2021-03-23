@@ -56,29 +56,10 @@ function addSitesToPage(sites, containerId) {
       appointmentInstructions: info.schedulingInstructions,
       appointmentInfo: info.vaccineSpotterExists,
       appointmentsAvailable: info.vaccineSpotterAppointmentAvailability,
-<<<<<<< HEAD
-=======
-      appointmentsAvailableLabel: t("site_template.appointments_available", {
-        time: info.vaccineSpotterUpdatedAt,
-      }),
-      appointmentsUnavailableLabel: t(
-        "site_template.appointments_unavailable",
-        { time: info.vaccineSpotterUpdatedAt }
-      ),
->>>>>>> alec/loc-dynamic
       appointmentUpdatedAt: info.vaccineSpotterUpdatedAt,
       appointmentURL: info.vaccineSpotterURL,
       notes: notes,
       providerInfo: info.providerNotes,
-<<<<<<< HEAD
-=======
-      copyTextLabel: t("site_template.copy_text"),
-      availabilityVaccineSpotterLabel: t(
-        "site_template.availability_vaccinespotter"
-      ),
-      bookNowLabel: t("site_template.book_now"),
-      checkNowLabel: t("site_template.check_now"),
->>>>>>> alec/loc-dynamic
     };
 
     const range = document
