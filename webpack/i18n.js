@@ -17,7 +17,7 @@ function lookup(key, translations) {
 }
 
 export function t(key, values = {}, lang = undefined) {
-  if (lang) {
+  if (!lang) {
     lang = document.documentElement.getAttribute("lang");
   }
 
