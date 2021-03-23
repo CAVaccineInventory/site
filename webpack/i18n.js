@@ -37,7 +37,9 @@ export function t(key, values = {}, lang = undefined) {
 
   if (values && str) {
     for (const key in values) {
-      str = str.replaceAll(`{{${key}}}`, values[key]);
+      if (values.hasOwnProperty(key)) {
+        str = str.replace(`{{${key}}}`, values[key]);
+      }
     }
   }
   return str;
