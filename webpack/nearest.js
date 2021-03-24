@@ -432,7 +432,7 @@ async function updateSitesFromMap() {
     }
 
     moreSitesWithVaccine.sort((a, b) => a.distance - b.distance);
-    sitesWithVaccine.push(...moreSitesWithVaccine.slice(0,10));
+    sitesWithVaccine.push(...moreSitesWithVaccine.slice(0, 10));
   }
 
   sitesWithVaccine = sitesWithVaccine.slice(0, 50);
