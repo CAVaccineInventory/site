@@ -420,7 +420,9 @@ async function updateSitesFromMap() {
     const leftoverSites = window.filteredSites.filter((site) => {
       return !sitesDisplayedIds.has(site.id);
     });
-    const { sitesWithVaccine: moreSitesWithVaccine } = splitSitesByVaccineState(leftoverSites);
+    const { sitesWithVaccine: moreSitesWithVaccine } = splitSitesByVaccineState(
+      leftoverSites
+    );
 
     const center = {
       latitude: window.map.getCenter().lat(),
