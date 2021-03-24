@@ -34,6 +34,7 @@ function getVaccineSpotterStatusForLocation(vsData, location) {
   if (vsRecord) {
     return {
       appointmentsAvailable: vsRecord["properties"]["appointments_available"],
+      carriesVaccine: vsRecord["properties"]["carries_vaccine"],
       lastCheckedAt: vsRecord["properties"]["appointments_last_fetched"],
       url: vsRecord["properties"]["url"],
     };
