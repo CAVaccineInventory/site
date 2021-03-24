@@ -261,6 +261,7 @@ function getDisplayableVaccineInfo(p) {
   }
 
   return {
+    id: p["id"],
     status: getVaccineStatus(p),
     hasReport: hasReport,
     name: p["Name"],

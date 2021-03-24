@@ -397,7 +397,7 @@ async function updateSitesFromMap() {
     .forEach((site) => (site.innerHTML = ""));
 
   const bounds = window.map.getBounds();
-  let sitesToShow = window.filteredSites.filter((site) => {
+  const sitesToShow = window.filteredSites.filter((site) => {
     const { latitude, longitude } = getCoord(site);
     if (!latitude || !longitude) {
       return false;
@@ -406,25 +406,6 @@ async function updateSitesFromMap() {
     return bounds.contains({ lat: latitude, lng: longitude });
   });
 
-  // If we cull too many sites from the bounds check, lets populate it with
-  // proximity
-  if (sitesToShow.length < 10) {
-    sitesToShow = window.filteredSites;
-
-    for (const site of sitesToShow) {
-      const center = {
-        latitude: window.map.getCenter().lat(),
-        longitude: window.map.getCenter().lng(),
-      };
-      const siteCoord = getCoord(site);
-      site.distance = distanceBetweenCoordinates(center, siteCoord);
-    }
-
-    sitesToShow.sort((a, b) => a.distance - b.distance);
-
-    sitesToShow = sitesToShow.slice(0, 50);
-  }
-
   sortByRecency(sitesToShow);
 
   let {
@@ -432,6 +413,27 @@ async function updateSitesFromMap() {
     sitesWithoutVaccine,
     sitesWithNoReport,
   } = splitSitesByVaccineState(sitesToShow);
+
+  // If we cull too many sites from the bounds check, lets add some more
+  if (sitesWithVaccine.length < 10) {
+    const sitesDisplayedIds = new Set(sitesToShow.map((site) => site.id));
+    const leftoverSites = window.filteredSites.filter((site) => {
+      return !sitesDisplayedIds.has(site.id);
+    });
+    const { sitesWithVaccine: moreSitesWithVaccine } = splitSitesByVaccineState(leftoverSites);
+
+    const center = {
+      latitude: window.map.getCenter().lat(),
+      longitude: window.map.getCenter().lng(),
+    };
+    for (const site of moreSitesWithVaccine) {
+      const siteCoord = getCoord(site);
+      site.distance = distanceBetweenCoordinates(center, siteCoord);
+    }
+
+    moreSitesWithVaccine.sort((a, b) => a.distance - b.distance);
+    sitesWithVaccine.push(...moreSitesWithVaccine.slice(0,10));
+  }
 
   sitesWithVaccine = sitesWithVaccine.slice(0, 50);
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
