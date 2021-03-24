@@ -90,8 +90,8 @@ site_template:
   availability_vaccinespotter: Disponibilidad desde VaccineSpotter.org
   book_now: Reservar ahora
   check_now: Chequear ahora
-  appointments_available: "Citas están disponibles (desde {{time}})."
-  appointments_unavailable: "Citas no están disponibles (desde {{time}})."
+  appointments_available: "Citas están disponibles (información actualizada {{time}})."
+  appointments_unavailable: "Citas no están disponibles (información actualizada {{time}})."
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
