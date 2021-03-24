@@ -91,7 +91,7 @@ site_template:
   book_now: Reservar ahora
   check_now: Chequear ahora
   appointments_available: "Citas están disponibles (desde {{time}})."
-  appointments_unavailable: "Citas no están disponibles (desde {{time}})."
+  appointments_unavailable: "Citas no están disponibles (Información actualizada {{time}})."
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
