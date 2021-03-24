@@ -166,10 +166,9 @@ function getDisplayableVaccineInfo(p) {
       isAppointmentRequired:
         doesLocationHaveProp(p, "Yes: appointment required") ||
         doesLocationHaveProp(p, "Yes: appointment calendar currently full"),
-      isScheduleFull: doesLocationHaveProp(
-        p,
-        "Yes: appointment calendar currently full"
-      ) || getVaccineSpotterScheduleFull(p),
+      isScheduleFull:
+        doesLocationHaveProp(p, "Yes: appointment calendar currently full") ||
+        getVaccineSpotterScheduleFull(p),
       isComingSoon: doesLocationHaveProp(p, "Yes: coming soon"),
       secondDoseOnly: doesLocationHaveProp(p, "Scheduling second dose only"),
       isLimitedToPatients: doesLocationHaveProp(
@@ -241,7 +240,10 @@ function getDisplayableVaccineInfo(p) {
       return null;
     }
 
-    return p["vaccineSpotterStatus"]["carriesVaccine"] && !p["vaccineSpotterStatus"]["appointmentsAvailable"];
+    return (
+      p["vaccineSpotterStatus"]["carriesVaccine"] &&
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"]
+    );
   }
 
   function getVaccineSpotterUpdatedAt(p) {
