@@ -30,7 +30,7 @@
     <div class="flex flex-col">
       <button
         class="site_copy_button not_copied text-xs text-white bg-green-600 hover:bg-green-700 px-2 py-1 mb-1 rounded-full self-end whitespace-nowrap"
-        >{{ copyTextLabel }}</button>
+        >{{t "site_template.copy_text"}}</button>
       <!-- Last report on desktop -->
       {{#if hasReport }}
       <div
@@ -49,7 +49,7 @@
         <div class="vaccine_available flex flex-row items-center space-s-2">
           <img src="/assets/img/checkmark.svg" />
           <span class="font-sm font-bold text-green-600"
-            >{{ hasVaccineLabel }}</span
+            >{{t "nearest.vaccines_available"}}</span
           >
         </div>
         {{/if}}
@@ -58,7 +58,7 @@
         <div class="vaccine_not_available flex flex-row items-center space-s-2">
           <img src="/assets/img/missing.svg" />
           <span class="font-sm font-bold text-red-500"
-            >{{ noVaccineLabel }}</span
+            >{{t "nearest.vaccines_not_available"}}</span
           >
         </div>
         {{/if}}
@@ -67,7 +67,7 @@
         <div class="vaccine_unknown flex flex-row items-center space-s-2">
           <img src="/assets/img/question_mark.svg" />
           <span class="font-sm font-bold text-gray-400"
-            >{{ unknownVaccineLabel }}</span
+            >{{t "nearest.vaccine_unknown"}}</span
           >
         </div>
         {{/if}}
@@ -86,23 +86,23 @@
           flex-col">
           <div class="font-bold pe-2 flex flex-row">
             <img class="me-2" src="/assets/img/calendar.svg" />
-            Availability from VaccineSpotter.org
+            {{t "site_template.availability_vaccinespotter"}}
           </div>
-            {{#if appointmentsAvailabile}}
+            {{#if appointmentsAvailable}}
               <p>
-                Appointments are available as of {{appointmentUpdatedAt}}.
+                {{t "site_template.appointments_available" time=appointmentUpdatedAt}}
               </p>
               <div>
                 <a class="rounded-full bg-green-600 text-white hover:bg-green-700
-                  px-4 py-2" target="_blank" rel="noreferrer noopener nofollow" href="{{appointmentURL}}">Book Now</a>
+                  px-4 py-2" target="_blank" rel="noreferrer noopener nofollow" href="{{appointmentURL}}">{{t "site_template.book_now"}}</a>
               </div>
             {{else}}
               <p>
-                Appointments are not available as of {{appointmentUpdatedAt}}.
+                {{t "site_template.appointments_unavailable" time=appointmentUpdatedAt}}
               </p>
               <div>
                 <a class="rounded-full bg-gray-400 text-white hover:bg-gray-600
-                  px-4 py-2" target="_blank" rel="noreferrer noopener nofollow" href="{{appointmentURL}}">Check Now</a>
+                  px-4 py-2" target="_blank" rel="noreferrer noopener nofollow" href="{{appointmentURL}}">{{t "site_template.check_now"}}</a>
               </div>
             {{/if}}
         </div>
@@ -128,7 +128,7 @@
   {{#if providerInfo }}
     <div class="px-4 py-4 text-sm">
       <div class="flex flex-row">
-        <span class="font-bold pe-2">{{ providerInfoLabel }}</span>
+        <span class="font-bold pe-2">{{t "site_template.provider_info"}}</span>
       </div>
       <div dir="ltr" class="text-left word-break">
         {{{ providerInfo }}}
@@ -143,7 +143,7 @@
         <div class="w-full">
           <span class="font-bold pe-2 flex flex-row">
             <img class="inline pe-2" src="/assets/img/info.svg"
-                                     /><div>{{latestNotesLabel}}</div>
+                                     /><div>{{t "global.latest_info"}}</div>
           </span>
           <div dir="ltr" class="site_latest_info_details text-left text-black
                         word-break">{{{notes}}}</div>
@@ -152,7 +152,7 @@
     {{/if}}
   {{else}}
     <div class="site_no_report px-2 md:px-4 pt-3">
-      {{ noReports }}
+      {{t "site_template.no_reports"}}
     </div>
   {{/if}}
 </li>

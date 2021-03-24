@@ -40,7 +40,7 @@ nearest:
   vaccine_unknown: Estado de vacuna desconocido
   patient_info: Información del paciente
   age: Muestra todas las edades
-  under_65: Menores de 65 años
+  under_50: Menores de 50 años
   profession: Muestra todos los trabajos
   no_profession: Ninguno de estos trabajos
   education_profession: Trabajador de educación o cuidado infantil
@@ -84,6 +84,14 @@ site_template:
   food_workers: Trabajador agrícola o alimentario
   emergency_workers: Trabajador de servicios de emergencia
   high_risk_individuals: Persona de alto riesgo
+  copy_text: Copiar
+  copied_text: Copiada (puede pegarlo)
+  vaccinating: Vacunando
+  availability_vaccinespotter: Disponibilidad desde VaccineSpotter.org
+  book_now: Reservar ahora
+  check_now: Chequear ahora
+  appointments_available: "Citas están disponibles (información actualizada {{time}})."
+  appointments_unavailable: "Citas no están disponibles (información actualizada {{time}})."
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
