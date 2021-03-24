@@ -130,7 +130,7 @@ function generateRestrictions(info, plainText = false) {
       "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx";
     const link = plainText
       ? `${t("site_template.high_risk_individuals")} (${url})`
-      : `<a href=${url}>${t("site_template.high_risk_individuals")}</a>`;
+      : `<a target="_blank" href=${url}>${t("site_template.high_risk_individuals")}</a>`;
     restrictions.push(link);
   }
   return restrictions;
