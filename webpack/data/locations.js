@@ -247,9 +247,7 @@ function getDisplayableVaccineInfo(p) {
       return null;
     }
 
-    return DateTime.fromISO(
-      p["vaccineSpotterStatus"]["lastCheckedAt"]
-    ).toRelative();
+    return getTimeDiffFromNow(p["vaccineSpotterStatus"]["lastCheckedAt"]);
   }
 
   function getVaccineSpotterURL(p) {
