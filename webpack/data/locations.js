@@ -67,7 +67,8 @@ function getHasVaccine(p) {
   try {
     if (
       p["vaccineSpotterStatus"] &&
-      p["vaccineSpotterStatus"]["carriesVaccine"]
+      (p["vaccineSpotterStatus"]["carriesVaccine"] ||
+        p["vaccineSpotterStatus"]["appointmentsAvailable"])
     ) {
       return true;
     } else {
@@ -165,10 +166,9 @@ function getDisplayableVaccineInfo(p) {
       isAppointmentRequired:
         doesLocationHaveProp(p, "Yes: appointment required") ||
         doesLocationHaveProp(p, "Yes: appointment calendar currently full"),
-      isScheduleFull: doesLocationHaveProp(
-        p,
-        "Yes: appointment calendar currently full"
-      ),
+      isScheduleFull:
+        doesLocationHaveProp(p, "Yes: appointment calendar currently full") ||
+        getVaccineSpotterScheduleFull(p),
       isComingSoon: doesLocationHaveProp(p, "Yes: coming soon"),
       secondDoseOnly: doesLocationHaveProp(p, "Scheduling second dose only"),
       isLimitedToPatients: doesLocationHaveProp(
@@ -209,20 +209,12 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function hasVaccineSpotterInfo(p) {
-    if (
-      !p["vaccineSpotterStatus"] ||
-      !p["vaccineSpotterStatus"]["carriesVaccine"]
-    ) {
-      return null;
-    }
-
-    return p["vaccineSpotterStatus"]["carriesVaccine"];
+    return !!p["vaccineSpotterStatus"];
   }
 
   function getVaccineSpotterAvailability(p) {
     if (
       !p["vaccineSpotterStatus"] ||
-      !p["vaccineSpotterStatus"]["carriesVaccine"] ||
       !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
       !p["vaccineSpotterStatus"]["lastCheckedAt"]
     ) {
@@ -237,6 +229,21 @@ function getDisplayableVaccineInfo(p) {
       status["appointmentsAvailable"] && lastCheckedAt >= sixHoursAgo;
 
     return reportedAvailable;
+  }
+
+  function getVaccineSpotterScheduleFull(p) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
+      !p["vaccineSpotterStatus"]["carriesVaccine"]
+    ) {
+      return null;
+    }
+
+    return (
+      p["vaccineSpotterStatus"]["carriesVaccine"] &&
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"]
+    );
   }
 
   function getVaccineSpotterUpdatedAt(p) {
