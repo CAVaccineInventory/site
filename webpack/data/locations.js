@@ -209,8 +209,11 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function hasVaccineSpotterInfo(p) {
-    return p["vaccineSpotterStatus"] &&
-      (p["vaccineSpotterStatus"]["carriesVaccine"] || p["vaccineSpotterStatus"]["appointmentsAvailable"]);
+    return (
+      p["vaccineSpotterStatus"] &&
+      (p["vaccineSpotterStatus"]["carriesVaccine"] ||
+        p["vaccineSpotterStatus"]["appointmentsAvailable"])
+    );
   }
 
   function getVaccineSpotterAvailability(p) {
