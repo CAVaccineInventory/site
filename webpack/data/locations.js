@@ -67,7 +67,8 @@ function getHasVaccine(p) {
   try {
     if (
       p["vaccineSpotterStatus"] &&
-      p["vaccineSpotterStatus"]["carriesVaccine"]
+      (p["vaccineSpotterStatus"]["carriesVaccine"] ||
+        p["vaccineSpotterStatus"]["appointmentsAvailable"])
     ) {
       return true;
     } else {
@@ -165,10 +166,9 @@ function getDisplayableVaccineInfo(p) {
       isAppointmentRequired:
         doesLocationHaveProp(p, "Yes: appointment required") ||
         doesLocationHaveProp(p, "Yes: appointment calendar currently full"),
-      isScheduleFull: doesLocationHaveProp(
-        p,
-        "Yes: appointment calendar currently full"
-      ),
+      isScheduleFull:
+        doesLocationHaveProp(p, "Yes: appointment calendar currently full") ||
+        getVaccineSpotterScheduleFull(p),
       isComingSoon: doesLocationHaveProp(p, "Yes: coming soon"),
       secondDoseOnly: doesLocationHaveProp(p, "Scheduling second dose only"),
       isLimitedToPatients: doesLocationHaveProp(
@@ -209,20 +209,16 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function hasVaccineSpotterInfo(p) {
-    if (
-      !p["vaccineSpotterStatus"] ||
-      !p["vaccineSpotterStatus"]["carriesVaccine"]
-    ) {
-      return null;
-    }
-
-    return p["vaccineSpotterStatus"]["carriesVaccine"];
+    return (
+      p["vaccineSpotterStatus"] &&
+      (p["vaccineSpotterStatus"]["carriesVaccine"] ||
+        p["vaccineSpotterStatus"]["appointmentsAvailable"])
+    );
   }
 
   function getVaccineSpotterAvailability(p) {
     if (
       !p["vaccineSpotterStatus"] ||
-      !p["vaccineSpotterStatus"]["carriesVaccine"] ||
       !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
       !p["vaccineSpotterStatus"]["lastCheckedAt"]
     ) {
@@ -239,6 +235,21 @@ function getDisplayableVaccineInfo(p) {
     return reportedAvailable;
   }
 
+  function getVaccineSpotterScheduleFull(p) {
+    if (
+      !p["vaccineSpotterStatus"] ||
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"] ||
+      !p["vaccineSpotterStatus"]["carriesVaccine"]
+    ) {
+      return null;
+    }
+
+    return (
+      p["vaccineSpotterStatus"]["carriesVaccine"] &&
+      !p["vaccineSpotterStatus"]["appointmentsAvailable"]
+    );
+  }
+
   function getVaccineSpotterUpdatedAt(p) {
     if (
       !p["vaccineSpotterStatus"] ||
@@ -247,9 +258,7 @@ function getDisplayableVaccineInfo(p) {
       return null;
     }
 
-    return DateTime.fromISO(
-      p["vaccineSpotterStatus"]["lastCheckedAt"]
-    ).toRelative();
+    return getTimeDiffFromNow(p["vaccineSpotterStatus"]["lastCheckedAt"]);
   }
 
   function getVaccineSpotterURL(p) {
@@ -334,7 +343,22 @@ function filterSitesByAvailability(sites, filters) {
     return sites;
   }
 
+  const baseFilters = [
+    "Yes: appointment calendar currently full",
+    "Yes: appointment required",
+    "Yes: restricted to county residents",
+    "Yes: restricted to city residents",
+    "Yes: must be a current patient",
+  ];
+
   return sites.filter((site) => {
+    // If the only tags a site has are those in these unfiltered tags, lets
+    // always show it
+    if (
+      site["Availability Info"].every((value) => baseFilters.includes(value))
+    ) {
+      return true;
+    }
     return site["Availability Info"].some((value) => filters.includes(value));
   });
 }
