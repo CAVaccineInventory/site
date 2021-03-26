@@ -349,7 +349,7 @@ function filterSitesByAvailability(sites, filters) {
   return sites.filter((site) => {
     // If the only tags a site has are those in these unfiltered tags, lets
     // always show it
-    if (site["Availability Info"].all((value) => baseFilters.include(value))) {
+    if (site["Availability Info"].every((value) => baseFilters.include(value))) {
       return true;
     }
     return site["Availability Info"].some((value) => filters.includes(value));
