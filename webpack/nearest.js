@@ -204,7 +204,14 @@ async function updateSitesOnMap() {
       return getHasVaccine(site);
     });
 
-    const filters = [];
+    // Include yeses we don't filter on
+    const filters = [
+      "Yes: appointment calendar currently full",
+      "Yes: appointment required",
+      "Yes: restricted to county residents",
+      "Yes: restricted to city residents",
+      "Yes: must be a current patient",
+    ];
 
     const ageFilter = document.getElementById("js-age-filter");
     if (ageFilter) {
