@@ -338,7 +338,20 @@ function filterSitesByAvailability(sites, filters) {
     return sites;
   }
 
+  const baseFilters = [
+    "Yes: appointment calendar currently full",
+    "Yes: appointment required",
+    "Yes: restricted to county residents",
+    "Yes: restricted to city residents",
+    "Yes: must be a current patient",
+  ];
+
   return sites.filter((site) => {
+    // If the only tags a site has are those in these unfiltered tags, lets
+    // always show it
+    if (site["Availability Info"].all((value) => baseFilters.include(value))) {
+      return true;
+    }
     return site["Availability Info"].some((value) => filters.includes(value));
   });
 }
