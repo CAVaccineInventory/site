@@ -349,6 +349,9 @@ function filterSitesByAvailability(sites, filters) {
     "Yes: restricted to county residents",
     "Yes: restricted to city residents",
     "Yes: must be a current patient",
+    "Eligibility determined by state website",
+    "Eligibility determined by county website",
+    "Eligibility determined by provider website",
   ];
 
   return sites.filter((site) => {
