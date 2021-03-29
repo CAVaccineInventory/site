@@ -414,6 +414,29 @@ async function updateSitesFromMap() {
     sitesWithNoReport,
   } = splitSitesByVaccineState(sitesToShow);
 
+  // If we cull too many sites from the bounds check, lets add some more
+  if (sitesWithVaccine.length < 10) {
+    const sitesDisplayedIds = new Set(sitesToShow.map((site) => site.id));
+    const leftoverSites = window.filteredSites.filter((site) => {
+      return !sitesDisplayedIds.has(site.id);
+    });
+    const { sitesWithVaccine: moreSitesWithVaccine } = splitSitesByVaccineState(
+      leftoverSites
+    );
+
+    const center = {
+      latitude: window.map.getCenter().lat(),
+      longitude: window.map.getCenter().lng(),
+    };
+    for (const site of moreSitesWithVaccine) {
+      const siteCoord = getCoord(site);
+      site.distance = distanceBetweenCoordinates(center, siteCoord);
+    }
+
+    moreSitesWithVaccine.sort((a, b) => a.distance - b.distance);
+    sitesWithVaccine.push(...moreSitesWithVaccine.slice(0, 10));
+  }
+
   sitesWithVaccine = sitesWithVaccine.slice(0, 50);
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
   sitesWithNoReport = sitesWithNoReport.slice(0, 50);
@@ -432,6 +455,20 @@ function moveMap(coordinates) {
     map.setCenter(mapCoord);
     map.setZoom(12);
   });
+}
+
+// https://github.com/skalnik/aqi-wtf/blob/03e5090f8af3d6bf7aea47cd27e9d089103a877f/app.js#L238-L250
+function distanceBetweenCoordinates(coord1, coord2) {
+  const p = Math.PI / 180;
+  const a =
+    0.5 -
+    Math.cos((coord2.latitude - coord1.latitude) * p) / 2 +
+    (Math.cos(coord1.latitude * p) *
+      Math.cos(coord2.latitude * p) *
+      (1 - Math.cos((coord2.longitude - coord1.longitude) * p))) /
+      2;
+  // 12742 is the diameter of earth in km
+  return 12742 * Math.asin(Math.sqrt(a));
 }
 
 // https://www.freecodecamp.org/news/javascript-debounce-example/
