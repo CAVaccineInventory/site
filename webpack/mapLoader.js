@@ -1,6 +1,3 @@
-import { getHasVaccine, fetchSites } from "./data/locations.js";
-import { addLocation } from "./map.js";
-
 window.addEventListener("load", initMap);
 
 window.map = {};
