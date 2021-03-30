@@ -16,14 +16,5 @@ async function initMap() {
   });
   window.map = map;
 
-  const sites = await fetchSites();
-  sites.forEach((p) => {
-    if (!getHasVaccine(p)) {
-      return;
-    }
-
-    addLocation(p);
-  });
-
   document.dispatchEvent(new CustomEvent("mapInit"));
 }
