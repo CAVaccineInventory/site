@@ -1,6 +1,3 @@
-import { getHasVaccine, fetchSites } from "./data/locations.js";
-import { addLocation } from "./map.js";
-
 window.addEventListener("load", initMap);
 
 window.map = {};
@@ -15,15 +12,6 @@ async function initMap() {
     streetViewControl: false,
   });
   window.map = map;
-
-  const sites = await fetchSites();
-  sites.forEach((p) => {
-    if (!getHasVaccine(p)) {
-      return;
-    }
-
-    addLocation(p);
-  });
 
   document.dispatchEvent(new CustomEvent("mapInit"));
 }
