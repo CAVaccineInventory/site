@@ -189,8 +189,14 @@ function getDisplayableVaccineInfo(p) {
         "Vaccinating emergency services workers"
       ),
       highRisk: doesLocationHaveProp(p, "Vaccinating high-risk individuals"),
-      determinedByCounty: doesLocationHaveProp(p, "Eligibility determined by county website"),
-      determinedByProvider: doesLocationHaveProp(p, "Eligibility determined by provider website"),
+      determinedByCounty: doesLocationHaveProp(
+        p,
+        "Eligibility determined by county website"
+      ),
+      determinedByProvider: doesLocationHaveProp(
+        p,
+        "Eligibility determined by provider website"
+      ),
     };
   }
 
