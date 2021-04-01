@@ -136,7 +136,7 @@ function generateRestrictions(info, plainText = false) {
     restrictions.push(link);
   }
 
-  if (info.determinedByProvider) {
+  if (info.determinedByProvider && info.providerURL) {
     // if we already display URL in provider notes, don't repeat here
     if (!info.providerNotes || !info.providerNotes.includes(info.providerURL)) {
       const link = plainText
