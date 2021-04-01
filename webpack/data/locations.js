@@ -208,6 +208,10 @@ function getDisplayableVaccineInfo(p) {
     }
   }
 
+  function getProviderURL(p) {
+    return p?.["Provider"]?.["Vaccine info URL"];
+  }
+
   function getProviderNotes(p) {
     if (!p["Provider"] || !p["Provider"]["Public Notes"]) {
       return null;
@@ -293,6 +297,7 @@ function getDisplayableVaccineInfo(p) {
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
     providerNotes: getProviderNotes(p),
+    providerURL: getProviderURL(p),
     hasVaccine: getYesNo(p),
     vaccineSpotterExists: hasVaccineSpotterInfo(p),
     vaccineSpotterAppointmentAvailability: getVaccineSpotterAvailability(p),

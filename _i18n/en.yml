@@ -92,6 +92,7 @@ site_template:
   check_now: Check Now
   appointments_available: Appointments are available as of {{time}}.
   appointments_unavailable: Appointments are not available as of {{time}}.
+  eligibility_by_provider: Eligibility determined by provider
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 

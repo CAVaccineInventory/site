@@ -135,6 +135,15 @@ function generateRestrictions(info, plainText = false) {
       )}</a>`;
     restrictions.push(link);
   }
+
+  if (info.determinedByProvider) {
+    const link = plainText
+      ? `${t("site_template.eligibility_by_provider")} (${url})`
+      : `<a target="_blank" href=${info.providerURL}>${t(
+        "site_template.eligibility_by_provider"
+      )}</a>`;
+      restrictions.push(link);
+  }
   return restrictions;
 }
 
