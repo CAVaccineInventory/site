@@ -209,7 +209,10 @@ function getDisplayableVaccineInfo(p) {
   }
 
   function getProviderURL(p) {
-    return p?.["Provider"]?.["Vaccine info URL"];
+    if (!p["Provider"] || !p["Provider"]["Vaccine info URL"]) {
+      return null;
+    }
+    return p["Provider"]["Vaccine info URL"];
   }
 
   function getProviderNotes(p) {
