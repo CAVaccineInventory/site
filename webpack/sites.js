@@ -138,7 +138,7 @@ function generateRestrictions(info, plainText = false) {
 
   if (info.determinedByProvider) {
     const link = plainText
-      ? `${t("site_template.eligibility_by_provider")} (${url})`
+      ? `${t("site_template.eligibility_by_provider")} (${info.providerURL})`
       : `<a target="_blank" href=${info.providerURL}>${t(
         "site_template.eligibility_by_provider"
       )}</a>`;
@@ -146,10 +146,10 @@ function generateRestrictions(info, plainText = false) {
   }
 
   if (info.determinedByCounty) {
-    const url =  generateCountyUrl(info.county);
+    const urlPath =  generateCountyUrl(info.county);
     const link = plainText
-      ? `${t("site_template.eligibility_by_county")} (${url})`
-      : `<a target="_blank" href=${url}>${t(
+      ? `${t("site_template.eligibility_by_county")} (https://vaccinateca.com/${urlPath})`
+      : `<a target="_blank" href=${urlPath}>${t(
         "site_template.eligibility_by_county"
       )}</a>`;
     restrictions.push(link);
