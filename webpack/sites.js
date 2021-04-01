@@ -142,7 +142,17 @@ function generateRestrictions(info, plainText = false) {
       : `<a target="_blank" href=${info.providerURL}>${t(
         "site_template.eligibility_by_provider"
       )}</a>`;
-      restrictions.push(link);
+    restrictions.push(link);
+  }
+
+  if (info.determinedByCounty) {
+    const url =  generateCountyUrl(info.county);
+    const link = plainText
+      ? `${t("site_template.eligibility_by_county")} (${url})`
+      : `<a target="_blank" href=${url}>${t(
+        "site_template.eligibility_by_county"
+      )}</a>`;
+    restrictions.push(link);
   }
   return restrictions;
 }
