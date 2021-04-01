@@ -153,7 +153,7 @@ function generateRestrictions(info, plainText = false) {
     const link = plainText
       ? `${t(
         "site_template.eligibility_by_county"
-      )} (https://vaccinateca.com/${urlPath})`
+      )} (https://vaccinateca.com${urlPath})`
       : `<a target="_blank" href=${urlPath}>${t(
         "site_template.eligibility_by_county"
       )}</a>`;
