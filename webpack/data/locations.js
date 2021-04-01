@@ -189,6 +189,14 @@ function getDisplayableVaccineInfo(p) {
         "Vaccinating emergency services workers"
       ),
       highRisk: doesLocationHaveProp(p, "Vaccinating high-risk individuals"),
+      determinedByCounty: doesLocationHaveProp(
+        p,
+        "Eligibility determined by county website"
+      ),
+      determinedByProvider: doesLocationHaveProp(
+        p,
+        "Eligibility determined by provider website"
+      ),
     };
   }
 
@@ -198,6 +206,13 @@ function getDisplayableVaccineInfo(p) {
     } else {
       return "Unknown";
     }
+  }
+
+  function getProviderURL(p) {
+    if (!p["Provider"] || !p["Provider"]["Vaccine info URL"]) {
+      return null;
+    }
+    return p["Provider"]["Vaccine info URL"];
   }
 
   function getProviderNotes(p) {
@@ -285,6 +300,7 @@ function getDisplayableVaccineInfo(p) {
     isSuperSite: isSuperSite(p),
     latestReportDate: p["Latest report"],
     providerNotes: getProviderNotes(p),
+    providerURL: getProviderURL(p),
     hasVaccine: getYesNo(p),
     vaccineSpotterExists: hasVaccineSpotterInfo(p),
     vaccineSpotterAppointmentAvailability: getVaccineSpotterAvailability(p),
