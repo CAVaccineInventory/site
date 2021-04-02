@@ -25,7 +25,7 @@ We use GitHub Issues to track potential work. Please add to this list, whether y
 ## How to begin local development
 
 ### Setup with Ruby 2.7
-- Start local development server with `script/server`
+- Start local development server with `script/server --dev`
 
 ### First time with Jekyll?
 
