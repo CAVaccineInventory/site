@@ -192,11 +192,3 @@ select {
   @apply bg-green-600 hover:bg-green-700 text-white;
 }
 
-@media screen and (min-width: 1024px) {
-  .sticky-map {
-    position: sticky;
-    top: 0;
-    left: 0;
-    align-self: start;
-  }
-}
