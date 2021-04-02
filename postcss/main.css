@@ -191,4 +191,3 @@ select {
 .site_copy_button.not_copied {
   @apply bg-green-600 hover:bg-green-700 text-white;
 }
-
