@@ -9,7 +9,6 @@ if (process.env.NETLIFY) {
 }
 
 module.exports = {
-  "mode": "production",
   "entry": {
     "main": "./webpack/index.js",
     "mapLoader": "./webpack/mapLoader.js",
@@ -19,7 +18,6 @@ module.exports = {
     "policies": "./webpack/policies.js",
     "providers": "./webpack/providers.js",
   },
-  "devtool": false,
   "output": {
     "path": path.resolve(__dirname, "assets/js"),
     "environment": {
