@@ -22,36 +22,6 @@ permalink: /near-me
 
     </div>
   </div>
-  <fieldset id="js-availability-filter"
-    class="flex flex-row flex-wrap items-baseline justify-center space-x-4">
-    <legend class="contents p-2">{% t nearest.patient_info %}:</legend>
-    <select id="js-age-filter" class="rounded-full border border-gray-200 px-5 py-2 mt-2">
-      <option value="none" selected>{% t nearest.age %}</option>
-      <option value="16">{% t nearest.under_50 %}</option>
-      <option value="50">50+</option>
-      <option value="65">65+</option>
-      <option value="70">70+</option>
-      <option value="75">75+</option>
-      <option value="80">80+</option>
-      <option value="85">85+</option>
-    </select>
-    <select id="js-eligibility-filter" class="border border-gray-200 rounded-full px-5 py-2 mt-2">
-      <option value="any" selected>{% t nearest.profession %}</option>
-      <option value="education">{% t nearest.education_profession %}</option>
-      <option value="food">{% t nearest.food_profession %}</option>
-      <option value="emergency">{% t nearest.emergency_profession %}</option>
-      <option value="none">{% t nearest.no_profession %}</option>
-    </select>
-    <label class="rounded border border-gray-200 p-2 mt-2">
-      <input id="js-high-risk-filter" type="checkbox" value="high-risk" />
-      {% t nearest.high_risk %}
-    </label>
-    <label class="rounded border border-gray-200 p-2 mt-2">
-      <input id="js-veteran-filter" type="checkbox" value="veteran" />
-      {% t nearest.veteran %}
-    </label>
-  </div>
-</fieldset>
 <div class="lg:container mx-auto">
   <div class="bg-gray-50 p-4 shadow mt-4 text-sm">
     <p>{% t pre_list_disclaimer.disclaimer %}</p>
