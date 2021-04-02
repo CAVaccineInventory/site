@@ -135,6 +135,30 @@ function generateRestrictions(info, plainText = false) {
       )}</a>`;
     restrictions.push(link);
   }
+
+  if (info.determinedByProvider && info.providerURL) {
+    // if we already display URL in provider notes, don't repeat here
+    if (!info.providerNotes || !info.providerNotes.includes(info.providerURL)) {
+      const link = plainText
+        ? `${t("site_template.eligibility_by_provider")} (${info.providerURL})`
+        : `<a target="_blank" href=${info.providerURL}>${t(
+          "site_template.eligibility_by_provider"
+        )}</a>`;
+      restrictions.push(link);
+    }
+  }
+
+  if (info.determinedByCounty) {
+    const urlPath = generateCountyUrl(info.county);
+    const link = plainText
+      ? `${t(
+        "site_template.eligibility_by_county"
+      )} (https://vaccinateca.com${urlPath})`
+      : `<a target="_blank" href=${urlPath}>${t(
+        "site_template.eligibility_by_county"
+      )}</a>`;
+    restrictions.push(link);
+  }
   return restrictions;
 }
 

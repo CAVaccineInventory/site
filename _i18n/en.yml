@@ -92,6 +92,8 @@ site_template:
   check_now: Check Now
   appointments_available: Appointments are available as of {{time}}.
   appointments_unavailable: Appointments are not available as of {{time}}.
+  eligibility_by_provider: Eligibility determined by provider
+  eligibility_by_county: Eligibility determined by county 
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 
@@ -127,8 +129,8 @@ index:
     We are a group of volunteers calling hospitals and pharmacies daily to track their vaccine availability and their processes for getting one.
   disclaimer_1: |
     The State of California has
-    <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">approved</a>
-    giving the COVID-19 vaccine to people age 65 and older. California’s statewide
+    <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">approved</a>
+    giving the COVID-19 vaccine to people age 50 and older. California’s statewide
     COVID-19 vaccination program has been evolving rapidly.
     <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Federal</a>,
     <a href="https://covid19.ca.gov/vaccines/">state</a>,
