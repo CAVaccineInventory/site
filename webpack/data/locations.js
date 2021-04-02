@@ -354,34 +354,6 @@ function sortByRecency(sites) {
   });
 }
 
-function filterSitesByAvailability(sites, filters) {
-  if (filters.length === 0) {
-    return sites;
-  }
-
-  const baseFilters = [
-    "Yes: appointment calendar currently full",
-    "Yes: appointment required",
-    "Yes: restricted to county residents",
-    "Yes: restricted to city residents",
-    "Yes: must be a current patient",
-    "Eligibility determined by state website",
-    "Eligibility determined by county website",
-    "Eligibility determined by provider website",
-  ];
-
-  return sites.filter((site) => {
-    // If the only tags a site has are those in these unfiltered tags, lets
-    // always show it
-    if (
-      site["Availability Info"].every((value) => baseFilters.includes(value))
-    ) {
-      return true;
-    }
-    return site["Availability Info"].some((value) => filters.includes(value));
-  });
-}
-
 export {
   fetchSites,
   getHasVaccine,
@@ -392,5 +364,4 @@ export {
   getTimeDiffFromNow,
   splitSitesByVaccineState,
   sortByRecency,
-  filterSitesByAvailability,
 };
