@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "start": "webpack -w --config webpack.prod.js",
+    "start:dev": "webpack -w --config webpack.dev.js",
     "lint": "prettier 'webpack/**/*.js' postcss/*.css **/*.html && eslint .",
     "lint:fix": "prettier --write 'webpack/**/*.js' postcss/*.css **/*.html && eslint --fix .",
     "build:css": "cross-env NODE_ENV=production postcss postcss/*.css --dir assets/css/",
@@ -21,7 +23,8 @@
     "prettier": "^2.1.1",
     "tailwindcss-rtl": "^0.7.3",
     "webpack": "^5.19.0",
-    "webpack-cli": "^4.4.0"
+    "webpack-cli": "^4.4.0",
+    "webpack-merge": "^5.7.3"
   },
   "license": {
     "type": "MIT",
