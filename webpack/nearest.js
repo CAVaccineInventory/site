@@ -134,21 +134,9 @@ function addListeners() {
   }
 
   const filterElem = document.getElementById("js-nearest-filter");
-  const availabilityFilterElem = document.getElementById(
-    "js-availability-filter"
-  );
 
   if (filterElem) {
     filterElem.addEventListener("change", (e) => {
-      if (lastSearch) {
-        updateSitesOnMap();
-        handleSearch(undefined, lastSearch);
-      }
-    });
-  }
-
-  if (availabilityFilterElem) {
-    availabilityFilterElem.addEventListener("change", (e) => {
       if (lastSearch) {
         updateSitesOnMap();
         handleSearch(undefined, lastSearch);
@@ -185,87 +173,15 @@ async function updateSitesOnMap() {
   const filterElement = document.getElementById("js-nearest-filter");
   const filter = filterElement ? filterElement.value : "any";
 
-  const availabilityFilterElem = document.getElementById(
-    "js-availability-filter"
-  );
-
   if (filter === "reports") {
-    availabilityFilterElem.classList.add("hidden");
     filteredSites = filteredSites.filter((site) => {
       return getHasReport(site);
     });
-  } else if (filter === "any") {
-    availabilityFilterElem.classList.add("hidden");
-  } else {
-    // Only "stocked", so lets show the additional filters and use them
-    availabilityFilterElem.classList.remove("hidden");
-
+  } else if (filter === "stocked") {
     filteredSites = filteredSites.filter((site) => {
       return getHasVaccine(site);
     });
-
-    const filters = [];
-
-    const ageFilter = document.getElementById("js-age-filter");
-    if (ageFilter) {
-      const ageChosen = ageFilter.value;
-      // Heads up, we're relying on switch statement cascading here!
-      switch (ageChosen) {
-        case "none":
-        case "85":
-          filters.push("Yes: vaccinating 85+");
-        case "80":
-          filters.push("Yes: vaccinating 80+");
-        case "75":
-          filters.push("Yes: vaccinating 75+");
-        case "70":
-          filters.push("Yes: vaccinating 70+");
-        case "65":
-          filters.push("Yes: vaccinating 65+");
-        case "50":
-          filters.push("Yes: vaccinating 50+");
-        case "16":
-          filters.push("Yes: vaccinating 18+");
-          filters.push("Yes: vaccinating 16+");
-      }
-    }
-
-    const eligiblityFilter = document.getElementById("js-eligibility-filter");
-    if (eligiblityFilter) {
-      const fields = {
-        education: "Vaccinating education and childcare workers",
-        food: "Vaccinating agriculture and food workers",
-        emergency: "Vaccinating emergency services workers",
-      };
-
-      const criteriaChosen = eligiblityFilter.value;
-
-      switch (criteriaChosen) {
-        case "any":
-          for (const prop in fields) {
-            if (fields.hasOwnProperty(prop)) {
-              filters.push(fields[prop]);
-            }
-          }
-          break;
-        case "none":
-          break;
-        default:
-          filters.push(fields[criteriaChosen]);
-      }
-    }
-    const highRiskFilter = document.getElementById("js-high-risk-filter");
-    if (highRiskFilter && highRiskFilter.checked) {
-      filters.push("Vaccinating high-risk individuals");
-    }
-
-    const veteranFilter = document.getElementById("js-veteran-filter");
-    if (veteranFilter && veteranFilter.checked) {
-      filters.push("Yes: must be a veteran");
-    }
-
-    filteredSites = filterSitesByAvailability(filteredSites, filters);
-  }
+  } // else "any", so no filtering required
 
   tryOrDelayToMapInit((map) => {
     clearMap();
