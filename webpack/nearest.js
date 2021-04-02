@@ -5,7 +5,6 @@ import {
   getHasReport,
   sortByRecency,
   splitSitesByVaccineState,
-  filterSitesByAvailability,
   getCoord,
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
