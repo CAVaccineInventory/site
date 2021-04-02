@@ -96,8 +96,11 @@ exclude:
   - script/
   - webpack/
   - Procfile
+  - Procfile.dev
   - postcss.config.js
   - postcss/
-  - webpack.config.js
+  - webpack.common.js
+  - webpack.dev.js
+  - webpack.prod.js
   - tailwind.config.js
   - counties.py
