@@ -146,7 +146,8 @@ function addListeners() {
 
   document.addEventListener("mapInit", () => {
     window.map.addListener(
-      "bounds_changed", debounce(() => {
+      "bounds_changed",
+      debounce(() => {
         updateSitesFromMap();
         updateCountyLinks();
       })
