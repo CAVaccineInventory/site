@@ -11,6 +11,7 @@ import zipCodes from "./json/zipCodes.json";
 
 import { addSitesOrHideIfEmpty } from "./sites.js";
 import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
+import countiesListTemplate from "./templates/countiesList.handlebars";
 
 window.addEventListener("load", loaded);
 
@@ -145,8 +146,10 @@ function addListeners() {
 
   document.addEventListener("mapInit", () => {
     window.map.addListener(
-      "bounds_changed",
-      debounce(() => updateSitesFromMap())
+      "bounds_changed", debounce(() => {
+        updateSitesFromMap();
+        updateCountyLinks();
+      })
     );
   });
 }
@@ -163,6 +166,52 @@ function toggleLoading(shouldShow) {
     document
       .getElementById("js-post-list-container")
       .classList.remove("hidden");
+  }
+}
+
+async function getCountiesFromBounds(bounds) {
+  if (!bounds) {
+    return [];
+  }
+  const north = bounds.getNorthEast().lat();
+  const east = bounds.getNorthEast().lng();
+  const south = bounds.getSouthWest().lat();
+  const west = bounds.getSouthWest().lng();
+
+  const url = `https://us-counties.datasette.io/counties.json?sql=select+NAME+from+counties+where+Intersects(geometry%2C+GeomFromGeoJSON(%27%7B%22type%22%3A+%22Polygon%22%2C+%22coordinates%22%3A+%5B%5B%5B++${east}%2C++${north}%5D%2C%5B++${east}%2C++${south}%5D%2C%5B++${west}%2C++${south}%5D%2C%5B++${west}%2C++${north}%5D%5D%5D%7D%27))`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    return [];
+  }
+
+  const fetchedData = await response.json();
+
+  if (fetchedData["rows"].length <= 0) {
+    return [];
+  }
+
+  return fetchedData["rows"].map((row) => row[0]);
+}
+
+async function updateCountyLinks() {
+  const bounds = window.map.getBounds();
+  const counties = await getCountiesFromBounds(bounds);
+  const linkElem = document.getElementById("js-county-links");
+
+  if (counties.length < 1) {
+    linkElem.classList.add("hidden");
+  } else {
+    const countyLinks = counties.map((county) => {
+      const slug = county.replace(/\s/g, "_");
+      return {
+        name: county,
+        link: `https://vaccinateca.com/${slug}`,
+      };
+    });
+
+    linkElem.classList.remove("hidden");
+    linkElem.innerHTML = countiesListTemplate({ counties: countyLinks });
   }
 }
 

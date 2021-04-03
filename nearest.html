@@ -33,13 +33,16 @@ permalink: /near-me
       {% t nearest_js.alert_zipcode %}
       {% endcapture %}
       {% include alert.html message=translated_message %}
+      <section class="md:mt-5">
+        <div id="js-county-links" class="hidden">
+        </div>
+      </section>
       <section class="mt-0 md:mt-10 hidden">
         {% include vaccine_section_title.html has_report=true
         has_vaccine=true %}
         <ol class="js-sites" id="js-sites-with-vaccine">
         </ol>
       </section>
-
       <section class="md:mt-5 hidden">
         {% include vaccine_section_title.html has_report=true
         has_vaccine=false %}
