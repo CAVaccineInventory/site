@@ -87,11 +87,10 @@ site_template:
   copy_text: Copy Text
   copied_text: Copied to Clipboard
   vaccinating: Vaccinating
-  availability_vaccinespotter: Appointment availability from VaccineSpotter.org
   book_now: Book Now
   check_now: Check Now
-  appointments_available: Appointments are available to book as of {{time}}, according to an automated check.
-  appointments_unavailable: No appointments available to book as of {{time}}, according to an automated check.
+  appointments_available: VaccineSpotter.org found open appointments here {{time}}
+  appointments_unavailable: VaccineSpotter.org found no appointments here {{time}}
   eligibility_by_provider: Eligibility determined by provider
   eligibility_by_county: Eligibility determined by county
 not_found:
