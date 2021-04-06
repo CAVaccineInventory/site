@@ -28,9 +28,13 @@
       </div>
     </div>
     <div class="flex flex-col">
+      <!-- Only render the copy button if the site has vaccine because otherwise when the
+      link is used the site will be hidden by default -->
+      {{#if hasVaccine}}
       <button
         class="site_copy_button not_copied text-xs text-white bg-green-600 hover:bg-green-700 px-2 py-1 mb-1 rounded-full self-end whitespace-nowrap"
         >{{t "site_template.share_link"}}</button>
+      {{/if}}
       <!-- Last report on desktop -->
       {{#if hasReport }}
       <div

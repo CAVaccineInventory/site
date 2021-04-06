@@ -66,7 +66,10 @@ function addSitesToPage(sites, containerId) {
     const range = document
       .createRange()
       .createContextualFragment(siteTemplate(context));
-    initCopyButton(range.querySelector(".site_copy_button"), info);
+    const copyButton = range.querySelector(".site_copy_button");
+    if (copyButton) {
+      initCopyButton(range.querySelector(".site_copy_button"), info);
+    }
     fragmentElem.appendChild(range);
   }
   const containerElem = document.getElementById(containerId);
@@ -171,9 +174,11 @@ function generateLatestReportTime(info) {
 
 function initCopyButton(copyButton, info) {
   copyButton.addEventListener("click", async (e) => {
-    // Create a new URL with the current ID as the has so we'll autoscroll to this site
-    const url = new URL(window.location);
+    // Create a new URL with the sites zip and current ID so we'll autoscroll to this site
+    const url = new URL(window.location.origin);
+    url.pathname = "/near-me";
     url.hash = info.id;
+    url.searchParams.set("zip", info.address.slice(-5));
     const copyString = url.toString();
 
     await navigator.clipboard.writeText(copyString);
@@ -202,6 +207,7 @@ function maybeScrollToSiteInUrl() {
     if (siteId) {
       const element = document.getElementById(siteId);
       if (element) {
+        element.classList.add("is-selected");
         element.scrollIntoView();
       }
     }
