@@ -16,20 +16,6 @@ function addLocation(p) {
     return false;
   }
 
-  const markerContent = mapMarker({
-    name: info.name,
-    superSite: info.isSuperSite,
-    details: info.status,
-    schedulingInstructions: info.schedulingInstructions,
-    address: info.address,
-    reportNotes: info.reportNotes,
-    superSiteLabel: t("global.super_site"),
-    detailsLabel: t("global.details"),
-    schedulingInstructionsLabel: t("global.appt_info"),
-    addressLabel: t("global.address"),
-    reportNotesLabel: t("global.latest_info"),
-  });
-
   // Populate the marker and info card
   const markerConfig = {
     position: {
@@ -45,15 +31,28 @@ function addLocation(p) {
     markerConfig["icon"] = bluePin;
   }
   const marker = new google.maps.Marker(markerConfig);
-  const infowindow = new google.maps.InfoWindow({
-    content: markerContent,
-  });
 
   // Toggle the info card
   marker.addListener("click", () => {
     if (prevInfowindow) {
       prevInfowindow.close();
     }
+    const markerContent = mapMarker({
+      name: info.name,
+      superSite: info.isSuperSite,
+      details: info.status,
+      schedulingInstructions: info.schedulingInstructions,
+      address: info.address,
+      reportNotes: info.reportNotes,
+      superSiteLabel: t("global.super_site"),
+      detailsLabel: t("global.details"),
+      schedulingInstructionsLabel: t("global.appt_info"),
+      addressLabel: t("global.address"),
+      reportNotesLabel: t("global.latest_info"),
+    });
+    const infowindow = new google.maps.InfoWindow({
+      content: markerContent,
+    });
 
     if (prevInfowindow == infowindow) {
       prevInfowindow = false;
