@@ -144,9 +144,8 @@ index:
   illustration: Illustration of doctor administering vaccines
   positive_feedback: Let us know if you found this site useful!
   corrections: |
-    If you have a missing location to report, or think we have incorrect
-    contact information,
-    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">please let us know.</a>
+    If you have a missing location to report,
+    <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy" class="text-black">please let us know.</a>
   locations_by_county: Vaccination locations by county
   more_info: More information about vaccine availability
   find_county: Find your county
