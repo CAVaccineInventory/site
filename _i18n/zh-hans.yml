@@ -25,6 +25,8 @@ titles:
   providers: 提供者
   nearest: 您附近的疫苗接种地点
   vaccinebot: VaccineBot
+  volunteer: ""
+  checklist: ""
 nearest:
   dropdown_1: 我们联系过的地点
   dropdown_2: 据汇报有疫苗的地点
@@ -36,6 +38,16 @@ nearest:
   vaccines_available: 据汇报有可用疫苗
   vaccines_not_available: 据汇报无可用疫苗
   vaccine_unknown: 未知疫苗状态
+  patient_info: ""
+  age: ""
+  under_50: ""
+  profession: ""
+  no_profession: ""
+  education_profession: ""
+  food_profession: ""
+  emergency_profession: ""
+  high_risk: ""
+  veteran: ""
 policy:
   vaccine_info: 疫苗信息
   vaccine_locations: 疫苗接种地点
@@ -67,6 +79,20 @@ site_template:
   county_header: 在你的县内
   no_reports: 没有联系报告
   provider_info: 提供者网络信息
+  veterans: ""
+  education_workers: ""
+  food_workers: ""
+  emergency_workers: ""
+  high_risk_individuals: ""
+  copy_text: ""
+  copied_text: ""
+  vaccinating: ""
+  book_now: ""
+  check_now: ""
+  appointments_available: ""
+  appointments_unavailable: ""
+  eligibility_by_provider: ""
+  eligibility_by_county: ""
 not_found:
   text: |
     您访问的网页不存在。如果您需要在加利福尼亚州寻找疫苗的帮助，
@@ -85,13 +111,13 @@ county_policies:
 index:
   header: 为您或您的亲人寻找新冠病毒COVID-19疫苗
   subtitle: |
-    安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亚的几类人群。但是，寻找接种疫苗的地点和时间可能困难。我们每天都致电医院和药房，以跟踪其疫苗供应情况以及获得疫苗的过程。
+  eligible: ""
   disclaimer: |
     安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亚的几类人群。
     但是，寻找接种疫苗的地点和时间可能困难。
     我们是一群志愿者，每天通过电话联系医院和药店咨询它们的疫苗供应情况和获得疫苗的过程。
   disclaimer_1: |
-    加利福尼亚州政府已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>65岁及以上的居民接种新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接种计划发展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">县</a>官员都经常发布更新。这些政府网站是您获取官方信息的最佳来源。
+    加利福尼亚州政府已<a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">批准</a>50岁及以上的居民接种新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接种计划发展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">县</a>官员都经常发布更新。这些政府网站是您获取官方信息的最佳来源。
   disclaimer_2: |
     我们是一个民间社区主导的网站，不代表政府或任何医疗服务提供者。
   illustration: 医生接种疫苗的插图
@@ -133,6 +159,8 @@ about_us:
     VaccinateCA是一项由社区推动的工作，旨在帮助加利福尼亚人学习有关冠状病毒疫苗的准确，最新且经过验证的信息，以便他们可以了解自己何时有资格以及如何排队。
   intro_2: |
     我们的专业人员每天都会在数百个潜在的疫苗接种地点给医疗专业人员打电话，询问他们是否有疫苗，如果有疫苗的话，将对谁进行管理以及如何预约。我们记下他们告诉我们的内容，并将其发布到本网站。
+  equity_title: ""
+  equity: |
   faq_header: |
     常见问题解答（FAQ）
   faq_help: 有什么可以帮忙的吗？

@@ -83,23 +83,21 @@
       {{/if}}
       {{#if appointmentInfo}}
         <div class="px-4 py-4  border-b border-gray-100 text-sm flex
-          flex-col">
+          flex-col space-y-4">
           <div class="font-bold pe-2 flex flex-row">
             <img class="me-2" src="/assets/img/calendar.svg" />
-            {{t "site_template.availability_vaccinespotter"}}
+            {{#if appointmentsAvailable}}
+              {{t "site_template.appointments_available" time=appointmentUpdatedAt}}
+            {{else}}
+              {{t "site_template.appointments_unavailable" time=appointmentUpdatedAt}}
+            {{/if}}
           </div>
             {{#if appointmentsAvailable}}
-              <p>
-                {{t "site_template.appointments_available" time=appointmentUpdatedAt}}
-              </p>
               <div>
                 <a class="rounded-full bg-green-600 text-white hover:bg-green-700
                   px-4 py-2" target="_blank" rel="noreferrer noopener nofollow" href="{{appointmentURL}}">{{t "site_template.book_now"}}</a>
               </div>
             {{else}}
-              <p>
-                {{t "site_template.appointments_unavailable" time=appointmentUpdatedAt}}
-              </p>
               <div>
                 <a class="rounded-full bg-gray-400 text-white hover:bg-gray-600
                   px-4 py-2" target="_blank" rel="noreferrer noopener nofollow" href="{{appointmentURL}}">{{t "site_template.check_now"}}</a>

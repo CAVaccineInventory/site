@@ -87,11 +87,12 @@ site_template:
   copy_text: Copiar
   copied_text: Copiada (puede pegarlo)
   vaccinating: Vacunando
-  availability_vaccinespotter: Disponibilidad desde VaccineSpotter.org
   book_now: Reservar ahora
   check_now: Chequear ahora
-  appointments_available: "Citas están disponibles (información actualizada {{time}})."
-  appointments_unavailable: "Citas no están disponibles (información actualizada {{time}})."
+  appointments_available: "VaccineSpotter.org encontró citas aquí {{time}}"
+  appointments_unavailable: "VaccineSpotter.org no encontró citas aquí {{time}}"
+  eligibility_by_provider: Elegibilidad determinada por el proveedor
+  eligibility_by_county: Elegibilidad determinada por el condado
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
@@ -115,7 +116,7 @@ index:
     Pero puede ser difícil saber dónde y cómo hacerse vacunar. 
     Somos un grupo de voluntarios que llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener la vacuna.
   disclaimer_1: |
-    El estado de California ha <a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">aprobado</a> administrar la vacuna contra el COVID-19 a personas de 65 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
+    El estado de California ha <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">aprobado</a> administrar la vacuna contra el COVID-19 a personas de 50 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
   disclaimer_2: |
     Somos un sitio web dirigido por la comunidad y no representamos al gobierno ni a ningún proveedor de atención médica.
   illustration: Ilustración de médico administrando vacunas.
@@ -158,6 +159,8 @@ about_us:
     VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus, para que puedan saber cuándo serán elegibles y cómo tomar su lugar en la fila.
   intro_2: |
     Nuestros profesionales llaman profesionales médicos en cientos de sitios de vacunación potenciales a diario preguntándoles si tienen la vacuna y, de ser así, a quién se la administrarán y cómo hacer una cita. Escribimos lo que nos dicen y lo publicamos en esta página.
+  equity_title: ""
+  equity: |
   faq_header: |
     Preguntas frecuentes (FAQ)
   faq_help: "¿Cómo puedo ayudar?"
