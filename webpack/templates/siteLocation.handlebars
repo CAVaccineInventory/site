@@ -157,4 +157,12 @@
       {{t "site_template.no_reports"}}
     </div>
   {{/if}}
+  {{!--
+    Yes, I know I'm writing a `style` tag here. We want to over-write the
+    Tailwind separator borders for this ending `<div>` here, but you can only do
+    that with a style tag. I'm sorry. Please don't be mad.
+  --}}
+  <div class="-mb-5 text-xs text-right pt-1 pe-2" style="border-top: 0;">
+    <p>Something look wrong? <a href="">Let us know.</a></p>
+  </div>
 </li>
