@@ -178,7 +178,16 @@ function initCopyButton(copyButton, info) {
     const url = new URL(window.location.origin);
     url.pathname = "/near-me";
     url.hash = info.id;
-    url.searchParams.set("zip", info.address.slice(-5));
+
+    const zip = info.address.slice(-5);
+
+    if (!zip.match(/\d{5}/)) {
+      Sentry.captureMessage(
+        `Unable to parse zip code for site ${info.id} ${info.address}`
+      );
+      return;
+    }
+    url.searchParams.set("zip", zip);
     const copyString = url.toString();
 
     await navigator.clipboard.writeText(copyString);
