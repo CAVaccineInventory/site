@@ -40,6 +40,7 @@ function addSitesToPage(sites, containerId) {
     }
 
     const context = {
+      id: info.id,
       name: info.name,
       county: info.county,
       countyLink: generateCountyUrl(info.county),
