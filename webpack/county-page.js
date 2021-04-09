@@ -5,7 +5,7 @@ import {
   getCounty,
 } from "./data/locations.js";
 
-import { addSitesOrHideIfEmpty } from "./sites.js";
+import { addSitesOrHideIfEmpty, maybeScrollToSiteInUrl } from "./sites.js";
 import { fetchCounties } from "./data/counties.js";
 import policyTemplate from "./templates/policy.handlebars";
 import marked from "marked";
@@ -38,6 +38,7 @@ async function fetchCountySites() {
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
   addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
+  maybeScrollToSiteInUrl();
 }
 
 async function fetchCountyCard() {

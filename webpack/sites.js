@@ -60,12 +60,16 @@ function addSitesToPage(sites, containerId) {
       appointmentURL: info.vaccineSpotterURL,
       notes: notes,
       providerInfo: info.providerNotes,
+      id: info.id,
     };
 
     const range = document
       .createRange()
       .createContextualFragment(siteTemplate(context));
-    initCopyButton(range.querySelector(".site_copy_button"), info);
+    const copyButton = range.querySelector(".site_copy_button");
+    if (copyButton) {
+      initCopyButton(range.querySelector(".site_copy_button"), info);
+    }
     fragmentElem.appendChild(range);
   }
   const containerElem = document.getElementById(containerId);
@@ -170,47 +174,22 @@ function generateLatestReportTime(info) {
 
 function initCopyButton(copyButton, info) {
   copyButton.addEventListener("click", async (e) => {
-    const latestReportTime = generateLatestReportTime(info);
-    let reportInfo = "";
-    if (info.hasReport) {
-      switch (info.hasVaccine) {
-        case "Yes":
-          reportInfo = t("nearest.vaccines_available");
-          break;
-        case "No":
-          reportInfo = t("nearest.vaccines_not_available");
-          break;
-        default:
-          reportInfo = t("nearest.vaccine_unknown");
-          break;
-      }
-      reportInfo += ` (${latestReportTime})\n`;
+    // Create a new URL with the sites zip and current ID so we'll autoscroll to this site
+    const url = new URL(window.location.origin);
+    url.pathname = "/near-me";
+    url.hash = info.id;
+
+    const zip = info.address.slice(-5);
+
+    if (!zip.match(/\d{5}/)) {
+      Sentry.captureMessage(
+        `Unable to parse zip code for site ${info.id} ${info.address}`
+      );
+      return;
     }
+    url.searchParams.set("zip", zip);
+    const copyString = url.toString();
 
-    let appointmentInfo = "";
-    if (info.vaccineSpotterExists) {
-      appointmentInfo = info.vaccineSpotterAppointmentAvailability
-        ? `Appointments are available as of ${info.vaccineSpotterUpdatedAt}`
-        : `Appointments are not available as of ${info.vaccineSpotterUpdatedAt}`;
-      appointmentInfo += ` (${info.vaccineSpotterURL})\n`;
-    } else if (info.isAppointmentRequired) {
-      appointmentInfo = `${generateAppointmentRequiredLabel(info)}`;
-      appointmentInfo += info.schedulingInstructionsPlainText
-        ? ` (${info.schedulingInstructionsPlainText})\n`
-        : "\n";
-    }
-
-    const restrictions = generateRestrictions(info, true);
-    const restrictionsInfo =
-      restrictions.length > 0
-        ? `${t("site_template.vaccinating")}:\n` + restrictions.join("\n")
-        : "";
-
-    const copyString =
-      `${info.name} ${info.address}\n` +
-      reportInfo +
-      appointmentInfo +
-      restrictionsInfo;
     await navigator.clipboard.writeText(copyString);
 
     copyButton.textContent = t("site_template.copied_text");
@@ -226,4 +205,22 @@ function initCopyButton(copyButton, info) {
   });
 }
 
-export { addSitesToPage, addSitesOrHideIfEmpty };
+/**
+ * Scrolls to the site URL hash if it exists.
+ * This must be called after all of the sites are added to the page.
+ */
+function maybeScrollToSiteInUrl() {
+  const urlHash = window.location.hash;
+  if (urlHash !== "") {
+    const siteId = urlHash.substring(1);
+    if (siteId) {
+      const element = document.getElementById(siteId);
+      if (element) {
+        element.classList.add("is-selected");
+        element.scrollIntoView();
+      }
+    }
+  }
+}
+
+export { addSitesToPage, addSitesOrHideIfEmpty, maybeScrollToSiteInUrl };
