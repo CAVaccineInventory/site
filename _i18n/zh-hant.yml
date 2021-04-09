@@ -26,6 +26,7 @@ titles:
   nearest: 您附近的疫苗接種地點
   vaccinebot: VaccineBot
   volunteer: 志工召募
+  checklist: ""
 nearest:
   dropdown_1: 我們聯系過的地點
   dropdown_2: 據匯報有疫苗的地點
@@ -37,6 +38,16 @@ nearest:
   vaccines_available: 據匯報有可用疫苗
   vaccines_not_available: 據匯報無可用疫苗
   vaccine_unknown: 未知疫苗狀態
+  patient_info: ""
+  age: ""
+  under_50: ""
+  profession: ""
+  no_profession: ""
+  education_profession: ""
+  food_profession: ""
+  emergency_profession: ""
+  high_risk: ""
+  veteran: ""
 policy:
   vaccine_info: 疫苗信息
   vaccine_locations: 疫苗接種地點
@@ -68,6 +79,20 @@ site_template:
   county_header: 在您的縣內
   no_reports: 沒有聯系報告
   provider_info: 提供者信息
+  veterans: ""
+  education_workers: ""
+  food_workers: ""
+  emergency_workers: ""
+  high_risk_individuals: ""
+  copy_text: ""
+  copied_text: ""
+  vaccinating: ""
+  book_now: ""
+  check_now: ""
+  appointments_available: ""
+  appointments_unavailable: ""
+  eligibility_by_provider: ""
+  eligibility_by_county: ""
 not_found:
   text: |-
     您訪問的網頁不存在。如果您需要在加利福尼亞州尋找疫苗的幫助，請查詢
@@ -81,14 +106,13 @@ county_policies:
     有些縣建立了預訂系統或者有建議；請在下面查看您的縣的信息。
 index:
   header: 為您或您的親人尋找新冠病毒COVID-19疫苗
-  subtitle: |-
-    安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亞的幾類人群。但是，尋找接種疫苗的地點和時間可能困難。我們每天都致電醫院和藥房，以跟蹤其疫苗供應情況以及獲得疫苗的過程
+  subtitle: |
+  eligible: ""
   disclaimer: |-
     安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亞的幾類人群。
     但是，尋找接種疫苗的地點和時間可能困難。
     我們是一群志願者，每天通過電話聯系醫院和藥店咨詢它們的疫苗供應情況和獲得疫苗的過程。
-  disclaimer_1: |-
-    加利福尼亞州政府已<a href="https://www.npr.org/2021/01/13/956574947/california-to-vaccinate-residents-65-or-older-against-covid-19">批准</a>65歲及以上的居民接種新冠病毒COVID-19疫苗。加州的新冠病毒COVID-19疫苗接種計劃發展迅速。<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">聯邦</a>、<a href="https://covid19.ca.gov/vaccines/">州</a>和<a href="https://www.vaccinateca.com/county-policies">縣</a>官員都經常發布更新。這些政府網站是您獲取官方信息的最佳來源。
+  disclaimer_1: |
   disclaimer_2: |-
     我們是一個民間社區主導的網站，不代表政府或任何醫療服務提供者。
   illustration: 醫生接種疫苗的插圖
@@ -130,6 +154,8 @@ about_us:
     VaccinateCA是一項由社區推動的工作，旨在幫助加利福尼亞人學習有關冠狀病毒疫苗的准確，最新且經過驗證的信息，以便他們可以了解自己何時有資格以及如何排隊。
   intro_2: |-
     我們的專業人員每天都會在數百個潛在的疫苗接種地點給醫療專業人員打電話，詢問他們是否有疫苗，如果有疫苗的話，將對誰進行接種以及如何預約。我們記下他們告訴我們的內容，並將其發布到本網站。
+  equity_title: ""
+  equity: |
   faq_header: |-
     常見問題解答（FAQ)
   faq_help: 有什麽可以幫忙的嗎？
@@ -137,7 +163,7 @@ about_us:
     在社區中宣傳疫苗。幫助您的合格親人獲得疫苗。繼續戴上口罩，並遵守社交隔離准則。
   faq_help_answer_2: |-
     我們現在最需要的是負責任的志願者，他們可以幫助我們致電全州的醫療服務提供者，以便我們可以繼續為所有加利福尼亞人提供有關COVID-19疫苗可用性的全面信息。
-  faq_help_answer_3: |-
+  faq_help_answer_3: |
     如果您想自願幫助我們打電話，請<a href="https://vaccinateca.com/volunteer">告訴我們</a>。
   faq_help_answer_4: |2-
      <a href="https://twitter.com/ca_covid">在Twitter上關注我們，</a>以了解其他幫助的最新機會。
