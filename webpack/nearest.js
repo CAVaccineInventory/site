@@ -9,7 +9,7 @@ import {
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
 
-import { addSitesOrHideIfEmpty } from "./sites.js";
+import { addSitesOrHideIfEmpty, maybeScrollToSiteInUrl } from "./sites.js";
 import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 
 window.addEventListener("load", loaded);
@@ -359,6 +359,7 @@ async function updateSitesFromMap() {
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
   addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
+  maybeScrollToSiteInUrl();
 }
 
 function moveMap(coordinates) {
