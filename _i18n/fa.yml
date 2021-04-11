@@ -9,7 +9,7 @@ global:
   loading: ثبت...
   super_site: سایت فوق العاده
   # The language currently being viewed (i.e. "Español", not "Inglés")
-  current_language: اینگلیسی
+  current_language: فارسی
   # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
   dir: rtl
 site_list:
