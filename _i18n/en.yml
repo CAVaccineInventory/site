@@ -92,7 +92,8 @@ site_template:
   appointments_available: VaccineSpotter.org found open appointments here {{time}}
   appointments_unavailable: VaccineSpotter.org found no appointments here {{time}}
   eligibility_by_provider: Eligibility determined by provider
-  eligibility_by_county: Eligibility determined by county
+  eligibility_by_county: Eligibility determined by county 
+  site_eligibity_might_be_wrong: This location may have recently expanded eligibility. Check with the site to see if you're eligible.
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 

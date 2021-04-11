@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import { markdownifyInline } from "../markdown";
+import { countyInfoByName, getAgeFloorWithoutRestrictions } from "./counties";
 import { fetchProviders, findProviderByName } from "./providers.js";
 import {
   fetchVaccineSpotterData,
@@ -99,6 +100,34 @@ function getCounty(p) {
   return p["County"];
 }
 
+function getAgeRestriction(p) {
+  const ageMatch = /^Yes: vaccinating (\d+)\+/;
+  for (const prop of p["Availability Info"]) {
+    const result = prop.match(ageMatch);
+    if (result) {
+      return result[1];
+    }
+  }
+  return undefined;
+}
+
+async function getHasStricterAgeFloorThanCounty(p) {
+  const siteAgeRestiction = getAgeRestriction(p);
+  if (siteAgeRestiction) {
+    const countyName = getCounty(p);
+    const countyInfo = await countyInfoByName(countyName);
+    if (countyInfo) {
+      const countyAgeRestriction = getAgeFloorWithoutRestrictions(countyInfo);
+      return countyAgeRestriction < siteAgeRestiction;
+    } else {
+      Sentry.captureMessage(
+        `Unable to load county information for site ${p["id"]} - ${countyName}}`
+      );
+    }
+  }
+  return false;
+}
+
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     const info = p["Availability Info"];
@@ -139,17 +168,6 @@ function getDisplayableVaccineInfo(p) {
 
   function isSuperSite(p) {
     return p["Location Type"] === "Super Site";
-  }
-
-  function getAgeRestriction(p) {
-    const ageMatch = /^Yes: vaccinating (\d+)\+/;
-    for (const prop of p["Availability Info"]) {
-      const result = prop.match(ageMatch);
-      if (result) {
-        return result[1];
-      }
-    }
-    return undefined;
   }
 
   function doesLocationHaveProp(p, value) {
@@ -306,6 +324,7 @@ function getDisplayableVaccineInfo(p) {
     vaccineSpotterAppointmentAvailability: getVaccineSpotterAvailability(p),
     vaccineSpotterUpdatedAt: getVaccineSpotterUpdatedAt(p),
     vaccineSpotterURL: getVaccineSpotterURL(p),
+    hasStricterAgeFloorThanCounty: getHasStricterAgeFloorThanCounty(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
 }
@@ -359,6 +378,7 @@ export {
   getHasVaccine,
   getDisplayableVaccineInfo,
   getHasReport,
+  getHasStricterAgeFloorThanCounty,
   getCoord,
   getCounty,
   getTimeDiffFromNow,

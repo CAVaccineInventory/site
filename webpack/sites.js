@@ -1,5 +1,6 @@
 import {
   getDisplayableVaccineInfo,
+  getHasStricterAgeFloorThanCounty,
   getTimeDiffFromNow,
 } from "./data/locations.js";
 import siteTemplate from "./templates/siteLocation.handlebars";
@@ -18,7 +19,7 @@ function generateCountyUrl(countyName) {
   return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
 }
 
-function addSitesToPage(sites, containerId) {
+async function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
 
@@ -39,6 +40,9 @@ function addSitesToPage(sites, containerId) {
       notes = markdownify(notes);
     }
 
+    const hasStricterAgeFloorThanCounty = await getHasStricterAgeFloorThanCounty(
+      site
+    );
     const context = {
       name: info.name,
       county: info.county,
@@ -61,6 +65,7 @@ function addSitesToPage(sites, containerId) {
       notes: notes,
       providerInfo: info.providerNotes,
       id: info.id,
+      hasStricterAgeFloorThanCounty: hasStricterAgeFloorThanCounty,
     };
 
     const range = document
@@ -77,14 +82,14 @@ function addSitesToPage(sites, containerId) {
   containerElem.appendChild(fragmentElem);
 }
 
-function addSitesOrHideIfEmpty(sites, containerId) {
+async function addSitesOrHideIfEmpty(sites, containerId) {
   if (!sites.length) {
     const container = document.getElementById(containerId);
     container.parentElement.classList.add("hidden");
   } else {
     const container = document.getElementById(containerId);
     container.parentElement.classList.remove("hidden");
-    addSitesToPage(sites, containerId);
+    await addSitesToPage(sites, containerId);
   }
 }
 

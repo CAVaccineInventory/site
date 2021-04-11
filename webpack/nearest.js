@@ -7,6 +7,7 @@ import {
   splitSitesByVaccineState,
   getCoord,
 } from "./data/locations.js";
+import { fetchCounties } from "./data/counties.js";
 import zipCodes from "./json/zipCodes.json";
 
 import { addSitesOrHideIfEmpty, maybeScrollToSiteInUrl } from "./sites.js";
@@ -30,6 +31,7 @@ function extractZip(zipInput) {
 
 function loaded() {
   fetchSites();
+  fetchCounties();
 
   const zipForm = document.getElementById("js-submit-zip-form");
   const zipInput = document.getElementById("js-zip-or-county");
@@ -356,9 +358,9 @@ async function updateSitesFromMap() {
   sitesWithoutVaccine = sitesWithoutVaccine.slice(0, 50);
   sitesWithNoReport = sitesWithNoReport.slice(0, 50);
 
-  addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
-  addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
-  addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
+  await addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
+  await addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
+  await addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
   maybeScrollToSiteInUrl();
 }
 
