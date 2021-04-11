@@ -1,6 +1,7 @@
 // Calls the JSON feed to pull down providers data
 async function fetchProviders() {
-  const siteURL = "https://api.vaccinateca.com/v1/providers.json";
+  const siteURL =
+    "https://storage.googleapis.com/vaccinateca-api-vial-staging/v1/providers.json";
   const response = await fetch(siteURL);
 
   if (!response.ok) {

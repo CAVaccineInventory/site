@@ -24,7 +24,9 @@ async function fetchSites() {
   }
 
   isFetching = true;
-  const response = await fetch("https://api.vaccinateca.com/v1/locations.json");
+  const response = await fetch(
+    "https://storage.googleapis.com/vaccinateca-api-vial-staging/v1/locations.json"
+  );
 
   if (!response.ok) {
     alert(window.messageCatalog["data_js_alert"]);
