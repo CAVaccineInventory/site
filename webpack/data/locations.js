@@ -102,12 +102,16 @@ function getCounty(p) {
 
 function getAgeRestriction(p) {
   const ageMatch = /^Yes: vaccinating (\d+)\+/;
-  for (const prop of p["Availability Info"]) {
-    const result = prop.match(ageMatch);
-    if (result) {
-      return result[1];
+  const availabilityInfo = p["Availability Info"];
+  if (availabilityInfo) {
+    for (const prop of availabilityInfo) {
+      const result = prop.match(ageMatch);
+      if (result) {
+        return result[1];
+      }
     }
   }
+
   return undefined;
 }
 
