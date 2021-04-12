@@ -94,6 +94,8 @@ site_template:
   eligibility_by_provider: Eligibility determined by provider
   eligibility_by_county: Eligibility determined by county
   site_eligibity_might_be_wrong: This location may have recently expanded eligibility. Check with the site to see if you're eligible.
+  correction: Something look wrong?
+  correction_link: Let us know.
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 
@@ -143,9 +145,8 @@ index:
   illustration: Illustration of doctor administering vaccines
   positive_feedback: Let us know if you found this site useful!
   corrections: |
-    If you have a missing location to report, or think we have incorrect
-    contact information,
-    <a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">please let us know.</a>
+    If you have a missing location to report,
+    <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy" class="text-black">please let us know.</a>
   locations_by_county: Vaccination locations by county
   more_info: More information about vaccine availability
   find_county: Find your county
@@ -162,14 +163,14 @@ nearest_js:
   county_only: County residents only
 post_list_disclaimer:
   disclaimer: |
-      We do our best to keep the information on this site current, but vaccine
-      eligibility and availability at a specific location may have changed by the
-      time you read this. If you find anything on this site that is out of date,
-      <a href="https://airtable.com/shrY44NvEjHBscrOH"
-        class="font-medium text-yellow-600"
-      >
-        please report it</a
-      >. Your report will help other Californians.
+    We do our best to keep the information on this site current, but vaccine
+    eligibility and availability at a specific location may have changed by the
+    time you read this. If there's a vaccination site missing, please
+    <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy"
+      class="font-medium text-yellow-600"
+    >
+      please report it</a
+    >. Your report will help other Californians.
 pre_list_disclaimer:
   disclaimer: |
     We call hospitals, pharmacies, and other health providers across California
