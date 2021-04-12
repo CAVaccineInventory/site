@@ -80,10 +80,6 @@
     {{#if hasVaccine}}
       {{#if restrictions}}
       <div class="py-2 px-4 h-full flex flex-col items-start text-sm">
-        {{#if hasStricterAgeFloorThanCounty}}
-          <span>{{t "site_template.site_eligibity_might_be_wrong"}}</span>
-          </br>
-        {{/if}}
         {{#each restrictions}}
         <span>{{{this}}}</span>
         {{/each}}
@@ -160,6 +156,9 @@
     <div class="site_no_report px-2 md:px-4 pt-3">
       {{t "site_template.no_reports"}}
     </div>
+  {{/if}}
+  {{#if hasStricterAgeFloorThanCounty}}
+    <div class="text-xs px-4">* {{t "site_template.site_eligibity_might_be_wrong"}}</div>
   {{/if}}
   {{#if id}}
     {{!--
