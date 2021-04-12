@@ -44,6 +44,7 @@ async function addSitesToPage(sites, containerId) {
       site
     );
     const context = {
+      id: info.id,
       name: info.name,
       county: info.county,
       countyLink: generateCountyUrl(info.county),
