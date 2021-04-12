@@ -116,12 +116,19 @@ function getAgeRestriction(p) {
 }
 
 async function getHasStricterAgeFloorThanCounty(p) {
-  const siteAgeRestiction = getAgeRestriction(p);
-  if (siteAgeRestiction) {
+  const siteAgeRestictionString = getAgeRestriction(p);
+  if (siteAgeRestictionString) {
+    const siteAgeRestiction = parseInt(siteAgeRestictionString);
     const countyName = getCounty(p);
     const countyInfo = await countyInfoByName(countyName);
     if (countyInfo) {
       const countyAgeRestriction = getAgeFloorWithoutRestrictions(countyInfo);
+      // If the site has an age restriction of 18 and the county age floor is 16 we return false
+      // because that's likely a function of which vaccines the site has (not outdated data like
+      // most other mismatches).
+      if (siteAgeRestiction === 18 && countyAgeRestriction === 16) {
+        return false;
+      }
       return countyAgeRestriction < siteAgeRestiction;
     } else {
       Sentry.captureMessage(
