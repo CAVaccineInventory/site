@@ -77,7 +77,6 @@ DEPENDENCIES
   jekyll (~> 4.1.1)
   jekyll-feed (~> 0.12)
   jekyll-multiple-languages-plugin
-  jekyll-seo-tag (= 2.6.1)
   json (~> 2.5)
   minima (~> 2.5)
   tzinfo (~> 1.2)
