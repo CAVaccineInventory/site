@@ -4,11 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>
-    {% if page.layout == "county" %}
-      {{ page.title }} | 
-    {% elsif page.title %}
-      {% t page.title %} |
-    {% endif %} {{ site.title }} 
+    {% if page.layout == "county" %} {{ page.title }} | {% elsif page.title %}
+    {% t page.title %} | {% endif %} {{ site.title }}
   </title>
   <meta name="generator" content="Jekyll v4.1.1" />
   <meta property="og:title" content="{% t page.title %}" />
