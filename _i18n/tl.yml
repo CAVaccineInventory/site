@@ -26,7 +26,7 @@ titles:
   nearest: Mga Lugar ng Pagbabakuna na Malapit sa Inyo
   vaccinebot: VaccineBot
   volunteer: Boluntaryo
-  checklist: ""
+  checklist: "Maaari na ba akong bakunahan?"
 nearest:
   dropdown_1: Mga lugar na nakausap na namin
   dropdown_2: Mga lugar na mayroong nasabing dosis
@@ -40,28 +40,28 @@ nearest:
   vaccine_unknown: Hindi alam ang katayuan ng baksinasyon
   patient_info: Impormasyon ng Pasyente
   age: Ipakita ang lahat ng edad
-  under_50: ""
+  under_50: Edad 50 pababa
   profession: Ipakita ang lahat ng mga propesyon
   no_profession: Wala sa mga propesyon dito
-  education_profession: Edukasyon o manggagawa sa pangangalaga ng bata
-  food_profession: Agrikultura o manggagawa sa pagkain
-  emergency_profession: ""
-  high_risk: ""
+  education_profession: Manggagawa sa edukasyon at pangangalaga ng bata
+  food_profession: Manggagawa sa agrikultura o pagkain
+  emergency_profession: Manggagawa sa serbisyong pang-emergency
+  high_risk: Indibidwal na high-risk
   veteran: Beterano
 policy:
   vaccine_info: Impormasyon sa Bakuna
-  vaccine_locations: ""
-  vaccine_appointments: ""
-  volunteer_opportunities: ""
+  vaccine_locations: Lokasyon ng mga Nagbabakuna
+  vaccine_appointments: Appointment para sa Bakuna
+  volunteer_opportunities: Mga Oportunidad Para Magboluntaryo
 provider:
-  info: ""
-  locations: ""
-  appointments: ""
+  info: Website ng Provider
+  locations: Mga Lokasyon
+  appointments: Mga Appointment
 head:
-  site_description: Malalathala ang ngayong COVID-19 bakuna availability sa mga ospital at botika sa buong California.
-  social_card_text: "Hanapin ang bakunahan, kwalipikasyon, at appointment tagubilin."
+  site_description: Inilalathala ang pagkakaroon ng bakuna sa COVID-19 ng mga ospital at parmasya sa buong California
+  social_card_text: "Hanapin ang lokasyon ng bakunahan, kwalipikasyon, at mga instruksiyon sa appointment"
   meta_image_tag: |
-    Imahen nung logo ng VaccinateCA kasama ang nakasulat na 'VaccinateCA. Hanapin ang bakunahan, kwalipikasyon, at appointment tagubilin.'
+    Imahen ng logo ng VaccinateCA kasama ang nakasulat na 'VaccinateCA. Hanapin ang lugar ng bakunahan, kwalipikasyon at mga instruksiyon sa appointment.'
 header:
   menu_open: Buksan ang pangunahing menu
 map:
@@ -78,28 +78,30 @@ search_form:
 site_template:
   county_header: Sa inyong county
   no_reports: Walang ulat sa pakikipag-ugnay
-  provider_info: ""
-  veterans: ""
-  education_workers: ""
-  food_workers: ""
-  emergency_workers: ""
-  high_risk_individuals: ""
-  copy_text: ""
-  copied_text: ""
-  vaccinating: ""
-  book_now: ""
-  check_now: ""
-  appointments_available: ""
-  appointments_unavailable: ""
-  eligibility_by_provider: ""
-  eligibility_by_county: ""
+  provider_info: Impormasyon tungkol sa provider network
+  veterans: Dapat ay Beterano
+  education_workers: Mga manggagawa sa edukasyon at pangangalaga ng bata
+  food_workers: Agrikultura at manggagawa ng pagkain
+  emergency_workers: Manggagawa sa serbisyong pang-emergency
+  high_risk_individuals: Mga Indibidwal na High-risk
+  share_link: Ibahagi ang Link
+  copied_text: Nakopya sa Clipboard
+  vaccinating: Nagbabakuna
+  book_now: Itakda
+  check_now: Tingnan
+  appointments_available: "May nakitang bukas na appointments ang VaccineSpotter.org dito{{time}}"
+  appointments_unavailable: "Walang nakitang appointments ang VaccineSpotter.org dito{{time}}"
+  eligibility_by_provider: Eligibility Ayon sa Provider
+  eligibility_by_county: Eligibility Ayon sa County
+  correction: "Mukhang may Mali?"
+  correction_link: Ipaalam sa Amin
 not_found:
   text: |
     Wala ang pahina na inyong hiningi. Kung naghahanap kayo ng tulong 
     para makahanap ng bakuna sa California, paki-tignan ang 
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
-  search_by_county: Paghahanap ayon sa county ...
+  search_by_county: Hanapin ayon sa county ...
   text: |
     Habang mayroong estratehiya para sa pagbabakuna ang estado ng California, na-i-delegate
     nila ang prioritization at pagbibigay sa bawat county. Ang mga desisyon tungkol sa kung sinong
@@ -115,12 +117,22 @@ county_policies:
 index:
   header: Maghanap ng bakuna para sa COVID-19 para sa inyo o sa inyong mahal sa buhay
   subtitle: |
-  eligible: ""
+    Nagkakaroon na sa California ng ligtas at maaasahang bakuna sa COVID-19 para sa mga may edad, manggagawa sa esensyal na industriya, at mga indibidwal na high-risk. Ngunit maaaring mahirap alamin kung saan at paano makakakuha nito. Tumatawag kami sa mga ospital at parmasya araw-araw upang alamin kung mayroon silang bakuna at ang proseso para makakuha nito.
+  eligible: "Hindi sigurado kung ikaw ay eligible? <a href=\"/checklist\">Alamin</a>"
   disclaimer: |
     Maaari nang makuha ng iba't ibang grupo ng tao sa California ang mga bakuna laban sa COVID-19 na ligtas at maaasahan. 
     Pero maaaring mahirap malaman kung saan at paano makakapagpabakuna. 
     Kami ay isang grupo ng boluntaryo na tumatawag sa mga ospital at botika upang matunton kung nasaan makakakuha ng bakuna at ang kanilang proseso para sa pagpapabakuna. 
   disclaimer_1: |
+    <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">Na-aprubahan</a>
+    na ng California
+    ang pagbibigay ng bakuna laban sa COVID-19 para sa mga taong edad 50 at 
+    pataas. Ang programa ng pagbabakuna laban sa COVID-19 ng California ay mabilis
+     na nagbabago. Ang mga opsiyal sa 
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">pederal</a>, 
+    <a href="https://covid19.ca.gov/vaccines/">estado</a>, 
+    at <a href="https://www.vaccinateca.com/county-policies">county</a> ay madalas na maglathala ng pagbabago. Ang mga websites
+     ng gobyerno ang pinakamainam na mapagkukunan ng opisyal na impormasyon.
   disclaimer_2: |
     Kami ay website na gawa ng komunidad at hindi namin ni-rerepresenta ang gubyerno
     o ang mga tagapagbigay ng healthcare.
@@ -181,8 +193,23 @@ about_us:
     Araw araw ay tinatawagan namin ang mga propesyonal sa medisina sa daan-daang mga maaring lugar ng pagpapabakuna. Inaalam namin kung
      mayroon silang bakuna at kung mayroon man, kung kanino nila ito maaaring ibigay at kung papaanong makakuha ng appointment. Kinokolekta
      namin itong impormasyon at inilalathala dito sa website na ito.
-  equity_title: ""
+  equity_title: Ang Aming Pangako sa Tamang Pagkalap ng Impormasyon Tungkol sa Bakuna
   equity: |
+    Sa <a
+    href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">buong bansa,
+    ipinapahiwatig ng ebidensya</a> na sa kabila ng malubhang epekto ng
+    pandemya ng COVID-19, ang mga miyembro ng komunidad na marginalized ay
+    nakatanggap ng mas kaunting bakuna kaysa iba na may higit na
+    mapagkukunan.
+
+    Ang VaccinateCA ay nakatuon upang matiyak na ang mga mas salat sa buhay ay
+    may patas na access sa lahat ng impormasyong aming inuulat. Sa pagiging
+    kabakas ng mga dalubhasa at tagapagtaguyod na nagpakita ng tiwala sa kanilang
+    mga komunidad, inaasaahan naming makabuo ng mga tools na susuporta sa
+    totoong pangangailangan ng mga mas higit na apektado ng krisis.
+     
+    Kung nais mong makipagtulungan sa amin sa layuning ito, mangyaring mag-email sa amin sa:<a
+    href="mailto:outreach@vaccinateca.com">outreach@vaccinateca.com</a>
   faq_header: |
     Mga Kasagutan sa Madalas na mga Tanong
   faq_help: "Paano akong makakatulong?"
