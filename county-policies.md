@@ -3,7 +3,7 @@ layout: default
 title: titles.county_policies
 permalink: /county-policies
 add_to_nav: true
-order: 3
+order: 2
 ---
 <script src="/assets/js/policies.js"></script>
 
