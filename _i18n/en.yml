@@ -68,10 +68,6 @@ site_template:
   no_reports: No contact reports
   provider_info: Provider network info
   veterans: Must be a veteran
-  education_workers: Education & childcare workers
-  food_workers: Agriculture & food workers
-  emergency_workers: Emergency service workers
-  high_risk_individuals: High-risk individuals
   share_link: Share Link
   copied_text: Copied to Clipboard
   vaccinating: Vaccinating
@@ -79,8 +75,6 @@ site_template:
   check_now: Check Now
   appointments_available: VaccineSpotter.org found open appointments here {{time}}
   appointments_unavailable: VaccineSpotter.org found no appointments here {{time}}
-  eligibility_by_provider: Eligibility determined by provider
-  eligibility_by_county: Eligibility determined by county
   site_eligibity_might_be_wrong: This county recently expanded eligibility. Contact the site to see if you're eligible.
   correction: Something look wrong?
   correction_link: Let us know.
