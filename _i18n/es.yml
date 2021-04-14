@@ -26,6 +26,7 @@ titles:
   nearest: Sitios de vacunación cercanos
   vaccinebot: VaccineBot
   volunteer: Voluntar
+  checklist: "¿Soy elegible?"
 nearest:
   dropdown_1: Sitios que hemos contactado
   dropdown_2: Sitios con dosis reportadas

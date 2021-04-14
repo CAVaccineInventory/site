@@ -26,6 +26,7 @@ titles:
   nearest: 근처 백신 접종 장소
   vaccinebot: VaccineBot
   volunteer: ""
+  checklist: ""
 nearest:
   dropdown_1: 연락된 장소
   dropdown_2: 백신 재고가 있는 장소

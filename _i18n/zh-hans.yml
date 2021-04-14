@@ -26,6 +26,7 @@ titles:
   nearest: 您附近的疫苗接种地点
   vaccinebot: VaccineBot
   volunteer: ""
+  checklist: ""
 nearest:
   dropdown_1: 我们联系过的地点
   dropdown_2: 据汇报有疫苗的地点
