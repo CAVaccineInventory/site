@@ -35,6 +35,8 @@
     "url": "https://github.com/CAVaccineInventory/site"
   },
   "dependencies": {
+    "@sentry/browser": "^6.2.5",
+    "@sentry/tracing": "^6.2.5",
     "@tarekraafat/autocomplete.js": "^8.2.0",
     "autoprefixer": "^10.2.4",
     "core-js": "^3.8.3",
