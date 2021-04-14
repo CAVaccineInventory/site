@@ -81,7 +81,7 @@ site_template:
   provider_info: Impormasyon tungkol sa provider network
   veterans: Dapat ay Beterano
   education_workers: Mga manggagawa sa edukasyon at pangangalaga ng bata
-  food_workers: Agrikultura at manggagawa ng pagkain
+  food_workers: Manggagawa sa agrikultura o pagkain
   emergency_workers: Manggagawa sa serbisyong pang-emergency
   high_risk_individuals: Mga indibidwal na high-risk
   share_link: Ibahagi ang Link
@@ -93,6 +93,7 @@ site_template:
   appointments_unavailable: "Walang nakitang appointments ang VaccineSpotter.org dito{{time}}"
   eligibility_by_provider: Eligibility ayon sa provider
   eligibility_by_county: Eligibility ayon sa county
+  site_eligibity_might_be_wrong: Kamakailan lang ay pinalawak ng county kung sino ang maaari nang bakunahan. Makipag-ugnayan sa amin upang malaman kung ikaw ay maaari nang bakunahan.
   correction: "Mukhang may mali?"
   correction_link: Ipaalam sa amin
 not_found:
