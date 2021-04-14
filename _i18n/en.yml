@@ -88,11 +88,10 @@ county_policies:
 index:
   header: Find a COVID-19 vaccine for yourself or a loved one
   subtitle: |
-     Safe and reliable COVID-19 vaccines are becoming available in California to
-     seniors, workers in essential industries, and high-risk individuals. But it
-     can be difficult to find out where and how to get a shot. We call hospitals
-     and pharmacies daily to track their vaccine availability and their
-     processes for getting one.
+     Safe and reliable COVID-19 vaccines are available in California to everyone
+     over the age of 16 but it can be difficult to find out where and how to get
+     a shot. We call hospitals and pharmacies daily to track their vaccine
+     availability and their processes for getting one.
   eligible: <b>Safe and reliable COVID-19 vaccines are available to everyone in California over 16 as of April 15.</b>
   disclaimer: |
     Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
