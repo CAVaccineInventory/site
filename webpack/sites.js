@@ -108,20 +108,11 @@ function generateAppointmentRequiredLabel(info) {
 
 function generateRestrictions(info, plainText = false) {
   const restrictions = [];
-  if (info.isLimitedToPatients) {
+    if (info.isLimitedToPatients) {
     restrictions.push(window.messageCatalog.nearest_js_patients_only);
   }
   if (info.isCountyRestricted) {
     restrictions.push(window.messageCatalog.nearest_js_county_only);
-  }
-<<<<<<< HEAD
-||||||| 6919d2e (Call out sites that might have incorrect age restrictions (#707))
-  if (info.ageRestriction) {
-    let ageRestrictionMessage = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
-    if (hasStricterAgeFloorThanCounty) {
-      ageRestrictionMessage += "*";
-    }
-    restrictions.push(ageRestrictionMessage);
   }
   if (info.ageRestriction) {
     restrictions.push(
@@ -131,89 +122,7 @@ function generateRestrictions(info, plainText = false) {
   if (info.veteransOnly) {
     restrictions.push(t("site_template.veterans"));
   }
-  if (info.educationWorkers) {
-    restrictions.push(t("site_template.education_workers"));
-  }
-  if (info.foodWorkers) {
-    restrictions.push(t("site_template.food_workers"));
-  }
-  if (info.emergencyWorkers) {
-    restrictions.push(t("site_template.emergency_workers"));
-  }
-  if (info.highRisk) {
-    const url =
-      "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx";
-    const link = `<a target="_blank" href=${url}>${t(
-      "site_template.high_risk_individuals"
-    )}</a>`;
-    restrictions.push(link);
-  }
-=======
-  if (info.educationWorkers) {
-    restrictions.push(t("site_template.education_workers"));
-  }
-  if (info.foodWorkers) {
-    restrictions.push(t("site_template.food_workers"));
-  }
-  if (info.emergencyWorkers) {
-    restrictions.push(t("site_template.emergency_workers"));
-  }
-  if (info.highRisk) {
-    const url =
-      "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx";
-    const link = plainText
-      ? `${t("site_template.high_risk_individuals")} (${url})`
-      : `<a target="_blank" href=${url}>${t(
-        "site_template.high_risk_individuals"
-      )}</a>`;
-    restrictions.push(link);
-  }
->>>>>>> parent of 6919d2e (Call out sites that might have incorrect age restrictions (#707))
 
-<<<<<<< HEAD
-||||||| 6919d2e (Call out sites that might have incorrect age restrictions (#707))
-  if (info.determinedByProvider && info.providerURL) {
-    // if we already display URL in provider notes, don't repeat here
-    if (!info.providerNotes || !info.providerNotes.includes(info.providerURL)) {
-      const link = `<a target="_blank" href=${info.providerURL}>${t(
-        "site_template.eligibility_by_provider"
-      )}</a>`;
-      restrictions.push(link);
-    }
-  }
-
-  if (info.determinedByCounty) {
-    const urlPath = generateCountyUrl(info.county);
-    const link = `<a target="_blank" href=${urlPath}>${t(
-      "site_template.eligibility_by_county"
-    )}</a>`;
-    restrictions.push(link);
-  }
-=======
-  if (info.determinedByProvider && info.providerURL) {
-    // if we already display URL in provider notes, don't repeat here
-    if (!info.providerNotes || !info.providerNotes.includes(info.providerURL)) {
-      const link = plainText
-        ? `${t("site_template.eligibility_by_provider")} (${info.providerURL})`
-        : `<a target="_blank" href=${info.providerURL}>${t(
-          "site_template.eligibility_by_provider"
-        )}</a>`;
-      restrictions.push(link);
-    }
-  }
-
-  if (info.determinedByCounty) {
-    const urlPath = generateCountyUrl(info.county);
-    const link = plainText
-      ? `${t(
-        "site_template.eligibility_by_county"
-      )} (https://vaccinateca.com${urlPath})`
-      : `<a target="_blank" href=${urlPath}>${t(
-        "site_template.eligibility_by_county"
-      )}</a>`;
-    restrictions.push(link);
-  }
->>>>>>> parent of 6919d2e (Call out sites that might have incorrect age restrictions (#707))
   return restrictions;
 }
 
