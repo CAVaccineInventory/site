@@ -2,6 +2,7 @@ import {
   getDisplayableVaccineInfo,
   getHasStricterAgeFloorThanCounty,
   getTimeDiffFromNow,
+  siteIdInUrlOrNull,
 } from "./data/locations.js";
 import siteTemplate from "./templates/siteLocation.handlebars";
 import { markdownify } from "./markdown.js";
@@ -199,7 +200,7 @@ function initCopyButton(copyButton, info) {
     copyButton.classList.add("copied");
     copyButton.blur();
     if (lastInteractedCopyButton && lastInteractedCopyButton !== copyButton) {
-      lastInteractedCopyButton.textContent = t("site_template.copy_text");
+      lastInteractedCopyButton.textContent = t("site_template.share_link");
       lastInteractedCopyButton.classList.remove("copied");
       lastInteractedCopyButton.classList.add("not_copied");
     }
@@ -212,15 +213,12 @@ function initCopyButton(copyButton, info) {
  * This must be called after all of the sites are added to the page.
  */
 function maybeScrollToSiteInUrl() {
-  const urlHash = window.location.hash;
-  if (urlHash !== "") {
-    const siteId = urlHash.substring(1);
-    if (siteId) {
-      const element = document.getElementById(siteId);
-      if (element) {
-        element.classList.add("is-selected");
-        element.scrollIntoView();
-      }
+  const siteId = siteIdInUrlOrNull();
+  if (siteId) {
+    const element = document.getElementById(siteId);
+    if (element) {
+      element.classList.add("is-selected");
+      element.scrollIntoView();
     }
   }
 }

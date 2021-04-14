@@ -364,9 +364,28 @@ function splitSitesByVaccineState(sites) {
   return { sitesWithVaccine, sitesWithoutVaccine, sitesWithNoReport };
 }
 
+function siteIdInUrlOrNull() {
+  const urlHash = window.location.hash;
+  if (urlHash !== "") {
+    return urlHash.substring(1);
+  }
+  return null;
+}
+
 function sortByRecency(sites) {
+  const siteIdInUrl = siteIdInUrlOrNull();
   sites.sort((a, b) => {
     try {
+      // If we have a site ID in the URL, always put that one first
+      if (siteIdInUrl) {
+        if (a["id"] === siteIdInUrl) {
+          return -1;
+        } else if (b["id"] === siteIdInUrl) {
+          return 1;
+        }
+      }
+
+      // Otherwise sort by latest report
       const aDate = a["Latest report"];
       const bDate = b["Latest report"];
       if (aDate && bDate) {
@@ -394,5 +413,6 @@ export {
   getCounty,
   getTimeDiffFromNow,
   splitSitesByVaccineState,
+  siteIdInUrlOrNull,
   sortByRecency,
 };
