@@ -114,11 +114,6 @@ function generateRestrictions(info, plainText = false) {
   if (info.isCountyRestricted) {
     restrictions.push(window.messageCatalog.nearest_js_county_only);
   }
-  if (info.ageRestriction) {
-    restrictions.push(
-      `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`
-    );
-  }
   if (info.veteransOnly) {
     restrictions.push(t("site_template.veterans"));
   }

@@ -141,24 +141,12 @@ function getDisplayableVaccineInfo(p) {
     return p["Location Type"] === "Super Site";
   }
 
-  function getAgeRestriction(p) {
-    const ageMatch = /^Yes: vaccinating (\d+)\+/;
-    for (const prop of p["Availability Info"]) {
-      const result = prop.match(ageMatch);
-      if (result) {
-        return result[1];
-      }
-    }
-    return undefined;
-  }
-
   function doesLocationHaveProp(p, value) {
     return p["Availability Info"].some((prop) => prop === value);
   }
 
   function getAvailabilityProps(p) {
     return {
-      ageRestriction: getAgeRestriction(p),
       isCountyRestricted: doesLocationHaveProp(
         p,
         "Yes: restricted to county residents"

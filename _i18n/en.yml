@@ -127,7 +127,6 @@ nearest_js:
   enter_valid_zipcode: Please enter a valid zip code
   alert_detect: Failed to detect your location. Please try again or enter your zip code
   alert_zipcode: Failed to locate your zip code, please try again
-  years_up: years old and up
   patients_only: Current patients only
   county_only: County residents only
 post_list_disclaimer:
