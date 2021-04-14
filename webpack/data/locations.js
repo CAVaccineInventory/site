@@ -1,6 +1,5 @@
 import { DateTime } from "luxon";
 import { markdownifyInline } from "../markdown";
-import { countyInfoByName, getAgeFloorWithoutRestrictions } from "./counties";
 import { fetchProviders, findProviderByName } from "./providers.js";
 import {
   fetchVaccineSpotterData,
@@ -100,45 +99,6 @@ function getCounty(p) {
   return p["County"];
 }
 
-function getAgeRestriction(p) {
-  const ageMatch = /^Yes: vaccinating (\d+)\+/;
-  const availabilityInfo = p["Availability Info"];
-  if (availabilityInfo) {
-    for (const prop of availabilityInfo) {
-      const result = prop.match(ageMatch);
-      if (result) {
-        return result[1];
-      }
-    }
-  }
-
-  return undefined;
-}
-
-async function getHasStricterAgeFloorThanCounty(p) {
-  const siteAgeRestictionString = getAgeRestriction(p);
-  if (siteAgeRestictionString) {
-    const siteAgeRestiction = parseInt(siteAgeRestictionString);
-    const countyName = getCounty(p);
-    const countyInfo = await countyInfoByName(countyName);
-    if (countyInfo) {
-      const countyAgeRestriction = getAgeFloorWithoutRestrictions(countyInfo);
-      // If the site has an age restriction of 18 and the county age floor is 16 we return false
-      // because that's likely a function of which vaccines the site has (not outdated data like
-      // most other mismatches).
-      if (siteAgeRestiction === 18 && countyAgeRestriction === 16) {
-        return false;
-      }
-      return countyAgeRestriction < siteAgeRestiction;
-    } else {
-      Sentry.captureMessage(
-        `Unable to load county information for site ${p["id"]} - ${countyName}}`
-      );
-    }
-  }
-  return false;
-}
-
 function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     const info = p["Availability Info"];
@@ -179,6 +139,17 @@ function getDisplayableVaccineInfo(p) {
 
   function isSuperSite(p) {
     return p["Location Type"] === "Super Site";
+  }
+
+  function getAgeRestriction(p) {
+    const ageMatch = /^Yes: vaccinating (\d+)\+/;
+    for (const prop of p["Availability Info"]) {
+      const result = prop.match(ageMatch);
+      if (result) {
+        return result[1];
+      }
+    }
+    return undefined;
   }
 
   function doesLocationHaveProp(p, value) {
@@ -335,7 +306,6 @@ function getDisplayableVaccineInfo(p) {
     vaccineSpotterAppointmentAvailability: getVaccineSpotterAvailability(p),
     vaccineSpotterUpdatedAt: getVaccineSpotterUpdatedAt(p),
     vaccineSpotterURL: getVaccineSpotterURL(p),
-    hasStricterAgeFloorThanCounty: getHasStricterAgeFloorThanCounty(p),
     ...(getHasVaccine(p) ? getAvailabilityProps(p) : {}),
   };
 }
@@ -408,7 +378,6 @@ export {
   getHasVaccine,
   getDisplayableVaccineInfo,
   getHasReport,
-  getHasStricterAgeFloorThanCounty,
   getCoord,
   getCounty,
   getTimeDiffFromNow,

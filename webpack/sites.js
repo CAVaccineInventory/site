@@ -1,6 +1,5 @@
 import {
   getDisplayableVaccineInfo,
-  getHasStricterAgeFloorThanCounty,
   getTimeDiffFromNow,
   siteIdInUrlOrNull,
 } from "./data/locations.js";
@@ -20,7 +19,7 @@ function generateCountyUrl(countyName) {
   return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
 }
 
-async function addSitesToPage(sites, containerId) {
+function addSitesToPage(sites, containerId) {
   const fragmentElem = document.createDocumentFragment();
   fragmentElem.innerHTML = "";
 
@@ -30,13 +29,8 @@ async function addSitesToPage(sites, containerId) {
     const addressLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
       info.address
     )}`;
-    const hasStricterAgeFloorThanCounty = await getHasStricterAgeFloorThanCounty(
-      site
-    );
-    const restrictions = generateRestrictions(
-      info,
-      hasStricterAgeFloorThanCounty
-    );
+
+    const restrictions = generateRestrictions(info);
     const latestReportTime = generateLatestReportTime(info);
     const appointmentRequiredLabel = generateAppointmentRequiredLabel(info);
 
@@ -69,7 +63,6 @@ async function addSitesToPage(sites, containerId) {
       notes: notes,
       providerInfo: info.providerNotes,
       id: info.id,
-      hasStricterAgeFloorThanCounty: hasStricterAgeFloorThanCounty,
     };
 
     const range = document
@@ -86,14 +79,14 @@ async function addSitesToPage(sites, containerId) {
   containerElem.appendChild(fragmentElem);
 }
 
-async function addSitesOrHideIfEmpty(sites, containerId) {
+function addSitesOrHideIfEmpty(sites, containerId) {
   if (!sites.length) {
     const container = document.getElementById(containerId);
     container.parentElement.classList.add("hidden");
   } else {
     const container = document.getElementById(containerId);
     container.parentElement.classList.remove("hidden");
-    await addSitesToPage(sites, containerId);
+    addSitesToPage(sites, containerId);
   }
 }
 
@@ -113,7 +106,7 @@ function generateAppointmentRequiredLabel(info) {
   return appointmentRequiredLabel;
 }
 
-function generateRestrictions(info, hasStricterAgeFloorThanCounty = false) {
+function generateRestrictions(info, plainText = false) {
   const restrictions = [];
   if (info.isLimitedToPatients) {
     restrictions.push(window.messageCatalog.nearest_js_patients_only);
@@ -121,10 +114,106 @@ function generateRestrictions(info, hasStricterAgeFloorThanCounty = false) {
   if (info.isCountyRestricted) {
     restrictions.push(window.messageCatalog.nearest_js_county_only);
   }
+<<<<<<< HEAD
+||||||| 6919d2e (Call out sites that might have incorrect age restrictions (#707))
+  if (info.ageRestriction) {
+    let ageRestrictionMessage = `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`;
+    if (hasStricterAgeFloorThanCounty) {
+      ageRestrictionMessage += "*";
+    }
+    restrictions.push(ageRestrictionMessage);
+  }
+  if (info.ageRestriction) {
+    restrictions.push(
+      `${info.ageRestriction} ${window.messageCatalog.nearest_js_years_up}`
+    );
+  }
   if (info.veteransOnly) {
     restrictions.push(t("site_template.veterans"));
   }
+  if (info.educationWorkers) {
+    restrictions.push(t("site_template.education_workers"));
+  }
+  if (info.foodWorkers) {
+    restrictions.push(t("site_template.food_workers"));
+  }
+  if (info.emergencyWorkers) {
+    restrictions.push(t("site_template.emergency_workers"));
+  }
+  if (info.highRisk) {
+    const url =
+      "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx";
+    const link = `<a target="_blank" href=${url}>${t(
+      "site_template.high_risk_individuals"
+    )}</a>`;
+    restrictions.push(link);
+  }
+=======
+  if (info.educationWorkers) {
+    restrictions.push(t("site_template.education_workers"));
+  }
+  if (info.foodWorkers) {
+    restrictions.push(t("site_template.food_workers"));
+  }
+  if (info.emergencyWorkers) {
+    restrictions.push(t("site_template.emergency_workers"));
+  }
+  if (info.highRisk) {
+    const url =
+      "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/vaccine-high-risk-factsheet.aspx";
+    const link = plainText
+      ? `${t("site_template.high_risk_individuals")} (${url})`
+      : `<a target="_blank" href=${url}>${t(
+        "site_template.high_risk_individuals"
+      )}</a>`;
+    restrictions.push(link);
+  }
+>>>>>>> parent of 6919d2e (Call out sites that might have incorrect age restrictions (#707))
 
+<<<<<<< HEAD
+||||||| 6919d2e (Call out sites that might have incorrect age restrictions (#707))
+  if (info.determinedByProvider && info.providerURL) {
+    // if we already display URL in provider notes, don't repeat here
+    if (!info.providerNotes || !info.providerNotes.includes(info.providerURL)) {
+      const link = `<a target="_blank" href=${info.providerURL}>${t(
+        "site_template.eligibility_by_provider"
+      )}</a>`;
+      restrictions.push(link);
+    }
+  }
+
+  if (info.determinedByCounty) {
+    const urlPath = generateCountyUrl(info.county);
+    const link = `<a target="_blank" href=${urlPath}>${t(
+      "site_template.eligibility_by_county"
+    )}</a>`;
+    restrictions.push(link);
+  }
+=======
+  if (info.determinedByProvider && info.providerURL) {
+    // if we already display URL in provider notes, don't repeat here
+    if (!info.providerNotes || !info.providerNotes.includes(info.providerURL)) {
+      const link = plainText
+        ? `${t("site_template.eligibility_by_provider")} (${info.providerURL})`
+        : `<a target="_blank" href=${info.providerURL}>${t(
+          "site_template.eligibility_by_provider"
+        )}</a>`;
+      restrictions.push(link);
+    }
+  }
+
+  if (info.determinedByCounty) {
+    const urlPath = generateCountyUrl(info.county);
+    const link = plainText
+      ? `${t(
+        "site_template.eligibility_by_county"
+      )} (https://vaccinateca.com${urlPath})`
+      : `<a target="_blank" href=${urlPath}>${t(
+        "site_template.eligibility_by_county"
+      )}</a>`;
+    restrictions.push(link);
+  }
+>>>>>>> parent of 6919d2e (Call out sites that might have incorrect age restrictions (#707))
   return restrictions;
 }
 
