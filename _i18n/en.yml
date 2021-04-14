@@ -26,7 +26,6 @@ titles:
   nearest: Vaccination Sites Near You
   vaccinebot: VaccineBot
   volunteer: Volunteer
-  checklist: Am I eligible?
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
@@ -100,7 +99,7 @@ index:
      can be difficult to find out where and how to get a shot. We call hospitals
      and pharmacies daily to track their vaccine availability and their
      processes for getting one.
-  eligible: Not sure if you're eligible? <a href="/checklist">Find out</a>.
+  eligible: <b>Safe and reliable COVID-19 vaccines are available to everyone in California over 16 as of April 15.</b>
   disclaimer: |
     Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
     But it can be difficult to find out where and how to get a shot. 
