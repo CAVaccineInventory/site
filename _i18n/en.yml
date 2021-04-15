@@ -60,6 +60,7 @@ map:
   failed: Failed, please try again
   not_supported: Geolocation not supported
   jump_to_current_location: Jump to Current Location
+  failed_to_detect_location: Failed to detect your location.
 search_form:
   enter_zip: Enter ZIP
   enter_county: or county

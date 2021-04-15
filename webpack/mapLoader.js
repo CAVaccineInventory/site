@@ -46,10 +46,7 @@ async function initMap() {
           map.setCenter(pos);
         },
         (error) => {
-          Sentry.captureException(error);
-          alert(window.messageCatalog["nearest_js_alert_detect"]);
-          onFinish();
-          resolve();
+          alert(t("map.failed_to_detect_location"));
         }
       );
     });
