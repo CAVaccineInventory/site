@@ -26,7 +26,6 @@ titles:
   nearest: Mga Lugar ng Pagbabakuna na Malapit sa Inyo
   vaccinebot: VaccineBot
   volunteer: Boluntaryo
-  checklist: "Maaari na ba akong bakunahan?"
 nearest:
   dropdown_1: Mga lugar na nakausap na namin
   dropdown_2: Mga lugar na mayroong nasabing dosis
@@ -69,10 +68,6 @@ site_template:
   no_reports: Walang ulat sa pakikipag-ugnay
   provider_info: Impormasyon tungkol sa provider network
   veterans: Dapat ay Beterano
-  education_workers: Mga manggagawa sa edukasyon at pangangalaga ng bata
-  food_workers: Manggagawa sa agrikultura o pagkain
-  emergency_workers: Manggagawa sa serbisyong pang-emergency
-  high_risk_individuals: Mga indibidwal na high-risk
   share_link: Ibahagi ang Link
   copied_text: Nakopya sa Clipboard
   vaccinating: Nagbabakuna
@@ -82,7 +77,6 @@ site_template:
   appointments_unavailable: "Walang nakitang appointments ang VaccineSpotter.org dito{{time}}"
   eligibility_by_provider: Eligibility ayon sa provider
   eligibility_by_county: Eligibility ayon sa county
-  site_eligibity_might_be_wrong: Kamakailan lang ay pinalawak ng county kung sino ang maaari nang bakunahan. Makipag-ugnayan sa amin upang malaman kung ikaw ay maaari nang bakunahan.
   correction: "Mukhang may mali?"
   correction_link: Ipaalam sa amin
 not_found:
@@ -92,28 +86,15 @@ not_found:
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
   search_by_county: Hanapin ayon sa county ...
+  text: |
 index:
   header: Maghanap ng bakuna sa COVID-19 para sa iyo o sa iyong mahal sa buhay
   subtitle: |
-    Nagkakaroon na sa California ng ligtas at maaasahang bakuna sa COVID-19 para
-    sa mga may edad, manggagawa sa esensyal na industriya, at mga indibidwal na
-    high-risk. Ngunit maaaring mahirap alamin kung saan at paano makakuha nito.
-    Tumatawag kami sa mga ospital at parmasya araw-araw upang alamin kung
-    mayroon silang bakuna at ang proseso para makakuha nito.
-  eligible: "Hindi sigurado kung ikaw ay eligible? <a href=\"/checklist\">Alamin</a>"
   disclaimer: |
     Maaari nang makuha ng iba't ibang grupo ng tao sa California ang mga bakuna laban sa COVID-19 na ligtas at maaasahan. 
     Pero maaaring mahirap malaman kung saan at paano makakapagpabakuna. 
     Kami ay isang grupo ng boluntaryo na tumatawag sa mga ospital at botika upang matunton kung nasaan makakakuha ng bakuna at ang kanilang proseso para sa pagpapabakuna. 
   disclaimer_1: |
-    <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">Na-aprubahan</a>
-    na ng California ang pagbibigay ng bakuna laban sa COVID-19 para sa mga taong
-    edad 50 at pataas. Ang programa ng pagbabakuna laban sa COVID-19 ng
-    California ay mabilis na nagbabago. Ang mga opsiyal sa 
-    <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">pederal</a>, 
-    <a href="https://covid19.ca.gov/vaccines/">estado</a>, 
-    at <a href="https://www.vaccinateca.com/county-policies">county</a> ay madalas na maglathala ng pagbabago. Ang mga websites
-    ng gobyerno ang pinakamainam na mapagkukunan ng opisyal na impormasyon.
   disclaimer_2: |
     Kami ay website na gawa ng komunidad at hindi namin ni-rerepresenta ang gubyerno
     o ang mga tagapagbigay ng healthcare.
@@ -133,7 +114,6 @@ nearest_js:
   enter_valid_zipcode: Ibigay mo ang wastong zip code
   alert_detect: Hindi mahanap ang inyong lokasyon. Paki subukan uli mamaya o ilagay ang inyong zip code
   alert_zipcode: "Hindi mahanap ang inyong zip code, paki subukan uli"
-  years_up: taon o mas matanda
   patients_only: Mga kasalukuyang pasyente lamang
   county_only: Mga residente ng county lamang
 post_list_disclaimer:
@@ -168,12 +148,7 @@ footer:
 about_us:
   coordinators: "Ito ang ilan sa amin na nagtrabaho sa proyektong ito mula sa simula nitong proyektong ito pinakaunang araw:"
   intro_1: |
-    VaccinateCA ay isang gawain ng mga miyembro ng komunidad upang matulungan ang mga residente ng California na malaman at maintindihan ang tama, bago, at beripikadong impormasyon tungkol 
-    sa bakuna para sa coronavirus. Sa ganon, maaari nilang matutunan kung kailan sila maaring magpabakuna at kung papaano sila makakapagpalista para sa pagpapabakuna.
   intro_2: |
-    Araw araw ay tinatawagan namin ang mga propesyonal sa medisina sa daan-daang mga maaring lugar ng pagpapabakuna. Inaalam namin kung
-     mayroon silang bakuna at kung mayroon man, kung kanino nila ito maaaring ibigay at kung papaanong makakuha ng appointment. Kinokolekta
-     namin itong impormasyon at inilalathala dito sa website na ito.
   equity_title: Ang Aming Pangako sa Patas na Pagkalap ng Impormasyon Tungkol sa Bakuna
   equity: |
     Sa <a

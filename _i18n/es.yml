@@ -26,7 +26,6 @@ titles:
   nearest: Sitios de vacunación cercanos
   vaccinebot: VaccineBot
   volunteer: Voluntar
-  checklist: "¿Soy elegible?"
 nearest:
   dropdown_1: Sitios que hemos contactado
   dropdown_2: Sitios con dosis reportadas
@@ -38,16 +37,6 @@ nearest:
   vaccines_available: Vacunas reportadas disponibles
   vaccines_not_available: Vacunas reportadas como no disponibles
   vaccine_unknown: Estado de vacuna desconocido
-  patient_info: Información del paciente
-  age: Muestra todas las edades
-  under_50: Menores de 50 años
-  profession: Muestra todos los trabajos
-  no_profession: Ninguno de estos trabajos
-  education_profession: Trabajador de educación o cuidado infantil
-  food_profession: Trabajador agrícola o alimentario
-  emergency_profession: Trabajador de servicios de emergencia
-  high_risk: Persona de alto riesgo
-  veteran: Veterano
 policy:
   vaccine_info: Información sobre la vacuna
   vaccine_locations: Sitios de vacunas
@@ -76,15 +65,10 @@ search_form:
   location_placeholder: Mi ubicación
   submit_button: "Encontrar <span class=\"hidden md:inline\">vacuna</span>"
 site_template:
-  county_header: Dentro de su condado
   no_reports: No reportes de contacto
   provider_info: Información del proveedor
   veterans: Tiene que ser veterano
-  education_workers: Trabajador de educación o cuidado infantil
-  food_workers: Trabajador agrícola o alimentario
-  emergency_workers: Trabajador de servicios de emergencia
-  high_risk_individuals: Persona de alto riesgo
-  copy_text: Copiar
+  share_link: Compartir enlace
   copied_text: Copiada (puede pegarlo)
   vaccinating: Vacunando
   book_now: Reservar ahora
@@ -93,6 +77,8 @@ site_template:
   appointments_unavailable: "VaccineSpotter.org no encontró citas aquí {{time}}"
   eligibility_by_provider: Elegibilidad determinada por el proveedor
   eligibility_by_county: Elegibilidad determinada por el condado
+  correction: "¿Algo se ve incorrecto?"
+  correction_link: Haznos saber.
 not_found:
   text: |
     La página que ha solicitado no existe. Si busca ayuda
@@ -100,23 +86,18 @@ not_found:
     [VaccinateCA.com] (https://www.vaccinateca.com).
 county_policies:
   search_by_county: Buscar por condado...
-  text: |
-    El estado de California tiene una estrategia de vacunación, pero ha delegado priorización y administración a cada condado. Las decisiones sobre cuáles pacientes vacunar y de qué forma hacerlo, en última instancia, depende de los proveedores.
-
-    A continuación, hemos recopilado la ** información más reciente a nivel de condado **. En general, creemos que si la información que tenemos de un condado está en desacuerdo con un proveedor médico del mismo condado, el que más probablemente tenga razón es el que pudo (o no pudo) vacunar a alguien.
-
-    Algunos condados han establecido sistemas para hacer citas o tienen asesoría; por favor, verifique su condado a continuación.
+  text: |-
+    Todas las personas mayores de 16 años son elegibles en California para la vacuna contra el COVID-19. Sin embargo, la disponibilidad de vacunas aún esta limitada en muchas áreas, y los condados individuales pueden tener políticas diferentes. Puede encontrar detalles sobre las restricciones y los recursos específicos del condado a continuación.
 index:
   header: Encuentre una vacuna contra el COVID-19 para usted o un ser querido
   subtitle: |
-    Seguras y confiables, las vacunas contra el COVID-19 están disponibles para las personas mayores, los trabajadores en industrias esenciales, y las personas de alto riesgo. Pero puede ser difícil saber dónde y cómo hacerse vacunar. Llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener la vacuna.
-  eligible: "¿No estás seguro si eres elegible? <a href=\"/checklist\">Averiguar</a>."
+    Todas las personas mayores de 16 años son elegibles en California para la vacuna gratis, segura y confiable contra el COVID-19. Pero, puede ser difícil saber dónde y cómo vacunarse. Ingrese su código ZIP o condado para encontrar sitios de vacunación confirmadas cerca de usted y aprenda cómo obtener una cita.
   disclaimer: |
     Seguras y confiables, las vacunas contra el COVID-19 están disponibles para las personas mayores y los trabajadores de la salud en California. 
     Pero puede ser difícil saber dónde y cómo hacerse vacunar. 
     Somos un grupo de voluntarios que llamamos a hospitales y farmacias todos los días para realizar un seguimiento de la disponibilidad de vacunas y sus procesos para obtener la vacuna.
   disclaimer_1: |
-    El estado de California ha <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">aprobado</a> administrar la vacuna contra el COVID-19 a personas de 50 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
+    El estado de California ha <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">aprobado</a> administrar la vacuna contra el COVID-19 a personas de 16 años o más. El programa de vacunación contra el COVID-19 en todo el estado de California ha evolucionado rápidamente. <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Los funcionarios federales</a> , <a href="https://covid19.ca.gov/vaccines/">estatales</a> y del <a href="https://www.vaccinateca.com/county-policies">condado</a> están publicando actualizaciones frecuentes. Estos sitios web gubernamentales son su mejor fuente de información oficial.
   disclaimer_2: |
     Somos un sitio web dirigido por la comunidad y no representamos al gobierno ni a ningún proveedor de atención médica.
   illustration: Ilustración de médico administrando vacunas.
@@ -135,7 +116,6 @@ nearest_js:
   enter_valid_zipcode: Por favor ingrese un código ZIP válido
   alert_detect: No se pudo detectar tu ubicación. Vuelve a intentarlo o ingresa tu código ZIP
   alert_zipcode: No se pudo localizar su código ZIP. Vuelva a intentarlo.
-  years_up: años o mayor
   patients_only: Solo pacientes actuales
   county_only: Solo residentes del condado
 post_list_disclaimer:
@@ -156,9 +136,9 @@ footer:
 about_us:
   coordinators: "Algunos de los que trabajamos en este proyecto el día 1:"
   intro_1: |
-    VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus, para que puedan saber cuándo serán elegibles y cómo tomar su lugar en la fila.
+    VaccinateCA es un esfuerzo impulsado por la comunidad para ayudar a los californianos a obtener información precisa, actualizada y verificada sobre la vacuna contra el coronavirus.
   intro_2: |
-    Nuestros profesionales llaman profesionales médicos en cientos de sitios de vacunación potenciales a diario preguntándoles si tienen la vacuna y, de ser así, a quién se la administrarán y cómo hacer una cita. Escribimos lo que nos dicen y lo publicamos en esta página.
+    Nuestros profesionales llaman profesionales médicos en cientos de sitios de vacunación potenciales a diario preguntándoles si tienen la vacuna y cómo obtener una cita. También recopilamos información sobre las sitios de vacunación de fuentes oficiales, incluidas las agencias del gobierno federal, los departamentos de salud del condado, y los proveedores de atención médica. Recopilamos lo que dicen en un mapa completo y lo ponemos a disposición de forma gratuita en este sitio, lo damos a otros editores, y lo damos iniciativas de salud pública.
   equity_title: ""
   equity: |
   faq_header: |
