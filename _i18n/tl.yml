@@ -38,16 +38,6 @@ nearest:
   vaccines_available: Nasabing mayroong bakuna
   vaccines_not_available: Nasabing walang bakuna
   vaccine_unknown: Hindi alam ang katayuan ng baksinasyon
-  patient_info: Impormasyon ng Pasyente
-  age: Ipakita ang lahat ng edad
-  under_50: Edad 50 pababa
-  profession: Ipakita ang lahat ng mga propesyon
-  no_profession: Wala sa mga propesyon dito
-  education_profession: Manggagawa sa edukasyon at pangangalaga ng bata
-  food_profession: Manggagawa sa agrikultura o pagkain
-  emergency_profession: Manggagawa sa serbisyong pang-emergency
-  high_risk: Indibidwal na high-risk
-  veteran: Beterano
 policy:
   vaccine_info: Impormasyon sa Bakuna
   vaccine_locations: Lokasyon ng mga Nagbabakuna
@@ -76,12 +66,11 @@ search_form:
   location_placeholder: Ang aking lokasyon
   submit_button: "Maghanap <span class=\"hidden md:inline\">ng Bakuna</span>"
 site_template:
-  county_header: Sa inyong county
   no_reports: Walang ulat sa pakikipag-ugnay
   provider_info: Impormasyon tungkol sa provider network
   veterans: Dapat ay Beterano
   education_workers: Mga manggagawa sa edukasyon at pangangalaga ng bata
-  food_workers: Agrikultura at manggagawa ng pagkain
+  food_workers: Manggagawa sa agrikultura o pagkain
   emergency_workers: Manggagawa sa serbisyong pang-emergency
   high_risk_individuals: Mga indibidwal na high-risk
   share_link: Ibahagi ang Link
@@ -93,6 +82,7 @@ site_template:
   appointments_unavailable: "Walang nakitang appointments ang VaccineSpotter.org dito{{time}}"
   eligibility_by_provider: Eligibility ayon sa provider
   eligibility_by_county: Eligibility ayon sa county
+  site_eligibity_might_be_wrong: Kamakailan lang ay pinalawak ng county kung sino ang maaari nang bakunahan. Makipag-ugnayan sa amin upang malaman kung ikaw ay maaari nang bakunahan.
   correction: "Mukhang may mali?"
   correction_link: Ipaalam sa amin
 not_found:
@@ -102,18 +92,6 @@ not_found:
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
   search_by_county: Hanapin ayon sa county ...
-  text: |
-    Ang California ay mayroong estratehiya para sa pagbabakuna, ngunit ang
-    prayoridad at pangangasiwa ay ayon sa bawat county. Ang mga desisyon tungkol
-    sa kung sinong pasyente ang mababakunahan at kung paano ay base sa mga
-    medical providers.
-
-    Na-kolekta namin **ang pinakabagong impormasyon sa inyong county** dito. Sa
-    tingin namin, kung ang impormasyon na aming nakalap mula sa isang county ay
-    hindi sang-ayon sa medical provider dito, ang malamang na wasto ay kung sino ang maaring (o hindi maaring) makapagbigay ng inyeksyon sa inyong braso.
-
-    May mga county na nakapaghanda ng sistema ng pagtakda o payo;  mangyaring
-    tingnan ang inyong county dito.
 index:
   header: Maghanap ng bakuna sa COVID-19 para sa iyo o sa iyong mahal sa buhay
   subtitle: |
