@@ -24,6 +24,10 @@ order: 2
 </div>
 <div id="js-autocomplete-results-location"></div>
 
+<div class="bg-gray-50 p-4 shadow mt-4 mb-4 text-sm">
+  <p>{% t county_policies.text %}</p>
+</div>
+
 <ul class="js-policies">
 
 </ul>
