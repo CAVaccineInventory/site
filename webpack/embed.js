@@ -18,10 +18,25 @@ async function loaded() {
     filteredSites.forEach((site) => {
       addLocation(site);
     });
-    window.map.addListener("bounds_changed", debounce(updateSitesFromMap));
+    window.map.addListener(
+      "bounds_changed",
+      debounce(() => {
+        updateSitesFromMap();
+        updateUrlParametersFromMap();
+      })
+    );
   });
 
   updateSitesFromMap();
+}
+
+function updateUrlParametersFromMap() {
+  const center = window.map.getCenter();
+  const url = new URL(window.location.href);
+  url.searchParams.set("lat", center.lat());
+  url.searchParams.set("lng", center.lng());
+  url.searchParams.set("zoom", window.map.zoom);
+  window.history.replaceState(null, null, url.toString());
 }
 
 function updateSitesFromMap() {

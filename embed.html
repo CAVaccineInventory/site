@@ -13,7 +13,12 @@ permalink: /embed
             </ol>
         </section>
     </div>
-    <div class="h-72 lg:h-screen lg:sticky lg:top-0 lg:left-0 lg:self-start">
-        {% include map.html %}
+    <div class="h-72 lg:h-screen lg:sticky lg:top-0 lg:left-0 lg:self-start flex flex-col">
+        <div class="h-full">
+            {% include map.html %}
+        </div>
+        <div class="text-xs text-right">
+            {% t embed.powered_by_vaccinateca %}
+        </div>
     </div>
 </div>

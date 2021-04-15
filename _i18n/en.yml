@@ -59,6 +59,7 @@ map:
   locating: Locating...
   failed: Failed, please try again
   not_supported: Geolocation not supported
+  jump_to_current_location: Jump to Current Location
 search_form:
   enter_zip: Enter ZIP
   enter_county: or county
@@ -245,3 +246,5 @@ about_us:
   faq_who_answer: |
     We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our 
     core team was approximately 20 people.
+embed:
+  powered_by_vaccinateca: Powered by <a href="https://www.vaccinateca.com">VaccinateCA</a>.
