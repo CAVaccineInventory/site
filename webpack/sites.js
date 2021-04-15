@@ -106,7 +106,7 @@ function generateAppointmentRequiredLabel(info) {
   return appointmentRequiredLabel;
 }
 
-function generateRestrictions(info, plainText = false) {
+function generateRestrictions(info) {
   const restrictions = [];
   if (info.isLimitedToPatients) {
     restrictions.push(window.messageCatalog.nearest_js_patients_only);
