@@ -21,10 +21,10 @@ async function loaded() {
     window.map.addListener("bounds_changed", debounce(updateSitesFromMap));
   });
 
-  await updateSitesFromMap();
+  updateSitesFromMap();
 }
 
-async function updateSitesFromMap() {
+function updateSitesFromMap() {
   // If we get called before we've properly filtered sites on the map, skip this call
   // for now (and we'll populate this later)
   if (!window.filteredSites) {
@@ -46,5 +46,5 @@ async function updateSitesFromMap() {
   });
 
   sortByRecency(sitesToShow);
-  await addSitesOrHideIfEmpty(sitesToShow, "js-sites-with-vaccine");
+  addSitesOrHideIfEmpty(sitesToShow, "js-sites-with-vaccine");
 }
