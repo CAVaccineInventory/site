@@ -3,7 +3,7 @@ layout: default
 title: titles.county_policies
 permalink: /county-policies
 add_to_nav: true
-order: 3
+order: 2
 ---
 <script src="/assets/js/policies.js"></script>
 
@@ -23,6 +23,10 @@ order: 3
     viewBox="0 0 20 20"><title>Clear</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
 </div>
 <div id="js-autocomplete-results-location"></div>
+
+<div class="bg-gray-50 p-4 shadow mt-4 mb-4 text-sm">
+  <p>{% t county_policies.text %}</p>
+</div>
 
 <ul class="js-policies">
 

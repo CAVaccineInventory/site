@@ -19,7 +19,6 @@ function currentCounty() {
 }
 
 async function fetchCountySites() {
-  fetchCounties();
   let sites = await fetchSites();
   const county = currentCounty();
 
@@ -39,9 +38,6 @@ async function fetchCountySites() {
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
   addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
-  await addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
-  await addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
-  await addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
   maybeScrollToSiteInUrl();
 }
 
