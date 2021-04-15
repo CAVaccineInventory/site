@@ -26,7 +26,6 @@ titles:
   nearest: Vaccination Sites Near You
   vaccinebot: VaccineBot
   volunteer: Volunteer
-  checklist: Am I eligible?
 nearest:
   dropdown_1: Sites we have contacted
   dropdown_2: Sites with reported doses
@@ -69,10 +68,6 @@ site_template:
   no_reports: No contact reports
   provider_info: Provider network info
   veterans: Must be a veteran
-  education_workers: Education & childcare workers
-  food_workers: Agriculture & food workers
-  emergency_workers: Emergency service workers
-  high_risk_individuals: High-risk individuals
   share_link: Share Link
   copied_text: Copied to Clipboard
   vaccinating: Vaccinating
@@ -82,7 +77,6 @@ site_template:
   appointments_unavailable: VaccineSpotter.org found no appointments here {{time}}
   eligibility_by_provider: Eligibility determined by provider
   eligibility_by_county: Eligibility determined by county
-  site_eligibity_might_be_wrong: This county recently expanded eligibility. Contact the site to see if you're eligible.
   correction: Something look wrong?
   correction_link: Let us know.
 not_found:
@@ -92,15 +86,16 @@ not_found:
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
   search_by_county: Search by county...
+  text: |
+    Everyone over the age of 16 is now eligible for the COVID-19 vaccine in California. However,
+    vaccine availability is still limited in many areas, and individual counties may have different
+    policies. You can find details on county-specific restrictions and resources below.
 index:
   header: Find a COVID-19 vaccine for yourself or a loved one
   subtitle: |
-     Safe and reliable COVID-19 vaccines are becoming available in California to
-     seniors, workers in essential industries, and high-risk individuals. But it
-     can be difficult to find out where and how to get a shot. We call hospitals
-     and pharmacies daily to track their vaccine availability and their
-     processes for getting one.
-  eligible: Not sure if you're eligible? <a href="/checklist">Find out</a>.
+    Everyone over 16 is now eligible for free, safe, and reliable COVID-19 vaccines in California.
+    But it can be difficult to find out where and how to get a shot. Enter your zip code or county
+    to find confirmed vaccination locations near you, and learn how to make an appointment.
   disclaimer: |
     Safe and reliable COVID-19 vaccines are available to several groups of people in California. 
     But it can be difficult to find out where and how to get a shot. 
@@ -108,7 +103,7 @@ index:
   disclaimer_1: |
     The State of California has
     <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">approved</a>
-    giving the COVID-19 vaccine to people age 50 and older. California’s statewide
+    giving the COVID-19 vaccine to people age 16 and older. California’s statewide
     COVID-19 vaccination program has been evolving rapidly.
     <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">Federal</a>,
     <a href="https://covid19.ca.gov/vaccines/">state</a>,
@@ -134,7 +129,6 @@ nearest_js:
   enter_valid_zipcode: Please enter a valid zip code
   alert_detect: Failed to detect your location. Please try again or enter your zip code
   alert_zipcode: Failed to locate your zip code, please try again
-  years_up: years old and up
   patients_only: Current patients only
   county_only: County residents only
 post_list_disclaimer:
@@ -168,12 +162,14 @@ footer:
 about_us:
   coordinators: "Some of us who worked on this project on Day 1:"
   intro_1: |
-    VaccinateCA is a community-driven effort to help Californians learn accurate, up-to-date, verified information about
-    the coronavirus vaccine, so they can learn when they will be eligible and how to take their place in line.
+    VaccinateCA is a community-driven effort to help Californians learn accurate, up-to-date,
+    verified information about how to get the coronavirus vaccine.
   intro_2: |
-    Our professionals call medical professionals at hundreds of potential vaccination sites daily, asking them if they 
-    have the vaccine and if so to whom they will administer it to and how to get an appointment. We write down what 
-    they tell us, and publish it to this site.
+    Our team calls medical professionals at hundreds of potential vaccination sites daily, asking
+    them if they have the vaccine and how to get an appointment. We also gather vaccine location
+    information from official sources, including federal government agencies, county health
+    departments, and healthcare providers. We compile what they say into a comprehensive map, and
+    make it freely available on this site, to other publishers, and to public health initiatives.
   equity_title: Our Commitment to Equitable Access to Vaccine Information
   equity: |
     <a
