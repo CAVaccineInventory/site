@@ -46,5 +46,5 @@ function updateSitesFromMap() {
   });
 
   sortByRecency(sitesToShow);
-  addSitesOrHideIfEmpty(sitesToShow, "js-sites-with-vaccine");
+  addSitesOrHideIfEmpty(sitesToShow.slice(0, 50), "js-sites-with-vaccine");
 }
