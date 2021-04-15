@@ -1,0 +1,19 @@
+---
+title: titles.embed
+layout: empty
+permalink: /embed
+---
+<script src="/assets/js/embed.js"></script>
+<!-- open all links in new tabs because we don't want to navigate in the iframe -->
+<base target="_blank">
+<div class="main-content flex flex-col-reverse lg:grid lg:grid-cols-2">
+    <div id="main" class="pl-4 pr-4 pb-4">
+        <section class="hidden">
+            <ol class="js-sites" id="js-sites-with-vaccine">
+            </ol>
+        </section>
+    </div>
+    <div class="h-72 lg:h-screen lg:sticky lg:top-0 lg:left-0 lg:self-start">
+        {% include map.html %}
+    </div>
+</div>
