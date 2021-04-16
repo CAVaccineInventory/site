@@ -26,7 +26,6 @@ titles:
   nearest: 您附近的疫苗接種地點
   vaccinebot: VaccineBot
   volunteer: 志工召募
-  checklist: ""
 nearest:
   dropdown_1: 我們聯系過的地點
   dropdown_2: 據匯報有疫苗的地點
@@ -38,16 +37,6 @@ nearest:
   vaccines_available: 據匯報有可用疫苗
   vaccines_not_available: 據匯報無可用疫苗
   vaccine_unknown: 未知疫苗狀態
-  patient_info: ""
-  age: ""
-  under_50: ""
-  profession: ""
-  no_profession: ""
-  education_profession: ""
-  food_profession: ""
-  emergency_profession: ""
-  high_risk: ""
-  veteran: ""
 policy:
   vaccine_info: 疫苗信息
   vaccine_locations: 疫苗接種地點
@@ -76,15 +65,10 @@ search_form:
   location_placeholder: 我的位置
   submit_button: "查找<span class=\"hidden md:inline\">疫苗</span>"
 site_template:
-  county_header: 在您的縣內
   no_reports: 沒有聯系報告
   provider_info: 提供者信息
   veterans: ""
-  education_workers: ""
-  food_workers: ""
-  emergency_workers: ""
-  high_risk_individuals: ""
-  copy_text: ""
+  share_link: ""
   copied_text: ""
   vaccinating: ""
   book_now: ""
@@ -93,21 +77,18 @@ site_template:
   appointments_unavailable: ""
   eligibility_by_provider: ""
   eligibility_by_county: ""
+  correction: ""
+  correction_link: ""
 not_found:
   text: |-
     您訪問的網頁不存在。如果您需要在加利福尼亞州尋找疫苗的幫助，請查詢
     [VaccinateCA.com](https://www.vaccinateca.com)。
 county_policies:
   search_by_county: 按縣搜索...
-  text: |-
-    加利福尼亞州制定了疫苗戰略，但是已委托每個縣進行優先級劃分和管理。對哪些患者如何提供疫苗的決定最終屬于醫療服務提供者。
-    我們在下面收集了**最新的縣級信息**。
-    大致上，我們認為如果我們記錄的縣級信息和縣內的醫療提供者有差異，能夠在現場提供（或不提供）疫苗的人最有可能是具有正確信息的。
-    有些縣建立了預訂系統或者有建議；請在下面查看您的縣的信息。
+  text: |
 index:
   header: 為您或您的親人尋找新冠病毒COVID-19疫苗
   subtitle: |
-  eligible: ""
   disclaimer: |-
     安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亞的幾類人群。
     但是，尋找接種疫苗的地點和時間可能困難。
@@ -130,7 +111,6 @@ nearest_js:
   enter_valid_zipcode: 請輸入有效的郵政編碼ZIP
   alert_detect: 無法檢測到您的位置。請重試或輸入您的ZIP郵政編碼
   alert_zipcode: 找不到您的郵政編碼，請重試
-  years_up: 歲及以上
   patients_only: 僅限于當前的患者
   county_only: 僅限于縣居民
 post_list_disclaimer:
@@ -150,10 +130,8 @@ footer:
     本網站的翻譯正在進行中。某些信息可能還沒有中文版— 給您帶來的不便，我們深表歉意！
 about_us:
   coordinators: "在第1天為這個項目工作的我們中的一些人:"
-  intro_1: |-
-    VaccinateCA是一項由社區推動的工作，旨在幫助加利福尼亞人學習有關冠狀病毒疫苗的准確，最新且經過驗證的信息，以便他們可以了解自己何時有資格以及如何排隊。
-  intro_2: |-
-    我們的專業人員每天都會在數百個潛在的疫苗接種地點給醫療專業人員打電話，詢問他們是否有疫苗，如果有疫苗的話，將對誰進行接種以及如何預約。我們記下他們告訴我們的內容，並將其發布到本網站。
+  intro_1: |
+  intro_2: |
   equity_title: ""
   equity: |
   faq_header: |-
