@@ -21,8 +21,8 @@ site_list:
 titles:
   about_us: Giới thiệu
   county_policies: Chính sách Quận hạt
-  home: Danh sách vắc-xin COVID-19
-  providers: Nhà cung cấp dịch vụ y tế
+  home: Vắc-xin COVID-19
+  providers: Dịch vụ y tế
   nearest: Địa điểm tiêm phòng lân cận
   vaccinebot: VaccineBot
   volunteer: Tình nguyện viên
@@ -32,7 +32,7 @@ nearest:
   dropdown_3: Địa điểm tiêm phòng
   appointment_required: Cần phải lấy hẹn trước
   schedule_full: Lịch đã kín
-  coming_soon: Sắp có
+  coming_soon: Lịch sẽ trống trong vài tuần tới
   second_dose_only: Mũi thứ hai
   vaccines_available: Vắc-xin sẵn sàng
   vaccines_not_available: Không có vắc-xin
