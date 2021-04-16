@@ -52,7 +52,7 @@ function moveMap(coordinates) {
 
 window.submitZip = function () {
   const maybeZip = extractZip(document.getElementById("zip-input"));
-  // TODO: Handle invalid ZIP
+  // TODO: Handle invalid ZIP 
   moveToZip(maybeZip);
 };
 
