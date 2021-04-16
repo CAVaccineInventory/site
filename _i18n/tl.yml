@@ -87,14 +87,26 @@ not_found:
 county_policies:
   search_by_county: Hanapin ayon sa county ...
   text: |
+    Ang lahat ng higit sa edad 16 anyos sa California ay maari nang magpabakuna laban sa COVID-19. Gayunpaman, limitado pa rin ang pagkakaroon ng bakuna sa maraming lugar at ang mga indibidwal na county ay maaring magkakaiba ang mga patakaran. Makikita sa ibaba ang detalye ng mga restriksyon at iba pang
+    impormasyon ng bawat county.
 index:
   header: Maghanap ng bakuna sa COVID-19 para sa iyo o sa iyong mahal sa buhay
   subtitle: |
+    Ang lahat ng higit sa edad 16 anyos sa California ay maari ng makakuha ng libre,
+    ligtas, at maaasahang bakuna laban sa COVID-19. Subalit maaaring mahirap
+    malaman kung saan at paano makakuha ng bakuna. Ilagay ang iyong zip code o
+    county upang mahanap ang kumpirmadong lokasyon ng bakunahan na malapit sa
+    iyo, at alamin kung paano magpa-appointment.
   disclaimer: |
     Maaari nang makuha ng iba't ibang grupo ng tao sa California ang mga bakuna laban sa COVID-19 na ligtas at maaasahan. 
     Pero maaaring mahirap malaman kung saan at paano makakapagpabakuna. 
     Kami ay isang grupo ng boluntaryo na tumatawag sa mga ospital at botika upang matunton kung nasaan makakakuha ng bakuna at ang kanilang proseso para sa pagpapabakuna. 
   disclaimer_1: |
+    <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">Inaprubahan</a>
+    ng Estado ng California ang pagbibigay ng bakuna laban sa COVID-19 sa mga taong edad 16 anyos pataas. Ang programa ng pagbabakuna laban sa COVID-19 ng California ay mabilis na nagbabago. Ang mga opsiyal sa
+    <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">pederal</a>,
+    <a href="https://covid19.ca.gov/vaccines/">estado</a>
+    at <a href="https://www.vaccinateca.com/county-policies">county</a> ay madalas na maglathala ng pagbabago. Ang mga websites ng gobyerno ang pinakamainam na mapagkukunan ng opisyal na impormasyon.
   disclaimer_2: |
     Kami ay website na gawa ng komunidad at hindi namin ni-rerepresenta ang gubyerno
     o ang mga tagapagbigay ng healthcare.
@@ -148,7 +160,19 @@ footer:
 about_us:
   coordinators: "Ito ang ilan sa amin na nagtrabaho sa proyektong ito mula sa simula nitong proyektong ito pinakaunang araw:"
   intro_1: |
+    Ang VaccinateCA ay isang pagsisikap ng komunidad upang matulungan ang mga
+    residente ng California na malaman ang tama, napapanahon, at beripikadong
+    impormasyon kung paano makakuha ng bakuna laban sa coronavirus.
   intro_2: |
+    Ang aming grupo ay tumatawag sa mga medical professionals sa daan-daang
+    potensyal na bakunahan araw-araw, tinatanong namin kung mayroon silang bakuna
+    at kung paano makakakuha ng appointment. KInakalap din namin ang
+    impormasyon tungkol sa lokasyon ng bakunahan mula sa mga opisyal na sangay,
+    kabilang na ang ahensya ng pederal na pamahalaan, departamento ng kalusugan
+    sa lalawigan, at healthcare providers. Pinagsasama-sama namin ang kanilang
+    sinasabi sa isang komprehensibong mapa, at ginagawa itong malayang magagamit
+    sa aming site, para sa ibang tagapaglathala at sa pangkalusugang layunin ng
+    publiko..
   equity_title: Ang Aming Pangako sa Patas na Pagkalap ng Impormasyon Tungkol sa Bakuna
   equity: |
     Sa <a
