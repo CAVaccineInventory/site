@@ -11,23 +11,11 @@ import zipCodes from "./json/zipCodes.json";
 
 import { addSitesOrHideIfEmpty, maybeScrollToSiteInUrl } from "./sites.js";
 import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
-import { distanceBetweenCoordinates, debounce } from "./util.js";
+import { distanceBetweenCoordinates, debounce, extractZip } from "./util.js";
 
 window.addEventListener("load", loaded);
 
 let lastSearch;
-
-function extractZip(zipInput) {
-  // Extract the five-digit component from a five- or nine-digit zip surrounded
-  // by optional whitespace.  This syntax isn't enforced by a pattern attribute,
-  // because then the pattern would have to be copied in more than one place.
-  const matches = zipInput.value.match(/^\s*(\d{5})(?:-\d{4})?\s*$/);
-  if (!matches) {
-    return null;
-  }
-
-  return matches[1];
-}
 
 function loaded() {
   fetchSites();

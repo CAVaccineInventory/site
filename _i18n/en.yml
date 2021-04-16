@@ -59,7 +59,6 @@ map:
   locating: Locating...
   failed: Failed, please try again
   not_supported: Geolocation not supported
-  jump_to_current_location: Jump to Current Location
   failed_to_detect_location: Failed to detect your location.
 search_form:
   enter_zip: Enter ZIP
@@ -248,4 +247,8 @@ about_us:
     We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our 
     core team was approximately 20 people.
 embed:
+  locations_near_me: Locations near me
   powered_by_vaccinateca: Powered by <a href="https://www.vaccinateca.com">VaccinateCA</a>.
+zip_search_box:
+  search: Search
+  zip_code: ZIP code
