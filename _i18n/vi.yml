@@ -72,9 +72,9 @@ site_template:
   copied_text: Chép vào Clipboard
   vaccinating: Chích ngừa đang tiến hành
   book_now: Lấy hẹn
-  check_now: Kiểm tra
+  check_now: Kiểm tra lại
   appointments_available: "VaccineSpotter.org tìm được lịch hẹn trống {{time}}"
-  appointments_unavailable: "VaccineSpotter.org không tìm thấy lịch hẹn trống {{time}}"
+  appointments_unavailable: "VaccineSpotter.org kiểm tra {{time}} và không tìm thấy lịch hẹn trống nào cả"
   eligibility_by_provider: Tiêu chuẩn được chích ngừa xác định bởi nhà cung cấp dịch vụ y tế
   eligibility_by_county: Tiêu chuẩn được chích ngừa xác định bởi quận hạt
   correction: "Có gì không đúng?"
@@ -162,8 +162,7 @@ about_us:
   equity_title: Cam kết chia sẽ thông tin vắc-xin một cách công bằng
   equity: |
     <a
-    href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">Bằng chứng thu thập trên toàn quốc
-    </a> cho thấy rằng, mặc dù bị ảnh hưởng bởi dịch COVID-19 nặng hơn, 
+    href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">Bằng chứng thu thập trên toàn quốc</a> cho thấy rằng, mặc dù bị ảnh hưởng bởi dịch COVID-19 nặng hơn, 
     người dân trong cộng đồng thiểu số được nhận vắc-xin một cách không cân xứng
     so với những người có điều kiện sinh sống tốt hơn.
 
