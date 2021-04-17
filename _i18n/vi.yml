@@ -43,9 +43,9 @@ policy:
   vaccine_appointments: Lấy hẹn chích ngừa
   volunteer_opportunities: Tình nguyện
 provider:
-  info: Trang mạng của nhà cung cấp dịch vụ y tế
+  info: Trang web
   locations: Địa điểm
-  appointments: Hẹn
+  appointments: Lấy hẹn chích ngừa
 head:
   site_description: Công bố thông tin cập nhật về vắc-xin COVID-19 ở các bệnh viện và tiệm thuốc trên toàn California.
   social_card_text: "Tìm chỗ chích ngừa, tiêu chuẩn để được chích, và hướng dẫn lấy hẹn."
