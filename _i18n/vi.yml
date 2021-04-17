@@ -25,7 +25,7 @@ titles:
   providers: Dịch vụ y tế
   nearest: Địa điểm tiêm phòng lân cận
   vaccinebot: VaccineBot
-  volunteer: Tình nguyện viên
+  volunteer: Tình nguyện
 nearest:
   dropdown_1: Địa điểm đã liên hệ
   dropdown_2: Địa điểm có vắc-xin
@@ -111,7 +111,7 @@ index:
   positive_feedback: Xin cho chúng tôi biết nếu trang web này đã có ích cho bạn!
   corrections: |
     Nếu bạn biết có chỗ tiêm phòng mà chưa được đăng trên trang web này, <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy" class="text-black">xin cho chúng tôi biết</a>.
-  locations_by_county: Địa điểm chích ngừa từng quận hạt
+  locations_by_county: Địa điểm chích ngừa ở từng quận
   more_info: Thông tin chi tiết về số lượng vắc-xin
   find_county: Tìm quận
   about_us: Giới thiệu VaccinateCA
