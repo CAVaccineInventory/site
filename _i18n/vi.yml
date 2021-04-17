@@ -25,7 +25,7 @@ titles:
   providers: Dịch vụ y tế
   nearest: Địa điểm tiêm phòng lân cận
   vaccinebot: VaccineBot
-  volunteer: Tình nguyện viên
+  volunteer: Tình nguyện
 nearest:
   dropdown_1: Địa điểm đã liên hệ
   dropdown_2: Địa điểm có vắc-xin
@@ -85,7 +85,7 @@ not_found:
     tìm kiếm vắc-xin ở California, xin vui lòng kiểm tra
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
-  search_by_county: Tìm ở từng quận...
+  search_by_county: Tìm tên quận...
   text: |
     Người từ 16 tuổi trở lên nay đã đủ tiêu chuẩn chích vắc-xin COVID-19 ở California. Tuy nhiên,
     số lượng vắc-xin vẫn còn thấp ở nhiều nơi, và tiêu chuẩn chích ngừa có thể thay đổi tùy theo từng quận.
@@ -111,9 +111,9 @@ index:
   positive_feedback: Xin cho chúng tôi biết nếu trang web này đã có ích cho bạn!
   corrections: |
     Nếu bạn biết có chỗ tiêm phòng mà chưa được đăng trên trang web này, <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy" class="text-black">xin cho chúng tôi biết</a>.
-  locations_by_county: Địa điểm chích ngừa từng quận hạt
+  locations_by_county: Địa điểm chích ngừa ở từng quận
   more_info: Thông tin chi tiết về số lượng vắc-xin
-  find_county: Tìm quận
+  find_county: Tìm ở quận của bạn
   about_us: Giới thiệu VaccinateCA
 data_js:
   alert: Không thể tải dữ liệu địa điểm chích ngừa.
@@ -153,33 +153,33 @@ footer:
 about_us:
   coordinators: "Tình nguyện viên làm việc với chúng tôi từ những ngày đầu tiên:"
   intro_1: |
-    VaccinateCA là từ sự hợp tác của cộng đồng tình nguyện viên
-    để cung cấp những thông tin mới nhất và chính xác nhất về chích ngừa virus corona cho người dân California.
+    VaccinateCA là trang web được xây dựng từ sự hợp tác của cộng đồng tình nguyện viên
+    để cung cấp những thông tin mới nhất và chính xác nhất về chương trình chích ngừa virus corona cho người dân California.
   intro_2: |
     Đội ngũ tình nguyện viên của chúng tôi liên lạc nhân viên y tế ở hàng trăm địa điểm hàng ngày
-    để hỏi nếu họ có vắc-xin và làm sao để lên lịch hẹn. Chúng tôi cũng thu thập thông tin từ nguồn tin chính thức,
+    để kiểm tra nếu họ có vắc-xin và làm sao để lấy lịch hẹn. Chúng tôi cũng thu thập thông tin từ các nguồn tin chính thức,
     bao gồm đơn vị y tế của liên bang, quận hạt, và trung tâm sức khỏe. Chúng tôi biên soạn và đăng những thông tin này miễn phí trên bản đồ của trang web này, trên các nguồn phát hành thông tin khác, và trên những chương trình sức khỏe cộng đồng.
   equity_title: Cam kết chia sẽ thông tin vắc-xin một cách công bằng
   equity: |
     <a
     href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">Bằng chứng thu thập trên toàn quốc
     </a> cho thấy rằng, mặc dù bị ảnh hưởng bởi dịch COVID-19 nặng hơn, 
-    người dân cộng đồng thiểu số được chích vắc-xin một cách không cân xứng
+    người dân trong cộng đồng thiểu số được nhận vắc-xin một cách không cân xứng
     so với những người có điều kiện sinh sống tốt hơn.
 
     VaccinateCA cam kết sẽ bảo đảm cho những người với hoàn cảnh khó khăn
-    được truy nhập một cách công bằng đến những thông tin chúng tôi công bố trên trang web này.
+    được truy nhập những thông tin công bố trang web này một cách công bằng.
     Bằng cách hợp tác với các chuyên gia và những nhà ủng hộ được tin cậy bởi cộng đồng,
     chúng tôi hy vọng sẽ cung cấp một công cụ hỗ trợ cho nhu cầu thực tiễn của cộng đồng bị ảnh hưởng nặng nhất từ nạn khủng hoảng này.
 
-    Nếu bạn muốn hợp tác với chúng tôi để đạt được mục đích này, xin vui lòng gửi email tới: <a
+    Nếu bạn muốn hợp tác với chúng tôi nhằm mục tiêu này, xin vui lòng gửi email tới: <a
     href="mailto:outreach@vaccinateca.com">outreach@vaccinateca.com</a>
   faq_header: |
     Các câu hỏi thường gặp
   faq_help: "Làm sao tôi có thể giúp đỡ?"
   faq_help_answer_1: |
     Chia sẽ thông tin về vắc-xin trong cộng đồng của bạn. Giúp người thân mà đã đủ tiêu chuẩn đi chích vắc-xin.
-    Tiếp tục đeo khẩu trang và giãn cách xã hội.
+    Tiếp tục đeo khẩu trang và giữ giãn cách xã hội.
   faq_help_answer_2: |
     Chúng tôi đang rất cần tình nguyện viên với tình thần trách nhiệm cao liên lạc với trung tâm y tế trên toàn
     tiểu bang để chúng tôi được tiếp tục cung cấp thông tin một cách toàn diện về số lượng vắc-xin COVID-19 cho toàn dân California.
