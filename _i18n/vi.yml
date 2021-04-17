@@ -25,7 +25,7 @@ titles:
   providers: Dịch vụ y tế
   nearest: Địa điểm tiêm phòng lân cận
   vaccinebot: VaccineBot
-  volunteer: Tình nguyện viên
+  volunteer: Tình nguyện
 nearest:
   dropdown_1: Địa điểm đã liên hệ
   dropdown_2: Địa điểm có vắc-xin
@@ -85,7 +85,7 @@ not_found:
     tìm kiếm vắc-xin ở California, xin vui lòng kiểm tra
     [VaccinateCA.com](https://www.vaccinateca.com).
 county_policies:
-  search_by_county: Tìm ở từng quận...
+  search_by_county: Tìm tên quận...
   text: |
     Người từ 16 tuổi trở lên nay đã đủ tiêu chuẩn chích vắc-xin COVID-19 ở California. Tuy nhiên,
     số lượng vắc-xin vẫn còn thấp ở nhiều nơi, và tiêu chuẩn chích ngừa có thể thay đổi tùy theo từng quận.
@@ -111,9 +111,9 @@ index:
   positive_feedback: Xin cho chúng tôi biết nếu trang web này đã có ích cho bạn!
   corrections: |
     Nếu bạn biết có chỗ tiêm phòng mà chưa được đăng trên trang web này, <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy" class="text-black">xin cho chúng tôi biết</a>.
-  locations_by_county: Địa điểm chích ngừa từng quận hạt
+  locations_by_county: Địa điểm chích ngừa ở từng quận
   more_info: Thông tin chi tiết về số lượng vắc-xin
-  find_county: Tìm quận
+  find_county: Tìm ở quận của bạn
   about_us: Giới thiệu VaccinateCA
 data_js:
   alert: Không thể tải dữ liệu địa điểm chích ngừa.
@@ -153,8 +153,8 @@ footer:
 about_us:
   coordinators: "Tình nguyện viên làm việc với chúng tôi từ những ngày đầu tiên:"
   intro_1: |
-    VaccinateCA là từ sự hợp tác của cộng đồng tình nguyện viên
-    để cung cấp những thông tin mới nhất và chính xác nhất về chích ngừa virus corona cho người dân California.
+    VaccinateCA là trang web được xây dựng từ sự hợp tác của cộng đồng tình nguyện viên
+    để cung cấp những thông tin mới nhất và chính xác nhất về chương trình chích ngừa virus corona cho người dân California.
   intro_2: |
     Đội ngũ tình nguyện viên của chúng tôi liên lạc nhân viên y tế ở hàng trăm địa điểm hàng ngày
     để hỏi nếu họ có vắc-xin và làm sao để lên lịch hẹn. Chúng tôi cũng thu thập thông tin từ nguồn tin chính thức,
