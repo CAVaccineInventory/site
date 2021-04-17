@@ -3,16 +3,12 @@
 @tailwind utilities;
 
 :root {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", "Open Sans", sans-serif;
 }
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: "DM Sans", sans-serif;
+    font-family: "DM Sans", "Open Sans", sans-serif;
   }
-}
-
-:root:lang(vi) {
-  font-family: "Open Sans", sans-serif;
 }
 
 .main-content p {
