@@ -11,6 +11,10 @@
   }
 }
 
+:root:lang(vi) {
+  font-family: "Open Sans", sans-serif;
+}
+
 .main-content p {
   margin-bottom: 12px;
 }
