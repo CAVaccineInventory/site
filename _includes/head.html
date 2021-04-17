@@ -87,14 +87,18 @@
 
   <script src="/assets/js/main.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open Sans"
-    rel="stylesheet"
-  />
+
+  {% if site.lang == 'vi' %}
+    <link
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+      rel="stylesheet"
+    />
+  {% else %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+  {% endif %}
 
   {% if jekyll.environment == 'production' %}
   <script
