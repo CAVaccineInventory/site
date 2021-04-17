@@ -43,7 +43,7 @@ policy:
   vaccine_appointments: Lấy hẹn chích ngừa
   volunteer_opportunities: Tình nguyện
 provider:
-  info: Trang mạng của nhà cung cấp dịch vụ y tế
+  info: Trang web
   locations: Địa điểm
   appointments: Hẹn
 head:
