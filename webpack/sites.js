@@ -16,7 +16,9 @@ function flattenData(strOrStrArray) {
 }
 
 function generateCountyUrl(countyName) {
-  return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
+  if (countyName) {
+    return `/counties/${countyName.replace(" County", "").replace(" ", "_")}`;
+  }
 }
 
 function addSitesToPage(sites, containerId) {
