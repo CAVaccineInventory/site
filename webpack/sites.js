@@ -79,6 +79,34 @@ function addSitesToPage(sites, containerId) {
   const containerElem = document.getElementById(containerId);
   containerElem.innerHTML = "";
   containerElem.appendChild(fragmentElem);
+
+  if (selectedSiteId) {
+    let selected = document.getElementById(selectedSiteId);
+    selected && selected.classList.add("is-selected") && selected.scrollIntoView();
+  }
+
+  const siteCards = document.getElementsByClassName("site-card");
+  for (const card of siteCards) {
+    card.addEventListener("click", (ev) => {
+      card.classList.toggle("is-selected");
+      if (currentSelectedSiteCard) {
+        currentSelectedSiteCard.classList.remove("is-selected");
+      }
+      if (card.classList.contains("is-selected")) {
+        currentSelectedSiteCard = card;
+        selectedSiteId = card.id;
+        document.dispatchEvent(new CustomEvent("siteCardSelected", {
+          detail: { siteId: card.id }
+        }));
+      } else {
+        currentSelectedSiteCard = false;
+        selectedSiteId = false;
+        document.dispatchEvent(new CustomEvent("siteCardDeselected", {
+          detail: { siteId: card.id }
+        }));
+      }
+    });
+  }
 }
 
 function addSitesOrHideIfEmpty(sites, containerId) {
@@ -176,5 +204,9 @@ function maybeScrollToSiteInUrl() {
     }
   }
 }
+
+// State tracking for selected site card
+let currentSelectedSiteCard = false;
+let selectedSiteId = false;
 
 export { addSitesToPage, addSitesOrHideIfEmpty, maybeScrollToSiteInUrl };
