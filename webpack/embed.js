@@ -1,21 +1,15 @@
-import {
-  fetchSites,
-  getHasVaccine,
-  sortByRecency,
-  getCoord,
-} from "./data/locations.js";
+import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
 import zipCodes from "./json/zipCodes.json";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
 import { addSitesOrHideIfEmpty } from "./sites.js";
 import zipSearchBoxTemplate from "./templates/zipSearchBox.handlebars";
-import { debounce, extractZip } from "./util.js";
+import { debounce, distanceBetweenCoordinates, extractZip } from "./util.js";
 
 window.addEventListener("load", loaded);
 async function loaded() {
   const sites = await fetchSites();
   window.filteredSites = sites.filter(getHasVaccine);
-  sortByRecency(filteredSites);
 
   tryOrDelayToMapInit(() => {
     addButtonsToMap();
@@ -121,6 +115,15 @@ function updateSitesFromMap() {
     return bounds.contains({ lat: latitude, lng: longitude });
   });
 
-  sortByRecency(sitesToShow);
+  const center = {
+    latitude: window.map.getCenter().lat(),
+    longitude: window.map.getCenter().lng(),
+  };
+  sitesToShow.sort(
+    (a, b) =>
+      distanceBetweenCoordinates(center, getCoord(a)) -
+      distanceBetweenCoordinates(center, getCoord(b))
+  );
+
   addSitesOrHideIfEmpty(sitesToShow.slice(0, 50), "js-sites-with-vaccine");
 }
