@@ -1,10 +1,9 @@
 import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
-import zipCodes from "./json/zipCodes.json";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
 import { addSitesOrHideIfEmpty } from "./sites.js";
-import zipSearchBoxTemplate from "./templates/zipSearchBox.handlebars";
-import { debounce, distanceBetweenCoordinates, extractZip } from "./util.js";
+import embeddedMapControlsTemplate from "./templates/embeddedMapControls.handlebars";
+import { debounce, distanceBetweenCoordinates } from "./util.js";
 
 window.addEventListener("load", loaded);
 async function loaded() {
@@ -12,7 +11,7 @@ async function loaded() {
   window.filteredSites = sites.filter(getHasVaccine);
 
   tryOrDelayToMapInit(() => {
-    addButtonsToMap();
+    configureMap();
     filteredSites.forEach(addLocation);
     window.map.addListener(
       "bounds_changed",
@@ -26,13 +25,6 @@ async function loaded() {
   updateSitesFromMap();
 }
 
-function moveToZip(zip) {
-  const data = zipCodes[zip];
-  // TODO: Handle invalid ZIP
-  const coordinate = data.coordinates;
-  moveMap(coordinate);
-}
-
 function moveMap(coordinates) {
   tryOrDelayToMapInit((map) => {
     const mapCoord = {
@@ -40,49 +32,51 @@ function moveMap(coordinates) {
       lng: coordinates.longitude,
     };
     map.setCenter(mapCoord);
-    map.setZoom(12);
+    map.setZoom(13);
   });
 }
 
-window.submitZip = function () {
-  const maybeZip = extractZip(document.getElementById("zip-input"));
-  // TODO: Handle invalid ZIP
-  moveToZip(maybeZip);
-};
+function configureMap() {
+  const searchContainer = document.createElement("div");
+  searchContainer.classList.add("custom-map-container");
+  searchContainer.innerHTML = embeddedMapControlsTemplate();
 
-window.onZipInputKeyDown = function (event) {
-  if (event.key === "Enter") {
-    submitZip();
-  }
-};
-
-function addButtonsToMap() {
-  const zipSearchBox = document.createElement("div");
-  zipSearchBox.classList.add("custom-map-container");
-  zipSearchBox.innerHTML = zipSearchBoxTemplate();
+  const searchInput = searchContainer.querySelector("#search-input");
   window.map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-    zipSearchBox
+    searchContainer
   );
 
-  // If we support HTMLa5 geolocation, add a button
-  if (navigator.geolocation) {
-    const locationButton = document.createElement("button");
-    locationButton.textContent = t("embed.locations_near_me");
-    locationButton.classList.add("custom-map-control-button");
-    window.map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-      locationButton
+  const autocomplete = new google.maps.places.Autocomplete(searchInput, {
+    componentRestrictions: { country: "us" },
+    fields: ["geometry"],
+    origin: window.map.getCenter(),
+    strictBounds: false,
+  });
+  autocomplete.bindTo("bounds", window.map);
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+
+    if (!place.geometry || !place.geometry.location) {
+      // User entered the name of a place that was not suggested and
+      // pressed the Enter key, or the Place Details request failed.
+      alert(t("embed.unable_to_find_location") + ": " + place.name);
+      return;
+    }
+    window.map.setCenter(place.geometry.location);
+    window.map.setZoom(13);
+  });
+
+  const autolocateButton = searchContainer.querySelector("#autolocate-button");
+  autolocateButton.addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        moveMap(position.coords);
+      },
+      () => {
+        alert(t("embed.failed_to_detect_location"));
+      }
     );
-    locationButton.addEventListener("click", () => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          moveMap(position.coords);
-        },
-        () => {
-          alert(t("map.failed_to_detect_location"));
-        }
-      );
-    });
-  }
+  });
 }
 
 function updateUrlParametersFromMap() {
