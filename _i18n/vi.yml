@@ -1,0 +1,224 @@
+# These are strings used in multiple places
+global:
+  details: Thông tin chi tiết
+  appt_info: Thông tin lịch hẹn
+  address: Địa chỉ
+  latest_info: Tin mới nhất
+  location_notes: Ghi chú
+  latest_report: Cập nhật
+  loading: Đang tải...
+  super_site: Địa điểm tiêm phòng đại trà
+  # The language currently being viewed (i.e. "Español", not "Inglés")
+  current_language: Tiếng Việt
+  # Is this language primarily left-to-right ("ltr") or right-to-left ("rtl")
+  dir: ltr
+site_list:
+  vaccine_sites: Có vắc-xin
+  no_vaccine_sites: Không có vắc-xin
+  no_report_sites: Địa điểm chưa liên lạc
+
+#These are per-page strings.
+titles:
+  about_us: Giới thiệu
+  county_policies: Chính sách Quận hạt
+  home: Vắc-xin COVID-19
+  providers: Dịch vụ y tế
+  nearest: Địa điểm tiêm phòng lân cận
+  vaccinebot: VaccineBot
+  volunteer: Tình nguyện
+nearest:
+  dropdown_1: Địa điểm đã liên hệ
+  dropdown_2: Địa điểm có vắc-xin
+  dropdown_3: Địa điểm tiêm phòng
+  appointment_required: Cần phải lấy hẹn trước
+  schedule_full: Lịch đã kín
+  coming_soon: Lịch sẽ trống trong vài tuần tới
+  second_dose_only: Chỉ được chích mũi thứ hai
+  vaccines_available: Có vắc-xin
+  vaccines_not_available: Không có vắc-xin
+  vaccine_unknown: Chưa có thông tin về vắc-xin
+policy:
+  vaccine_info: Chi tiết vắc-xin
+  vaccine_locations: Địa điểm tiêm phòng
+  vaccine_appointments: Lấy hẹn chích ngừa
+  volunteer_opportunities: Tình nguyện
+provider:
+  info: Trang web
+  locations: Địa điểm
+  appointments: Lấy hẹn chích ngừa
+head:
+  site_description: Công bố thông tin cập nhật về vắc-xin COVID-19 ở các bệnh viện và tiệm thuốc trên toàn California.
+  social_card_text: "Tìm chỗ chích ngừa, tiêu chuẩn để được chích, và hướng dẫn lấy hẹn."
+  meta_image_tag: |
+    Hình logo của VaccinateCA với dòng chữ 'Tìm chỗ chích ngừa, tiêu chuẩn để được chích, và hướng dẫn lấy hẹn.'
+header:
+  menu_open: Mở trình đơn chính
+map:
+  locate_button: Tìm chỗ tiêm phòng cho tôi!
+  locating: Đang tìm...
+  failed: "Không tìm thấy, xin vui lòng kiểm tra lại"
+  not_supported: Địa điểm này không được hỗ trợ
+search_form:
+  enter_zip: Điền mã ZIP
+  enter_county: hay quận
+  location: Sử dụng vị trí của tôi
+  location_placeholder: Vị trí của tôi
+  submit_button: "Tìm <span class=\"hidden md:inline\">vắc-xin</span>"
+site_template:
+  no_reports: Không có thông tin liên lạc
+  provider_info: Thông tin mạng lưới nhà cung cấp dịch vụ y tế
+  veterans: Phải là cựu chiến binh
+  share_link: Chia sẽ Link
+  copied_text: Chép vào Clipboard
+  vaccinating: Chích ngừa đang tiến hành
+  book_now: Lấy hẹn
+  check_now: Kiểm tra lại
+  appointments_available: "VaccineSpotter.org tìm được lịch hẹn trống {{time}}"
+  appointments_unavailable: "VaccineSpotter.org kiểm tra {{time}} và không tìm thấy lịch hẹn trống nào cả"
+  eligibility_by_provider: Tiêu chuẩn được chích ngừa xác định bởi nhà cung cấp dịch vụ y tế
+  eligibility_by_county: Tiêu chuẩn được chích ngừa xác định bởi quận hạt
+  correction: "Có gì không đúng?"
+  correction_link: Hãy cho chúng tôi biết.
+not_found:
+  text: |
+    Trang web bạn muốn truy cập không còn tồn tại nữa. Nếu cần hỗ trợ
+    tìm kiếm vắc-xin ở California, xin vui lòng kiểm tra
+    [VaccinateCA.com](https://www.vaccinateca.com).
+county_policies:
+  search_by_county: Tìm tên quận...
+  text: |
+    Người từ 16 tuổi trở lên nay đã đủ tiêu chuẩn chích vắc-xin COVID-19 ở California. Tuy nhiên,
+    số lượng vắc-xin vẫn còn thấp ở nhiều nơi, và tiêu chuẩn chích ngừa có thể thay đổi tùy theo từng quận.
+    Bạn có thể đọc thêm dưới đây về chi tiết và hạn chế ở mỗi quận hạt.
+index:
+  header: Tìm vắc-xin COVID-19 cho bản thân và gia đình
+  subtitle: |
+    Tất cả mọi người từ 16 tuổi trở lên bây giờ đã đủ tiêu chuẩn được chích vắc-xin COVID-19 ở California.
+    Tuy nhiên để kiếm chỗ chích ngừa có thể sẽ không dễ dàng. Nhập mã ZIP hoặc tên quận
+    để tìm và lấy lịch hẹn chích ngừa ở khu vực bạn sinh sống.
+  disclaimer: |
+    Vắc-xin cho COVID-19 rất an toàn và đáng tin cậy. Vắc-xin nay đã sẵn sàng cho nhiều người ở California.
+    Nhưng để tìm địa điểm đi tiêm phòng nhiều khi không dễ dàng.
+    Hàng ngày đội ngũ tình nguyện viên chúng tôi liên hệ các bệnh viện và tiệm dược phẩm để kiểm tra nếu vắc-xin có sẵn sàng hay chưa và làm sao để được chích.
+  disclaimer_1: |
+    Tiểu bang California đã <a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">chấp thuận</a>
+    cho người từ 16 tuổi trở lên được chích vắc-xin COVID-19. Chương trình chích ngừa COVID-19 toàn bang California
+    đang tiến hành một cách nhanh chóng.
+    Chính phủ <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">liên bang</a>, <a href="https://covid19.ca.gov/vaccines/">tiểu bang</a>, và <a href="https://www.vaccinateca.com/county-policies">quận hạt</a> thường xuyên cập nhật thông tin chủng ngừa. Các trang web của chính phủ là nguồn thông tin đáng tin cậy nhất.
+  disclaimer_2: |
+    Trang web của chúng tôi được quản trị bởi tình nguyện viên và không đại diện cho chính phủ hay dịch vụ y tế.
+  illustration: Hình minh họa bác sĩ tiêm vắc-xin
+  positive_feedback: Xin cho chúng tôi biết nếu trang web này đã có ích cho bạn!
+  corrections: |
+    Nếu bạn biết có chỗ tiêm phòng mà chưa được đăng trên trang web này, <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy" class="text-black">xin cho chúng tôi biết</a>.
+  locations_by_county: Địa điểm chích ngừa ở từng quận
+  more_info: Thông tin chi tiết về số lượng vắc-xin
+  find_county: Tìm ở quận của bạn
+  about_us: Giới thiệu VaccinateCA
+data_js:
+  alert: Không thể tải dữ liệu địa điểm chích ngừa.
+  call_back: "Không liên lạc được nhân viên, sẽ gọi điện lại"
+nearest_js:
+  enter_valid_zipcode: Xin vui lòng nhập mã bưu điện hợp lệ
+  alert_detect: Không thể tìm được vị trí của bạn. Xin vui lòng nhập lại mã ZIP
+  alert_zipcode: "Không thể định vị mã ZIP của bạn, xin vui lòng nhập lại"
+  patients_only: Chỉ dành cho bệnh nhân
+  county_only: Chỉ dành cho cư dân quận hạt
+post_list_disclaimer:
+  disclaimer: |
+    Chúng tôi cố gắng hết sức để giữ thông tin trên trang web này luôn cập nhật, nhưng tiêu chuẩn được chích và số lượng vắc-xin ở một địa điểm chích ngừa có thể thay đổi khi
+    bạn đọc được dòng này. Nếu bạn biết có địa điểm chích ngừa mà chưa được đăng trên trang web này, xin vui lòng
+    <a href="https://airtable.com/shriM4cld0UfVf2ud?prefill_What+correction+are+you+reporting%3F=Add%20a%20missing%20hospital%2Fpharmacy"
+    class="font-medium text-yellow-600"
+    >
+    cho chúng tôi biết</a
+    >. Thông tin bạn cung cấp sẽ hỗ trợ đồng bào California.
+pre_list_disclaimer:
+  disclaimer: |
+    Mỗi ngày chúng tôi liên lạc các bệnh viện, tiệm dược phẩm, và trung tâm y tế trên toàn California
+    để biết địa điểm nào đang chích ngừa vắc-xin.
+    Nhân viên y tế làm việc tại các địa điểm này cho chúng tôi biết về
+    chương trình chích ngừa họ đang có tại đó và chúng tôi cập nhật thông tin trên trang web này. Mặc dù chúng tôi cố gắng hết sức
+    để xác minh những thông tin này, chúng tôi khuyến khích bạn liên hệ với
+    bác sĩ gia đình hoặc chính quyền địa phương nếu bạn có thắc mắc.
+providers:
+  header: |
+    Đây là thông tin tổng quát mới nhất chúng tôi có về các mạng lưới y tế chính
+    ở California. Mỗi trung tâm ở trong những mạng lưới này
+    có thể làm việc một cách khác nhau.
+footer:
+  lang_disclaimer: |
+    Chúng tôi đang phiên dịch trang web này. Vài thông tin có khả năng
+    chưa được dịch qua tiếng Việt— xin bạn vui lòng thứ lỗi!
+about_us:
+  coordinators: "Tình nguyện viên làm việc với chúng tôi từ những ngày đầu tiên:"
+  intro_1: |
+    VaccinateCA là trang web được xây dựng từ sự hợp tác của cộng đồng tình nguyện viên
+    để cung cấp những thông tin mới nhất và chính xác nhất về chương trình chích ngừa virus corona cho người dân California.
+  intro_2: |
+    Đội ngũ tình nguyện viên của chúng tôi liên lạc nhân viên y tế ở hàng trăm địa điểm hàng ngày
+    để kiểm tra nếu họ có vắc-xin và làm sao để lấy lịch hẹn. Chúng tôi cũng thu thập thông tin từ các nguồn tin chính thức,
+    bao gồm đơn vị y tế của liên bang, quận hạt, và trung tâm sức khỏe. Chúng tôi biên soạn và đăng những thông tin này miễn phí trên bản đồ của trang web này, trên các nguồn phát hành thông tin khác, và trên những chương trình sức khỏe cộng đồng.
+  equity_title: Cam kết chia sẽ thông tin vắc-xin một cách công bằng
+  equity: |
+    <a
+    href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">Bằng chứng thu thập trên toàn quốc</a> cho thấy rằng, mặc dù bị ảnh hưởng bởi dịch COVID-19 nặng hơn, 
+    người dân trong cộng đồng thiểu số được nhận vắc-xin một cách không cân xứng
+    so với những người có điều kiện sinh sống tốt hơn.
+
+    VaccinateCA cam kết sẽ bảo đảm cho những người với hoàn cảnh khó khăn
+    được truy nhập những thông tin công bố trang web này một cách công bằng.
+    Bằng cách hợp tác với các chuyên gia và những nhà ủng hộ được tin cậy bởi cộng đồng,
+    chúng tôi hy vọng sẽ cung cấp một công cụ hỗ trợ cho nhu cầu thực tiễn của cộng đồng bị ảnh hưởng nặng nhất từ nạn khủng hoảng này.
+
+    Nếu bạn muốn hợp tác với chúng tôi nhằm mục tiêu này, xin vui lòng gửi email tới: <a
+    href="mailto:outreach@vaccinateca.com">outreach@vaccinateca.com</a>
+  faq_header: |
+    Các câu hỏi thường gặp
+  faq_help: "Làm sao tôi có thể giúp đỡ?"
+  faq_help_answer_1: |
+    Chia sẽ thông tin về vắc-xin trong cộng đồng của bạn. Giúp người thân mà đã đủ tiêu chuẩn đi chích vắc-xin.
+    Tiếp tục đeo khẩu trang và giữ giãn cách xã hội.
+  faq_help_answer_2: |
+    Chúng tôi đang rất cần tình nguyện viên với tinh thần trách nhiệm cao để liên lạc với các trung tâm y tế trên toàn
+    tiểu bang nhằm cho chúng tôi được tiếp tục cung cấp thông tin một cách toàn diện về số lượng vắc-xin COVID-19 cho toàn dân California.
+  faq_help_answer_3: |
+    Nếu bạn có thể giúp chúng tôi gọi điện, xin vui lòng <a href="https://vaccinateca.com/volunteer">liên lạc</a>.
+  faq_help_answer_4: |
+    <a href="https://twitter.com/ca_covid">Theo dõi trên Twitter</a> để cập nhật tin tức tình nguyện.
+  faq_help_answer_5: |
+    Chúng tôi không cần đóng góp tài chính. Những dự án từ thiện khác <i>cần</i> hỗ trợ tài chính hơn và sẽ cảm tạ sự đóng góp của bạn.
+  faq_press: |
+    Tôi là phóng viên. Làm sao tôi có thể liên lạc?
+  faq_press_answer: |
+    Xin email <a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a>; chúng tôi sẽ nhanh chóng phản hồi.
+  faq_medical: |
+    Tôi làm việc ở một trung tâm y tế! Làm sao tôi có thể yêu cầu bạn cập nhật thông tin của trung tâm hay liên lạc với bạn?
+  faq_medical_answer_1: |
+    Chúng tôi cảm tạ cống hiến của bạn, và chúng tôi sẽ hỗ trợ bạn!
+  faq_medical_answer_2: |
+    Xin vui lòng gửi tin nhắn tới <a href="tel:+14153014597">(415) 301-4597</a>, kèm theo thông tin liên kết thể chế và số extension điện thoại hoặc tên người liên lạc để chúng tôi có thể gọi và xác minh.  Số này không nhận được tin nhắn hình; vui lòng chỉ gửi tin nhắn chữ.
+  faq_medical_answer_3: |
+    Một người tổ chức của chúng tôi sẽ đọc tin nhắn của bạn và bắt đầu làm việc khi sớm nhất có thể.
+  faq_community: |
+    Tôi làm việc cho một tổ chức cộng đồng hay chính phủ. Chúng ta có thể bàn bạc được không?
+  faq_community_answer_1: |
+    Chúng tôi muốn hỗ trợ nỗ lực chích ngừa cấp bách cho người dân California càng sớm càng tốt. Xin vui lòng email  <a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a> để lên kế hoạch.
+  faq_toil: |
+    Công tác tình nguyện này có làm tăng hay giảm trì trệ trong hệ thống y tế?
+  faq_toil_answr_1: |
+    Đa số các bệnh viện nhận hàng ngàn cuộc điện thoại mỗi ngày. Hiện tại, các bệnh viện này bị gọi điện nhiều hơn bình thường chỉ để được hỏi cùng một câu hỏi: "Bệnh viện có vắc-xin hay không?"
+  faq_toil_answr_2: |
+    Khi chúng tôi cũng hỏi cùng một câu hỏi đó và công bố câu trả lời, chúng tôi giảm thiểu số cuộc gọi bệnh viện phải nhận mỗi ngày.
+    Đồng thời, chúng tôi giúp cho những người đi tìm vắc-xin tránh khỏi phải gọi hàng chục nơi để tìm một địa điểm có vắc-xin.
+  faq_accurate: |
+    Thông tin trên trang web này có chính xác hay không?
+  faq_accurate_answer_1: |
+    Chúng tôi chỉ công bố những thông tin mà địa điểm chích ngừa thông báo khi chúng tôi gọi điện. Tình trạng ở địa điểm chích ngừa rất phức tạp, số lượng vắc-xin có thể thay đổi trong ngày,
+    và không phải ai ở địa điểm chích ngừa cũng có thông tin cập nhật từng phút về chính sách chích ngừa ở địa điểm đó.
+  faq_accurate_answer_2: |
+    Chúng tôi sẽ cố gắng hết sức, nhưng chúng tôi không thể cam kết tất cả.
+  faq_who: |
+    Bạn là ai?
+  faq_who_answer: |
+    Chúng tôi là một tổ chức bởi cộng đồng, bao gồm trên 300 tình nguyện viên làm việc với chúng tôi. Vào ngày 23 tháng một năm 2021, đội ngũ lõi của chúng tôi có khoảng 20 người.

@@ -14,9 +14,9 @@
           class="site_county text-sm font-medium hover:underline whitespace-nowrap"
           href="{{ countyLink }}"
           >{{ county }}</a>
+        <span class="address_separator px-2" aria-hidden="true">·</span>
         {{/if}}
         {{#if address}}
-        <span class="address_separator px-2" aria-hidden="true">·</span>
         <a
           dir="ltr"
           class="site_address text-sm hover:underline truncate"
