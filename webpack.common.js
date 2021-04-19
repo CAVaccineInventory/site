@@ -10,11 +10,13 @@ if (process.env.NETLIFY) {
 
 module.exports = {
   "entry": {
-    "main": "./webpack/index.js",
-    "mapLoader": "./webpack/mapLoader.js",
-    "nearest": "./webpack/nearest.js",
     "counties-autocomplete": "./webpack/counties-autocomplete.js",
     "county-page": "./webpack/county-page.js",
+    "embed": "./webpack/embed.js",
+    "main": "./webpack/index.js",
+    "mapLoader": "./webpack/mapLoader.js",
+    "mobileMenu": "./webpack/mobileMenu.js",
+    "nearest": "./webpack/nearest.js",
     "policies": "./webpack/policies.js",
     "providers": "./webpack/providers.js",
   },
