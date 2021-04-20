@@ -45,7 +45,7 @@ function addSitesToPage(sites, containerId) {
     // only render copy button if site has a vaccine because otherwise when the link is used the site
     // will be hidden by default. Also no copy button for embeds because of iframe permissions.
     const withCopyButton =
-      info.hasVaccine === "Yes" && window.location.pathname !== "/embed";
+      info.hasVaccine === "Yes" && !window.location.pathname.includes("/embed");
     const context = {
       id: info.id,
       name: info.name,
