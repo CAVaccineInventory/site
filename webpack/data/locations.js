@@ -103,8 +103,17 @@ function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     const info = p["Availability Info"];
     if (!Array.isArray(info)) return false;
+    
+    const expiredRestrictions = [
+      /Yes:\s+vaccinating\s\d+\+/,
+      /Vaccinating education and childcare workers/,
+      /Vaccinating agriculture and food workers/,
+      /Vaccinating emergency services workers/,
+      /Vaccinating high-risk individuals/
+    ];
+    
     return info
-      .filter((info) => !info.match(/Yes:\s+vaccinating\s\d+\+/))
+      .filter((info) => !expiredRestrictions.some(x => info.match(x)))
       .map((info) =>
         info
           .replace("Yes: ", "")
