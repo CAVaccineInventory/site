@@ -9,7 +9,12 @@ import {
 } from "./data/locations.js";
 import zipCodes from "./json/zipCodes.json";
 
-import { addSitesOrHideIfEmpty, maybeScrollToSiteInUrl, getSelectedSiteId, selectSite } from "./sites.js";
+import {
+  addSitesOrHideIfEmpty,
+  maybeScrollToSiteInUrl,
+  getSelectedSiteId,
+  selectSite,
+} from "./sites.js";
 import { addLocation, clearMap, tryOrDelayToMapInit } from "./map.js";
 import { distanceBetweenCoordinates, debounce, extractZip } from "./util.js";
 
@@ -351,7 +356,7 @@ async function updateSitesFromMap() {
   addSitesOrHideIfEmpty(sitesWithVaccine, "js-sites-with-vaccine");
   addSitesOrHideIfEmpty(sitesWithoutVaccine, "js-sites-without-vaccine");
   addSitesOrHideIfEmpty(sitesWithNoReport, "js-sites-without-report");
-  
+
   maybeScrollToSiteInUrl();
   selectSite(selectedSiteId);
 }

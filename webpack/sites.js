@@ -86,18 +86,22 @@ function addSitesToPage(sites, containerId) {
       if (selectedSite) {
         selectedSite.classList.remove("is-selected");
       }
-      
+
       card.classList.toggle("is-selected");
       if (card.classList.contains("is-selected")) {
         selectedSite = card;
-        document.dispatchEvent(new CustomEvent("siteCardSelected", {
-          detail: { siteId: card.id }
-        }));
+        document.dispatchEvent(
+          new CustomEvent("siteCardSelected", {
+            detail: { siteId: card.id },
+          })
+        );
       } else {
         selectedSite = false;
-        document.dispatchEvent(new CustomEvent("siteCardDeselected", {
-          detail: { siteId: card.id }
-        }));
+        document.dispatchEvent(
+          new CustomEvent("siteCardDeselected", {
+            detail: { siteId: card.id },
+          })
+        );
       }
     });
   }
@@ -201,13 +205,17 @@ function maybeScrollToSiteInUrl() {
 
 function selectSite(id) {
   const siteCard = document.getElementById(id);
-  siteCard && siteCard.classList.add("is-selected") && siteCard.scrollIntoView();
+  siteCard &&
+    siteCard.classList.add("is-selected") &&
+    siteCard.scrollIntoView();
 }
 
 document.addEventListener("markerSelected", (ev) => {
   const siteId = ev.detail.siteId;
   const siteCard = document.getElementById(siteId);
-  siteCard && siteCard.classList.add("is-selected") && siteCard.scrollIntoView();
+  siteCard &&
+    siteCard.classList.add("is-selected") &&
+    siteCard.scrollIntoView();
   if (selectedSite) {
     selectedSite.classList.remove("is-selected");
   }
@@ -228,4 +236,10 @@ function getSelectedSiteId() {
   return selectedSite && selectedSite.id;
 }
 
-export { addSitesToPage, addSitesOrHideIfEmpty, maybeScrollToSiteInUrl, getSelectedSiteId, selectSite };
+export {
+  addSitesToPage,
+  addSitesOrHideIfEmpty,
+  maybeScrollToSiteInUrl,
+  getSelectedSiteId,
+  selectSite,
+};

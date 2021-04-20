@@ -2,7 +2,11 @@ import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
 import zipCodes from "./json/zipCodes.json";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
-import { addSitesOrHideIfEmpty, getSelectedSiteId, selectSite } from "./sites.js";
+import {
+  addSitesOrHideIfEmpty,
+  getSelectedSiteId,
+  selectSite,
+} from "./sites.js";
 import zipSearchBoxTemplate from "./templates/zipSearchBox.handlebars";
 import { debounce, distanceBetweenCoordinates, extractZip } from "./util.js";
 

@@ -31,14 +31,16 @@ function addLocation(p) {
     markerConfig["icon"] = bluePin;
   }
   const marker = new google.maps.Marker(markerConfig);
-  marker.set('site', info);
+  marker.set("site", info);
 
   // Toggle the info card
   marker.addListener("click", () => {
     showInfoCard(marker);
-    document.dispatchEvent(new CustomEvent("markerSelected", {
-      detail: { siteId: marker.site.id }
-    }));
+    document.dispatchEvent(
+      new CustomEvent("markerSelected", {
+        detail: { siteId: marker.site.id },
+      })
+    );
   });
 
   window.mapMarkers.push(marker);
@@ -70,7 +72,7 @@ function showInfoCard(marker) {
   if (prevInfoWindow) {
     prevInfoWindow.close();
   }
-  
+
   const info = marker.site;
   const markerContent = mapMarker({
     name: info.name,
@@ -91,7 +93,7 @@ function showInfoCard(marker) {
 
   infoWindow.addListener("closeclick", () => {
     document.dispatchEvent(new CustomEvent("markerDeselected"), {
-      detail: { siteId: marker.site.id }
+      detail: { siteId: marker.site.id },
     });
   });
 
@@ -104,7 +106,9 @@ function showInfoCard(marker) {
 }
 
 document.addEventListener("siteCardSelected", (ev) => {
-  const matches = window.mapMarkers.filter(m => m.site.id === ev.detail.siteId);
+  const matches = window.mapMarkers.filter(
+    (m) => m.site.id === ev.detail.siteId
+  );
   const marker = matches && matches.length > 0 && matches[0];
   showInfoCard(marker);
 });
