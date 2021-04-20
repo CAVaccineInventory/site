@@ -21,6 +21,7 @@ site_list:
 titles:
   about_us: About Us
   county_policies: County Policies
+  embed: Vaccination Sites
   home: COVID-19 Vaccine Availability
   providers: Providers
   nearest: Vaccination Sites Near You
@@ -58,6 +59,7 @@ map:
   locating: Locating...
   failed: Failed, please try again
   not_supported: Geolocation not supported
+  failed_to_detect_location: Failed to detect your location.
 search_form:
   enter_zip: Enter ZIP
   enter_county: or county
@@ -244,3 +246,9 @@ about_us:
   faq_who_answer: |
     We are a community-driven organization, with over 300 volunteers working with us. As of January 23rd, 2021, our 
     core team was approximately 20 people.
+embed:
+  locations_near_me: Locations near me
+  powered_by_vaccinateca: Powered by <a href="https://www.vaccinateca.com">VaccinateCA</a>.
+zip_search_box:
+  search: Search
+  zip_code: ZIP code
