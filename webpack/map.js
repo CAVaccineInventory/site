@@ -104,7 +104,8 @@ function showInfoCard(marker) {
 }
 
 document.addEventListener("siteCardSelected", (ev) => {
-  const marker = window.mapMarkers.filter(m => m.site.id === ev.detail.siteId)?.[0];
+  const matches = window.mapMarkers.filter(m => m.site.id === ev.detail.siteId);
+  const marker = matches && matches.length > 0 && matches[0];
   showInfoCard(marker);
 });
 
