@@ -195,6 +195,7 @@ function getDisplayableVaccineInfo(p) {
         p,
         "Eligibility determined by provider website"
       ),
+      isJJPaused: doesLocationHaveProp(p, "Vaccinations may be on hold due to CDC/FDA guidance regarding the Johnson & Johnson vaccine"),
     };
   }
 
