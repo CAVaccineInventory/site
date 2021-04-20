@@ -104,6 +104,7 @@ function getDisplayableVaccineInfo(p) {
     const info = p["Availability Info"];
     if (!Array.isArray(info)) return false;
     return info
+      .filter((info) => !info.match(/Yes:\s+vaccinating\s\d+\+/))
       .map((info) =>
         info
           .replace("Yes: ", "")
