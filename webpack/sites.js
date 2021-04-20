@@ -80,27 +80,21 @@ function addSitesToPage(sites, containerId) {
   containerElem.innerHTML = "";
   containerElem.appendChild(fragmentElem);
 
-  if (selectedSiteId) {
-    let selected = document.getElementById(selectedSiteId);
-    selected && selected.classList.add("is-selected") && selected.scrollIntoView();
-  }
-
   const siteCards = document.getElementsByClassName("site-card");
   for (const card of siteCards) {
     card.addEventListener("click", (ev) => {
-      card.classList.toggle("is-selected");
-      if (currentSelectedSiteCard) {
-        currentSelectedSiteCard.classList.remove("is-selected");
+      if (selectedSite) {
+        selectedSite.classList.remove("is-selected");
       }
+      
+      card.classList.toggle("is-selected");
       if (card.classList.contains("is-selected")) {
-        currentSelectedSiteCard = card;
-        selectedSiteId = card.id;
+        selectedSite = card;
         document.dispatchEvent(new CustomEvent("siteCardSelected", {
           detail: { siteId: card.id }
         }));
       } else {
-        currentSelectedSiteCard = false;
-        selectedSiteId = false;
+        selectedSite = false;
         document.dispatchEvent(new CustomEvent("siteCardDeselected", {
           detail: { siteId: card.id }
         }));
@@ -205,8 +199,33 @@ function maybeScrollToSiteInUrl() {
   }
 }
 
-// State tracking for selected site card
-let currentSelectedSiteCard = false;
-let selectedSiteId = false;
+function selectSite(id) {
+  const siteCard = document.getElementById(id);
+  siteCard && siteCard.classList.add("is-selected") && siteCard.scrollIntoView();
+}
 
-export { addSitesToPage, addSitesOrHideIfEmpty, maybeScrollToSiteInUrl };
+document.addEventListener("markerSelected", (ev) => {
+  const siteId = ev.detail.siteId;
+  const siteCard = document.getElementById(siteId);
+  siteCard && siteCard.classList.add("is-selected") && siteCard.scrollIntoView();
+  if (selectedSite) {
+    selectedSite.classList.remove("is-selected");
+  }
+  selectedSite = siteCard;
+});
+
+document.addEventListener("markerDeselected", () => {
+  if (selectedSite) {
+    selectedSite.classList.remove("is-selected");
+    selectedSite = false;
+  }
+});
+
+// State tracking for selected site card
+let selectedSite = false;
+
+function getSelectedSiteId() {
+  return selectedSite && selectedSite.id;
+}
+
+export { addSitesToPage, addSitesOrHideIfEmpty, maybeScrollToSiteInUrl, getSelectedSiteId, selectSite };

@@ -2,7 +2,7 @@ import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
 import zipCodes from "./json/zipCodes.json";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
-import { addSitesOrHideIfEmpty } from "./sites.js";
+import { addSitesOrHideIfEmpty, getSelectedSiteId, selectSite } from "./sites.js";
 import zipSearchBoxTemplate from "./templates/zipSearchBox.handlebars";
 import { debounce, distanceBetweenCoordinates, extractZip } from "./util.js";
 
@@ -101,6 +101,9 @@ function updateSitesFromMap() {
     return;
   }
 
+  // Grab the selected site id before we clear the list
+  const selectedSiteId = getSelectedSiteId();
+
   document
     .querySelectorAll(".js-sites")
     .forEach((site) => (site.innerHTML = ""));
@@ -126,4 +129,6 @@ function updateSitesFromMap() {
   );
 
   addSitesOrHideIfEmpty(sitesToShow.slice(0, 50), "js-sites-with-vaccine");
+
+  selectSite(selectedSiteId);
 }

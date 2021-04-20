@@ -35,32 +35,10 @@ function addLocation(p) {
 
   // Toggle the info card
   marker.addListener("click", () => {
-    if (prevInfowindow) {
-      prevInfowindow.close();
-    }
-    const markerContent = mapMarker({
-      name: info.name,
-      superSite: info.isSuperSite,
-      details: info.status,
-      schedulingInstructions: info.schedulingInstructions,
-      address: info.address,
-      reportNotes: info.reportNotes,
-      superSiteLabel: t("global.super_site"),
-      detailsLabel: t("global.details"),
-      schedulingInstructionsLabel: t("global.appt_info"),
-      addressLabel: t("global.address"),
-      reportNotesLabel: t("global.latest_info"),
-    });
-    const infowindow = new google.maps.InfoWindow({
-      content: markerContent,
-    });
-
-    if (prevInfowindow == infowindow) {
-      prevInfowindow = false;
-    } else {
-      infowindow.open(map, marker);
-      prevInfowindow = infowindow;
-    }
+    showInfoCard(marker);
+    document.dispatchEvent(new CustomEvent("markerSelected", {
+      detail: { siteId: marker.site.id }
+    }));
   });
 
   window.mapMarkers.push(marker);
@@ -84,15 +62,16 @@ function tryOrDelayToMapInit(callback) {
   }
 }
 
-document.addEventListener("siteCardSelected", (ev) => { 
-  console.log(ev);
-  const marker = window.mapMarkers.filter(m => m.site.id === ev.detail.siteId)[0];
-  const info = marker.site;
-  
-  if (prevInfowindow) {
-    prevInfowindow.close();
+function showInfoCard(marker) {
+  if (!marker) {
+    return;
+  }
+
+  if (prevInfoWindow) {
+    prevInfoWindow.close();
   }
   
+  const info = marker.site;
   const markerContent = mapMarker({
     name: info.name,
     superSite: info.isSuperSite,
@@ -106,20 +85,35 @@ document.addEventListener("siteCardSelected", (ev) => {
     addressLabel: t("global.address"),
     reportNotesLabel: t("global.latest_info"),
   });
-  const infowindow = new google.maps.InfoWindow({
+  const infoWindow = new google.maps.InfoWindow({
     content: markerContent,
   });
 
-  if (prevInfowindow == infowindow) {
-    prevInfowindow = false;
+  infoWindow.addListener("closeclick", () => {
+    document.dispatchEvent(new CustomEvent("markerDeselected"), {
+      detail: { siteId: marker.site.id }
+    });
+  });
+
+  if (prevInfoWindow == infoWindow) {
+    prevInfoWindow = false;
   } else {
-    infowindow.open(map, marker);
-    prevInfowindow = infowindow;
+    infoWindow.open(map, marker);
+    prevInfoWindow = infoWindow;
   }
+}
+
+document.addEventListener("siteCardSelected", (ev) => {
+  const marker = window.mapMarkers.filter(m => m.site.id === ev.detail.siteId)?.[0];
+  showInfoCard(marker);
 });
-// document.addEventListener("siteCardDeselected", (ev) => console.log(ev));
+
+document.addEventListener("siteCardDeselected", () => {
+  prevInfoWindow && prevInfoWindow.close();
+  prevInfoWindow = false;
+});
 
 // State tracking for info cards
-let prevInfowindow = false;
+let prevInfoWindow = false;
 
 export { addLocation, clearMap, tryOrDelayToMapInit };
