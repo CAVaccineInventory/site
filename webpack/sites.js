@@ -42,6 +42,10 @@ function addSitesToPage(sites, containerId) {
       notes = markdownify(notes);
     }
 
+    // only render copy button if site has a vaccine because otherwise when the link is used the site
+    // will be hidden by default. Also no copy button for embeds because of iframe permissions.
+    const withCopyButton =
+      info.hasVaccine === "Yes" && !window.location.pathname.includes("/embed");
     const context = {
       id: info.id,
       name: info.name,
@@ -65,6 +69,7 @@ function addSitesToPage(sites, containerId) {
       notes: notes,
       providerInfo: info.providerNotes,
       id: info.id,
+      withCopyButton,
     };
 
     const range = document
@@ -118,6 +123,9 @@ function generateRestrictions(info) {
   }
   if (info.veteransOnly) {
     restrictions.push(t("site_template.veterans"));
+  }
+  if (info.isJJPaused) {
+    restrictions.push(t("site_template.jj_pause"));
   }
 
   return restrictions;
