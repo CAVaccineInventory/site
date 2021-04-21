@@ -80,6 +80,7 @@ site_template:
   eligibility_by_county: Eligibility determined by county
   correction: Something look wrong?
   correction_link: Let us know.
+  jj_pause: Appointments paused due to CDC guidance regarding J&J vaccine.
 not_found:
   text: |
     The page you've requested does not exist. If you're looking for help with 

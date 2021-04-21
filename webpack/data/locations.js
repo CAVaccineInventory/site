@@ -103,7 +103,17 @@ function getDisplayableVaccineInfo(p) {
   function getVaccineStatus(p) {
     const info = p["Availability Info"];
     if (!Array.isArray(info)) return false;
+
+    const expiredRestrictions = [
+      /Yes:\s+vaccinating\s\d+\+/,
+      /Vaccinating education and childcare workers/,
+      /Vaccinating agriculture and food workers/,
+      /Vaccinating emergency services workers/,
+      /Vaccinating high-risk individuals/,
+    ];
+
     return info
+      .filter((info) => !expiredRestrictions.some((x) => info.match(x)))
       .map((info) =>
         info
           .replace("Yes: ", "")
@@ -184,6 +194,10 @@ function getDisplayableVaccineInfo(p) {
       determinedByProvider: doesLocationHaveProp(
         p,
         "Eligibility determined by provider website"
+      ),
+      isJJPaused: doesLocationHaveProp(
+        p,
+        "Vaccinations may be on hold due to CDC/FDA guidance regarding the Johnson & Johnson vaccine"
       ),
     };
   }
