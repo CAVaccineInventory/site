@@ -2,6 +2,7 @@ import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
 import { addSitesOrHideIfEmpty } from "./sites.js";
+import sendAnalyticsEvent from "./sendAnalyticsEvent";
 import embeddedMapControlsTemplate from "./templates/embeddedMapControls.handlebars";
 import { debounce, distanceBetweenCoordinates } from "./util.js";
 
@@ -57,9 +58,11 @@ function configureMap() {
   function zoomToPlace(place) {
     window.map.setCenter(place.geometry.location);
     window.map.setZoom(13);
+    sendAnalyticsEvent("Search Place", "Embed", "", "");
   }
 
   function alertAboutUnknownPlace(place) {
+    sendAnalyticsEvent("Unable to find place", "Embed", "", "");
     alert(t("embed.unable_to_find_location") + ": " + place.name);
   }
 
@@ -118,8 +121,10 @@ function configureMap() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         moveMap(position.coords);
+        sendAnalyticsEvent("Locate Me", "Embed", "", "")
       },
       () => {
+        sendAnalyticsEvent("Unable to detect location", "Embed", "", "");
         alert(t("embed.failed_to_detect_location"));
       }
     );
