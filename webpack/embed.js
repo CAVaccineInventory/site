@@ -121,7 +121,7 @@ function configureMap() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         moveMap(position.coords);
-        sendAnalyticsEvent("Locate Me", "Embed", "", "")
+        sendAnalyticsEvent("Locate Me", "Embed", "", "");
       },
       () => {
         sendAnalyticsEvent("Unable to detect location", "Embed", "", "");
