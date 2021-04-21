@@ -126,4 +126,10 @@ function updateSitesFromMap() {
   );
 
   addSitesOrHideIfEmpty(sitesToShow.slice(0, 50), "js-sites-with-vaccine");
+  // Scroll back to the top because we changed the data on screen
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
 }
