@@ -157,34 +157,16 @@ select {
   background-color: #f0f0f0;
 }
 
-/* https://developers.google.com/maps/documentation/javascript/examples/map-geolocation#maps_map_geolocation-css */
-.custom-map-control-button {
-  appearance: button;
-  background-color: #fff;
-  border: 0;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  margin: 10px;
-  padding: 0 0.5em;
-  height: 40px;
-  font: 400 16px Roboto, Arial, sans-serif;
-  overflow: hidden;
-}
-.custom-map-control-button:hover {
-  background: #ebebeb;
-}
-
 .custom-map-container {
   margin: 10px;
   height: 40px;
-  font: 400 16px Roboto, Arial, sans-serif;
   display: flex;
   align-items: center;
 }
 
 .custom-map-element {
   box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
   height: 30px;
 }
 

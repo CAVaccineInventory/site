@@ -1,10 +1,10 @@
 import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
-import zipCodes from "./json/zipCodes.json";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
 import { addSitesOrHideIfEmpty } from "./sites.js";
-import zipSearchBoxTemplate from "./templates/zipSearchBox.handlebars";
-import { debounce, distanceBetweenCoordinates, extractZip } from "./util.js";
+import sendAnalyticsEvent from "./sendAnalyticsEvent";
+import embeddedMapControlsTemplate from "./templates/embeddedMapControls.handlebars";
+import { debounce, distanceBetweenCoordinates } from "./util.js";
 
 window.addEventListener("load", loaded);
 async function loaded() {
@@ -12,7 +12,7 @@ async function loaded() {
   window.filteredSites = sites.filter(getHasVaccine);
 
   tryOrDelayToMapInit(() => {
-    addButtonsToMap();
+    configureMap();
     filteredSites.forEach(addLocation);
     window.map.addListener(
       "bounds_changed",
@@ -26,13 +26,6 @@ async function loaded() {
   updateSitesFromMap();
 }
 
-function moveToZip(zip) {
-  const data = zipCodes[zip];
-  // TODO: Handle invalid ZIP
-  const coordinate = data.coordinates;
-  moveMap(coordinate);
-}
-
 function moveMap(coordinates) {
   tryOrDelayToMapInit((map) => {
     const mapCoord = {
@@ -40,49 +33,102 @@ function moveMap(coordinates) {
       lng: coordinates.longitude,
     };
     map.setCenter(mapCoord);
-    map.setZoom(12);
+    map.setZoom(13);
   });
 }
 
-window.submitZip = function () {
-  const maybeZip = extractZip(document.getElementById("zip-input"));
-  // TODO: Handle invalid ZIP
-  moveToZip(maybeZip);
-};
+function configureMap() {
+  const searchContainer = document.createElement("div");
+  searchContainer.classList.add("custom-map-container");
+  searchContainer.innerHTML = embeddedMapControlsTemplate();
 
-window.onZipInputKeyDown = function (event) {
-  if (event.key === "Enter") {
-    submitZip();
-  }
-};
-
-function addButtonsToMap() {
-  const zipSearchBox = document.createElement("div");
-  zipSearchBox.classList.add("custom-map-container");
-  zipSearchBox.innerHTML = zipSearchBoxTemplate();
+  const searchInput = searchContainer.querySelector("#search-input");
   window.map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-    zipSearchBox
+    searchContainer
   );
 
-  // If we support HTMLa5 geolocation, add a button
-  if (navigator.geolocation) {
-    const locationButton = document.createElement("button");
-    locationButton.textContent = t("embed.locations_near_me");
-    locationButton.classList.add("custom-map-control-button");
-    window.map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-      locationButton
-    );
-    locationButton.addEventListener("click", () => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          moveMap(position.coords);
-        },
-        () => {
-          alert(t("map.failed_to_detect_location"));
-        }
-      );
-    });
+  const autocomplete = new google.maps.places.Autocomplete(searchInput, {
+    componentRestrictions: { country: "us" },
+    fields: ["geometry"],
+    origin: window.map.getCenter(),
+    strictBounds: false,
+  });
+  autocomplete.bindTo("bounds", window.map);
+
+  function zoomToPlace(place) {
+    window.map.setCenter(place.geometry.location);
+    window.map.setZoom(13);
+    sendAnalyticsEvent("Search Place", "Embed", "", "");
   }
+
+  function alertAboutUnknownPlace(place) {
+    sendAnalyticsEvent("Unable to find place", "Embed", "", "");
+    alert(t("embed.unable_to_find_location") + ": " + place.name);
+  }
+
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (place.geometry && place.geometry.location) {
+      zoomToPlace(place);
+      return;
+    }
+    // The user entered the name of a place that was not suggested and
+    // pressed the Enter key, or the Place Details request failed.
+
+    // We'll hit the places autocomplete service directly and hopefully that will give us
+    // something. This is designed to match the query the autocomplete component does
+    // so hopefully we're picking the top result (even though the user never hit DOWN)
+    const placesAutocompleteService = new google.maps.places.AutocompleteService();
+    const placesAutocompleteQuery = {
+      input: place.name,
+      bounds: window.map.getBounds(),
+      componentRestrictions: { country: "us" },
+      origin: window.map.getCenter(),
+    };
+    placesAutocompleteService.getPlacePredictions(
+      placesAutocompleteQuery,
+      function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          // We have a place, but we need to do another round trip to get its map location.
+          const placesService = new google.maps.places.PlacesService(
+            window.map
+          );
+          const placesDetailsQuery = {
+            placeId: results[0].place_id,
+            fields: ["name", "geometry"],
+          };
+          placesService.getDetails(
+            placesDetailsQuery,
+            function (result, status) {
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                zoomToPlace(result);
+                // Update the search input to show the user how we resolved their query.
+                searchInput.value = result.name;
+              } else {
+                alertAboutUnknownPlace(place);
+              }
+            }
+          );
+        } else {
+          alertAboutUnknownPlace(place);
+        }
+      }
+    );
+  });
+
+  const autolocateButton = searchContainer.querySelector("#autolocate-button");
+  autolocateButton.addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        moveMap(position.coords);
+        sendAnalyticsEvent("Locate Me", "Embed", "", "");
+      },
+      () => {
+        sendAnalyticsEvent("Unable to detect location", "Embed", "", "");
+        alert(t("embed.failed_to_detect_location"));
+      }
+    );
+  });
 }
 
 function updateUrlParametersFromMap() {
