@@ -59,7 +59,7 @@ map:
   locating: Naghahanap...
   failed: "Nabigo, paki-subukan uli"
   not_supported: Hindi suportado ang paghahanap sa lugar
-  failed_to_detect_location: Bigong mahanap ang iyong lokasyon
+  failed_to_detect_location: Bigong mahanap ang iyong lokasyon.
 search_form:
   enter_zip: Ilagay ang ZIP
   enter_county: "o county "
