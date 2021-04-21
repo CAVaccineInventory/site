@@ -53,17 +53,64 @@ function configureMap() {
     strictBounds: false,
   });
   autocomplete.bindTo("bounds", window.map);
-  autocomplete.addListener("place_changed", () => {
-    const place = autocomplete.getPlace();
 
-    if (!place.geometry || !place.geometry.location) {
-      // User entered the name of a place that was not suggested and
-      // pressed the Enter key, or the Place Details request failed.
-      alert(t("embed.unable_to_find_location") + ": " + place.name);
-      return;
-    }
+  function zoomToPlace(place) {
     window.map.setCenter(place.geometry.location);
     window.map.setZoom(13);
+  }
+
+  function alertAboutUnknownPlace(place) {
+    alert(t("embed.unable_to_find_location") + ": " + place.name);
+  }
+
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (place.geometry && place.geometry.location) {
+      zoomToPlace(place);
+      return;
+    }
+    // The user entered the name of a place that was not suggested and
+    // pressed the Enter key, or the Place Details request failed.
+
+    // We'll hit the places autocomplete service directly and hopefully that will give us
+    // something. This is designed to match the query the autocomplete component does
+    // so hopefully we're picking the top result (even though the user never hit DOWN)
+    const placesAutocompleteService = new google.maps.places.AutocompleteService();
+    const placesAutocompleteQuery = {
+      input: place.name,
+      bounds: window.map.getBounds(),
+      componentRestrictions: { country: "us" },
+      origin: window.map.getCenter(),
+    };
+    placesAutocompleteService.getPlacePredictions(
+      placesAutocompleteQuery,
+      function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          // We have a place, but we need to do another round trip to get its map location.
+          const placesService = new google.maps.places.PlacesService(
+            window.map
+          );
+          const placesDetailsQuery = {
+            placeId: results[0].place_id,
+            fields: ["name", "geometry"],
+          };
+          placesService.getDetails(
+            placesDetailsQuery,
+            function (result, status) {
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                zoomToPlace(result);
+                // Update the search input to show the user how we resolved their query.
+                searchInput.value = result.name;
+              } else {
+                alertAboutUnknownPlace(place);
+              }
+            }
+          );
+        } else {
+          alertAboutUnknownPlace(place);
+        }
+      }
+    );
   });
 
   const autolocateButton = searchContainer.querySelector("#autolocate-button");
