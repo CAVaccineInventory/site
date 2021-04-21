@@ -21,6 +21,7 @@ site_list:
 titles:
   about_us: Tungkol sa Amin
   county_policies: Patakaran ng County
+  embed: Mga Lugar ng Pagbabakuna
   home: Pagkakaroon ng Bakuna para sa COVID-19
   providers: "Mga Tagapagbigay ng Pangangalaga "
   nearest: Mga Lugar ng Pagbabakuna na Malapit sa Inyo
@@ -58,6 +59,7 @@ map:
   locating: Naghahanap...
   failed: "Nabigo, paki-subukan uli"
   not_supported: Hindi suportado ang paghahanap sa lugar
+  failed_to_detect_location: Bigong mahanap ang iyong lokasyon
 search_form:
   enter_zip: Ilagay ang ZIP
   enter_county: "o county "
@@ -79,6 +81,7 @@ site_template:
   eligibility_by_county: Eligibility ayon sa county
   correction: "Mukhang may mali?"
   correction_link: Ipaalam sa amin
+  jj_pause: Ang mga appointments ay pansamantalang pinatigil dahil sa patnubay ng CDC tungkol sa bakunang J&J.
 not_found:
   text: |
     Wala ang pahina na inyong hiningi. Kung naghahanap kayo ng tulong 
@@ -250,3 +253,9 @@ about_us:
   faq_who_answer: |
     Kami ay isang organisasyong hinihimok ng pamayanan, na mayroong mahigit na 300 boluntaryo. Noong Enero 23, 2021,
     may dalawampung tao ang aming pangunahing pangkat. 
+embed:
+  locations_near_me: Mga lokasyong malapit sa akin
+  powered_by_vaccinateca: "Pinatatakbo ng <a href=\"https://www.vaccinateca.com\">VaccinateCA</a>."
+zip_search_box:
+  search: Hanapin
+  zip_code: ZIP code
