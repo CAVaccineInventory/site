@@ -124,6 +124,9 @@ function generateRestrictions(info) {
   if (info.veteransOnly) {
     restrictions.push(t("site_template.veterans"));
   }
+  if (info.isJJPaused) {
+    restrictions.push(t("site_template.jj_pause"));
+  }
 
   return restrictions;
 }
