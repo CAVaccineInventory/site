@@ -1,7 +1,7 @@
 import { fetchSites, getHasVaccine, getCoord } from "./data/locations.js";
 import { t } from "./i18n";
 import { addLocation, tryOrDelayToMapInit } from "./map.js";
-import { 
+import {
   addSitesOrHideIfEmpty,
   getSelectedSiteId,
   selectSite,
@@ -179,12 +179,16 @@ function updateSitesFromMap() {
   );
 
   addSitesOrHideIfEmpty(sitesToShow.slice(0, 50), "js-sites-with-vaccine");
-  // Scroll back to the top because we changed the data on screen
-  window.scrollTo({
-    left: 0,
-    top: 0,
-    behavior: "smooth",
-  });
 
-  selectSite(selectedSiteId);
+  // If there's a selected site before the refresh, scroll to it.
+  // Otherwise, scroll back to the top.
+  if (document.getElementById(selectedSiteId)) {
+    selectSite(selectedSiteId);
+  } else {
+    window.scrollTo({
+      left: 0,
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 }

@@ -206,7 +206,7 @@ function maybeScrollToSiteInUrl() {
     const element = document.getElementById(siteId);
     if (element) {
       element.classList.add("is-selected");
-      element.scrollIntoView();
+      element.scrollIntoView({ behavior: "smooth" });
     }
   }
 }
@@ -215,7 +215,7 @@ function selectSite(id) {
   const site = document.getElementById(id);
   if (site) {
     site.classList.add("is-selected");
-    site.scrollIntoView();
+    site.scrollIntoView({ behavior: "smooth" });
   }
   
   if (selectedSite && selectedSite != site) {
