@@ -92,9 +92,11 @@ function showInfoCard(marker) {
   });
 
   infoWindow.addListener("closeclick", () => {
-    document.dispatchEvent(new CustomEvent("markerDeselected", {
-      detail: { siteId: marker.site.id },
-    }));
+    document.dispatchEvent(
+      new CustomEvent("markerDeselected", {
+        detail: { siteId: marker.site.id },
+      })
+    );
   });
 
   if (prevInfoWindow == infoWindow) {

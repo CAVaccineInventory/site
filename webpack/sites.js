@@ -85,31 +85,29 @@ function addSitesToPage(sites, containerId) {
   containerElem.innerHTML = "";
   containerElem.appendChild(fragmentElem);
 
-  document
-    .querySelectorAll(".site-card")
-    .forEach((site) => {
-      site.addEventListener("click", (ev) => {
-        site.classList.toggle("is-selected");
-        if (site.classList.contains("is-selected")) {
-          if (selectedSite && selectedSite != site) {
-            selectedSite.classList.remove("is-selected");
-          }
-          selectedSite = site;
-          document.dispatchEvent(
-            new CustomEvent("siteCardSelected", {
-              detail: { siteId: site.id },
-            })
-          );
-        } else {
-          selectedSite = false;
-          document.dispatchEvent(
-            new CustomEvent("siteCardDeselected", {
-              detail: { siteId: site.id },
-            })
-          );
+  document.querySelectorAll(".site-card").forEach((site) => {
+    site.addEventListener("click", (ev) => {
+      site.classList.toggle("is-selected");
+      if (site.classList.contains("is-selected")) {
+        if (selectedSite && selectedSite != site) {
+          selectedSite.classList.remove("is-selected");
         }
-      });
+        selectedSite = site;
+        document.dispatchEvent(
+          new CustomEvent("siteCardSelected", {
+            detail: { siteId: site.id },
+          })
+        );
+      } else {
+        selectedSite = false;
+        document.dispatchEvent(
+          new CustomEvent("siteCardDeselected", {
+            detail: { siteId: site.id },
+          })
+        );
+      }
     });
+  });
 }
 
 function addSitesOrHideIfEmpty(sites, containerId) {
@@ -217,7 +215,7 @@ function selectSite(id) {
     site.classList.add("is-selected");
     site.scrollIntoView({ behavior: "smooth" });
   }
-  
+
   if (selectedSite && selectedSite != site) {
     selectedSite.classList.remove("is-selected");
   }
