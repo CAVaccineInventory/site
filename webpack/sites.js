@@ -80,31 +80,31 @@ function addSitesToPage(sites, containerId) {
   containerElem.innerHTML = "";
   containerElem.appendChild(fragmentElem);
 
-  const siteCards = document.getElementsByClassName("site-card");
-  for (const card of siteCards) {
-    card.addEventListener("click", (ev) => {
-      if (selectedSite) {
-        selectedSite.classList.remove("is-selected");
-      }
-
-      card.classList.toggle("is-selected");
-      if (card.classList.contains("is-selected")) {
-        selectedSite = card;
-        document.dispatchEvent(
-          new CustomEvent("siteCardSelected", {
-            detail: { siteId: card.id },
-          })
-        );
-      } else {
-        selectedSite = false;
-        document.dispatchEvent(
-          new CustomEvent("siteCardDeselected", {
-            detail: { siteId: card.id },
-          })
-        );
-      }
+  document
+    .querySelectorAll(".site-card")
+    .forEach((site) => {
+      site.addEventListener("click", (ev) => {
+        site.classList.toggle("is-selected");
+        if (site.classList.contains("is-selected")) {
+          if (selectedSite && selectedSite != site) {
+            selectedSite.classList.remove("is-selected");
+          }
+          selectedSite = site;
+          document.dispatchEvent(
+            new CustomEvent("siteCardSelected", {
+              detail: { siteId: site.id },
+            })
+          );
+        } else {
+          selectedSite = false;
+          document.dispatchEvent(
+            new CustomEvent("siteCardDeselected", {
+              detail: { siteId: site.id },
+            })
+          );
+        }
+      });
     });
-  }
 }
 
 function addSitesOrHideIfEmpty(sites, containerId) {
@@ -204,25 +204,28 @@ function maybeScrollToSiteInUrl() {
 }
 
 function selectSite(id) {
-  const siteCard = document.getElementById(id);
-  siteCard &&
-    siteCard.classList.add("is-selected") &&
-    siteCard.scrollIntoView();
+  const site = document.getElementById(id);
+  if (site) {
+    site.classList.add("is-selected");
+    site.scrollIntoView();
+  }
+  
+  if (selectedSite && selectedSite != site) {
+    selectedSite.classList.remove("is-selected");
+  }
+  selectedSite = site;
 }
 
 document.addEventListener("markerSelected", (ev) => {
   const siteId = ev.detail.siteId;
-  const siteCard = document.getElementById(siteId);
-  siteCard &&
-    siteCard.classList.add("is-selected") &&
-    siteCard.scrollIntoView();
-  if (selectedSite) {
-    selectedSite.classList.remove("is-selected");
-  }
-  selectedSite = siteCard;
+  selectSite(siteId);
 });
 
-document.addEventListener("markerDeselected", () => {
+document.addEventListener("markerDeselected", (ev) => {
+  const site = document.getElementById(ev.detail.id);
+  if (site) {
+    site.classList.remove("is-selected");
+  }
   if (selectedSite) {
     selectedSite.classList.remove("is-selected");
     selectedSite = false;
