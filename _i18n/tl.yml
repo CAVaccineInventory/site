@@ -59,7 +59,6 @@ map:
   locating: Naghahanap...
   failed: "Nabigo, paki-subukan uli"
   not_supported: Hindi suportado ang paghahanap sa lugar
-  failed_to_detect_location: Bigong mahanap ang iyong lokasyon.
 search_form:
   enter_zip: Ilagay ang ZIP
   enter_county: "o county "
@@ -254,8 +253,9 @@ about_us:
     Kami ay isang organisasyong hinihimok ng pamayanan, na mayroong mahigit na 300 boluntaryo. Noong Enero 23, 2021,
     may dalawampung tao ang aming pangunahing pangkat. 
 embed:
-  locations_near_me: Mga lokasyong malapit sa akin
+  failed_to_detect_location: Bigong mahanap ang iyong lokasyon.
   powered_by_vaccinateca: "Pinatatakbo ng <a href=\"https://www.vaccinateca.com\">VaccinateCA</a>."
-zip_search_box:
-  search: Hanapin
-  zip_code: ZIP code
+  unable_to_find_location: Hindi mahanap ang lokasyon
+embedded_map_controls:
+  locations_near_me: Mga lokasyong malapit sa akin
+  search: Hanapin ang iyong lokasyon
