@@ -1,6 +1,3 @@
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../tailwind.config";
-
 // https://github.com/skalnik/aqi-wtf/blob/03e5090f8af3d6bf7aea47cd27e9d089103a877f/app.js#L238-L250
 export function distanceBetweenCoordinates(coord1, coord2) {
   const p = Math.PI / 180;
@@ -39,7 +36,4 @@ export function extractZip(zipInput) {
   return matches[1];
 }
 
-const fullConfig = resolveConfig(tailwindConfig);
-
-export const isOnMobile = () =>
-  window.innerWidth < parseInt(fullConfig.theme.screens.lg, 10);
+export const isOnMobile = () => window.innerWidth < 1024;
