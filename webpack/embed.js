@@ -8,7 +8,7 @@ import {
 } from "./sites.js";
 import sendAnalyticsEvent from "./sendAnalyticsEvent";
 import embeddedMapControlsTemplate from "./templates/embeddedMapControls.handlebars";
-import { debounce, distanceBetweenCoordinates } from "./util.js";
+import { debounce, distanceBetweenCoordinates, isOnMobile } from "./util.js";
 
 window.addEventListener("load", loaded);
 async function loaded() {
@@ -182,7 +182,7 @@ function updateSitesFromMap() {
 
   // If there's a selected site before the refresh, scroll to it.
   // Otherwise, scroll back to the top.
-  if (document.getElementById(selectedSiteId)) {
+  if (document.getElementById(selectedSiteId) && !isOnMobile()) {
     selectSite(selectedSiteId);
   } else {
     window.scrollTo({

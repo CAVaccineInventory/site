@@ -35,3 +35,5 @@ export function extractZip(zipInput) {
 
   return matches[1];
 }
+
+export const isOnMobile = () => window.innerWidth < 1024;

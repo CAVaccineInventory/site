@@ -1,6 +1,7 @@
 import mapMarker from "./templates/mapMarker.handlebars";
 import { getDisplayableVaccineInfo } from "./data/locations.js";
 import { t } from "./i18n";
+import { isOnMobile } from "./util";
 
 window.mapMarkers = [];
 
@@ -108,6 +109,8 @@ function showInfoCard(marker) {
 }
 
 document.addEventListener("siteCardSelected", (ev) => {
+  if (isOnMobile()) return;
+
   const matches = window.mapMarkers.filter(
     (m) => m.site.id === ev.detail.siteId
   );
@@ -116,6 +119,8 @@ document.addEventListener("siteCardSelected", (ev) => {
 });
 
 document.addEventListener("siteCardDeselected", () => {
+  if (isOnMobile()) return;
+
   prevInfoWindow && prevInfoWindow.close();
   prevInfoWindow = false;
 });

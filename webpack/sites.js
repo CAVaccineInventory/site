@@ -6,6 +6,7 @@ import {
 import siteTemplate from "./templates/siteLocation.handlebars";
 import { markdownify } from "./markdown.js";
 import { t } from "./i18n.js";
+import { isOnMobile } from "./util.js";
 
 let lastInteractedCopyButton;
 
@@ -87,7 +88,9 @@ function addSitesToPage(sites, containerId) {
 
   document.querySelectorAll(".site-card").forEach((site) => {
     site.addEventListener("click", (ev) => {
-      site.classList.toggle("is-selected");
+      if (!isOnMobile()) {
+        site.classList.toggle("is-selected");
+      }
       if (site.classList.contains("is-selected")) {
         if (selectedSite && selectedSite != site) {
           selectedSite.classList.remove("is-selected");
@@ -223,11 +226,15 @@ function selectSite(id) {
 }
 
 document.addEventListener("markerSelected", (ev) => {
+  if (isOnMobile()) return;
+
   const siteId = ev.detail.siteId;
   selectSite(siteId);
 });
 
 document.addEventListener("markerDeselected", (ev) => {
+  if (isOnMobile()) return;
+
   const site = document.getElementById(ev.detail.id);
   if (site) {
     site.classList.remove("is-selected");
