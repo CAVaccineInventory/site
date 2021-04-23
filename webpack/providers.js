@@ -7,6 +7,9 @@ window.addEventListener("load", loadProviders);
 async function loadProviders() {
   const providers = await fetchProviders();
   const providerList = document.getElementById("js-providers");
+  providers.sort((a, b) => {
+    return a["Provider"] > b["Provider"] ? 1 : -1;
+  });
 
   for (const provider of providers) {
     let notes = provider["Public Notes"];
