@@ -34,7 +34,7 @@ function addSitesToPage(sites, containerId) {
 
     const restrictions = generateRestrictions(info);
     const latestReportTime = generateLatestReportTime(info);
-    const appointmentRequiredLabel = generateAppointmentRequiredLabel(info);
+    const appointmentLabel = generateAppointmentLabel(info);
 
     let notes = info.reportNotes;
     if (notes) {
@@ -59,8 +59,8 @@ function addSitesToPage(sites, containerId) {
       unknownVaccine: info.hasVaccine == "Unknown",
       lastReportTime: latestReportTime,
       restrictions: restrictions,
-      appointmentRequired: info.isAppointmentRequired,
-      appointmentRequiredLabel: appointmentRequiredLabel,
+      appointmentsOffered: info.appointmentsOffered,
+      appointmentLabel: appointmentLabel,
       appointmentInstructions: info.schedulingInstructions,
       appointmentInfo: info.vaccineSpotterExists,
       appointmentsAvailable: info.vaccineSpotterAppointmentAvailability,
@@ -97,20 +97,22 @@ function addSitesOrHideIfEmpty(sites, containerId) {
   }
 }
 
-function generateAppointmentRequiredLabel(info) {
-  let appointmentRequiredLabel = t("nearest.appointment_required");
+function generateAppointmentLabel(info) {
+  let appointmentLabel = info.appointmentsRequired
+    ? t("nearest.appointment_required")
+    : t("global.appt_info");
   if (info.isScheduleFull) {
-    appointmentRequiredLabel += `; ${t("nearest.schedule_full")}`;
+    appointmentLabel += `; ${t("nearest.schedule_full")}`;
   }
 
   if (info.isComingSoon) {
-    appointmentRequiredLabel += `; ${t("nearest.coming_soon")}`;
+    appointmentLabel += `; ${t("nearest.coming_soon")}`;
   }
 
   if (info.secondDoseOnly) {
-    appointmentRequiredLabel += `; ${t("nearest.second_dose_only")}`;
+    appointmentLabel += `; ${t("nearest.second_dose_only")}`;
   }
-  return appointmentRequiredLabel;
+  return appointmentLabel;
 }
 
 function generateRestrictions(info) {

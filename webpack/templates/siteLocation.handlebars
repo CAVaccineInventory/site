@@ -108,14 +108,14 @@
         </div>
       {{else}}
         {{! Only show this section if we don't have VS data }}
-        {{#if appointmentRequired }}
+        {{#if appointmentsOffered }}
           <div
             class="px-4 py-4 flex flex-row items-center border-b border-gray-100 text-sm"
           >
           <div class="me-2 flex-none"><img src="/assets/img/calendar.svg" /></div>
             <div>
               <span class="font-bold pe-2"
-                >{{ appointmentRequiredLabel }}</span
+                >{{ appointmentLabel }}</span
               >
               <span dir="ltr" class="text-black word-break">{{{appointmentInstructions}}}</span>
             </div>
