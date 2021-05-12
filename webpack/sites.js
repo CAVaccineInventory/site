@@ -98,7 +98,9 @@ function addSitesOrHideIfEmpty(sites, containerId) {
 }
 
 function generateAppointmentLabel(info) {
-  let appointmentLabel = info.appointmentsRequired ? t("nearest.appointment_required") : t("global.appt_info");
+  let appointmentLabel = info.appointmentsRequired
+    ? t("nearest.appointment_required")
+    : t("global.appt_info");
   if (info.isScheduleFull) {
     appointmentLabel += `; ${t("nearest.schedule_full")}`;
   }
