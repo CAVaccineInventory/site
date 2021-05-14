@@ -21,11 +21,12 @@ site_list:
 titles:
   about_us: 关于我们
   county_policies: 县政策
+  embed: 疫苗接种地点
   home: COVID-19疫苗供应情况
   providers: 提供者
   nearest: 您附近的疫苗接种地点
   vaccinebot: VaccineBot
-  volunteer: ""
+  volunteer: 志工招募
 nearest:
   dropdown_1: 我们联系过的地点
   dropdown_2: 据汇报有疫苗的地点
@@ -59,7 +60,7 @@ map:
   failed: 失败，请重试
   not_supported: 不支持地理位置
 search_form:
-  enter_zip: 输入邮编ZIP
+  enter_zip: 输入邮政编码ZIP
   enter_county: 或县
   location: 使用我的地理位置
   location_placeholder: 我的位置
@@ -67,18 +68,19 @@ search_form:
 site_template:
   no_reports: 没有联系报告
   provider_info: 提供者网络信息
-  veterans: ""
-  share_link: ""
-  copied_text: ""
-  vaccinating: ""
-  book_now: ""
-  check_now: ""
-  appointments_available: ""
-  appointments_unavailable: ""
-  eligibility_by_provider: ""
-  eligibility_by_county: ""
-  correction: ""
-  correction_link: ""
+  veterans: 必须是退伍军人
+  share_link: 分享链接
+  copied_text: 复制
+  vaccinating: 疫苗注射
+  book_now: 现在预约
+  check_now: 现在注册
+  appointments_available: "此处可以预约 {{time}}"
+  appointments_unavailable: "此处不可以预约 {{time}}"
+  eligibility_by_provider: 合法可行性由提供者决定
+  eligibility_by_county: 合法可行性由县政府决定
+  correction: 看似有误？
+  correction_link: 与我们联系
+  jj_pause: 由于CDC考量J&J疫苗的因素，预约注射暂时停止
 not_found:
   text: |
     您访问的网页不存在。如果您需要在加利福尼亚州寻找疫苗的帮助，
@@ -86,14 +88,18 @@ not_found:
 county_policies:
   search_by_county: 按县搜索...
   text: |
+    凡加州居民年满16岁者，现在可以免费施打安全、信赖的COVID-19 疫苗。只要输入您的邮政编号或居住县市，就可以找到您附近的施打地点和预约方式。
 index:
   header: 为您或您的亲人寻找新冠病毒COVID-19疫苗
   subtitle: |
+    凡加州居民年满16岁者，现在可以免费施打安全、信赖的COVID-19 疫苗。只要输入您的邮政编号或居住县市，就可以找到您附近的施打地点和预约方式。
   disclaimer: |
     安全可靠的新冠病毒COVID-19疫苗目前可用于加利福尼亚的几类人群。
     但是，寻找接种疫苗的地点和时间可能困难。
     我们是一群志愿者，每天通过电话联系医院和药店咨询它们的疫苗供应情况和获得疫苗的过程。
-  disclaimer_1: |
+  disclaimer_1: |+
+    凡加州居民年满16岁者，现在<a href="https://www.gov.ca.gov/2021/03/25/state-expands-vaccine-eligibility-to-50-californians-starting-april-1-and-all-individuals-16-on-april-15-based-on-expected-supply-increases/">可以</a>免费施打COVID-19 疫苗计划，正在快速推行。相关规定，<a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html">联邦</a>和<a href="https://covid19.ca.gov/vaccines/">州</a><a href="https://www.vaccinateca.com/county-policies">县</a>政府，随时都在迅速更新。请参考各级政府的网站，可获得最新资讯。
+
   disclaimer_2: |
     我们是一个民间社区主导的网站，不代表政府或任何医疗服务提供者。
   illustration: 医生接种疫苗的插图
@@ -102,7 +108,7 @@ index:
     如果您发现了本网站没有列出的新接种地点，或者认为我们的联系信息有误，<a href="https://airtable.com/shrY44NvEjHBscrOH" class="text-black">请告诉我们。</a>
   locations_by_county: 根据县查询疫苗接种地点
   more_info: 有关疫苗供应的更多信息
-  find_county: 找到你的县
+  find_county: 搜索您的县
   about_us: 关于VaccinateCA加州疫苗组织
 data_js:
   alert: 检索疫苗接种地点数据失败。
@@ -131,9 +137,18 @@ footer:
 about_us:
   coordinators: "在第1天为这个项目工作的我们中的一些人"
   intro_1: |
+    VaccinateCA是由社区推动，以协助加州居民了解，获得新冠肺炎疫苗注射，最新与正确的讯息。
   intro_2: |
-  equity_title: ""
+    我们的团队，每天联络数百个疫苗注射单位的医疗专家们，是否有足够疫苗和能否接受注射预约。同时提供免费的公共卫生提议，以及联邦政府，郡县卫生部门的注射单位的详细地址和地图。
+  equity_title: 我们承诺大家可以公平取得疫苗相关消息
   equity: |
+    <a
+    href="https://www.ama-assn.org/delivering-care/health-equity/how-inequities-are-surfacing-covid-19-vaccine-distribution">证据</a>显示，有的严重感染社区没有得到相对比例高的疫苗供应。这些边缘社区较别的社区，只得到较少的疫苗数量。
+
+    VaccinateCA 愿意提供所有相关资讯的诚实报导，尤其是针对以往没有受到公平对待的区域。经由与各地区值得信赖的专家合作，在这次危机中疫情严重地区，我们希望可以发展出，对真正需要地区，提供疫苗适时适量的方法。
+
+    为达成公平的目标，欢迎您与我们的电子信箱联系： <a
+    href="mailto:outreach@vaccinateca.com">outreach@vaccinateca.com</a>
   faq_header: |
     常见问题解答（FAQ）
   faq_help: 有什么可以帮忙的吗？
@@ -151,7 +166,7 @@ about_us:
     我是记者。我可以联系你们吗？
   faq_press_answer: |
     请发电子邮件至<a href="mailto:media@vaccinateca.com">media@vaccinateca.com</a> ;我们会尽快与您联系。
-  faq_medical: |-
+  faq_medical: |
     我在医疗服务提供者上班！我如何要求您更新我们的信息或提出要求？
   faq_medical_answer_1: |
     我们感谢您正在做的工作，并随时为您提供支持！
@@ -159,23 +174,30 @@ about_us:
     请发短信给<a href="tel:+14153014597">（415）301-4597</a> ，<a href="tel:+14153014597">并附</a>上您的信息，机构隶属关系以及内部分机或联系人姓名，以便我们回电进行验证。我们无法使用该号码接收照片；请只输入文字。
   faq_medical_answer_3: |
     一位组织者将阅读您的消息，并尽快采取行动。
-  faq_community: |-
+  faq_community: |
     我在面向社区的组织中工作或为政府工作。我们可以讨论这个吗？
   faq_community_answer_1: |
     我们希望支持您为尽快为加利福尼亚人接种疫苗所做的紧急工作。请给我们发送电子邮件至<a href="mailto:partners@vaccinateca.com">partners@vaccinateca.com</a>进行讨论。
-  faq_toil: |-
+  faq_toil: |
     这种努力会增加还是减少医疗保健系统的工作量？
   faq_toil_answr_1: |
     大多数医院每天都会接到数千个电话。目前，他们比平时受到更多人的猛烈抨击，问他们同样的问题：“您有疫苗吗？”
   faq_toil_answr_2: |
     通过询问该问题并发布答案，我们可以为医院的日常操作节省他们的电话带宽。我们还使寻求疫苗的人们不必打电话到数十个地点来找到有这种疫苗的地点。
-  faq_accurate: |-
+  faq_accurate: |
     该网站上的信息是否准确？
   faq_accurate_answer_1: |
     我们只发布疫苗网站在我们致电时告诉我们的内容。情况很复杂，一天中的供应可能会有所不同，而且并非站点上的每个人都可能掌握有关其实际政策的最新信息。
   faq_accurate_answer_2: |
     我们正在尽力而为，但不能做出任何保证。
-  faq_who: |-
-    你是谁？
+  faq_who: |
+    你们是谁？
   faq_who_answer: |
     我们是一个社区驱动的组织，有300多名志愿者与我们合作。截至2021年1月23日，我们的核心团队大约有20人。
+embed:
+  failed_to_detect_location: 您的所在地侦测失败
+  powered_by_vaccinateca: "由<a href=\"https://www.vaccinateca.com\">VaccinateCA</a>驱动"
+  unable_to_find_location: 无法侦测到您的所在地
+embedded_map_controls:
+  locations_near_me: 我附近的地点
+  search: 搜索您的地点
