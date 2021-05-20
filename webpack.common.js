@@ -18,7 +18,6 @@ module.exports = {
     "mobileMenu": "./webpack/mobileMenu.js",
     "nearest": "./webpack/nearest.js",
     "policies": "./webpack/policies.js",
-    "providers": "./webpack/providers.js",
   },
   "output": {
     "path": path.resolve(__dirname, "assets/js"),
