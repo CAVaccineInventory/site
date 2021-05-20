@@ -43,7 +43,6 @@ Open the deploy preview and manually perform the following tests with the browse
 - [ ] Has search bar that autocompletes and filters content
 
 #### Other pages
-- [ ] 'Providers' shows list of providers
 - [ ] 'About Us' shows prose content and FAQ
 - [ ] 'About Us' shows randomized list of coordinators' names
 
