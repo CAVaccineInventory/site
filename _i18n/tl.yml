@@ -43,10 +43,6 @@ policy:
   vaccine_locations: Lokasyon ng mga Nagbabakuna
   vaccine_appointments: Appointment para sa Bakuna
   volunteer_opportunities: Mga Oportunidad Para Magboluntaryo
-provider:
-  info: Website ng Provider
-  locations: Mga Lokasyon
-  appointments: Mga Appointment
 head:
   site_description: Inilalathala ang pagkakaroon ng bakuna sa COVID-19 ng mga ospital at parmasya sa buong California
   social_card_text: "Hanapin ang lokasyon ng bakunahan, kwalipikasyon, at mga instruksiyon sa appointment"
