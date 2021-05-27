@@ -7,7 +7,7 @@ order: 2
 ---
 <script src="/assets/js/policies.js"></script>
 
-<h1 class="pb-10" >As of May 27, 2021, these county policy links are no longer being updated by VaccinateCA. Please check the county's website for current policy information.</h1>
+<h1 class="text-3xl p-10 mb-10 bg-red-200 shadow border-gray-300" >As of May 27, 2021, these county policy links are no longer being updated by VaccinateCA. Please check the county's website for current policy information.</h1>
 
 <div
   class="bg-white w-96 flex items-center rounded-full
