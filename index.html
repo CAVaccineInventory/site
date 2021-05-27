@@ -29,51 +29,6 @@ homepage: true
     </div>
   </div>
 
-  <div
-    class="mt-16 bg-yellow-300 py-8 md:py-12 w-screen lg:flex lg:justify-center"
-  >
-    <div
-      class="flex flex-col-reverse px-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-10 md:px-12 lg:container"
-    >
-      <div>
-        <div class="text-xl font-bold mb-4 md:mb-8">
-          {% t index.locations_by_county %}
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-4">
-          {% for county in site.data.front_page_counties %}
-          <a
-            class="text-black bg-white py-3 px-4 rounded-md shadow-md {% if forloop.index > 4 %}hidden md:block{% endif %}"
-            href="{% if site.lang != 'en' %}/{{ site.lang }}{% endif %}/counties/{{ county[1] }}"
-          >
-            {{ county[0] }}
-          </a>
-          {% endfor %}
-          <a
-            id="js-find-your-county"
-            class="text-white bg-gray-800 py-3 px-4 rounded-md shadow-md"
-            href="#js-zip-or-county"
-            >{% t index.find_county %}</a
-          >
-        </div>
-      </div>
-      <div class="pb-6 md:pb-0">
-        <div class="text-xl font-bold mb-4 md:mb-8">
-          {% t index.more_info %}
-        </div>
-        <div>
-          <p>
-            {% t index.disclaimer_1 %}
-          </p>
-          <p>
-            {% t index.disclaimer_2 %}
-          </p>
-          <a class="text-black" href="{% link about-us.md %}">
-            {% t index.about_us %} &rarr;
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="mt-16 flex flex-col items-center text-center">
     <p>{% t index.corrections %}</p>
