@@ -1,24 +1,25 @@
 ---
 title: titles.embed
-layout: empty
+layout: none
 permalink: /embed
 ---
-<script src="/assets/js/embed.js"></script>
-<!-- open all links in new tabs because we don't want to navigate in the iframe -->
-<base target="_blank">
-<div class="main-content flex flex-col-reverse lg:grid lg:grid-cols-2">
-    <div id="main" class="pl-4 pr-4 pb-4">
-        <section class="hidden">
-            <ol class="js-sites" id="js-sites-with-vaccine">
-            </ol>
-        </section>
-    </div>
-    <div class="h-72 lg:h-screen lg:sticky lg:top-0 lg:left-0 lg:self-start flex flex-col">
-        <div class="h-full">
-            {% include map.html %}
-        </div>
-        <div class="bg-white text-xs text-right">
-            {% t embed.powered_by_vaccinateca %}
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  <meta charset="utf-8">
+    <title>Redirecting…</title>
+    <link rel="canonical" href="https://vaccinatethestates.com/embed">
+  </head>
+  <body>
+    <script>
+      var url = 'https://vaccinatethestates.com/embed';
+      if (location.search && url.indexOf('?') === -1) {
+        url = url.replace(/($|#)/, location.search + '$1');
+      }
+      if (location.hash && url.indexOf('#') === -1) {
+        url += location.hash;
+      }
+      location=url;
+    </script>
+  </body>
+</html>

@@ -12,7 +12,6 @@ module.exports = {
   "entry": {
     "counties-autocomplete": "./webpack/counties-autocomplete.js",
     "county-page": "./webpack/county-page.js",
-    "embed": "./webpack/embed.js",
     "main": "./webpack/index.js",
     "mapLoader": "./webpack/mapLoader.js",
     "mobileMenu": "./webpack/mobileMenu.js",
