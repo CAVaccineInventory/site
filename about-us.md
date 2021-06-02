@@ -80,6 +80,18 @@ order: 4
     {% for coordinator in site.data.coordinators %} <a href="{{ coordinator[1] }}">{{ coordinator[0] }}</a> {% endfor %}
   </span>.
 </div>
+<h3 class="text-lg font-bold mt-6 mb-2 bg-yellow-300 px-0.5 py-1">
+Who is behind this project?
+<h3>
+<div dir="ltr" class="text-left">
+<span>
+VaccinateCA is a project of Call The Shots, a nonprofit organization that also runs the national Vaccinate The States effort. Hundreds of volunteers across the country are the heart of the operation, and make our efforts possible. To reach our management team with feedback, comments, or questions, please contact:
+</span>
+<ul class="py-1">
+<li>Jesse Vincent, Chief Operating Officer: jesse@vaccinateca.com</li>
+<li>Zoelle Egner, Chief Communications Officer: zoelle@vaccinateca.com</li>
+</ul>
+</div>
 
 
 <script>
