@@ -5,9 +5,9 @@
 /Volunteer          https://airtable.com/shrdDabBhmG0l9mO0
 
 # Redirect everything to VTS
-/zh-hans/*          https://vaccinatethestates.com/zh-hans/:splat
-/zh-hant/*          https://vaccinatethestates.com/zh-hant/:splat
-/tl/*               https://vaccinatethestates.com/tl/:splat
-/vi/*               https://vaccinatethestates.com/vi/:splat
-/fa/*               https://vaccinatethestates.com/fa/:splat
+/zh-hans/*          https://vaccinatethestates.com/zh-hans/
+/zh-hant/*          https://vaccinatethestates.com/zh-hant/
+/tl/*               https://vaccinatethestates.com/tl/
+/vi/*               https://vaccinatethestates.com/vi/
+/fa/*               https://vaccinatethestates.com/fa/
 /*                  https://vaccinatethestates.com/
