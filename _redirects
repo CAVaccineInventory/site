@@ -1,2 +1,3 @@
 # Place netlify redirects here. https://docs.netlify.com/routing/redirects/
+/embed https://vaccinatethestates.com/embed 301!
 /* https://vaccinatethestates.com 301!
