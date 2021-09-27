@@ -1,3 +1,5 @@
+### Vaccinate The States has shut down as of August 2, 2021. [Learn more →](https://github.com/CAVaccineInventory/vaccinatethestates/blob/main/shutdown-notice.md)
+
 # VaccinateCA site
 **PSA: this will eventually be public so be careful not to put any secrets in any commits!**
 
